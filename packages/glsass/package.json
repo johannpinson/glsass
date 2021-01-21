@@ -1,6 +1,6 @@
 {
   "name": "@glsass/framework",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "All layers gathered for Glsass.",
   "repository": {
     "type": "git",
@@ -17,15 +17,15 @@
     "access": "public"
   },
   "dependencies": {
-    "@glsass/settings": "^0.1.2",
-    "@glsass/tools": "^0.1.2",
-    "@glsass/graphics": "^0.1.2",
-    "@glsass/generics": "^0.1.2",
-    "@glsass/elements": "^0.1.2",
-    "@glsass/objects": "^0.1.2",
-    "@glsass/components": "^0.1.2",
-    "@glsass/helpers": "^0.1.2",
-    "@glsass/utilities": "^0.1.2"
+    "@glsass/components": "^0.1.3",
+    "@glsass/elements": "^0.1.3",
+    "@glsass/generics": "^0.1.3",
+    "@glsass/graphics": "^0.1.3",
+    "@glsass/helpers": "^0.1.3",
+    "@glsass/objects": "^0.1.3",
+    "@glsass/settings": "^0.1.3",
+    "@glsass/tools": "^0.1.3",
+    "@glsass/utilities": "^0.1.3"
   },
   "peerDependencies": {
     "sass": "^1.32.5"
