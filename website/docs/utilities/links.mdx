@@ -1,0 +1,63 @@
+---
+id: links
+title: Links
+---
+
+import Example from '@site/src/components/Example/'
+
+By adding the `.u-stretched-link` class to a link, it make the "block"
+clickable via a pseudo-element.<br/>
+To acheive it, the pseudo-element is stretched to recover the nearest parent
+with `position: relative` property.
+
+For the next example, the Card component already have a position set by default,
+but if it's not the case, you can add the `.u-pos-r` utility class.
+
+<Example>
+  <div className="o-row">
+    <div className="o-col u-12 u-6@tb u-4@lg">
+      <div className="c-card">
+        <div className="c-card__img">
+          <img
+            src="/img/lake-1.jpg"
+            alt="Photo by Adam Vradenburg on Unsplash"
+          />
+        </div>
+        <div className="c-card__header">
+          <div className="c-card__title u-h5 u-mb-0">Card title</div>
+        </div>
+        <div className="c-card__body">
+          <span>
+            Add some text inside the card.
+            <br />
+            ok more text here.
+          </span>
+        </div>
+        <div className="c-card__footer">
+          <a className="c-button c-button--primary u-stretched-link" href="#">
+            Action
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<div class="c-card"><!-- the .u-pos-r is not required with the card component -->
+  <div class="c-card__img">
+    <img src="img/lake-1.jpg" alt="Photo by Adam Vradenburg on Unsplash">
+  </div>
+  <div class="c-card__header">
+    <div class="c-card__title u-h5 u-mb-0">Card title</div>
+  </div>
+  <div class="c-card__body">
+    <span>Add some text inside the card.<br>ok more text here.</span>
+  </div>
+  <div class="c-card__footer">
+    <a class="c-button c-button--primary u-stretched-link" href="#">Link</a>
+  </div>
+</div>
+````
+<!-- prettier-ignore-end -->

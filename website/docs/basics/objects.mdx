@@ -1,0 +1,327 @@
+---
+id: objects
+title: Objects
+sidebar_label: Introduction
+slug: /objects
+---
+
+import Example from '@site/src/components/Example/'
+import Overlay from '@site/src/components/Overlay/'
+
+The `objects` layer contains class-based selectors to provide blocks with no
+aesthetics.<br/>
+If components are UI blocks, you can consider than objects are UX blocks.
+
+```scss
+// OBJECTS
+@forward "glsass/objects/objects.divider";
+@forward "glsass/objects/objects.layout";
+@forward "glsass/objects/objects.link";
+@forward "glsass/objects/objects.list-bare";
+@forward "glsass/objects/objects.list-inline";
+@forward "glsass/objects/objects.media";
+@forward "glsass/objects/objects.overlay";
+@forward "glsass/objects/objects.table";
+
+/* Or import all of objects */
+
+// OBJECTS
+@forward "glsass/objects";
+```
+
+Since objects are low CSS code, you can use all of them by importing the folder.
+But you can improve your loading charge by use only which ones you need.
+
+The folder doesn't contain very simple objects like box or block like you can
+see in others framework, since you can achieve these layouts by playing with
+utilities classes.
+
+## Divider
+
+Since the `<hr>` tag have a semantic value, the divider object allows to add a
+separating element between blocks.
+
+<Example>
+  <div className="o-divider"></div>
+  <div className="u-mb-3"></div>
+  <div className="o-divider o-divider--content">you can add content inside</div>
+</Example>
+
+```html
+<div class="o-divider"></div>
+
+<div class="o-divider o-divider--content">you can add content inside</div>
+```
+
+## Layout
+
+The grid layout system is explained in the dedicated
+[Grid layout](basics/grid.mdx) page.
+
+## Link
+
+The link object can be used to have the opposite behavior compared to a default
+link (it's not underlined by default, and it becomes on hover).
+
+<Example>
+  <p>
+    <a className="o-link" href="/">
+      Link to the home
+    </a>
+  </p>
+  <a
+    className="o-link"
+    href="https://developer.mozilla.org/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Link to MDN homepage
+  </a>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<a class="o-link" href="/">Link to the home</a>
+
+<a class="o-link" href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer">Link to MDN homepage</a>
+```
+<!-- prettier-ignore-end -->
+
+This behavior cannot be reproduced easily with utilities classes, since it
+defines a unique state, without interaction detection (hover, focus, etc.).
+And it can avoid you to create a component for a footer menu (which contains a
+lot of links) for example.
+
+## List bare
+
+The list bare object erase the list style to a list (bullet and indentation).<br/>
+Depending of the default list styling, the class might not be necessary.
+Especially if you follow the reset from the [elements layer](basics/elements.mdx).
+
+<Example>
+  <ul className="o-list-bare">
+    <li className="o-list-bare__item">Lorem ipsum dolor sit amet</li>
+    <li>Consectetur adipiscing elit</li>
+    <li>Sed do eiusmod tempor incididunt</li>
+  </ul>
+</Example>
+
+```html
+<ul class="o-list-bare">
+  <li class="o-list-bare__item">Lorem ipsum dolor sit amet</li>
+  <li>Consectetur adipiscing elit</li>
+  <li>Sed do eiusmod tempor incididunt</li>
+</ul>
+```
+
+:::info
+Depending of reset on lists (from `generics` or `elements`), the class
+`.o-list-bare__item` may be not required on the `<li>` tag.
+:::
+
+## List inline
+
+Similar to the list bare, but it displays the list in one line.
+
+<Example>
+  <ul className="o-list-inline">
+    <li className="o-list-inline__item">Lorem ipsum dolor sit amet</li>{' '}
+    <li className="o-list-inline__item">Consectetur adipiscing elit</li>{' '}
+    <li className="o-list-inline__item">Sed do eiusmod tempor incididunt</li>
+  </ul>
+</Example>
+
+```html
+<ul class="o-list-inline">
+  <li class="o-list-inline__item">Lorem ipsum dolor sit amet</li>
+  <li class="o-list-inline__item">Consectetur adipiscing elit</li>
+  <li class="o-list-inline__item">Sed do eiusmod tempor incididunt</li>
+</ul>
+```
+
+## Media
+
+The media object is a legacy of OOCSS, but the old syntax was made with a
+`float` display. In Glsass, the display is managed with `flex`.
+
+<Example>
+  <div className="o-row u-mb-3">
+    <div className="o-col u-12 u-6@md">
+      <div className="o-media">
+        <div className="o-media__image">
+          <svg
+            width="70"
+            height="70"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="Placeholder image: 70x70"
+            role="img"
+            focusable="false"
+            style={{ textAnchor: 'middle' }}
+          >
+            <title>Placeholder image</title>
+            <rect width="100%" height="100%" fill="#212121"></rect>
+            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
+              70x70
+            </text>
+          </svg>
+        </div>
+        <div className="o-media__body">
+          <b>This is the default layout of the media object</b>. Lorem ipsum
+          dolor sit amet, consectetur adipiscing elit. Curabitur ac nisl quis
+          massa vulputate adipiscing.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div className="o-row u-mb-3">
+    <div className="o-col u-12 u-6@md">
+      <div className="o-media o-media--reverse">
+        <div className="o-media__image">
+          <svg
+            width="70"
+            height="70"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="Placeholder image: 70x70"
+            role="img"
+            focusable="false"
+            style={{ textAnchor: 'middle' }}
+          >
+            <title>Placeholder image</title>
+            <rect width="100%" height="100%" fill="#212121"></rect>
+            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
+              70x70
+            </text>
+          </svg>
+        </div>
+        <div className="o-media__body">
+          <b>But it also can been reversed</b>. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Curabitur ac nisl quis massa vulputate
+          adipiscing.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div className="o-row">
+    <div className="o-col u-12 u-6@md">
+      <div className="o-media o-media--center">
+        <div className="o-media__image">
+          <svg
+            width="70"
+            height="70"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="Placeholder image: 70x70"
+            role="img"
+            focusable="false"
+            style={{ textAnchor: 'middle' }}
+          >
+            <title>Placeholder image</title>
+            <rect width="100%" height="100%" fill="#212121"></rect>
+            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
+              70x70
+            </text>
+          </svg>
+        </div>
+        <div className="o-media__body">
+          <b>Or the media can be vertically centered</b>. Lorem ipsum dolor sit
+          amet, consectetur adipiscing elit. Curabitur ac nisl quis massa
+          vulputate adipiscing. Vivamus sit amet risus ligula. Nunc eu pulvinar
+          augue.
+        </div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<div class="o-media">
+  <div class="o-media__image">
+    <img src="/assets/data/media-example.png" alt="media image">
+    <!-- Also work with a SVG tag -->
+  </div>
+  <div class="o-media__body">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac nisl quis massa vulputate adipiscing.
+  </div>
+</div>
+
+<div class="o-media o-media--reverse">
+  <div class="o-media__image">
+    <img src="/assets/data/media-example.png" alt="media image">
+  </div>
+  <div class="o-media__body">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac nisl quis massa vulputate adipiscing.
+  </div>
+</div>
+
+<div class="o-media o-media--center">
+  <div class="o-media__image">
+    <img src="/assets/data/media-example.png" alt="media image">
+  </div>
+  <div class="o-media__body">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac nisl quis massa vulputate adipiscing.
+  </div>
+</div>
+```
+<!-- prettier-ignore-end -->
+
+## Overlay
+
+This optional object can be used with a modal system. Some JavaScript is added for the demo below.
+
+<Example>
+  <p>
+    Click the button to enable the overlay, then click on it or use the escape
+    or space key.
+  </p>
+  <button className="c-button c-button--primary js-overlay">
+    Toggle overlay
+  </button>
+  <Overlay />
+</Example>
+
+```html
+<div class="o-overlay"></div>
+
+<div class="o-overlay is-visible"></div>
+```
+
+## Table
+
+The table object might be consider as a component since it add some aesthetics,
+like borders, but that's all.
+
+If you need others options like a striped or hoverable rows, you can create
+your own component.
+
+```html
+<table class="o-table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Developer</th>
+      <th scope="col">Release date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>The Last of Us Part II</td>
+      <td>Naughty Dog</td>
+      <td>19 June 2020</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>God of War</td>
+      <td>Santa Monica Studio</td>
+      <td>20 April 2018</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Death Stranding</td>
+      <td>Kojima Productions</td>
+      <td>8 November 2019</td>
+    </tr>
+  </tbody>
+</table>
+```

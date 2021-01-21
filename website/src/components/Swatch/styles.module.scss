@@ -1,0 +1,66 @@
+// @use "@glsass/objects/objects.layout";
+// @use "@glsass/utilities/utilities.columns";
+
+@use "@glsass/tools/tools.color" as _color;
+@use "@glsass/tools/tools.cv" as *;
+
+.p-swatch {
+  $_swatch-colors: (
+    "gray",
+    "primary",
+    "secondary",
+    "success",
+    "danger",
+    "warning",
+    "info"
+  );
+  $_swatch-variants: (100, 200, 300, 400, 500, 600, 700, 800, 900);
+
+  @each $color in $_swatch-colors {
+    &__#{$color} {
+      @each $variant in $_swatch-variants {
+        &--#{$variant} {
+          color: _color.yiq-contrast(cv($color, $variant));
+          background-color: cv($color, $variant);
+        }
+      }
+    }
+  }
+
+  &__white {
+    color: _color.yiq-contrast(cv("white"));
+    background-color: cv("white");
+  }
+
+  &__black {
+    color: _color.yiq-contrast(cv("black"));
+    background-color: cv("black");
+  }
+
+  &__light {
+    color: _color.yiq-contrast(cv("light"));
+    background-color: cv("light");
+  }
+
+  &__dark {
+    color: _color.yiq-contrast(cv("dark"));
+    background-color: cv("dark");
+  }
+
+  &__text {
+    &--base {
+      color: cv("gray", 900);
+      background-color: cv("white");
+    }
+
+    &--muted {
+      color: cv("gray", 600);
+      background-color: cv("white");
+    }
+  }
+
+  &__link {
+    color: cv("link");
+    background-color: cv("white");
+  }
+}

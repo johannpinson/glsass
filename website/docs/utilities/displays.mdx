@@ -1,0 +1,69 @@
+---
+id: displays
+title: Displays
+---
+
+import Example from '@site/src/components/Example/'
+
+You can control easily the display value of blocks, depending of the current
+breakpoint or not.
+
+<Example>
+  <div className="u-d-i u-p-2 u-bg-primary u-c-white">u-d-i (inline)</div>
+  <div className="u-d-i u-p-2 u-bg-dark u-c-white">u-d-i (inline)</div>
+</Example>
+
+```html
+<div class="u-d-i">u-d-i (inline)</div>
+<div class="u-d-i">u-d-i (inline)</div>
+```
+
+<Example>
+  <div className="u-d-b u-p-2 u-bg-primary u-c-white">u-d-b (block)</div>
+  <div className="u-d-b u-p-2 u-bg-dark u-c-white">u-d-b (block)</div>
+</Example>
+
+```html
+<span class="u-d-b">u-d-b (block)</span>
+<span class="u-d-b">u-d-b (block)</span>
+```
+
+```scss
+$u-displays: (
+  display: (
+    responsive: true,
+    property: display,
+    class: d,
+    values: (
+      n: none,
+      i: inline,
+      ib: inline-block,
+      b: block,
+      f: flex,
+      'if': inline-flex,
+      // the "if" key is escaped because it's a reserved keyword
+      g: grid,
+    ),
+  ),
+);
+```
+
+## Hide elements
+
+By using the `.u-d-n` class, you can hide an element, and use a responsive
+display class to show it in another resolution.
+
+For example, a block with `class="u-d-n u-d-b@md"` will be hided on mobile,
+but visible on desktop.<br/>
+But a block with `class="u-d-n@tb"` is showed only on mobile (and become hided
+from a tablet resolution).
+
+<Example>
+  <div className="u-d-n@md">hide on "md" and wider screens</div>
+  <div className="u-d-n u-d-b@md">hide on screens smaller than "md"</div>
+</Example>
+
+```html
+<div class="u-d-n@md">hide on "md" and wider screens</div>
+<div class="u-d-n u-d-b@md">hide on screens smaller than "md"</div>
+```

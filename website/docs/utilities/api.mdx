@@ -1,0 +1,253 @@
+---
+id: api
+title: Concept / API
+slug: /utilities
+---
+
+This layer contains the parameters used by the API (mixins) to generate the
+utilities classes.
+Mostly classes are built with the `utilities` mixin from the `generators` tools.
+
+By convention, all utilities classes start with the `.u-*` prefix.
+Moreover, the minimize and simplify the naming, most classes follow a similar
+logic from the [Emmet abbreviations shortcuts](https://docs.emmet.io/cheat-sheet/).
+
+```scss
+$utilities: (
+  display: (
+    property: display,
+    class: d,
+    values: (
+      n: none,
+      i: inline,
+      ib: inline-block,
+      b: block,
+      f: flex,
+      'if': inline-flex,
+      // the "if" key is escaped because it's a reserved keyword
+      g: grid,
+    ),
+  ),
+);
+
+@include generators.utilities($utilities);
+
+/* Output CSS */
+.u-d-n {
+  display: none;
+}
+.u-d-i {
+  display: inline;
+}
+.u-d-ib {
+  display: inline-block;
+}
+.u-d-b {
+  display: block;
+}
+.u-d-f {
+  display: flex;
+}
+.u-d-if {
+  display: inline-flex;
+}
+.u-d-g {
+  display: grid;
+}
+```
+
+The map passed as argument allows several options to generate the most
+appropriate CSS rules.
+
+- `name`: this is the key for the group of utilities classes which will be
+  created. This reference can be used to modify the parameters when you import
+  the file.
+- `property`: must be a name (string) of a real CSS property. It can be a list
+  to generate multiple rules for one class (example for margins/paddings).
+- `class` (optional): works as an alias to change the futur class name if you
+  don't want to use the same as the property.
+- `responsive` (optional): boolean indicating if classes with the responsive
+  suffix will be generated. The parameters is set to false by default.
+- `values`: it can be a list or map. If a list is provided, each entry will be
+  the the class name and the value. If it's a map, the key will be used as name.
+
+```scss
+$utilities: (
+  'name': (
+    property: string or list,
+    class: string,
+    responsive: boolean,
+    values: list or map,
+  ),
+);
+```
+
+## Custom configurations
+
+When you import a utility file, you can pass your own configuration to modify the classes generated.
+
+### Add utilities
+
+You can easily add and generate your own utilities classes by using the generator.
+
+<!-- prettier-ignore-start -->
+```scss
+@use "glsass/tools/tools.generators" as generators;
+
+$custom-utilities: (
+  // add your code here
+);
+
+@include generators.utilities($custom-utilities);
+```
+<!-- prettier-ignore-end -->
+
+### Override existing utilities
+
+It's possible to modify an existing utility by passing a map with the same key
+when you import the file corresponding.
+
+**Be careful when you pass the values**, because it will replace the existing.
+If you want to keep some of them, you must add it to the new values list/map.
+
+```scss
+@use "~glsass/src/utilities/utilities.displays" with (
+  $u-displays: (
+    display: (
+      property: display,
+      responsive: false,
+      class: d,
+      values: (
+        g: grid,
+        t: table,
+      ),
+    )
+  ),
+);
+
+// Output only the values passed, not the existing
+.u-d-g {
+  display: grid;
+}
+
+.u-d-t {
+  display: table;
+}
+```
+
+### Remove utilities
+
+When you import an utility file, but you don't need all of them, you can remove
+the ones aren't useful to you.
+
+```scss
+@use "glsass/utilities/utilities.borders" with (
+  $u-borders: (
+    border-radius: null,
+  ),
+);
+```
+
+## Create a card with utilities
+
+This is an example about how to create a card "component" with only utilities classes.
+
+import Example from '@site/src/components/Example/'
+
+<Example>
+  <div class="o-row">
+    <div class="o-col u-12 u-4@md">
+      <div class="u-bs u-br u-ov-h">
+        <img
+          class="u-d-b u-w-100"
+          src="/img/lake-1.jpg"
+          alt="Photo by Adam Vradenburg on Unsplash"
+          style={{ height: '12rem' }}
+        />
+        <div class="u-p-3 u-h5">Card title</div>
+        <div class="u-px-3">
+          <p class="u-mb-0">Add some text inside the card.</p>
+        </div>
+        <div class="u-p-3">
+          <a
+            class="u-d-ib u-p-2 u-br u-bg-primary u-c-white u-td-n"
+            href="/docs/components/card"
+          >
+            Go the card component
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="o-col u-12 u-4@md">
+      <div class="u-bs u-br u-ov-h">
+        <img
+          class="u-d-b u-w-100"
+          src="/img/lake-2.jpg"
+          alt="Photo by Tom Gainor on Unsplash"
+          style={{ height: '12rem' }}
+        />
+        <div class="u-p-3 u-h5">Card title</div>
+        <div class="u-px-3">
+          <p class="u-mb-0">Add some text inside the card.</p>
+        </div>
+        <div class="u-p-3">
+          <a
+            class="u-d-ib u-p-2 u-br u-bg-primary u-c-white u-td-n"
+            href="/docs/components/card"
+          >
+            Go the card component
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="o-col u-12 u-4@md">
+      <div class="u-bs u-br u-ov-h">
+        <img
+          class="u-d-b u-w-100"
+          src="/img/lake-3.jpg"
+          alt="Photo by Juan Davila on Unsplash"
+          style={{ height: '12rem' }}
+        />
+        <div class="u-p-3 u-h5">Card title</div>
+        <div class="u-px-3">
+          <p class="u-mb-0">Add some text inside the card.</p>
+        </div>
+        <div class="u-p-3">
+          <a
+            class="u-d-ib u-p-2 u-br u-bg-primary u-c-white u-td-n"
+            href="/docs/components/card"
+          >
+            Go the card component
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<div class="u-bs u-br u-ov-h">
+  <img class="u-d-b u-w-100" src="/assets/data/lake-1.jpg" alt="Photo by Adam Vradenburg on Unsplash" style="height:12rem">
+  <div class="u-p-3 u-h5">
+    Card title
+  </div>
+  <div class="u-px-3">
+    <p class="u-mb-0">Add some text inside the card.</p>
+  </div>
+  <div class="u-p-3"><a class="u-d-ib u-p-2 u-br u-bg-primary u-c-white u-td-n" href="components/card.html">Go the card component</a></div>
+</div>
+```
+<!-- prettier-ignore-end -->
+
+## Perfomance and controlling file size
+
+Even if these classes can be usefull, be carefull about the "weight" price of
+your future CSS file.
+
+Depending of your stack, using a solution like [PurceCSS](https://purgecss.com/)
+can be a good alternative by removing unused (so useless) CSS classes.
+You may win a lot of _Ko_, especially when you remove responsive classes
+(like `.u-mb-3@xl`) if you don't use it.
+
+Another solution can also to remove unused breakpoints from the `$g-grid-breakpoints` variable.

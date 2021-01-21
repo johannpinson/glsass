@@ -1,0 +1,90 @@
+@use "sass:map";
+
+@use "@glsass/tools/tools.global" as *;
+@use "@glsass/graphics" as ui;
+
+.m-example {
+  display: block;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: calc(#{vr(0.5)} - 1px) vr(0.5);
+  border: 1px solid cv(light);
+
+  @include mq() {
+    padding: calc(#{vr()} - 1px) vr();
+  }
+
+  li + li {
+    margin-top: 0;
+  }
+
+  li > {
+    ol,
+    ul {
+      margin-bottom: 0;
+    }
+  }
+
+  &--elements {
+    /// Headings
+    %_heading {
+      margin-bottom: ui.$g-headings-margin-bottom;
+      color: ui.$g-headings-color;
+      font-family: ui.$g-headings-font-family;
+      font-weight: ui.$g-headings-font-weight;
+      font-style: ui.$g-headings-font-style;
+    }
+
+    @each $hn, $value in ui.$g-headings-styles {
+      h#{$hn} {
+        @extend %_heading;
+
+        font-size: map.get($value, font-size);
+        line-height: map.get($value, line-height);
+      }
+    }
+
+    /// Links
+    a {
+      color: inherit;
+      text-decoration: underline;
+
+      &[target="_blank"]::after {
+        content: " \2197";
+      }
+
+      @media (hover) {
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      &:focus {
+        text-decoration: none;
+        outline-color: rgba(cv(primary), 0.25);
+      }
+    }
+
+    /// Lists
+    ol,
+    ul {
+      padding-left: vr(1.5);
+    }
+
+    dl,
+    ol,
+    ul {
+      margin-top: 0;
+      margin-bottom: vr(1);
+    }
+
+    dt {
+      font-weight: 700;
+    }
+
+    dd {
+      margin-bottom: vr(0.5);
+      margin-left: 0;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+@charset "UFT-8";
+
+// @use "@glsass/index.scss";
+
+// GRAPHICS
+// @use "@glsass/graphics" as ui;
+
+// GENERIC
+@forward "generics/generics.custom";
+// custom generic
+
+@forward "@glsass/components/components.button";
+
+// OBJECTS
+@forward "@glsass/objects/objects.divider";
+@forward "@glsass/objects/objects.link";
+@forward "@glsass/objects/objects.list-bare";
+@forward "@glsass/objects/objects.list-inline";
+@forward "@glsass/objects/objects.media";
+@forward "@glsass/objects/objects.overlay";
+@forward "@glsass/objects/objects.table";
+
+/*
+
+// COMPONENTS
+@forward "@glsass/components/components.accordion";
+@forward "@glsass/components/components.alert";
+@forward "@glsass/components/components.badge";
+@forward "@glsass/components/components.button";
+@forward "@glsass/components/components.callout";
+@forward "@glsass/components/components.card";
+@forward "@glsass/components/components.form";
+@forward "@glsass/components/components.navbar";
+
+// GRID
+@forward "@glsass/objects/objects.layout";
+@forward "@glsass/utilities/utilities.columns";
+
+// UTILITIES
+@forward "@glsass/utilities/utilities.borders";
+@forward "@glsass/utilities/utilities.colors";
+@forward "@glsass/utilities/utilities.displays";
+@forward "@glsass/utilities/utilities.flex";
+@forward "@glsass/utilities/utilities.headings";
+@forward "@glsass/utilities/utilities.links";
+@forward "@glsass/utilities/utilities.overflows";
+@forward "@glsass/utilities/utilities.sizings";
+@forward "@glsass/utilities/utilities.spacings";
+@forward "@glsass/utilities/utilities.texts";
+@forward "@glsass/utilities/utilities.debug" with ( // Must be removed in a real production build
+  $u-debug: true,
+  $u-debug-element: "#__docusaurus"
+);
+
+*/
+
+// Overrides
+[class*="debug:baseline"] .markdown > * {
+  background-color: #d2e3f4;
+  border-color: #d2e3f4;
+}

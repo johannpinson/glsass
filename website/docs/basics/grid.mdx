@@ -1,0 +1,403 @@
+---
+id: grid
+title: Grid layout
+slug: objects-grid
+---
+
+import Example from '@site/src/components/Example/'
+
+The grid system of Glsass is heavily by the Bootstrap one and other frameworks.
+By default, the layout is a 12 columns flexbox grid.
+
+<Example>
+  <div class="o-row u-mb-3">
+    <div class="o-col u-1">
+      <div class="u-p-1 u-bg-primary"></div>
+    </div>
+    <div class="o-col u-1">
+      <div class="u-p-1 u-bg-secondary"></div>
+    </div>
+    <div class="o-col u-1">
+      <div class="u-p-1 u-bg-primary"></div>
+    </div>
+    <div class="o-col u-1">
+      <div class="u-p-1 u-bg-secondary"></div>
+    </div>
+    <div class="o-col u-1">
+      <div class="u-p-1 u-bg-primary"></div>
+    </div>
+    <div class="o-col u-1">
+      <div class="u-p-1 u-bg-secondary"></div>
+    </div>
+    <div class="o-col u-1">
+      <div class="u-p-1 u-bg-primary"></div>
+    </div>
+    <div class="o-col u-1">
+      <div class="u-p-1 u-bg-secondary"></div>
+    </div>
+    <div class="o-col u-1">
+      <div class="u-p-1 u-bg-primary"></div>
+    </div>
+    <div class="o-col u-1">
+      <div class="u-p-1 u-bg-secondary"></div>
+    </div>
+    <div class="o-col u-1">
+      <div class="u-p-1 u-bg-primary"></div>
+    </div>
+    <div class="o-col u-1">
+      <div class="u-p-1 u-bg-secondary"></div>
+    </div>
+  </div>
+  <div class="o-row u-mb-2">
+    <div class="o-col u-12">
+      <div class="u-bg-light u-p-1">12 columns (100%)</div>
+    </div>
+  </div>
+  <div class="o-row u-mb-2">
+    <div class="o-col u-9">
+      <div class="u-bg-light u-p-1">9 columns (75%)</div>
+    </div>
+  </div>
+  <div class="o-row u-mb-2">
+    <div class="o-col u-6">
+      <div class="u-bg-light u-p-1">6 columns (50%)</div>
+    </div>
+  </div>
+  <div class="o-row">
+    <div class="o-col u-3">
+      <div class="u-bg-light u-p-1">3 columns (25%)</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<!-- Grid example -->
+<div class="o-layout">
+  <div class="o-row">
+    <div class="o-col u-6">6 column</div>
+    <div class="o-col u-3">3 column</div>
+    <div class="o-col u-2">2 column</div>
+    <div class="o-col u-1">1 column</div>
+  </div>
+</div>
+```
+
+## Breakpoints
+
+The grid system work mostly with the breakpoints system for responsive design purpose.
+
+| Breakpoint   | Suffix | Starting at |
+| ------------ | ------ | ----------- |
+| Extra small  | `xs`   | 0           |
+| Small        | `sm`   | 576px       |
+| Tablet       | `tb`   | 768px       |
+| Medium       | `md`   | 992px       |
+| Medium-large | `ml`   | 1200px      |
+| Large        | `lg`   | 1400px      |
+| Extra large  | `xl`   | 1920px      |
+
+All the sizes and names are configurable from the $g-grid-breakpoints variable, for example:
+
+```scss
+@use "glsass/settings" with (
+  $g-grid-breakpoints: (
+    xs: 0
+    mobile: 320px,
+    tablet: 740px,
+    desk: 980px,
+    wide: 1300px,
+  ),
+);
+```
+
+:::danger
+**Be careful when you modify the default breakpoints!**<br/>
+Each key from the map passed will be used together with the container sizes in
+the `$g-grid-container-max-widths` variables.
+It's also used by the utilities generator, so the suffix for responsive design
+will follow the key used in the map.
+:::
+
+## Layout container
+
+The first part of the grid system, is the layout object `.o-layout`. It works
+as the main container to keep the layout in a defined max width.
+
+Three containers models are available:
+
+- `.o-layout` sets a `max-width` at each breakpoints
+- `.o-layout@{breakpoint}` is `width: 100%` until the specified breakpoint
+- `.o-layout--fluid` is `width: 100%` at all breakpoints
+
+|                  | XS                                  | SM                                  | TB                                  | MD                                  | ML                                  | LG                                  | XL                                  |
+| ---------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| .o-layout        | <span class="u-c-muted">100%</span> | 540px                               | 720px                               | 960px                               | 1140px                              | 1280px                              | 1440px                              |
+| .o-layout@sm     | <span class="u-c-muted">100%</span> | 540px                               | 720px                               | 960px                               | 1140px                              | 1280px                              | 1440px                              |
+| .o-layout@tb     | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | 720px                               | 960px                               | 1140px                              | 1280px                              | 1440px                              |
+| .o-layout@md     | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | 960px                               | 1140px                              | 1280px                              | 1440px                              |
+| .o-layout@ml     | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | 1140px                              | 1280px                              | 1440px                              |
+| .o-layout@lg     | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | 1280px                              | 1440px                              |
+| .o-layout@xl     | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | 1440px                              |
+| .o-layout--fluid | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> | <span class="u-c-muted">100%</span> |
+
+As described before, these settings are configurable through the
+`$g-grid-container-max-widths` variable:
+
+```scss
+@use "glsass/settings" with (
+  $g-grid-breakpoints: (
+    xs: 0
+    mobile: 320px,
+    tablet: 740px,
+    desk: 980px,
+    wide: 1300px,
+  ),
+  $g-grid-container-max-widths: (
+    // xs is not required
+    // if mobile is not set, it expects to be a 100% width container from this breakpoint
+    tablet: 720px,
+    desk: 960px,
+    wide: 1140px,
+  )
+);
+
+// This will generate this classes:
+// .o-layout
+// .o-layout@tablet
+// .o-layout@desk
+// .o-layout@wide
+// .o-layout--fluid
+```
+
+## Columns
+
+You can used the columns system inside any block of your code, you just need to
+add the `.o-row` as root and then add between 1 and 12 `.o-col` blocks.
+
+<Example>
+  <div class="o-row">
+    <div class="o-col">
+      <div class="u-bg-light u-p-1">a simple col</div>
+    </div>
+    <div class="o-col">
+      <div class="u-bg-light u-p-1">a simple col</div>
+    </div>
+    <div class="o-col">
+      <div class="u-bg-light u-p-1">a simple col</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="o-row">
+  <div class="o-col">a simple col</div>
+  <div class="o-col">a simple col</div>
+  <div class="o-col">a simple col</div>
+</div>
+```
+
+The column size can be adjusted with an utility class `.u-{number}`, the number
+must be between 1 and 12.<br/>
+The responsive adaptation is handled with class suffixes.
+
+<Example>
+  <div class="o-row">
+    <div class="o-col u-12 u-mb-3 u-4@md u-mb-0@md">
+      <div class="u-bg-light u-p-1">
+        Will be full size in mobile, and a third of a column on desktop
+      </div>
+    </div>
+    <div class="o-col u-12 u-mb-3 u-4@md u-mb-0@md">
+      <div class="u-bg-light u-p-1">
+        Will be full size in mobile, and a third of a column on desktop
+      </div>
+    </div>
+    <div class="o-col u-12 u-mb-3 u-4@md u-mb-0@md">
+      <div class="u-bg-light u-p-1">
+        Will be full size in mobile, and a third of a column on desktop
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="o-row">
+  <div class="o-col u-12 u-4@md">
+    Will be full size in mobile, and a third of a column on desktop
+  </div>
+  <div class="o-col u-12 u-4@md">
+    Will be full size in mobile, and a third of a column on desktop
+  </div>
+  <div class="o-col u-12 u-4@md">
+    Will be full size in mobile, and a third of a column on desktop
+  </div>
+</div>
+```
+
+### Auto width
+
+Others utilities class are available to manage the grid system. The `.u-auto`
+class allow to have a column with a auto width.
+
+<Example>
+  <div class="o-row u-mb-3">
+    <div class="o-col u-auto">
+      <div class="u-bg-primary u-p-1">o-col u-auto</div>
+    </div>
+    <div class="o-col">
+      <div class="u-bg-light u-p-1">o-col</div>
+    </div>
+  </div>
+  <div class="o-row">
+    <div class="o-col u-3">
+      <div class="u-bg-light u-p-1">o-col u-3</div>
+    </div>
+    <div class="o-col u-auto">
+      <div class="u-bg-primary u-p-1">o-col u-auto</div>
+    </div>
+    <div class="o-col">
+      <div class="u-bg-light u-p-1">o-col</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="o-row">
+  <div class="o-col u-auto">o-col u-auto</div>
+  <div class="o-col">o-col</div>
+</div>
+
+<div class="o-row">
+  <div class="o-col u-3">o-col u-3</div>
+  <div class="o-col u-auto">o-col u-auto</div>
+  <div class="o-col">o-col</div>
+</div>
+```
+
+### Offset
+
+The grid system is managed with flexbox, the margin utilities classes can be used to set offset
+
+<Example>
+  <div class="o-row u-mb-3">
+    <div class="o-col u-4 u-mx-auto">
+      <div class="u-bg-primary u-p-1">o-col u-4 u-mx-auto</div>
+    </div>
+  </div>
+  <div class="o-row u-mb-3">
+    <div class="o-col u-4 u-ml-auto">
+      <div class="u-bg-primary u-p-1">o-col u-4 u-ml-auto</div>
+    </div>
+  </div>
+  <div class="o-row u-mb-3">
+    <div class="o-col u-4 u-mr-auto">
+      <div class="u-bg-primary u-p-1">o-col u-4 u-mr-auto</div>
+    </div>
+  </div>
+  <div class="o-row">
+    <div class="o-col u-2"></div>
+    <div class="o-col u-4 u-mr-auto">
+      <div class="u-bg-primary u-p-1">o-col u-4 (empty u-2 before)</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="o-row">
+  <div class="o-col u-4 u-mx-auto">o-col u-4 u-mx-auto</div>
+</div>
+<div class="o-row">
+  <div class="o-col u-4 u-ml-auto">o-col u-4 u-ml-auto</div>
+</div>
+<div class="o-row">
+  <div class="o-col u-4 u-mr-auto">o-col u-4 u-mr-auto</div>
+</div>
+<div class="o-row">
+  <div class="o-col u-2"></div>
+  <div class="o-col u-4 u-mr-auto">o-col u-4 (empty u-2 before)</div>
+</div>
+```
+
+### Alignment
+
+The flex utilities classes can also be usefull to align horizontally and vertically elements.
+
+<Example>
+  <div class="o-row u-ai-fs u-bg-light u-mb-3" style={{ minHeight: '10rem' }}>
+    <div class="o-col">
+      <div class="u-bg-primary u-p-1">a simple col</div>
+    </div>
+    <div class="o-col">
+      <div class="u-bg-primary u-p-1">a simple col</div>
+    </div>
+    <div class="o-col">
+      <div class="u-bg-primary u-p-1">a simple col</div>
+    </div>
+  </div>
+  <div class="o-row u-ai-c u-bg-light u-mb-3" style={{ minHeight: '10rem' }}>
+    <div class="o-col">
+      <div class="u-bg-primary u-p-1">a simple col</div>
+    </div>
+    <div class="o-col">
+      <div class="u-bg-primary u-p-1">a simple col</div>
+    </div>
+    <div class="o-col">
+      <div class="u-bg-primary u-p-1">a simple col</div>
+    </div>
+  </div>
+  <div class="o-row u-ai-fe u-bg-light u-mb-3" style={{ minHeight: '10rem' }}>
+    <div class="o-col">
+      <div class="u-bg-primary u-p-1">a simple col</div>
+    </div>
+    <div class="o-col">
+      <div class="u-bg-primary u-p-1">a simple col</div>
+    </div>
+    <div class="o-col">
+      <div class="u-bg-primary u-p-1">a simple col</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="o-row u-ai-fs">
+  <div class="o-col">a simple col</div>
+  <div class="o-col">a simple col</div>
+  <div class="o-col">a simple col</div>
+</div>
+
+<div class="o-row u-ai-c">
+  <div class="o-col">a simple col</div>
+  <div class="o-col">a simple col</div>
+  <div class="o-col">a simple col</div>
+</div>
+
+<div class="o-row u-ai-fe">
+  <div class="o-col">a simple col</div>
+  <div class="o-col">a simple col</div>
+  <div class="o-col">a simple col</div>
+</div>
+```
+
+The alignment can also be applied to a column direclty
+
+<Example>
+  <div class="o-row u-bg-light u-mb-3" style={{ minHeight: '10rem' }}>
+    <div class="o-col u-as-fs">
+      <div class="u-bg-primary u-p-1">a simple col</div>
+    </div>
+    <div class="o-col u-as-c">
+      <div class="u-bg-primary u-p-1">a simple col</div>
+    </div>
+    <div class="o-col u-as-fe">
+      <div class="u-bg-primary u-p-1">a simple col</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="o-row">
+  <div class="o-col u-as-fs">a simple col</div>
+  <div class="o-col u-as-c">a simple col</div>
+  <div class="o-col u-as-fe">a simple col</div>
+</div>
+```

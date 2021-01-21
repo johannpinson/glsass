@@ -1,0 +1,34 @@
+{
+  "version-1.0.0-alpha.1/someSidebar": [
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Docusaurus",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-1.0.0-alpha.1/doc1"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0-alpha.1/doc2"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0-alpha.1/doc3"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Features",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-1.0.0-alpha.1/mdx"
+        }
+      ]
+    }
+  ]
+}

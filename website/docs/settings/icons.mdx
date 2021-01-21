@@ -1,0 +1,91 @@
+---
+id: icons
+title: Icons
+---
+
+import Example from '@site/src/components/Example/'
+
+The `icons` file contains the SVG code needed in the framework. It's mainly used
+for the from components (checkbox, radio, select, validation states), but it
+can be extended to use it in your own code
+
+<!-- prettier-ignore-start-->
+```scss
+@use "glsass/settings/settings.icons" with (
+  $g-icons-database: (
+    times: (
+      default: (
+        file:
+          "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='fill-1' fill-rule='nonzero' d='M14.76 13.341a1.003 1.003 0 01-1.419 1.418L7.81 9.23a.392.392 0 00-.283-.118.392.392 0 00-.283.119l-5.531 5.53A1.003 1.003 0 01.295 13.34l5.53-5.531a.396.396 0 000-.566L.294 1.713A.995.995 0 010 1.003.99.99 0 01.295.295.99.99 0 011.003 0c.269 0 .52.104.71.295l5.531 5.53c.157.158.41.158.566 0L13.34.294a.995.995 0 01.71-.295 1.003 1.003 0 01.708 1.713L9.23 7.244a.396.396 0 000 .566l5.53 5.531z'/></svg>",
+        options: (
+          fill-1: cv(white),
+        ),
+      ),
+    )
+  )
+);
+```
+<!-- prettier-ignore-end-->
+
+The `$g-icons-database` need a map with some default configurations to work
+with the internal _API_ and to be available use through the `iv()` helper
+function.
+
+<!-- prettier-ignore-start-->
+```scss
+// @param {String} name - the name of your icon, will be available with `iv('name')`
+// @param {String} state - the first state must be set at `default`, but you can add
+//  more and be called with `iv('name', 'custom')`
+// @param {String} options - allow to add at compilation some data in the SVG, for update
+//  easily some colors in the icons, or change it depeding of the state
+$g-icons-database: (
+  [name]: (
+    [state]: (
+      file:
+        "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 42'>\
+          <path fill='[override-1]' d='...'/>\
+        </svg>",
+      options: (
+        [override-1]: [override-1-value],
+      ),
+    ),
+  )
+)
+
+// Exemple with the `helper` icon in the source code
+$g-icon-helper: (
+  default: (
+    file:
+      "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>\
+        <circle cx='256' cy='256' r='225' fill='fill-1' stroke='stroke-1' stroke-width='43' stroke-miterlimit='10'/>\
+        <circle fill='fill-2' cx='256' cy='368' r='42'/>\
+        <path fill='fill-2' d='...'/>\
+      </svg>",
+    options: (
+      fill-1: none,
+      stroke-1: cv(primary),
+      fill-2: cv(primary),
+    ),
+  ),
+  hover: (
+    file:
+      "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>\
+        <circle cx='256' cy='256' r='225' fill='fill-1' stroke='stroke-1' stroke-width='43' stroke-miterlimit='10'/>\
+        <circle fill='fill-2' cx='256' cy='368' r='42'/>\
+        <path fill='fill-2' d='...'/>\
+      </svg>",
+    options: (
+      fill-1: cv(primary),
+      stroke-1: cv(primary),
+      fill-2: cv(white),
+    ),
+  ),
+);
+$g-icons-database: (helper: $g-icon-helper);
+```
+<!-- prettier-ignore-end-->
+
+The `options` map allow to replace custom string from the inital SVG string to
+a "dynamic" value.<br/>
+It can be usefull to use the same icon, but with different colors depeding on
+a specific state (hover, focus, etc.).
