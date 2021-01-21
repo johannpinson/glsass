@@ -1,6 +1,6 @@
 {
   "name": "@glsass/patterns",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Patterns layers for Glsass - Options + Components.",
   "repository": {
     "type": "git",
@@ -17,8 +17,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@glsass/objects": "^0.1.1",
-    "@glsass/components": "^0.1.1"
+    "@glsass/components": "^0.1.2",
+    "@glsass/objects": "^0.1.2"
   },
   "peerDependencies": {
     "sass": "^1.32.5"
