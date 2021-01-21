@@ -1,0 +1,38 @@
+////
+/// @group Tools
+/// Map
+////
+
+@use "sass:map";
+
+/// Retrieves map keys from nested maps.
+/// @param {map} $map - Map to parse
+/// @return {map} - The map `child`
+@function deep-get($map, $keys...) {
+  @each $key in $keys {
+    @if (map.get($map, $key)) {
+      $map: map.get($map, $key);
+    } @else {
+      @return null;
+    }
+  }
+
+  @return $map;
+}
+
+/// Fork from an internal Bootstrap function to turn maps into its negative variant.
+/// It prefixes the keys with `n` and makes the value negative.
+/// @author Bootstrap
+/// @param {map} $map - Default map the set values as negative.
+/// @return {map} - The transformed map
+@function negativify-map($map) {
+  $result: ();
+
+  @each $key, $value in $map {
+    @if $key != 0 {
+      $result: map-merge($result, ("n" + $key: (-$value)));
+    }
+  }
+
+  @return $result;
+}

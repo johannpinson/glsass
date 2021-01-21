@@ -1,11 +1,11 @@
 {
-  "name": "@glsass/elements",
+  "name": "@glsass/patterns",
   "version": "0.1.1",
-  "description": "Elements layer for Glsass.",
+  "description": "Patterns layers for Glsass - Options + Components.",
   "repository": {
     "type": "git",
     "url": "https://github.com/johannpinson/glsass.git",
-    "directory": "packages/glsass-elements"
+    "directory": "packages/glsass-patterns"
   },
   "bugs": {
     "url": "https://github.com/johannpinson/glsass/issues"
@@ -16,10 +16,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "@glsass/objects": "^0.1.1",
+    "@glsass/components": "^0.1.1"
+  },
   "peerDependencies": {
     "sass": "^1.32.5"
-  },
-  "dependencies": {
-    "@glsass/core": "^0.1.1"
   }
 }

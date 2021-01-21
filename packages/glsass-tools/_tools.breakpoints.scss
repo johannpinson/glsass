@@ -1,0 +1,50 @@
+////
+/// @group Tools
+/// Breakpoints
+////
+
+@use "sass:map";
+
+@use "@glsass/settings/settings.core" as core;
+
+@use "tools.global" as *;
+
+/// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+/// @access private
+/// @author Bootstrap
+/// @example
+///   >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+///   576px
+@function _breakpoint-min($name, $breakpoints: core.$g-grid-breakpoints) {
+  $min: map.get($breakpoints, $name);
+
+  @return if($min != 0, $min, null);
+}
+
+/// Returns a blank string if smallest breakpoint, otherwise returns the name
+/// with an "at" in front.
+/// Useful for making responsive utilities.
+/// @author Bootstrap
+/// @example
+///   >> suffix(xs, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+///   ""  (Returns a blank string)
+///   >> suffix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+///   "\@sm"
+@function suffix($name, $breakpoints: core.$g-grid-breakpoints) {
+  @return if(_breakpoint-min($name, $breakpoints) == null, "", "\\@#{$name}");
+}
+
+/// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+/// Makes the @content apply to the given breakpoint and wider.
+/// @author Bootstrap
+@mixin media-up($name, $breakpoints: core.$g-grid-breakpoints) {
+  $min: _breakpoint-min($name, $breakpoints);
+
+  @if $min {
+    @include mq($name) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

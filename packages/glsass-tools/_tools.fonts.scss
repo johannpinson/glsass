@@ -1,0 +1,28 @@
+@use "sass:meta";
+@use "sass:list";
+
+@use "tools.list" as _list;
+@use "tools.string" as _str;
+
+// TODO update to the V2
+$_url: "https://fonts.googleapis.com/css?family=_replace_&display=swap";
+
+@mixin import-google-fonts($families) {
+  @if (
+    meta.type-of($families) != "string" and meta.type-of($families) != "list"
+  ) {
+    @error "Invalid format: the parameter must be a string or list.";
+  }
+
+  @if (meta.type-of($families) == "string") {
+    @import url(_str.replace($_url, "_replace_", $families));
+  } @else if (meta.type-of($families) == "list") {
+    @if (not _list.is-empty($families)) {
+      @import url(_str.replace(
+        $_url,
+        "_replace_",
+        _list.to-string($families, "|")
+      ));
+    }
+  }
+}

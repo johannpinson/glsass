@@ -3,10 +3,10 @@
 /// Standards
 ////
 
-@use "../tools/tools.color" as _color;
-@use "../tools/tools.global" as *;
+@use "@glsass/tools/tools.color" as _color;
+@use "@glsass/tools/tools.global" as *;
 
-@use "./graphics.defaults" as ui;
+@use "graphics.defaults" as ui;
 
 // Form common UI rules
 $ui-form-border-width: ui.$ui-border-width !default;

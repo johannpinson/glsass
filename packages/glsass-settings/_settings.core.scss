@@ -7,6 +7,7 @@
 //// ==========================================================================
 
 @use "sass:list";
+@use "sass:map";
 @use "sass:math";
 @use "sass:meta";
 
@@ -18,7 +19,7 @@
 
   @each $key, $value in $map {
     @if $key != 0 {
-      $result: map-merge($result, ("n" + $key: (-$value)));
+      $result: map.merge($result, ("n" + $key: (-$value)));
     }
   }
 

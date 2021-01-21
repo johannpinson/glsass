@@ -3,7 +3,7 @@
 /// Standards
 ////
 
-@use "../tools/tools.global" as *;
+@use "@glsass/tools/tools.global" as *;
 
 // Standardise some UI treatments.
 $ui-border-width: (1rem / 16) !default;

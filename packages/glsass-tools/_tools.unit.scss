@@ -1,0 +1,77 @@
+////
+/// @group Tools
+/// Unit
+////
+
+@use "sass:math";
+
+/// Remove the unit of a length
+/// @author CSS Tricks
+/// https://css-tricks.com/snippets/sass/strip-unit-function/
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+/// Convert a number unit from `px` into `rem`
+/// @param {Number} $variable - Number in `px` to convert
+/// @return {Number} - Converted value in `rem`
+@function convert-rem($variable) {
+  @if (math.unit($variable) == "px") {
+    $variable: $variable / 16px * 1rem;
+  }
+
+  @return $variable;
+}
+
+/// @alias convert-rem
+@function convert($variable) {
+  @return convert-rem($variable);
+}
+
+/// Convert a number unit from `rem` into `px`
+/// @param {Number} $variable - Number in `rem` to convert
+/// @return {Number} - Converted value in `px`
+@function convert-px($variable) {
+  @if (math.unit($variable) == "rem") {
+    $variable: $variable / 1rem * 16px;
+  }
+
+  @return $variable;
+}
+
+/// Add $var2 to $var1 if the unit is the same
+/// Even, use the calc function to calcule it
+/// @param {Number} $var1 - Initial value
+/// @param {Number} $var2 - value to add
+/// @return {Number} - Calculated value
+@function add($var1, $var2) {
+  @if (math.unit($var1) == math.unit($var2)) {
+    @return ($var1 + $var2);
+  }
+
+  @return calc(#{$var1} + #{$var2});
+}
+
+/// Subtract $var2 to $var1 if the unit is the same
+/// Even, use the calc function to calcule it
+/// @param {Number} $var1 - Initial value
+/// @param {Number} $var2 - value to subtract
+/// @return {Number} - Calculated value
+@function sub($var1, $var2) {
+  @if (math.unit($var1) == math.unit($var2)) {
+    @return ($var1 - $var2);
+  }
+
+  @return calc(#{$var1} - #{$var2});
+}
+
+/// @alias sub
+@function subtract($var1, $var2) {
+  @return sub($var1, $var2);
+}

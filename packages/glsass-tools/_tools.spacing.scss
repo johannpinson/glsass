@@ -1,0 +1,51 @@
+////
+/// @group Tools
+/// Spacing
+////
+
+@use "sass:map";
+@use "sass:math";
+
+@use "@glsass/settings/settings.core" as core;
+
+/// Return a space rhythm value with a 0.5 precision
+/// @param {number} $unit-factor [1] - number of "space"
+/// @return {number} - Space
+@function vr($unit-factor: 1) {
+  @if ($unit-factor * 2 == math.ceil($unit-factor * 2)) {
+    @return core.$g-spacer * $unit-factor;
+  }
+
+  @return core.$g-spacer;
+}
+
+/// Allow to calculate the perfect value for a line-height to keep consistent
+/// into the vertical rhythm
+/// @param {number} $vertical-rhythm [1] - Default vertical space to respect
+/// @param {number} $font-size - Actual content's font-size
+/// @param {number} $spacing - Spacing to remove to the calculated value
+/// @return {number} - Calculated space
+@function adjust-vr($vertical-rhythm: 1, $font-size, $spacing) {
+  $vertical-size: core.$g-spacer;
+
+  @if ($vertical-rhythm * 2 == math.ceil($vertical-rhythm * 2)) {
+    $vertical-size: core.$g-spacer * $vertical-rhythm;
+  }
+
+  @return ($vertical-size - $spacing) / $font-size;
+}
+
+/// Return the space from the spacers map corresponding to the key passed
+/// @param {number} $unit-factor [3] - key of the spacers map
+/// @return {number} - Space corresponding the to spacers map
+@function add-space($unit-factor: 3) {
+  $result: core.$g-spacer;
+
+  @each $index in map.keys(core.$g-spacers) {
+    @if ($index == $unit-factor) {
+      $result: map.get(core.$g-spacers, $index);
+    }
+  }
+
+  @return $result;
+}

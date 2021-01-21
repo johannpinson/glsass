@@ -1,0 +1,13 @@
+////
+/// @group Tools
+/// Global
+/// A simple file to foward main et transerves mixin/function
+/// The goal is to load this file and use it at without a namespace
+/// like `@use "glsass/tools/tools.global" as *;`
+/// By convention, always load this tools file at last
+////
+
+@forward "tools.cv";
+@forward "tools.iv";
+@forward "tools.mq";
+@forward "tools.spacing" show vr;

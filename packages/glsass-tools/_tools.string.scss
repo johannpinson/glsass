@@ -1,0 +1,49 @@
+////
+/// @group Tools
+/// String
+////
+
+@use "sass:string";
+
+/// Characters which are escaped by the escape-svg function
+/// @access private
+$_escaped-characters: (("<", "%3c"), (">", "%3e"), ("#", "%23"));
+
+/// Replace `$search` with `$replace` in `$string`
+/// Used on our SVG icon backgrounds for custom forms.
+/// @author Hugo Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function replace($string, $search, $replace: "") {
+  $index: string.index($string, $search);
+
+  @if $index {
+    @return string.slice($string, 1, $index - 1) + $replace +
+      replace(
+        string.slice($string, $index + string.length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}
+
+/// Escape special characters from a SVG data URL to use it as a background
+/// image.
+/// @param {String} $string - SVG String
+/// @return {String} - Escaped SVG string as data URL
+/// @link https://codepen.io/kevinweber/pen/dXWoRw
+@function escape-svg($string) {
+  @if not string.index($string, "data:image/svg+xml") {
+    @error "Invalid string parsed for a svg.";
+  }
+
+  @each $char, $encoded in $_escaped-characters {
+    $string: replace($string, $char, $encoded);
+  }
+
+  @return $string;
+}

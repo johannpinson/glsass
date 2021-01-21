@@ -1,0 +1,86 @@
+////
+/// @group Tools
+/// Form
+////
+
+@use "sass:map";
+
+@use "tools.string" as str;
+@use "tools.global" as *;
+
+@mixin add-validation-states(
+  // map of states to generate
+  $states,
+  // classname of the element to apply styles
+  $main-el,
+  // box-shadow size
+  $shadow,
+  // classname of the feedback text
+  $feedback-el: ".c-form__feeback",
+  // optional parameter to adjust bg color
+  $is-check: false,
+  // optional parameter to adjust label style instead of input
+  $is-file: false
+) {
+  @each $state, $data in $states {
+    $color: map.get($data, color);
+    $background: map.get($data, background);
+
+    // first generate new ui
+    .is-validated #{$main-el}:#{$state},
+    #{$main-el}.is-#{$state} {
+      @if $is-check {
+        border-color: $color;
+
+        &:checked {
+          background-color: $background;
+        }
+
+        $label-el: str.replace($main-el, "input", "label");
+
+        ~ #{$label-el},
+        + * > #{$label-el} {
+          color: $color;
+        }
+      } @else if $is-file {
+        $label-el: str.replace($main-el, "input", "label");
+
+        ~ #{$label-el} {
+          background-color: $background;
+          border-color: $color;
+
+          strong {
+            border-color: $color;
+          }
+        }
+      } @else {
+        background-color: $background;
+        border-color: $color;
+      }
+
+      &:focus {
+        @if $is-check {
+          border-color: $color;
+          box-shadow: 0 0 0 $shadow rgba($color, 0.25);
+        } @else if $is-file {
+          $label-el: str.replace($main-el, "input", "label");
+
+          ~ #{$label-el} {
+            background-color: cv("white");
+            border-color: $color;
+            box-shadow: 0 0 0 $shadow rgba($color, 0.25);
+          }
+        } @else {
+          background-color: cv("white");
+          border-color: $color;
+          box-shadow: 0 0 0 $shadow rgba($color, 0.25);
+        }
+      }
+
+      ~ #{$feedback-el}--#{$state},
+      + * > #{$feedback-el}--#{$state} {
+        display: block;
+      }
+    }
+  }
+}

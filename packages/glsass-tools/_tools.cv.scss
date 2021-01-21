@@ -1,0 +1,50 @@
+////
+/// @group Tools
+/// CV - Color variants
+////
+
+@use "sass:map";
+@use "sass:meta";
+
+@use "@glsass/settings/settings.colors";
+
+@use "tools.map" as _map;
+
+/// @param {String | Color} $color - Color name
+/// @param {String | Number} $variation ["base"] - Varation name
+/// @param {Boolean} $strict [true]
+/// @param {Boolean} $debug  [false]- enable debug mode during compilation
+/// @return {Color | Null} Color from the database scheme or null
+@function cv($color, $variation: "base", $strict: true, $debug: false) {
+  @if ($debug) {
+    @debug meta.type-of($color);
+    @debug meta.type-of($variation);
+  }
+
+  @if (meta.type-of($color) == "color") {
+    $color: meta.inspect($color);
+  }
+
+  @if (meta.type-of($variation) == "number") {
+    $variation: meta.inspect($variation);
+  }
+
+  @if not map.has-key(settings.$g-colors-database, $color) {
+    @if ($strict) {
+      @error "Invalid color name: `#{$color}`.";
+    }
+  }
+
+  // @debug settings.$g-colors-database;
+  $variant: _map.deep-get(settings.$g-colors-database, $color, $variation);
+
+  @if not $variant {
+    @if ($strict) {
+      @error "Invalid variation: `#{$variation}` for `#{$color}` color.";
+    }
+
+    @return null;
+  }
+
+  @return $variant;
+}

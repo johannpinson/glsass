@@ -1,0 +1,80 @@
+////
+/// @group Tools
+/// List
+/// @author Hugo Giraudel
+/// https://hugogiraudel.com/2013/08/08/advanced-sass-list-functions/
+////
+
+@use "sass:list";
+@use "sass:meta";
+
+/// Retrieves the first element of a list
+/// @param {List} $list - The list to parse
+/// @return {Any} - The first element of the list
+@function first($list) {
+  @if (meta.type-of($list) != "list") {
+    @error "Invalid format: the `$list` parameter must be a list value type.";
+  }
+
+  @return list.nth($list, 1);
+}
+
+/// Retrieves the last element of a list
+/// @param {List} $list - The list to parse
+/// @return {Any} - The last element of the list
+@function last($list) {
+  @if (meta.type-of($list) != "list") {
+    @error "Invalid format: the `$list` parameter must be a list value type.";
+  }
+
+  @return list.nth($list, list.length($list));
+}
+
+/// Add news values at beginning of the list - opposite logic of `list.append`
+/// @param {List} $list - The initial list
+/// @param {Any} $value - The element to add at the beginning of the list
+/// @return {List} - The list updated
+@function prepend($list, $value) {
+  @if (meta.type-of($list) != "list") {
+    @error "Invalid format: the `$list` parameter must be a list value type.";
+  }
+
+  @return list.join($value, $list);
+}
+
+/// Convert a list into the string, with the ability to use a string to join
+/// elements with each others.
+/// @param {List} $list - The initial list
+/// @param {String} $glue - Character or string to be inserted between each element
+/// @param {Boolean} $is-nested -
+/// @return {String} - The string generated from the list
+@function to-string($list, $glue: "", $is-nested: false) {
+  $result: null;
+
+  @if (meta.type-of($list) != "list") {
+    @error "Invalid format: the `$list` parameter must be a list value type.";
+  }
+
+  @for $i from 1 through list.length($list) {
+    $e: list.nth($list, $i);
+
+    @if type-of($e) == list {
+      $result: $result + #{to-string($e, $glue, true)};
+    } @else {
+      $result: if(
+        $i != list.length($list) or $is-nested,
+        $result + #{$e} + #{$glue},
+        $result + #{$e}
+      );
+    }
+  }
+
+  @return $result;
+}
+
+/// Indicates if the list is empty
+/// @param {List} $list - The list to analyze
+/// @returns {Boolean} - Result of the check
+@function is-empty($list) {
+  @return list.length($list) == 0;
+}

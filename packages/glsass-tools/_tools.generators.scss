@@ -1,0 +1,92 @@
+////
+/// @group Tools
+/// Generators
+////
+
+@use "sass:list";
+@use "sass:map";
+@use "sass:string";
+
+@use "@glsass/settings/settings.core" as core;
+
+@use "tools.breakpoints" as breakpoints;
+
+/// Mixin used to generate utilities & print utilities
+/// @access private
+/// @author Bootstrap
+/// @param {map} $utility
+/// @param {string} $suffix
+/// @content
+@mixin _generate-utility($utility, $suffix) {
+  $values: map.get($utility, values);
+
+  // If the values are a list or string, convert it into a map
+  @if type-of($values) == "string" or type-of(nth($values, 1)) != "list" {
+    $values: list.zip($values, $values);
+  }
+
+  @each $key, $value in $values {
+    $properties: map.get($utility, property);
+
+    // Multiple properties are possible, for example with vertical or horizontal margins or paddings
+    @if type-of($properties) == "string" {
+      $properties: append((), $properties);
+    }
+
+    // Use custom class if present
+    $property-class: if(
+      map.has-key($utility, class),
+      map.get($utility, class),
+      nth($properties, 1)
+    );
+    $property-class: if($property-class == null, "", $property-class);
+
+    $suffix: if(
+      $property-class == "" and string.slice($suffix, 1, 1) == "-",
+      string.slice($suffix, 2),
+      $suffix
+    );
+
+    // Don't prefix if value key is null (eg. with shadow class)
+    $property-class-modifier: if(
+      $key,
+      if($property-class == "" and $suffix == "", "", "-") + $key,
+      ""
+    );
+
+    .u-#{$property-class}#{$property-class-modifier}#{$suffix} {
+      @each $property in $properties {
+        // stylelint-disable-next-line declaration-no-important
+        #{$property}: $value !important;
+      }
+    }
+  }
+}
+
+/// Main mixin to generate utilities classes
+/// @access public
+/// @author Bootstrap
+/// @param {map} $utilities
+/// @content Utilities classes and rules
+@mixin utilities($utilities: ()) {
+  // Loop over each breakpoint
+  @each $breakpoint in map.keys(core.$g-grid-breakpoints) {
+    $suffix: breakpoints.suffix($breakpoint);
+
+    // Generate media query if needed
+    @include breakpoints.media-up($breakpoint) {
+      // Loop over each utility property
+      @each $key, $utility in $utilities {
+        // The utility can be disabled with `false`, thus check if the utility is a map first
+        // Only proceed if responsive media queries are enabled or if it's the base media query
+        @if (
+          type-of($utility) ==
+            "map" and
+            (map.get($utility, responsive) or $suffix == "")
+        ) {
+          @include _generate-utility($utility, $suffix);
+        }
+      }
+    }
+  }
+}

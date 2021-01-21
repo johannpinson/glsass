@@ -1,0 +1,73 @@
+////
+/// @group Tools
+/// IV - Icons variants
+////
+
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+
+@use "@glsass/settings/settings.icons";
+
+@use "tools.map" as _map;
+@use "tools.string" as str;
+
+@function iv(
+  $name,
+  $variation: "default",
+  $options: (),
+  $strict: true,
+  $debug: false
+) {
+  @if $debug {
+    @debug $name;
+    @debug $variation;
+  }
+
+  @if not map.has-key(settings.$g-icons-database, $name) {
+    @error "Invalid icon name: `#{$name}`";
+  }
+
+  $icon: _map.deep-get(settings.$g-icons-database, $name, $variation);
+
+  @if $debug {
+    @debug $icon;
+  }
+
+  @if not map.get($icon, "file") {
+    @if ($strict) {
+      @error "Invalid variation: `#{$variation}` for `#{$name}` icon.";
+    }
+
+    @return null;
+  }
+
+  $variant: map.get($icon, "file");
+
+  @if (
+    string.index($variant, "<svg") !=
+      1 and
+      string.index($variant, "%3csvg") !=
+      1
+  ) {
+    @error "Invalid string parsed for a svg. Please check the xml syntax of your icon.";
+  }
+
+  // This step allow to override default option to add some fine tuning
+  // about colors used in the icon
+  @if (map.get($icon, "options")) {
+    @if (meta.type-of($options) != "list" and meta.type-of($options) != "map") {
+      @error "Invalid format for the options. A map object is expected.";
+    }
+
+    @if $options {
+      $options: map.merge(map.get($icon, "options"), $options);
+    }
+
+    @each $key, $option in $options {
+      $variant: str.replace($variant, $key, $option);
+    }
+  }
+
+  @return str.escape-svg(settings.$g-icon-base-prefix + $variant);
+}

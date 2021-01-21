@@ -1,0 +1,35 @@
+////
+/// @group Tools
+/// Media queries
+////
+
+@use "@glsass/settings/settings.core" as core;
+
+/// Generate media querries rules starting (or stopping) at the breakpoint passed
+/// @param {String} $size [md] - Breakpoint name
+/// @param {Boolean} $max [false] - Invert the mobile first logic into desktop first
+/// @content
+@mixin mq($size: md, $max: false) {
+  @each $breakpoint, $breakpoint-size in core.$g-grid-breakpoints {
+    @if ($size == $breakpoint) {
+      @if $max {
+        @media (max-width: ($breakpoint-size - 1)) {
+          @content;
+        }
+      } @else {
+        @media (min-width: $breakpoint-size) {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+/// Reverse version of `mq` mixin for setting `max-width` rule (logic desktop first)
+/// @param {String} $size [md] - Breakpoint name
+/// @content
+@mixin mq-max($size: md) {
+  @include mq($size, true) {
+    @content;
+  }
+}
