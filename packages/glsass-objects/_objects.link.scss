@@ -1,0 +1,21 @@
+//// ==========================================================================
+/// @group Objects
+/// Links
+//// ==========================================================================
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$o-link-classname: "o-link" !default;
+@include builder.check-classname($o-link-classname);
+
+.#{$o-link-classname} {
+  text-decoration: none;
+
+  @media (hover) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

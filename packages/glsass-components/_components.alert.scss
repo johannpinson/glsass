@@ -1,0 +1,78 @@
+//// ==========================================================================
+/// @group Components
+/// Alert
+//// ==========================================================================
+
+@use "sass:map";
+@use "sass:list";
+
+@use "@glsass/settings/settings.colors" as colors;
+
+@use "@glsass/graphics" as ui;
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.color" as _color;
+@use "@glsass/tools/tools.spacing" as spacing;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-alert-classname: "c-alert" !default;
+@include builder.check-classname($c-alert-classname);
+
+/// @type Number
+$c-alert-border-radius: ui.$ui-border-radius !default;
+
+/// @type Number
+$c-alert-margin-bottom: vr() !default;
+
+/// @type Number
+$c-alert-padding: vr(0.5) !default;
+
+// The light variant is removed because it's considered as the default design
+/// @type Map
+$c-alert-variants: () !default;
+$c-alert-variants: list.join(
+  (
+    "primary",
+    "secondary",
+    "success",
+    "danger",
+    "warning",
+    "info",
+    "dark",
+    "white"
+  ),
+  $c-alert-variants
+);
+
+.#{$c-alert-classname} {
+  margin-bottom: $c-alert-margin-bottom;
+  padding: $c-alert-padding;
+  color: _color.yiq-contrast(cv("light"));
+  background-color: cv("light");
+  border-radius: $c-alert-border-radius;
+}
+
+// Generate modifiers class for colors variant
+@each $color in $c-alert-variants {
+  @if map.get(colors.$g-color-theme-colors, $color) {
+    $_color-value: map.get(colors.$g-color-theme-colors, $color);
+    $_bgcolor-value: "";
+
+    @if (cv($color, "100", false)) {
+      $_color-value: cv($color, 900);
+      $_bgcolor-value: _color.tint(cv($color, "100"), 4);
+    } @else if ($color == "white") {
+      $_color-value: cv("text");
+      $_bgcolor-value: cv("white");
+    } @else {
+      $_bgcolor-value: $_color-value;
+      $_color-value: _color.yiq-contrast($_bgcolor-value);
+    }
+
+    .#{$c-alert-classname}--#{$color} {
+      color: $_color-value;
+      background-color: $_bgcolor-value;
+    }
+  }
+}

@@ -1,11 +1,11 @@
 {
-  "name": "@glsass/basics",
+  "name": "@glsass/utilities",
   "version": "0.1.2",
-  "description": "Basics layers for Glsass - Generics + Elements.",
+  "description": "Utilities layer for Glsass.",
   "repository": {
     "type": "git",
     "url": "https://github.com/johannpinson/glsass.git",
-    "directory": "packages/glsass-basics"
+    "directory": "packages/glsass-utilities"
   },
   "bugs": {
     "url": "https://github.com/johannpinson/glsass/issues"
@@ -17,8 +17,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@glsass/elements": "^0.1.2",
-    "@glsass/generics": "^0.1.2"
+    "@glsass/core": "^0.1.2"
   },
   "peerDependencies": {
     "sass": "^1.32.5"

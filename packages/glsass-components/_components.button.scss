@@ -1,0 +1,357 @@
+////
+/// @group Components
+/// Button
+////
+
+@use "sass:map";
+@use "sass:list";
+@use "sass:meta";
+@use "sass:math";
+
+@use "@glsass/settings/settings.colors" as colors;
+@use "@glsass/settings/settings.core" as core;
+
+@use "@glsass/graphics" as ui;
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.color" as _color;
+@use "@glsass/tools/tools.spacing" as spacing;
+@use "@glsass/tools/tools.unit" as unit;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-button-classname: "c-button" !default;
+@include builder.check-classname($c-button-classname);
+
+/// @type Number
+$c-button-border-width: ui.$ui-border-width !default;
+
+/// @type Boolean
+$c-button-round-default: true !default;
+/// @type Number
+$c-button-radius: ui.$ui-border-radius !default;
+
+/// @type Number
+$c-button-font-size: core.$g-font-size-base !default;
+/// @type Number
+$c-button-font-ratio: 1/8 !default;
+
+/// @type Number
+$c-button-font-size-small: $c-button-font-size * (1 - $c-button-font-ratio) !default;
+/// @type Number
+$c-button-font-size-large: $c-button-font-size * (1 + $c-button-font-ratio) !default;
+
+/// @type Number
+$c-button-line-height: core.$g-font-line-height-base !default;
+
+/// @type Number
+$c-button-line-height-small: $c-button-line-height *
+  (
+    1 - 1 /
+      (
+        $c-button-line-height *
+          unit.strip-unit(unit.convert-px($c-button-font-size)) *
+          (1 - $c-button-font-ratio)
+      )
+  );
+
+/// @type Number
+$c-button-line-height-large: $c-button-line-height *
+  (
+    1 + 1 /
+      (
+        $c-button-line-height *
+          unit.strip-unit(unit.convert-px($c-button-font-size)) *
+          (1 + $c-button-font-ratio)
+      )
+  );
+
+/// @type Number
+$c-button-focus-shadow-width: ui.$ui-shadow-width !default;
+
+/// @type Number
+$c-button-padding-y: spacing.add-space(2) !default;
+/// @type Number
+$c-button-padding-x: 1.25rem !default;
+/// @type Number
+$c-button-padding-ratio: 1/3 !default;
+
+/// @type Number
+$c-button-padding-x-small: $c-button-padding-x * (1 - $c-button-padding-ratio) -
+  $c-button-border-width !default;
+/// @type Number
+$c-button-padding-x-large: $c-button-padding-x * (1 + $c-button-padding-ratio) -
+  $c-button-border-width !default;
+/// @type Number
+$c-button-padding-y-small: unit.subtract(
+  ($c-button-padding-y * (1 - $c-button-padding-ratio)),
+  $c-button-border-width
+) !default;
+/// @type Number
+$c-button-padding-y-large: unit.subtract(
+  ($c-button-padding-y * (1 + $c-button-padding-ratio)),
+  $c-button-border-width
+) !default;
+
+/// @type Number
+$c-button-padding-y: unit.subtract($c-button-padding-y, $c-button-border-width);
+/// @type Number
+$c-button-padding-x: unit.subtract($c-button-padding-x, $c-button-border-width);
+
+/// @type List
+$c-button-variants: () !default;
+$c-button-variants: list.join(
+  (
+    "primary",
+    "secondary",
+    "success",
+    "danger",
+    "warning",
+    "info",
+    "light",
+    "dark",
+    "white"
+  ),
+  $c-button-variants
+);
+
+/// @type Color
+$c-button-color: cv(text) !default;
+
+.#{$c-button-classname} {
+  $_border-radius: $c-button-radius;
+
+  @if not $c-button-round-default {
+    $_border-radius: null;
+  }
+
+  display: inline-block;
+  flex-shrink: 0;
+  padding: $c-button-padding-y $c-button-padding-x;
+  color: $c-button-color;
+  font-size: $c-button-font-size;
+  line-height: $c-button-line-height;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  background-color: transparent;
+  border: $c-button-border-width solid transparent;
+  border-radius: $_border-radius;
+  transition: all 0.35s ui.$ui-transition-timing-function;
+  user-select: none;
+
+  &:not(:disabled):not(.disabled):not(.is-inactive):hover {
+    color: $c-button-color;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: 0 0 0 $c-button-focus-shadow-width rgba(cv(primary), 0.25);
+  }
+
+  &:disabled,
+  &.disabled {
+    opacity: 0.65;
+    pointer-events: none;
+  }
+
+  &:not(:disabled):not(.disabled):not(.is-inactive):active,
+  &:not(:disabled):not(.disabled):not(.is-inactive).active {
+    // nothing
+  }
+
+  svg {
+    vertical-align: middle;
+  }
+}
+
+// Generate modifiers class for colors variant
+// stylelint-disable-next-line
+@each $color in $c-button-variants {
+  @if map.get(colors.$g-color-theme-colors, $color) {
+    $value: map.get(colors.$g-color-theme-colors, $color);
+
+    .#{$c-button-classname}--#{$color} {
+      $_hover_value: _color.shade($value);
+      $_active-value: "";
+      $_opacity-value: 0.25;
+
+      @if (cv($color, "600", false)) {
+        $_active-value: cv($color, "600");
+      } @else {
+        $_active-value: _color.shade($value, 2);
+      }
+
+      // stylelint-disable-next-line order/order
+      @if ($color == "light") {
+        $_opacity-value: 0.5;
+      }
+
+      color: _color.yiq-contrast($value);
+      background-color: $value;
+      border-color: $value;
+
+      &:not(:disabled):not(.disabled):not(.is-inactive):hover {
+        color: _color.yiq-contrast($_hover-value);
+        background-color: $_hover-value;
+        border-color: $_hover-value;
+      }
+
+      &:focus,
+      &.focus {
+        color: _color.yiq-contrast($_hover-value);
+        background-color: $_hover-value;
+        border-color: $_hover-value;
+        box-shadow: 0
+          0
+          0
+          $c-button-focus-shadow-width
+          rgba($value, $_opacity-value);
+      }
+
+      &:not(:disabled):not(.disabled):not(.is-inactive):active,
+      &:not(:disabled):not(.disabled):not(.is-inactive).active {
+        color: _color.yiq-contrast($_active-value);
+        background-color: $_active-value;
+        border-color: $_active-value;
+      }
+    }
+  }
+}
+
+// Link as button
+.#{$c-button-classname}--link {
+  color: cv("link");
+
+  &:not(:disabled):not(.disabled):not(.is-inactive):hover {
+    color: _color.shade(cv("link"));
+    text-decoration: underline;
+  }
+
+  &:focus,
+  &:focus {
+    text-decoration: none;
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: cv("text", "muted");
+  }
+}
+
+// Outline button style
+// stylelint-disable-next-line
+@each $color in $c-button-variants {
+  @if map.get(colors.$g-color-theme-colors, $color) {
+    $color-value: map.get(colors.$g-color-theme-colors, $color);
+    $border-value: $color-value;
+
+    $root-outline: ".#{$c-button-classname}--outline";
+
+    @if ($color == "light") {
+      $color-value: cv("gray", 700);
+      $border-value: cv("gray", 300);
+    }
+
+    #{$root-outline}.#{$c-button-classname}--#{$color} {
+      color: $color-value;
+      background-color: transparent;
+      border-color: $border-value;
+    }
+  }
+}
+
+/// Rounded border button version
+/// ! This style isn't used still the default design automatically add radius
+/// ! on buttons. Maybe add an option to make it availalbe independently of the
+/// ! global configured ui
+// stylelint-disable-next-line
+@if not $c-button-round-default {
+  .#{$c-button-classname}--round, // Alt name
+    .#{$c-button-classname}--rounded {
+    border-radius: $c-button-radius;
+  }
+}
+
+.#{$c-button-classname}--pill {
+  // padding: .75rem 1.25rem;
+  border-radius: 4rem;
+}
+
+/**
+   * 1. Ensure the full with of the btn if the element is a button/input[submit] tag
+   */
+.#{$c-button-classname}--block {
+  display: block;
+  width: 100%; /* [1] */
+}
+
+.#{$c-button-classname}--icon {
+  padding: $c-button-padding-y;
+}
+
+.#{$c-button-classname}--small {
+  padding: $c-button-padding-y-small $c-button-padding-x-small;
+  font-size: $c-button-font-size-small;
+  line-height: $c-button-line-height-small;
+
+  &.#{$c-button-classname}--icon {
+    padding: $c-button-padding-y-small;
+  }
+}
+
+.#{$c-button-classname}--large {
+  padding: $c-button-padding-y-large $c-button-padding-x-large;
+  font-size: $c-button-font-size-large;
+  line-height: $c-button-line-height-large;
+
+  &.#{$c-button-classname}--icon {
+    padding: $c-button-padding-y-large;
+  }
+}
+
+.#{$c-button-classname}--group {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+
+  > .#{$c-button-classname} {
+    flex: 1 1 auto;
+    border-radius: 0;
+
+    &:first-child {
+      border-top-left-radius: $c-button-radius;
+      border-bottom-left-radius: $c-button-radius;
+    }
+
+    &:last-child {
+      border-top-right-radius: $c-button-radius;
+      border-bottom-right-radius: $c-button-radius;
+    }
+
+    &:hover,
+    &:focus {
+      z-index: 1;
+    }
+  }
+
+  &-vertical {
+    flex-direction: column;
+
+    > .#{$c-button-classname} {
+      &:first-child {
+        border-top-right-radius: $c-button-radius;
+        border-bottom-left-radius: 0;
+      }
+
+      &:last-child {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: $c-button-radius;
+      }
+    }
+  }
+}

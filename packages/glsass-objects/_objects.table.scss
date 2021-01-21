@@ -1,0 +1,68 @@
+//// ==========================================================================
+/// @group Objects
+/// Table
+//// ==========================================================================
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.spacing" as spacing;
+@use "@glsass/tools/tools.unit" as unit;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$o-table-classname: "o-table" !default;
+@include builder.check-classname($o-table-classname);
+
+/// @type Number
+$o-table-border-width: 1px !default;
+/// @type Color
+$o-table-border-color: cv("gray", 300) !default;
+
+/// @type Number
+$o-table-cell-gap: vr(0.5);
+/// @type Number
+$o-table-cell-gap-small: vr(0.5) / 2;
+/// @type Number
+$o-table-cell-gap-large: vr(1);
+
+/// A simple object for manipulating the structure of HTML `table`s.
+.#{$o-table-classname} {
+  thead {
+    font-weight: 700;
+  }
+
+  tr {
+    border-bottom: $o-table-border-width solid $o-table-border-color;
+  }
+
+  th,
+  td {
+    padding: $o-table-cell-gap 0
+      unit.subtract($o-table-cell-gap, $o-table-border-width);
+  }
+
+  // Size variants
+  &--small {
+    th,
+    td {
+      padding: $o-table-cell-gap-small 0
+        unit.subtract($o-table-cell-gap-small, $o-table-border-width);
+    }
+  }
+
+  &--large {
+    th,
+    td {
+      padding: $o-table-cell-gap-large 0
+        unit.subtract($o-table-cell-gap-large, $o-table-border-width);
+    }
+  }
+
+  /// `table-layout: fixed` forces all cells within a table to occupy the same
+  /// width as each other. This also has performance benefits: because the browser
+  /// does not need to (re)calculate cell dimensions based on content it discovers,
+  /// the table can be rendered very quickly. Further reading:
+  /// https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout#Values
+  &--fixed {
+    table-layout: fixed;
+  }
+}

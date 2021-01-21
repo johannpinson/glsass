@@ -1,0 +1,52 @@
+//// ==========================================================================
+/// @group Objects
+/// Media
+/// Media object with new modern layout
+/// https://philipwalton.github.io/solved-by-flexbox/demos/media-object/
+//// ==========================================================================
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$o-media-classname: "o-media" !default;
+@include builder.check-classname($o-media-classname);
+
+/// @type Number
+$o-media-content-gap: vr() !default;
+
+.#{$o-media-classname} {
+  $root: &;
+
+  display: flex;
+  align-items: flex-start;
+
+  &--center {
+    align-items: center;
+  }
+
+  &--reverse {
+    > #{$root}__image {
+      order: 1;
+      margin: 0 0 0 $o-media-content-gap;
+    }
+  }
+
+  &__image {
+    margin-right: $o-media-content-gap;
+
+    > img,
+    > svg {
+      display: block;
+    }
+  }
+
+  &__body {
+    flex: 1;
+
+    &,
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}

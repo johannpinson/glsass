@@ -1,0 +1,25 @@
+//// ==========================================================================
+/// @group Objects
+/// List bare
+/// @author InuitCSS
+/// Strip list-like appearance from lists by removing their bullets and any
+/// indentation.
+/// Note: Declaring the item class might not be necessary everywhere,
+/// but is for example in <dl> lists for the <dd> children.
+//// ==========================================================================
+
+@use "@glsass/tools/tools.builder" as builder;
+
+/// @type String
+$o-list-bare-classname: "o-list-bare" !default;
+@include builder.check-classname($o-list-bare-classname);
+
+.#{$o-list-bare-classname} {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+
+  &__item {
+    padding-left: 0;
+  }
+}

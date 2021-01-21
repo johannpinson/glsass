@@ -1,0 +1,22 @@
+//// ==========================================================================
+/// @group Objects
+/// List inline
+/// @author InuitCSS
+/// The list-inline object simply displays a list of items in one line.
+//// ==========================================================================
+
+@use "@glsass/tools/tools.builder" as builder;
+
+/// @type String
+$o-list-inline-classname: "o-list-inline" !default;
+@include builder.check-classname($o-list-inline-classname);
+
+.#{$o-list-inline-classname} {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+
+  &__item {
+    display: inline-block;
+  }
+}

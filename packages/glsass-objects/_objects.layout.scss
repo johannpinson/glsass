@@ -1,0 +1,102 @@
+//// ==========================================================================
+/// @group Objects
+//// ==========================================================================
+
+@use "@glsass/settings/settings.core" as core;
+
+@use "@glsass/tools/tools.breakpoints" as breakpoints;
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.global" as *;
+
+/// Spacing for each element, equals to the half-gutter size
+/// @access private
+$_o-layout-gutter-spacing: core.$g-grid-gutter-width / 2;
+
+/// Default CSS rules
+/// @access private
+%_o-layout_placeholder {
+  position: relative;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $_o-layout-gutter-spacing;
+  padding-left: $_o-layout-gutter-spacing;
+}
+
+/// @type "String"
+$o-layout-classname: o-layout;
+@include builder.check-classname($o-layout-classname);
+
+/// @type "String"
+$o-row-classname: o-row;
+@include builder.check-classname($o-row-classname);
+
+/// @type "String"
+$o-col-classname: o-col;
+@include builder.check-classname($o-col-classname);
+
+.#{$o-layout-classname} {
+  @extend %_o-layout_placeholder;
+
+  @each $breakpoint, $max-width in core.$g-grid-container-max-widths {
+    @include mq($breakpoint) {
+      max-width: $max-width;
+    }
+  }
+
+  &--fluid {
+    @extend %_o-layout_placeholder;
+  }
+}
+
+/// Responsive containers that are 100% wide until a breakpoint
+@each $breakpoint, $max-width in core.$g-grid-container-max-widths {
+  $suffix: breakpoints.suffix($breakpoint);
+
+  .#{$o-layout-classname}#{$suffix} {
+    @extend %_o-layout_placeholder;
+  }
+
+  // stylelint-disable-next-line order/order
+  @include breakpoints.media-up($breakpoint) {
+    %_o-responsive-container-#{$breakpoint} {
+      max-width: $max-width;
+    }
+
+    // stylelint-disable-next-line order/order
+    @each $name, $width in core.$g-grid-breakpoints {
+      @if ($max-width > $width or $breakpoint == $name) {
+        .#{$o-layout-classname}#{breakpoints.suffix($name)} {
+          @extend %_o-responsive-container-#{$breakpoint};
+        }
+      }
+    }
+  }
+}
+
+.#{$o-row-classname} {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -$_o-layout-gutter-spacing;
+  margin-left: -$_o-layout-gutter-spacing;
+}
+
+@each $breakpoint, $value in core.$g-grid-breakpoints {
+  $suffix: breakpoints.suffix($breakpoint);
+
+  @include breakpoints.media-up($breakpoint) {
+    %_grid-column-#{$breakpoint} {
+      position: relative;
+      flex-grow: 1;
+      flex-basis: 0;
+      width: 100%;
+      max-width: 100%;
+      padding-right: $_o-layout-gutter-spacing;
+      padding-left: $_o-layout-gutter-spacing;
+    }
+
+    .#{$o-col-classname}#{$suffix} {
+      @extend %_grid-column-#{$breakpoint};
+    }
+  }
+}

@@ -1,0 +1,25 @@
+//// ==========================================================================
+/// @group Elements
+/// Headings
+//// ==========================================================================
+
+@use "sass:map";
+
+@use "@glsass/graphics" as ui;
+
+%_heading {
+  margin-bottom: ui.$g-headings-margin-bottom;
+  color: ui.$g-headings-color;
+  font-family: ui.$g-headings-font-family;
+  font-weight: ui.$g-headings-font-weight;
+  font-style: ui.$g-headings-font-style;
+}
+
+@each $hn, $value in ui.$g-headings-styles {
+  h#{$hn} {
+    @extend %_heading;
+
+    font-size: map.get($value, font-size);
+    line-height: map.get($value, line-height);
+  }
+}

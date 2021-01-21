@@ -1,0 +1,42 @@
+//// ==========================================================================
+/// @group Generics
+/// Shared
+/// Shared declarations for certain elements.
+//// ==========================================================================
+
+@use "@glsass/tools/tools.global" as *;
+
+/// More sensible default box-sizing:
+/// css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+html {
+  box-sizing: border-box;
+}
+
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+/// Always declare margins in the same direction:
+/// csswizardry.com/2012/06/single-direction-margin-declarations
+address,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+p,
+pre,
+dl,
+ol,
+ul,
+figure,
+table,
+fieldset {
+  margin-bottom: vr(1);
+}

@@ -1,0 +1,27 @@
+//// ==========================================================================
+/// @group Elements
+/// Lists
+//// ==========================================================================
+
+@use "@glsass/tools/tools.global" as *;
+
+ol,
+ul {
+  padding-left: vr(1.5);
+}
+
+dl,
+ol,
+ul {
+  margin-top: 0;
+  margin-bottom: vr(1);
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin-bottom: vr(0.5);
+  margin-left: 0;
+}

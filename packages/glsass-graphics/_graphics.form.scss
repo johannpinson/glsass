@@ -1,7 +1,7 @@
-////
-/// @group UI
-/// Standards
-////
+//// ==========================================================================
+/// @group Graphics
+/// Forms
+//// ==========================================================================
 
 @use "@glsass/tools/tools.color" as _color;
 @use "@glsass/tools/tools.global" as *;
@@ -15,6 +15,7 @@ $ui-form-border-radius: ui.$ui-border-radius !default;
 $ui-form-text-color: _color.tint(cv(text)) !default;
 $ui-form-placeholder-color: _color.tint(cv(text), 4) !default;
 
+/// @type Color
 $ui-form-main-color: cv(primary) !default;
 
 $ui-form-focus-border-color: cv(primary, 300) !default;
@@ -25,6 +26,7 @@ $ui-form-background-color: cv(white) !default;
 $ui-form-background-disabled: cv(light) !default;
 
 // Form states management
+/// @type Map
 $ui-form-states: (
   "valid": (
     "color": cv(success),
