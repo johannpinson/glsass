@@ -1,6 +1,9 @@
 {
-  "name": "root",
+  "name": "glsass-monorepo",
   "private": true,
+  "scripts": {
+    "lerna": "lerna"
+  },
   "devDependencies": {
     "cz-conventional-changelog": "^3.3.0",
     "lerna": "^3.22.1",
