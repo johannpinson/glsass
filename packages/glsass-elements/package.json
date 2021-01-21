@@ -7,14 +7,19 @@
     "url": "https://github.com/johannpinson/glsass.git",
     "directory": "packages/glsass-elements"
   },
+  "bugs": {
+    "url": "https://github.com/johannpinson/glsass/issues"
+  },
   "keywords": [],
   "author": "Johann Pinson",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@glsass/core": "^0.1.0"
   },
   "peerDependencies": {
     "sass": "^1.32.5"
-  },
-  "gitHead": "f0a271c8981f196062e240ddac9ab2c4a6a56a0a"
+  }
 }
