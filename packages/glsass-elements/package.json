@@ -1,0 +1,19 @@
+{
+  "name": "@glsass/elements",
+  "version": "0.1.0",
+  "description": "Elements layer for Glsass.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johannpinson/glsass.git",
+    "directory": "packages/glsass-elements"
+  },
+  "keywords": [],
+  "author": "Johann Pinson",
+  "license": "MIT",
+  "dependencies": {
+    "@glsass/core": "^0.1.0"
+  },
+  "peerDependencies": {
+    "sass": "^1.32.5"
+  }
+}

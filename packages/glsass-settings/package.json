@@ -1,0 +1,16 @@
+{
+  "name": "@glsass/settings",
+  "version": "0.1.0",
+  "description": "Settings layer for Glsass.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johannpinson/glsass.git",
+    "directory": "packages/glsass-settings"
+  },
+  "keywords": [],
+  "author": "Johann Pinson",
+  "license": "MIT",
+  "peerDependencies": {
+    "sass": "^1.32.5"
+  }
+}

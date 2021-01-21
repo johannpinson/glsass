@@ -1,0 +1,19 @@
+{
+  "name": "@glsass/tools",
+  "version": "0.1.0",
+  "description": "Tools layer for Glsass.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johannpinson/glsass.git",
+    "directory": "packages/glsass-tools"
+  },
+  "keywords": [],
+  "author": "Johann Pinson",
+  "license": "MIT",
+  "dependencies": {
+    "@glsass/settings": "^0.1.0"
+  },
+  "peerDependencies": {
+    "sass": "^1.32.5"
+  }
+}
