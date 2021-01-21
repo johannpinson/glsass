@@ -1,6 +1,6 @@
 {
   "name": "@glsass/graphics",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Graphics layer for Glsass.",
   "repository": {
     "type": "git",
@@ -17,8 +17,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@glsass/settings": "^0.1.0",
-    "@glsass/tools": "^0.1.0"
+    "@glsass/settings": "^0.1.1",
+    "@glsass/tools": "^0.1.1"
   },
   "peerDependencies": {
     "sass": "^1.32.5"

@@ -1,6 +1,6 @@
 {
   "name": "@glsass/settings",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Settings layer for Glsass.",
   "repository": {
     "type": "git",
