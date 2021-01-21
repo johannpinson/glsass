@@ -1,0 +1,54 @@
+////
+/// @group Tools
+/// Builder
+////
+
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+
+@mixin check-classname($classname) {
+  $first: string.slice($classname, 1, 1);
+
+  @if ($first == ".") {
+    @error "The classname parameter must not start by a point";
+  }
+}
+
+@mixin build($params) {
+  @if (
+    map.get($params, type) ==
+      "component" or
+      map.get($params, type) ==
+      "components"
+  ) {
+    @include build-component(
+      (
+        name: map.get($params, name),
+        variables: map.get($params, variables),
+      )
+    );
+  }
+}
+
+@mixin build-element($params) {
+}
+
+@mixin build-object($params) {
+}
+
+@mixin build-component($params) {
+}
+
+@mixin build-utility($params) {
+}
+
+// @include builder.build(
+//   (
+//     "type": "component",
+//     "name": "button",
+//     "variables": (
+//       "button-color": red,
+//     ),
+//   )
+// );

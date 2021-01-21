@@ -17,5 +17,6 @@
   },
   "peerDependencies": {
     "sass": "^1.32.5"
-  }
+  },
+  "gitHead": "f0a271c8981f196062e240ddac9ab2c4a6a56a0a"
 }

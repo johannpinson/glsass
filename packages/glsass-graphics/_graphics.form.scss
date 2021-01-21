@@ -1,0 +1,39 @@
+////
+/// @group UI
+/// Standards
+////
+
+@use "../tools/tools.color" as _color;
+@use "../tools/tools.global" as *;
+
+@use "./graphics.defaults" as ui;
+
+// Form common UI rules
+$ui-form-border-width: ui.$ui-border-width !default;
+$ui-form-border-color: ui.$ui-border-color !default;
+$ui-form-border-radius: ui.$ui-border-radius !default;
+$ui-form-text-color: _color.tint(cv(text)) !default;
+$ui-form-placeholder-color: _color.tint(cv(text), 4) !default;
+
+$ui-form-main-color: cv(primary) !default;
+
+$ui-form-focus-border-color: cv(primary, 300) !default;
+$ui-form-focus-shadow-width: ui.$ui-shadow-width !default;
+$ui-form-focus-shadow-color: ui.$ui-shadow-color !default;
+
+$ui-form-background-color: cv(white) !default;
+$ui-form-background-disabled: cv(light) !default;
+
+// Form states management
+$ui-form-states: (
+  "valid": (
+    "color": cv(success),
+    "background": rgba(cv(success), 0.05),
+    "icon": iv(valid),
+  ),
+  "invalid": (
+    "color": cv(danger),
+    "background": rgba(cv(danger), 0.05),
+    "icon": iv(invalid),
+  ),
+) !default;

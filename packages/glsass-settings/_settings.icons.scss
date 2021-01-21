@@ -1,0 +1,111 @@
+////
+/// @group Settings
+/// Icons
+////
+
+@use "sass:map";
+
+@use "settings.color" as colors;
+
+$g-icon-base-prefix: "data:image/svg+xml,";
+
+$g-icon-helper: (
+  default: (
+    file:
+      "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>\
+        <circle cx='256' cy='256' r='225' fill='fill-1' stroke='stroke-1' stroke-width='43' stroke-miterlimit='10'/>\
+        <circle fill='fill-2' cx='256' cy='368' r='42'/>\
+        <path fill='fill-2' d='M261.8 112c-46.9 0-76.9 19.5-100.6 54.2-3.6 5.3-2.5 12.5 2.6 16.4l27.8 21.1c5.2 3.9 12.6 3 16.7-2.1 15-19 25.8-30 48.9-30 17.8 0 39.8 11.4 39.8 28.7 0 13-10.8 19.7-28.3 29.6-20.5 11.5-47.6 25.8-47.6 61.5v8.7c0 6.6 5.4 12 12 12h45.6c6.6 0 12-5.4 12-12v-6.3c0-24.8 72.4-25.8 72.4-92.9.1-50.6-52.2-88.9-101.3-88.9z'/>\
+      </svg>",
+    options: (
+      fill-1: none,
+      stroke-1: colors.$g-color-primary,
+      fill-2: colors.$g-color-primary,
+    ),
+  ),
+  hover: (
+    file:
+      "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>\
+        <circle cx='256' cy='256' r='225' fill='fill-1' stroke='stroke-1' stroke-width='43' stroke-miterlimit='10'/>\
+        <circle fill='fill-2' cx='256' cy='368' r='42'/>\
+        <path fill='fill-2' d='M261.8 112c-46.9 0-76.9 19.5-100.6 54.2-3.6 5.3-2.5 12.5 2.6 16.4l27.8 21.1c5.2 3.9 12.6 3 16.7-2.1 15-19 25.8-30 48.9-30 17.8 0 39.8 11.4 39.8 28.7 0 13-10.8 19.7-28.3 29.6-20.5 11.5-47.6 25.8-47.6 61.5v8.7c0 6.6 5.4 12 12 12h45.6c6.6 0 12-5.4 12-12v-6.3c0-24.8 72.4-25.8 72.4-92.9.1-50.6-52.2-88.9-101.3-88.9z'/>\
+      </svg>",
+    options: (
+      fill-1: colors.$g-color-primary,
+      stroke-1: colors.$g-color-primary,
+      fill-2: colors.$g-color-white,
+    ),
+  ),
+);
+
+$g-icon-valid: (
+  default: (
+    file:
+      "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>\
+        <path fill='fill-1' d='M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 48c110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200-110.532 0-200-89.451-200-200 0-110.532 89.451-200 200-200m140.204 130.267l-22.536-22.718c-4.667-4.705-12.265-4.736-16.97-.068L215.346 303.697l-59.792-60.277c-4.667-4.705-12.265-4.736-16.97-.069l-22.719 22.536c-4.705 4.667-4.736 12.265-.068 16.971l90.781 91.516c4.667 4.705 12.265 4.736 16.97.068l172.589-171.204c4.704-4.668 4.734-12.266.067-16.971z'/>\
+      </svg>",
+    options: (
+      fill-1: colors.$g-color-success,
+    ),
+  ),
+  hover: null,
+);
+
+$g-icon-invalid: (
+  default: (
+    file:
+      "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 15'>\
+        <path fill='fill-1' fill-rule='evenodd' d='M12.252 13c.622 0 1.182-.32 1.498-.856a1.74 1.74 0 00.016-1.758L9.515 2.884A1.722 1.722 0 008 2c-.636 0-1.2.33-1.515.884l-4.251 7.502a1.737 1.737 0 00.017 1.758c.315.536.876.856 1.496.856h8.505zm-.998-11.103l4.252 7.502a3.715 3.715 0 01-.034 3.762A3.707 3.707 0 0112.252 15H3.747a3.708 3.708 0 01-3.219-1.839 3.718 3.718 0 01-.034-3.762l4.251-7.502A3.703 3.703 0 018 0a3.7 3.7 0 013.254 1.897zM7.29 10.285c.37-.375 1.05-.375 1.42 0 .09.09.16.202.21.323.05.121.08.253.08.384a.98.98 0 01-.08.384 1.04 1.04 0 01-.21.334.984.984 0 01-.71.293.96.96 0 01-.38-.072 1.172 1.172 0 01-.33-.22 1.028 1.028 0 01-.21-.335.963.963 0 01-.08-.384c0-.263.11-.525.29-.707zM7.998 4a1 1 0 00-1 1v3a1 1 0 002 0V5a1 1 0 00-1-1z' clip-rule='evenodd'/>\
+      </svg>",
+    options: (
+      fill-1: colors.$g-color-danger,
+    ),
+  ),
+);
+
+$g-icon-select: (
+  default: (
+    file:
+      "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'>\
+        <path fill='none' stroke='stroke-1' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/>\
+      </svg>",
+    options: (
+      stroke-1: colors.$g-color-dark,
+    ),
+  ),
+);
+
+$g-icon-checkbox: (
+  default: (
+    file:
+      "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'>\
+        <path fill='none' stroke='stroke-1' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M4 8.5L6.5 11l6-6'/>\
+      </svg>",
+    options: (
+      stroke-1: colors.$g-color-white,
+    ),
+  ),
+);
+
+$g-icon-radio: (
+  default: (
+    file:
+      "<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='fill-1'/></svg>",
+    options: (
+      fill-1: colors.$g-color-white,
+    ),
+  ),
+);
+
+$_internal-database: (
+  help: $g-icon-helper,
+  helper: $g-icon-helper,
+  valid: $g-icon-valid,
+  invalid: $g-icon-invalid,
+  select: $g-icon-select,
+  checkbox: $g-icon-checkbox,
+  radio: $g-icon-radio,
+);
+
+$g-icons-database: () !default;
+$g-icons-database: map-merge($_internal-database, $g-icons-database);

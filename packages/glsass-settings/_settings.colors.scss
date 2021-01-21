@@ -1,0 +1,176 @@
+//// ==========================================================================
+/// @group Settings
+/// Colors
+/// This file contains any colors variables and configuration about it.
+//// ==========================================================================
+
+@use "sass:map";
+@use "sass:color";
+
+/// Internal function for generate variations of a color
+/// @access private
+/// @return {Map} - Variants map
+@function _generate-variant($color, $interval: $g-color-theme-interval) {
+  $_v100: color.scale($color, $lightness: 8 * $interval);
+  $_v200: color.scale($color, $lightness: 6 * $interval);
+  $_v300: color.scale($color, $lightness: 4 * $interval);
+  $_v400: color.scale($color, $lightness: 2 * $interval);
+  $_v500: $color;
+  $_v600: color.scale($color, $lightness: -2 * $interval);
+  $_v700: color.scale($color, $lightness: -4 * $interval);
+  $_v800: color.scale($color, $lightness: -6 * $interval);
+  $_v900: color.scale($color, $lightness: -8 * $interval);
+
+  @return (
+    "base": $color,
+    "light": $_v200,
+    "dark": $_v700,
+    "100": $_v100,
+    "200": $_v200,
+    "300": $_v300,
+    "400": $_v400,
+    "500": $_v500,
+    "600": $_v600,
+    "700": $_v700,
+    "800": $_v800,
+    "900": $_v900
+  );
+}
+
+$g-color-theme-interval: 8% !default;
+
+/// Default "white" color
+$g-color-white: #fff !default;
+/// Default "black" color
+$g-color-black: #000 !default;
+
+// Gray variants
+$g-color-gray-100: #f5f5f5 !default;
+$g-color-gray-200: #eeeeee !default;
+$g-color-gray-300: #e0e0e0 !default;
+$g-color-gray-400: #bdbdbd !default;
+$g-color-gray-500: #9e9e9e !default;
+$g-color-gray-600: #757575 !default;
+$g-color-gray-700: #616161 !default;
+$g-color-gray-800: #424242 !default;
+$g-color-gray-900: #212121 !default;
+
+/// Gray variants map
+/// @type Map
+$g-color-grays: (
+  "base": $g-color-gray-500,
+  "light": $g-color-gray-100,
+  "dark": $g-color-gray-800,
+  "100": $g-color-gray-100,
+  "200": $g-color-gray-200,
+  "300": $g-color-gray-300,
+  "400": $g-color-gray-400,
+  "500": $g-color-gray-500,
+  "600": $g-color-gray-600,
+  "700": $g-color-gray-700,
+  "800": $g-color-gray-800,
+  "900": $g-color-gray-900,
+) !default;
+
+/// Light color
+/// @type Color
+$g-color-light: $g-color-gray-100 !default;
+/// Dark color
+/// @type Color
+$g-color-dark: $g-color-gray-800 !default;
+/// Default text color
+/// @type Color
+$g-color-text: $g-color-gray-900 !default;
+$g-color-text-muted: $g-color-gray-600 !default;
+
+// Primary color in color scheme
+/// @type Color
+$g-color-primary: #25c2a0 !default;
+// Secondary color in color scheme
+/// @type Color
+$g-color-secondary: #805ad5 !default;
+
+/// @type Color
+$g-color-success: #34c56a !default;
+/// @type Color
+$g-color-danger: #cc4b37 !default;
+/// @type Color
+$g-color-warning: #ffae00 !default;
+/// @type Color
+$g-color-info: #45aaf2 !default;
+
+/// Defaut text color for the `<body>` tag, initialize as an alias for `$g-color-text`
+/// @type Color
+$g-color-body: $g-color-text !default;
+/// Default background color for the `<body>` tag
+/// @type Color
+$g-color-body-bg: $g-color-white !default;
+/// Default color for links
+/// @type Color
+$g-color-link: $g-color-primary !default;
+
+/// Color scheme database
+/// @access private
+/// @type Map
+$g-colors-database: (
+  "primary": _generate-variant($g-color-primary),
+  "secondary": _generate-variant($g-color-secondary),
+  "success": _generate-variant($g-color-success),
+  "danger": _generate-variant($g-color-danger),
+  "warning": _generate-variant($g-color-warning),
+  "info": _generate-variant($g-color-info),
+  "gray": $g-color-grays,
+  "white": (
+    "base": $g-color-white,
+  ),
+  "black": (
+    "base": $g-color-black,
+  ),
+  "light": (
+    "base": $g-color-light,
+  ),
+  "dark": (
+    "base": $g-color-dark,
+  ),
+  // Repeat previous color as an helper/alt
+  "default":
+    (
+      "white": $g-color-white,
+      "black": $g-color-black,
+      "light": $g-color-light,
+      "dark": $g-color-dark,
+    ),
+  "text": (
+    "base": $g-color-text,
+    "muted": $g-color-text-muted,
+  ),
+  "link": (
+    "base": $g-color-link,
+  ),
+  "body": (
+    "base": $g-color-body,
+    "bg": $g-color-body-bg,
+  ),
+);
+
+/// Default map of theme colors.
+/// Can be used to create components color variants
+/// To remove a default color, set it at `null` inside the map.
+/// @type Map
+$g-color-theme-colors: () !default;
+$g-color-theme-colors: map.merge(
+  (
+    "primary": $g-color-primary,
+    "secondary": $g-color-secondary,
+    "success": $g-color-success,
+    "danger": $g-color-danger,
+    "warning": $g-color-warning,
+    "info": $g-color-info,
+    "white": $g-color-white,
+    "black": $g-color-black,
+    "light": $g-color-light,
+    "dark": $g-color-dark,
+    "text": $g-color-text,
+  ),
+  $g-color-theme-colors
+);

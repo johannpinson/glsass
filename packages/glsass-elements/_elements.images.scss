@@ -1,0 +1,32 @@
+////
+/// @group Elements
+/// Images
+////
+
+/// Enable this settings to cancel `max-width` for images owning width or
+/// height attribute
+/// @type Boolean
+$e-images-static-size: false !default;
+
+/// 1. Fluid images for responsive purposes.
+/// 2. Offset `alt` text from surrounding copy.
+/// 3. Setting `vertical-align` removes the whitespace that appears under `img`
+///    elements when they are dropped into a page as-is. Safer alternative to
+///    using `display: block;`
+img {
+  max-width: 100%; // [1]
+  font-style: italic; // [2]
+  vertical-align: middle; // [3]
+}
+
+// In case you don't have control over generated `width` and `height` attributes
+// on `<img>` elements in your markup, but still want the images to be fluid,
+// set this to `false`
+@if ($e-images-static-size == true) {
+  /// If a `width` and/or `height` attribute has been explicitly defined, let’s
+  /// not make the image fluid
+  img[width],
+  img[height] {
+    max-width: none;
+  }
+}

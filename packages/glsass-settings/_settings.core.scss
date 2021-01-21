@@ -1,0 +1,122 @@
+//// ==========================================================================
+/// @group Settings
+/// Core
+/// This main file sets up framework’s most important global variables. They
+/// indicate how framework works and should be modified and preconfigured with
+/// caution.
+//// ==========================================================================
+
+@use "sass:list";
+@use "sass:math";
+@use "sass:meta";
+
+/// Internal function for generate negative map and remove external dependencies
+/// @access private
+/// @return {Map} - Negative map
+@function _negativify-map($map) {
+  $result: ();
+
+  @each $key, $value in $map {
+    @if $key != 0 {
+      $result: map-merge($result, ("n" + $key: (-$value)));
+    }
+  }
+
+  @return $result;
+}
+
+// ===========================================================================
+// Font size and height
+// ===========================================================================
+
+/// HTML default size, this can be override by settings of the user's browser
+/// @type Number
+$g-font-size-html: null !default;
+
+/// Page default font-size, assuming the browser default is `16px`
+/// Must be set in a rem unit!
+/// @type Number
+$g-font-size-base: 1rem !default;
+
+@if (
+  meta.type-of($g-font-size-base) !=
+    number or
+    math.unit($g-font-size-base) !=
+    "rem"
+) {
+  @error "Variable `$g-font-size-base` must be set in rem";
+}
+
+/// Default `line-height` of the content
+/// @type Number
+$g-font-line-height-base: 1.5 !default;
+
+// ===========================================================================
+// Spacing
+// ===========================================================================
+
+/// Defines the default spacing used for the vertical rythm. Modify this values
+/// will impact most UI elements and components.
+/// Spacing variations can be managed with the $g-spacers map.
+/// Default value expected to be 1.5rem/24px
+/// @type Number
+$g-spacer: $g-font-size-base * $g-font-line-height-base !default;
+
+/// Spacing variations
+/// @type Map
+/// @ignore
+/// https://speckyboy.com/naming-conventions-sizes-scalable-cs
+/// 0: 0  - flush
+/// 1: 6  - tiny   or `xs`
+/// 2: 12 - small  or `s`
+/// 3: 24 - medium or `m`
+/// 4: 48 - large  or `l`
+/// 5: 72 - huge   or `xl`
+/// + micro / mega
+$g-spacers: (
+  0: 0,
+  1: $g-spacer * 0.25,
+  2: $g-spacer * 0.5,
+  3: $g-spacer,
+  4: $g-spacer * 2,
+  5: $g-spacer * 3,
+);
+
+/// Negative version of `$g-spacers` map
+/// @type Map
+$g-spacers-negative: _negativify-map($g-spacers) !default;
+
+// ===========================================================================
+// Grid system
+// ===========================================================================
+
+/// Grid breakpoints
+/// @type Map
+$g-grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  tb: 768px,
+  md: 992px,
+  ml: 1200px,
+  lg: 1400px,
+  xl: 1920px,
+) !default;
+
+/// Grid containers
+/// @type Map
+$g-grid-container-max-widths: (
+  sm: 540px,
+  tb: 720px,
+  md: 960px,
+  ml: 1140px,
+  lg: 1280px,
+  xl: 1440px,
+) !default;
+
+/// Grid number of columns
+/// @type Number
+$g-grid-columns: 12 !default;
+
+/// Grid gutters size
+/// @type Number
+$g-grid-gutter-width: $g-font-size-base !default;
