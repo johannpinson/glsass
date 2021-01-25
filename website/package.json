@@ -1,6 +1,6 @@
 {
   "name": "glsass-website",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -18,11 +18,11 @@
     "@glsass/elements": "^1.0.0-alpha.0",
     "@glsass/generics": "^1.0.0-alpha.0",
     "@glsass/graphics": "^1.0.0-alpha.0",
-    "@glsass/helpers": "^1.0.0-alpha.0",
+    "@glsass/helpers": "^1.0.0-alpha.1",
     "@glsass/objects": "^1.0.0-alpha.0",
     "@glsass/settings": "^1.0.0-alpha.0",
     "@glsass/tools": "^1.0.0-alpha.0",
-    "@glsass/utilities": "^1.0.0-alpha.0",
+    "@glsass/utilities": "^1.0.0-alpha.1",
     "@mdx-js/react": "^1.6.21",
     "clsx": "^1.1.1",
     "react": "^16.8.4",
