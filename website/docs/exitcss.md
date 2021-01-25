@@ -1,9 +1,10 @@
 ---
-id: architecture
-title: Architecture
+id: exitcss
+title: Architure & exitCSS
+sidebar_label: exitCSS
 ---
 
-## ITCSS
+## Concept from ITCSS
 
 ITCSS is a project architecture designed by
 [Harry Roberts](https://csswizardry.com/). The goal is to ensure a good
@@ -13,9 +14,18 @@ rules.
 ITCSS means _Inverted Triangle CSS_, and represent the complexity graph how your
 code must be organized.
 
-<figure style={{textAlign:"center"}}>
+<figure style={{ textAlign: 'center' }}>
   <img src="/img/itcss-default.svg" alt="ITCSS concept" height="300" />
-  <figcaption class="u-c-muted">Image from <a href="https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/" target="_blank" rel="noopener noreferrer">Xfive blog</a></figcaption>
+  <figcaption class="u-c-muted">
+    Image from{' '}
+    <a
+      href="https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Xfive blog
+    </a>
+  </figcaption>
 </figure>
 
 The triangle represents the CSS selectors order : from generic to explicit, from
@@ -133,6 +143,17 @@ applied in components directly. <br /> The theming can also be set from the
 settings variables, so this layer can be used (or not) depending of your code
 organization.
 
+### Helpers - _.h-\*_
+
+Helpers are special classes to create special behaviors on an elements.
+
+This layer can find it very similar to the `utilities` layer, there is one
+difference which make it different: if an utility class add (mostly) **one**
+CSS rule, a helper class add several ones.
+
+Despite the similarities, it's a good pratice to separate them to better
+distinguish.
+
 ### Utilities - _.u-\*_
 
 This is (normally) the last layer of your stack. Glsass already contains a lot
@@ -140,11 +161,6 @@ of utilities classes, mainly inherit from
 [Bootstrap](https://getbootstrap.com/docs/4.5/utilities/borders/),
 [Tachyon](https://tachyons.io/), [Tailwind](https://tailwindcss.com/) or other
 CSS frameworks.
-
-In a perfect world, it would be preceded by a "Helpers" layer (`.h-*`) to
-distinguish them. If an utility class add (mostly) **one** CSS rule, a helper
-class add several rules. <br /> So it may will change in future versions of
-Glsass.
 
 ## Namespace prefixes
 
@@ -188,8 +204,8 @@ the generated code.
 In some case, you can also find other derivatives of this organization, for
 example:
 
-- Root (settings + tools)
+- Core (settings + tools + graphics)
 - Basics (generic + elements)
 - Patterns (objects + layouts + components)
 - Contexts (scopes + themes)
-- Overrides (utilities + helpers)
+- Overrides (helpers + utilities)

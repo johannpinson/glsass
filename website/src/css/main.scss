@@ -9,8 +9,6 @@
 @forward "generics/generics.custom";
 // custom generic
 
-@forward "@glsass/components/components.button";
-
 // OBJECTS
 @forward "@glsass/objects/objects.divider";
 @forward "@glsass/objects/objects.link";
@@ -20,7 +18,9 @@
 @forward "@glsass/objects/objects.overlay";
 @forward "@glsass/objects/objects.table";
 
-/*
+// GRID
+@forward "@glsass/objects/objects.layout";
+@forward "@glsass/utilities/utilities.columns";
 
 // COMPONENTS
 @forward "@glsass/components/components.accordion";
@@ -32,9 +32,8 @@
 @forward "@glsass/components/components.form";
 @forward "@glsass/components/components.navbar";
 
-// GRID
-@forward "@glsass/objects/objects.layout";
-@forward "@glsass/utilities/utilities.columns";
+// HELPERS
+@forward "@glsass/helpers/helpers.links";
 
 // UTILITIES
 @forward "@glsass/utilities/utilities.borders";
@@ -42,7 +41,6 @@
 @forward "@glsass/utilities/utilities.displays";
 @forward "@glsass/utilities/utilities.flex";
 @forward "@glsass/utilities/utilities.headings";
-@forward "@glsass/utilities/utilities.links";
 @forward "@glsass/utilities/utilities.overflows";
 @forward "@glsass/utilities/utilities.sizings";
 @forward "@glsass/utilities/utilities.spacings";
@@ -51,8 +49,6 @@
   $u-debug: true,
   $u-debug-element: "#__docusaurus"
 );
-
-*/
 
 // Overrides
 [class*="debug:baseline"] .markdown > * {

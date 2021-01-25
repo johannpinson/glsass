@@ -1,7 +1,7 @@
 @use "sass:map";
 
 @use "@glsass/tools/tools.global" as *;
-@use "@glsass/graphics" as ui;
+@use "@glsass/graphics";
 
 .m-example {
   display: block;
@@ -28,14 +28,14 @@
   &--elements {
     /// Headings
     %_heading {
-      margin-bottom: ui.$g-headings-margin-bottom;
-      color: ui.$g-headings-color;
-      font-family: ui.$g-headings-font-family;
-      font-weight: ui.$g-headings-font-weight;
-      font-style: ui.$g-headings-font-style;
+      margin-bottom: graphics.$ui-headings-margin-bottom;
+      color: graphics.$ui-headings-color;
+      font-family: graphics.$ui-headings-font-family;
+      font-weight: graphics.$ui-headings-font-weight;
+      font-style: graphics.$ui-headings-font-style;
     }
 
-    @each $hn, $value in ui.$g-headings-styles {
+    @each $hn, $value in graphics.$ui-headings-styles {
       h#{$hn} {
         @extend %_heading;
 

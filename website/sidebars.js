@@ -8,7 +8,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Getting Started',
-      items: ['installation', 'architecture', 'doc1'],
+      items: ['installation', 'exitcss', 'doc1'],
     },
     {
       type: 'category',
@@ -59,6 +59,11 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Helpers',
+      items: ['helpers/links', 'helpers/vhd'],
+    },
+    {
+      type: 'category',
       label: 'Utilities',
       items: [
         'utilities/api',
@@ -68,13 +73,11 @@ module.exports = {
         'utilities/displays',
         'utilities/flex',
         'utilities/headings',
-        'utilities/links',
         'utilities/overflows',
         'utilities/positions',
         'utilities/sizings',
         'utilities/spacings',
         'utilities/texts',
-        'utilities/vhd',
         'utilities/print',
         'utilities/debug',
       ],

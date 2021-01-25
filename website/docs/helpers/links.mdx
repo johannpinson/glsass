@@ -5,7 +5,7 @@ title: Links
 
 import Example from '@site/src/components/Example/'
 
-By adding the `.u-stretched-link` class to a link, it make the "block"
+By adding the `.h-stretched-link` class to a link, it make the "block"
 clickable via a pseudo-element.<br/>
 To acheive it, the pseudo-element is stretched to recover the nearest parent
 with `position: relative` property.
@@ -15,7 +15,7 @@ but if it's not the case, you can add the `.u-pos-r` utility class.
 
 <Example>
   <div className="o-row">
-    <div className="o-col u-12 u-6@tb u-4@lg">
+    <div className="o-col u-12 u-6@tb">
       <div className="c-card">
         <div className="c-card__img">
           <img
@@ -34,7 +34,7 @@ but if it's not the case, you can add the `.u-pos-r` utility class.
           </span>
         </div>
         <div className="c-card__footer">
-          <a className="c-button c-button--primary u-stretched-link" href="#">
+          <a className="c-button c-button--primary h-stretched-link" href="#">
             Action
           </a>
         </div>
@@ -56,7 +56,7 @@ but if it's not the case, you can add the `.u-pos-r` utility class.
     <span>Add some text inside the card.<br>ok more text here.</span>
   </div>
   <div class="c-card__footer">
-    <a class="c-button c-button--primary u-stretched-link" href="#">Link</a>
+    <a class="c-button c-button--primary h-stretched-link" href="#">Link</a>
   </div>
 </div>
 ````

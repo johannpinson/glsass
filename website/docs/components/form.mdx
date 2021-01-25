@@ -433,128 +433,6 @@ input field with the name of the file(s) selected.
 ```
 <!-- prettier-ignore-end -->
 
-## Disabled styles
-
-<Example>
-  <div className="c-form__group">
-    <label className="c-form__label" htmlFor="name-disabled">
-      Name (disabled)
-    </label>
-    <input
-      className="c-form__control"
-      type="text"
-      id="name-disabled"
-      name="name-disabled"
-      placeholder="Name"
-      disabled="disabled"
-    />
-  </div>
-  <div className="c-form__group">
-    <label className="c-form__label" htmlFor="message-readonly">
-      Message (readonly)
-    </label>
-    <textarea
-      className="c-form__control"
-      id="message-readonly"
-      name="message-readonly"
-      placeholder="Add your message"
-      readOnly={true}
-    ></textarea>
-  </div>
-  <div className="c-form__group">
-    <label className="c-form__label">Choose an option</label>
-    <select
-      className="c-form__select"
-      name="list"
-      id="list"
-      disabled="disabled"
-    >
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-  </div>
-  <fieldset className="c-form__group" disabled="disabled">
-    <legend className="c-form__label">Gender</legend>
-    <div className="c-form__check">
-      <input
-        className="c-form__check-input"
-        type="radio"
-        name="gender"
-        id="male-disabled"
-      />
-      <label className="c-form__check-label" htmlFor="male-disabled">
-        Male
-      </label>
-    </div>
-    <div className="c-form__check">
-      <input
-        className="c-form__check-input"
-        type="radio"
-        name="gender"
-        id="female-disabled"
-      />
-      <label className="c-form__check-label" htmlFor="female-disabled">
-        Female
-      </label>
-    </div>
-  </fieldset>
-  <div className="c-form__group">
-    <span className="c-form__label">Active or not the checkbox</span>
-    <div className="c-form__check">
-      <input
-        className="c-form__check-input"
-        type="checkbox"
-        name="checkfield"
-        id="check-disabled"
-        disabled="disabled"
-      />
-      <label className="c-form__check-label" htmlFor="check-disabled">
-        Option 1
-      </label>
-    </div>
-  </div>
-</Example>
-
-<!-- prettier-ignore-start -->
-```html
-<div class="c-form__group">
-  <label class="c-form__label" for="name">Name</label>
-  <input class="c-form__control" type="text" id="name" name="name" placeholder="Name" disabled>
-</div>
-<div class="c-form__group">
-  <label class="c-form__label" for="message">Message</label>
-  <textarea class="c-form__control" id="message" name="message" placeholder="Add your message" disabled></textarea>
-</div>
-<div class="c-form__group">
-  <label class="c-form__label">Choose an option</label>
-  <select class="c-form__select" name="list" id="list" disabled>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-  </select>
-</div>
-<fieldset class="c-form__group" disabled>
-  <legend class="c-form__label">Gender</legend>
-  <div class="c-form__check">
-    <input class="c-form__check-input" type="radio" name="gender" id="male">
-    <label class="c-form__check-label" for="male">Male</label>
-  </div>
-  <div class="c-form__check">
-    <input class="c-form__check-input" type="radio" name="gender" id="female">
-    <label class="c-form__check-label" for="female">Female</label>
-  </div>
-</fieldset>
-<div class="c-form__group">
-  <span class="c-form__label">Active or not the checkbox</span>
-  <div class="c-form__check">
-    <input class="c-form__check-input" type="checkbox" name="checkfield" id="check" disabled>
-    <label class="c-form__check-label" for="check">Option 1</label>
-  </div>
-</div>
-```
-<!-- prettier-ignore-end -->
-
 ## Helpers
 
 You can add some indications by adding texts below fields.<br/>
@@ -668,18 +546,157 @@ with controls, select and file elements).
 ```
 <!-- prettier-ignore-end -->
 
+## Disabled styles
+
+<Example>
+  <div className="c-form__group">
+    <label className="c-form__label" htmlFor="name-disabled">
+      Name (disabled)
+    </label>
+    <input
+      className="c-form__control"
+      type="text"
+      id="name-disabled"
+      name="name-disabled"
+      placeholder="Name"
+      disabled="disabled"
+    />
+  </div>
+  <div className="c-form__group">
+    <label className="c-form__label" htmlFor="message-readonly">
+      Message (readonly)
+    </label>
+    <textarea
+      className="c-form__control"
+      id="message-readonly"
+      name="message-readonly"
+      placeholder="Add your message"
+      readOnly={true}
+    ></textarea>
+  </div>
+  <div className="c-form__group">
+    <label className="c-form__label" htmlFor="select-disabled">
+      Choose an option
+    </label>
+    <select
+      className="c-form__select"
+      name="select-disabled"
+      id="select-disabled"
+      disabled="disabled"
+    >
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+  </div>
+  <fieldset className="c-form__group" disabled="disabled">
+    <legend className="c-form__label">Gender</legend>
+    <div className="c-form__check">
+      <input
+        className="c-form__check-input"
+        type="radio"
+        name="gender-disabled"
+        id="male-disabled"
+      />
+      <label className="c-form__check-label" htmlFor="male-disabled">
+        Male
+      </label>
+    </div>
+    <div className="c-form__check">
+      <input
+        className="c-form__check-input"
+        type="radio"
+        name="gender-disabled"
+        id="female-disabled"
+      />
+      <label className="c-form__check-label" htmlFor="female-disabled">
+        Female
+      </label>
+    </div>
+  </fieldset>
+  <div className="c-form__group">
+    <span className="c-form__label">Active or not the checkbox</span>
+    <div className="c-form__check">
+      <input
+        className="c-form__check-input"
+        type="checkbox"
+        name="check-disabled"
+        id="check-disabled"
+        disabled="disabled"
+      />
+      <label className="c-form__check-label" htmlFor="check-disabled">
+        Option 1
+      </label>
+    </div>
+  </div>
+  <div className="c-form__group">
+    <span className="c-form__label">Add a profile picture</span>
+    <input
+      className="c-form__file-input"
+      type="file"
+      name="picture-disabled"
+      id="picture-disabled"
+      data-multiple-caption="{count} files selected"
+      disabled="disabled"
+    />
+    <label className="c-form__file-label" htmlFor="picture-disabled">
+      <strong>Choose a file</strong>
+      <span></span>
+    </label>
+  </div>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<div class="c-form__group">
+  <label class="c-form__label" for="name">Name</label>
+  <input class="c-form__control" type="text" id="name" name="name" placeholder="Name" disabled>
+</div>
+<div class="c-form__group">
+  <label class="c-form__label" for="message">Message</label>
+  <textarea class="c-form__control" id="message" name="message" placeholder="Add your message" disabled></textarea>
+</div>
+<div class="c-form__group">
+  <label class="c-form__label">Choose an option</label>
+  <select class="c-form__select" name="list" id="list" disabled>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+</div>
+<fieldset class="c-form__group" disabled>
+  <legend class="c-form__label">Gender</legend>
+  <div class="c-form__check">
+    <input class="c-form__check-input" type="radio" name="gender" id="male">
+    <label class="c-form__check-label" for="male">Male</label>
+  </div>
+  <div class="c-form__check">
+    <input class="c-form__check-input" type="radio" name="gender" id="female">
+    <label class="c-form__check-label" for="female">Female</label>
+  </div>
+</fieldset>
+<div class="c-form__group">
+  <span class="c-form__label">Active or not the checkbox</span>
+  <div class="c-form__check">
+    <input class="c-form__check-input" type="checkbox" name="checkfield" id="check" disabled>
+    <label class="c-form__check-label" for="check">Option 1</label>
+  </div>
+</div>
+```
+<!-- prettier-ignore-end -->
+
 ## Validation styles / feedbacks
 
 The validation messages work a bit like the helper texts.<br/>
 This behavior is greatly inspired by Bootstrap.
 
-<div class="u-mb-3">
+<div className="u-mb-3">
   <Example>
     <div className="o-row">
       <div className="o-col u-12 u-6@md">
         <div className="c-form__group">
           <label className="c-form__label" htmlFor="username-valid">
-            Username (valid)
+            Input (valid)
           </label>
           <input
             className="c-form__control is-valid"
@@ -698,7 +715,7 @@ This behavior is greatly inspired by Bootstrap.
       <div className="o-col u-12 u-6@md">
         <div className="c-form__group">
           <label className="c-form__label" htmlFor="username-invalid">
-            Username (invalid)
+            Input (invalid)
           </label>
           <input
             className="c-form__control is-invalid"
@@ -712,6 +729,198 @@ This behavior is greatly inspired by Bootstrap.
           <span className="c-form__feedback c-form__feedback--invalid">
             The field is required
           </span>
+        </div>
+      </div>
+    </div>
+    <div className="o-row">
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <label className="c-form__label" htmlFor="message-valid">
+            Textarea (valid)
+          </label>
+          <textarea
+            className="c-form__control is-valid"
+            id="message-valid"
+            name="message-valid"
+            placeholder="Add your message"
+          ></textarea>
+        </div>
+      </div>
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <label className="c-form__label" htmlFor="message-invalid">
+            Textarea (invalid)
+          </label>
+          <textarea
+            className="c-form__control is-invalid"
+            id="message-invalid"
+            name="message-invalid"
+            placeholder="Add your message"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div className="o-row">
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <label className="c-form__label" htmlFor="select-valid">
+            Select (valid)
+          </label>
+          <select
+            className="c-form__select is-valid"
+            name="select-valid"
+            id="select-valid"
+          >
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <label className="c-form__label" htmlFor="select-invalid">
+            Select (invalid)
+          </label>
+          <select
+            className="c-form__select is-invalid"
+            name="select-invalid"
+            id="select-invalid"
+          >
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div className="o-row">
+      <div className="o-col u-12 u-6@md">
+        <fieldset className="c-form__group">
+          <legend className="c-form__label">Radio (valid)</legend>
+          <div className="c-form__check">
+            <input
+              className="c-form__check-input"
+              type="radio"
+              name="gender-valid"
+              id="male-valid"
+            />
+            <label className="c-form__check-label" htmlFor="male-valid">
+              Male
+            </label>
+          </div>
+          <div className="c-form__check">
+            <input
+              className="c-form__check-input is-valid"
+              type="radio"
+              name="gender-valid"
+              id="female-valid"
+              checked={true}
+            />
+            <label className="c-form__check-label" htmlFor="female-valid">
+              Female
+            </label>
+          </div>
+        </fieldset>
+      </div>
+      <div className="o-col u-12 u-6@md">
+        <fieldset className="c-form__group">
+          <legend className="c-form__label">Radio (invalid)</legend>
+          <div className="c-form__check">
+            <input
+              className="c-form__check-input"
+              type="radio"
+              name="gender-invalid"
+              id="male-invalid"
+            />
+            <label className="c-form__check-label" htmlFor="male-invalid">
+              Male
+            </label>
+          </div>
+          <div className="c-form__check">
+            <input
+              className="c-form__check-input is-invalid"
+              type="radio"
+              name="gender-invalid"
+              id="female-invalid"
+              checked={true}
+            />
+            <label className="c-form__check-label" htmlFor="female-invalid">
+              Female
+            </label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div className="o-row">
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <span className="c-form__label">Checkbox (valid)</span>
+          <div className="c-form__check">
+            <input
+              className="c-form__check-input is-valid"
+              type="checkbox"
+              name="check-valid"
+              id="check-valid"
+            />
+            <label className="c-form__check-label" htmlFor="check-valid">
+              Option 1
+            </label>
+          </div>
+        </div>
+      </div>
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <span className="c-form__label">Checkbox (invalid)</span>
+          <div className="c-form__check">
+            <input
+              className="c-form__check-input is-invalid"
+              type="checkbox"
+              name="check-invalid"
+              id="check-invalid"
+            />
+            <label className="c-form__check-label" htmlFor="check-invalid">
+              Option 1
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="o-row">
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <span className="c-form__label">File (valid)</span>
+          <input
+            className="c-form__file-input is-valid"
+            type="file"
+            name="file-valid"
+            id="file-valid"
+            data-multiple-caption="{count} files selected"
+            multiple="multiple"
+            required=""
+          />
+          <label className="c-form__file-label" htmlFor="file-valid">
+            <strong>Choose a file</strong>
+            <span></span>
+          </label>
+        </div>
+      </div>
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <span className="c-form__label">File (invalid)</span>
+          <input
+            className="c-form__file-input is-invalid"
+            type="file"
+            name="file-invalid"
+            id="file-invalid"
+            data-multiple-caption="{count} files selected"
+            multiple="multiple"
+            required=""
+          />
+          <label className="c-form__file-label" htmlFor="file-invalid">
+            <strong>Choose a file</strong>
+            <span></span>
+          </label>
         </div>
       </div>
     </div>
