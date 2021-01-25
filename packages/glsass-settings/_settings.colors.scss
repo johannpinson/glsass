@@ -85,7 +85,12 @@ $g-color-text-muted: $g-color-gray-600 !default;
 
 // Primary color in color scheme
 /// @type Color
-$g-color-primary: #25c2a0 !default;
+$g-color-primary: null !default;
+
+@if ($g-color-primary == null or $g-color-primary == "") {
+  @error "You must set the `$g-color-primary` variable at least!";
+}
+
 // Secondary color in color scheme
 /// @type Color
 $g-color-secondary: #805ad5 !default;
