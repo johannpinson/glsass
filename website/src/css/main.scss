@@ -34,12 +34,14 @@
 
 // HELPERS
 @forward "@glsass/helpers/helpers.links";
+@forward "@glsass/helpers/helpers.clearfix";
 
 // UTILITIES
 @forward "@glsass/utilities/utilities.borders";
 @forward "@glsass/utilities/utilities.colors";
 @forward "@glsass/utilities/utilities.displays";
 @forward "@glsass/utilities/utilities.flex";
+@forward "@glsass/utilities/utilities.float";
 @forward "@glsass/utilities/utilities.headings";
 @forward "@glsass/utilities/utilities.overflows";
 @forward "@glsass/utilities/utilities.sizings";

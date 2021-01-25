@@ -60,7 +60,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Helpers',
-      items: ['helpers/links', 'helpers/vhd'],
+      items: ['helpers/clearfix', 'helpers/links', 'helpers/vhd'],
     },
     {
       type: 'category',
@@ -72,6 +72,7 @@ module.exports = {
         'utilities/columns',
         'utilities/displays',
         'utilities/flex',
+        'utilities/float',
         'utilities/headings',
         'utilities/overflows',
         'utilities/positions',
