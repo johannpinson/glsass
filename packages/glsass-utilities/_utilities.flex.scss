@@ -1,0 +1,135 @@
+//// ==========================================================================
+/// @group Utilities
+/// Flex
+//// ==========================================================================
+
+@use "sass:map";
+
+@use "@glsass/tools/tools.generators" as generators;
+
+/// List of flex utilities
+/// @type Map
+$u-flex: () !default;
+
+$_utilities: (
+  flex: (
+    responsive: true,
+    property: flex,
+    class: fx,
+    values: (
+      fill: 1 1 auto,
+      grow: 1 0 auto,
+    ),
+  ),
+  flex-direction: (
+    responsive: true,
+    property: flex-direction,
+    class: fd,
+    values: (
+      r: row,
+      rr: row-reverse,
+      c: column,
+      cr: column-reverse,
+    ),
+  ),
+  flex-wrap: (
+    responsive: true,
+    property: flex-wrap,
+    class: fw,
+    values: (
+      n: nowrap,
+      w: wrap,
+      wr: wrap-reverse,
+    ),
+  ),
+  justify-content: (
+    responsive: true,
+    property: justify-content,
+    class: jc,
+    values: (
+      c: center,
+      fs: flex-start,
+      fe: flex-end,
+      sb: space-between,
+      sa: space-around,
+      se: space-evenly,
+    ),
+  ),
+  align-items: (
+    responsive: true,
+    property: align-items,
+    class: ai,
+    values: (
+      fs: flex-start,
+      fe: flex-end,
+      c: center,
+      b: baseline,
+      s: stretch,
+    ),
+  ),
+  align-content: (
+    responsive: true,
+    property: align-content,
+    class: ac,
+    values: (
+      fs: flex-start,
+      fe: flex-end,
+      c: center,
+      sb: space-between,
+      sa: space-around,
+      se: space-evenly,
+      s: stretch,
+    ),
+  ),
+  align-self: (
+    responsive: true,
+    property: align-self,
+    class: as,
+    values: (
+      auto: auto,
+      fs: flex-start,
+      fe: flex-end,
+      c: center,
+      b: baseline,
+      s: stretch,
+    ),
+  ),
+  order: (
+    responsive: true,
+    property: order,
+    class: o,
+    values: (
+      i: initial,
+      first: -1,
+      0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+      last: 6,
+    ),
+  ),
+);
+
+$u-flex: map.merge($_utilities, $u-flex);
+@include generators.utilities($u-flex);
+
+// flex-grow: (
+//   responsive: true,
+//   property: flex-grow,
+//   class: flex,
+//   values: (
+//     grow-0: 0,
+//     grow-1: 1,
+//   )
+// ),
+// flex-shrink: (
+//   responsive: true,
+//   property: flex-shrink,
+//   class: flex,
+//   values: (
+//     shrink-0: 0,
+//     shrink-1: 1,
+//   )
+// ),

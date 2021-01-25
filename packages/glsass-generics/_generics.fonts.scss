@@ -3,8 +3,8 @@
 /// Fonts
 //// ==========================================================================
 
-@use "@glsass/graphics" as ui;
+@use "@glsass/graphics";
 
 @use "@glsass/tools/tools.fonts" as fonts;
 
-@include fonts.import-google-fonts(ui.$g-fonts-google);
+@include fonts.import-google-fonts(graphics.$ui-fonts-google);

@@ -1,0 +1,66 @@
+//// ==========================================================================
+/// @group Utilities
+/// Texts
+//// ==========================================================================
+
+@use "sass:map";
+
+@use "@glsass/tools/tools.generators" as generators;
+
+/// List of texts utilities (font and co)
+/// @type Map
+$u-texts: () !default;
+
+$_utilities: (
+  font-weight: (
+    property: font-weight,
+    class: fw,
+    values: (
+      l: lighter,
+      b: bolder,
+      300: 300,
+      400: 400,
+      700: 700,
+    ),
+  ),
+  font-style: (
+    property: font-style,
+    class: fs,
+    values: (
+      n: normal,
+      i: italic,
+    ),
+  ),
+  text-align: (
+    responsive: true,
+    property: text-align,
+    class: ta,
+    values: (
+      l: left,
+      r: right,
+      c: center,
+    ),
+  ),
+  text-decoration: (
+    property: text-decoration,
+    class: td,
+    values: (
+      u: underline,
+      l: line-through,
+      n: none,
+    ),
+  ),
+  text-transform: (
+    property: text-transform,
+    class: tt,
+    values: (
+      l: lowercase,
+      u: uppercase,
+      c: capitalize,
+      n: none,
+    ),
+  ),
+);
+
+$u-texts: map.merge($_utilities, $u-texts);
+@include generators.utilities($u-texts);

@@ -1,0 +1,127 @@
+//// ==========================================================================
+/// @group Components
+/// Card
+//// ==========================================================================
+
+@use "sass:math";
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.color" as _color;
+@use "@glsass/tools/tools.spacing" as spacing;
+@use "@glsass/tools/tools.unit" as unit;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-card-classname: "c-card" !default;
+@include builder.check-classname($c-card-classname);
+
+/// @type Number
+$c-card-border-width: graphics.$ui-border-width !default;
+/// @type Number
+$c-card-border-color: graphics.$ui-border-color !default;
+/// @type Number
+$c-card-border-radius: graphics.$ui-border-radius !default;
+
+/// @type Color
+$c-card-background-color: cv(white) !default;
+
+/// @type Number
+$c-card-padding: vr() !default;
+
+/// @type Number
+$c-card-step-dimension: 5rem !default;
+/// @type Color
+$c-card-step-bg: cv(primary) !default;
+/// @type Number
+$c-card-step-font-size: 1.5rem;
+/// @type Number
+$c-card-step-border-size: 0.5rem !default;
+/// @type Color
+$c-card-step-border-color: cv(white) !default;
+
+/// 1. Preserve the vertical rhythm by using box-shadow instead of border
+.#{$c-card-classname} {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: $c-card-background-color;
+  border-radius: $c-card-border-radius;
+  box-shadow: 0 0 0 $c-card-border-width $c-card-border-color; // [1]
+
+  &__header,
+  &__body,
+  &__footer {
+    padding: $c-card-padding $c-card-padding 0;
+
+    &:first-child {
+      padding-top: $c-card-padding;
+    }
+
+    &:last-child {
+      padding-bottom: $c-card-padding;
+    }
+  }
+
+  &__body {
+    flex: 1 1 auto;
+  }
+
+  &__img {
+    padding-top: $c-card-padding;
+
+    &:first-child {
+      padding-top: 0;
+
+      img {
+        border-top-left-radius: $c-card-border-radius;
+        border-top-right-radius: $c-card-border-radius;
+      }
+    }
+
+    &:last-child {
+      img {
+        border-bottom-right-radius: $c-card-border-radius;
+        border-bottom-left-radius: $c-card-border-radius;
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+  }
+
+  &[data-step] {
+    $_step-margin-top: unit.add(
+      $c-card-step-dimension / 2,
+      $c-card-step-border-size
+    );
+
+    margin-top: $_step-margin-top;
+
+    &::before {
+      content: attr(data-step);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: $c-card-step-dimension;
+      height: $c-card-step-dimension;
+      margin: -$_step-margin-top auto 0;
+      color: _color.yiq-contrast($c-card-step-bg);
+      font-size: $c-card-step-font-size;
+      background-color: $c-card-step-bg;
+      border: $c-card-step-border-size solid $c-card-step-border-color;
+      border-radius: 50%;
+    }
+  }
+}
+
+// An extension class for manage height behavior in a grid layout
+.#{$c-card-classname}s .#{$c-card-classname} {
+  height: 100%;
+}

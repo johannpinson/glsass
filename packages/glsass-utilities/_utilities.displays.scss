@@ -1,0 +1,32 @@
+//// ==========================================================================
+/// @group Utilities
+/// Displays
+//// ==========================================================================
+
+@use "sass:map";
+
+@use "@glsass/tools/tools.generators" as generators;
+
+/// List of displays utilities
+/// @type Map
+$u-displays: () !default;
+
+$_utilities: (
+  display: (
+    responsive: true,
+    property: display,
+    class: d,
+    values: (
+      n: none,
+      i: inline,
+      ib: inline-block,
+      b: block,
+      f: flex,
+      "if": inline-flex,
+      g: grid,
+    ),
+  ),
+);
+
+$u-displays: map.merge($_utilities, $u-displays);
+@include generators.utilities($u-displays);

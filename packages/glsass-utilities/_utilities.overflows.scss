@@ -1,0 +1,28 @@
+//// ==========================================================================
+/// @group Graphics
+/// Overflows
+//// ==========================================================================
+
+@use "sass:map";
+
+@use "@glsass/tools/tools.generators" as generators;
+
+/// List of overflows utilities
+/// @type Map
+$u-overflows: () !default;
+
+$_utilities: (
+  overflow: (
+    responsive: true,
+    property: overflow,
+    class: ov,
+    values: (
+      auto: auto,
+      v: visible,
+      h: hidden,
+    ),
+  ),
+);
+
+$u-overflows: map.merge($_utilities, $u-overflows);
+@include generators.utilities($u-overflows);

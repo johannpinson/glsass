@@ -1,0 +1,92 @@
+//// ==========================================================================
+/// @group Forms
+/// Toggle
+//// ==========================================================================
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.color" as _color;
+@use "@glsass/tools/tools.spacing" as spacing;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-toggle-classname: "c-form__toggle" !default;
+@include builder.check-classname($c-toggle-classname);
+
+/// @type Number
+$c-toggle-border-radius: graphics.$ui-form-border-radius !default;
+
+/// @type Color
+$c-toggle-text-color: graphics.$ui-form-text-color !default;
+
+/// @type Color
+$c-toggle-bg: graphics.$ui-form-background-disabled;
+/// @type Color
+$c-toggle-bg-active: graphics.$ui-form-main-color !default;
+
+/// @type Number
+$c-toggle-focus-shadow-width: graphics.$ui-form-focus-shadow-width !default;
+/// @type Color
+$c-toggle-focus-shadow-color: graphics.$ui-form-focus-shadow-color !default;
+
+.#{$c-toggle-classname} {
+  $root-toggle: &;
+
+  position: relative;
+  display: inline-flex;
+  margin-left: spacing.add-space();
+  vertical-align: middle;
+
+  &-input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
+
+    &:focus {
+      + #{$root-toggle}-label {
+        z-index: 1;
+        outline: 0;
+        box-shadow: 0 0 0 $c-toggle-focus-shadow-width
+          $c-toggle-focus-shadow-color;
+      }
+    }
+
+    &:active:not(:disabled):not(.disabled) {
+      + #{$root-toggle}-label {
+        filter: brightness(90%);
+      }
+    }
+
+    &:checked {
+      + #{$root-toggle}-label {
+        color: _color.yiq-contrast($c-toggle-bg-active);
+        background-color: $c-toggle-bg-active;
+      }
+    }
+  }
+
+  &-label {
+    display: inline-block;
+    padding: vr(0.5) spacing.add-space();
+    color: $c-toggle-text-color;
+    font-weight: 700;
+    background-color: $c-toggle-bg;
+    user-select: none;
+
+    &:first-of-type {
+      border-top-left-radius: $c-toggle-border-radius;
+      border-bottom-left-radius: $c-toggle-border-radius;
+    }
+
+    &:last-of-type {
+      border-top-right-radius: $c-toggle-border-radius;
+      border-bottom-right-radius: $c-toggle-border-radius;
+    }
+
+    &:hover {
+      color: _color.yiq-contrast($c-toggle-bg);
+      background-color: _color.shade($c-toggle-bg);
+    }
+  }
+}

@@ -14,9 +14,9 @@
   // classname of the element to apply styles
   $main-el,
   // box-shadow size
-  $shadow,
+  $shadow-width,
   // classname of the feedback text
-  $feedback-el: ".c-form__feeback",
+  $feedback-el: ".c-form__feedback",
   // optional parameter to adjust bg color
   $is-check: false,
   // optional parameter to adjust label style instead of input
@@ -33,7 +33,7 @@
         border-color: $color;
 
         &:checked {
-          background-color: $background;
+          background-color: $color;
         }
 
         $label-el: str.replace($main-el, "input", "label");
@@ -61,19 +61,19 @@
       &:focus {
         @if $is-check {
           border-color: $color;
-          box-shadow: 0 0 0 $shadow rgba($color, 0.25);
+          box-shadow: 0 0 0 $shadow-width rgba($color, 0.25);
         } @else if $is-file {
           $label-el: str.replace($main-el, "input", "label");
 
           ~ #{$label-el} {
             background-color: cv("white");
             border-color: $color;
-            box-shadow: 0 0 0 $shadow rgba($color, 0.25);
+            box-shadow: 0 0 0 $shadow-width rgba($color, 0.25);
           }
         } @else {
           background-color: cv("white");
           border-color: $color;
-          box-shadow: 0 0 0 $shadow rgba($color, 0.25);
+          box-shadow: 0 0 0 $shadow-width rgba($color, 0.25);
         }
       }
 

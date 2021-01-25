@@ -11,7 +11,7 @@
 @use "@glsass/settings/settings.colors" as colors;
 @use "@glsass/settings/settings.core" as core;
 
-@use "@glsass/graphics" as ui;
+@use "@glsass/graphics";
 
 @use "@glsass/tools/tools.builder" as builder;
 @use "@glsass/tools/tools.color" as _color;
@@ -24,12 +24,12 @@ $c-button-classname: "c-button" !default;
 @include builder.check-classname($c-button-classname);
 
 /// @type Number
-$c-button-border-width: ui.$ui-border-width !default;
+$c-button-border-width: graphics.$ui-border-width !default;
 
 /// @type Boolean
 $c-button-round-default: true !default;
 /// @type Number
-$c-button-radius: ui.$ui-border-radius !default;
+$c-button-radius: graphics.$ui-border-radius !default;
 
 /// @type Number
 $c-button-font-size: core.$g-font-size-base !default;
@@ -67,7 +67,7 @@ $c-button-line-height-large: $c-button-line-height *
   );
 
 /// @type Number
-$c-button-focus-shadow-width: ui.$ui-shadow-width !default;
+$c-button-focus-shadow-width: graphics.$ui-shadow-width !default;
 
 /// @type Number
 $c-button-padding-y: spacing.add-space(2) !default;
@@ -137,7 +137,7 @@ $c-button-color: cv(text) !default;
   background-color: transparent;
   border: $c-button-border-width solid transparent;
   border-radius: $_border-radius;
-  transition: all 0.35s ui.$ui-transition-timing-function;
+  transition: all 0.35s graphics.$ui-transition-timing-function;
   user-select: none;
 
   &:not(:disabled):not(.disabled):not(.is-inactive):hover {

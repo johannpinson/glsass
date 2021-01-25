@@ -1,0 +1,82 @@
+//// ==========================================================================
+/// @group Utilities
+/// Sizings
+//// ==========================================================================
+
+@use "sass:map";
+
+@use "@glsass/tools/tools.generators" as generators;
+
+/// List of sizings utilities
+/// @type Map
+$u-sizings: () !default;
+
+$_utilities: (
+  width: (
+    property: width,
+    class: w,
+    values: (
+      auto: auto,
+      25: 25%,
+      50: 50%,
+      75: 75%,
+      100: 100%,
+    ),
+  ),
+  height: (
+    property: height,
+    class: h,
+    values: (
+      auto: auto,
+      25: 25%,
+      50: 50%,
+      75: 75%,
+      100: 100%,
+    ),
+  ),
+  max-width: (
+    property: max-width,
+    class: mw,
+    values: (
+      100: 100%,
+    ),
+  ),
+  max-height: (
+    property: max-height,
+    class: mh,
+    values: (
+      100: 100%,
+    ),
+  ),
+  viewport-width: (
+    property: width,
+    class: vw,
+    values: (
+      100: 100vw,
+    ),
+  ),
+  viewport-height: (
+    property: height,
+    class: vh,
+    values: (
+      100: 100vh,
+    ),
+  ),
+  viewport-min-width: (
+    property: min-width,
+    class: min-vw,
+    values: (
+      100: 100vw,
+    ),
+  ),
+  viewport-min-height: (
+    property: min-height,
+    class: min-vh,
+    values: (
+      100: 100vh,
+    ),
+  ),
+);
+
+$u-sizings: map.merge($_utilities, $u-sizings);
+@include generators.utilities($u-sizings);

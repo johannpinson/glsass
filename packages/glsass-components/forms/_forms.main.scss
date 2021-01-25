@@ -1,0 +1,24 @@
+//// ==========================================================================
+/// @group Forms
+/// Main
+//// ==========================================================================
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.spacing" as spacing;
+
+$c-form-classname: "c-form" !default;
+@include builder.check-classname($c-form-classname);
+
+.#{$c-form-classname} {
+  &__group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: spacing.add-space();
+  }
+
+  &__inline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

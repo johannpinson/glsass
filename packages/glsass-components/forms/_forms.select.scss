@@ -1,0 +1,142 @@
+//// ==========================================================================
+/// @group Forms
+/// Select
+//// ==========================================================================
+
+@use "@glsass/settings" as core;
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.color" as _color;
+@use "@glsass/tools/tools.form" as form;
+@use "@glsass/tools/tools.spacing" as spacing;
+@use "@glsass/tools/tools.string" as str;
+@use "@glsass/tools/tools.unit" as unit;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-select-classname: "c-form__select" !default;
+@include builder.check-classname($c-select-classname);
+
+/// @type Number
+$c-select-border-radius: graphics.$ui-form-border-radius !default;
+/// @type Number
+$c-select-border-width: unit.convert(graphics.$ui-form-border-width) !default;
+/// @type Color
+$c-select-border-color: graphics.$ui-form-border-color !default;
+
+/// @type Color
+$c-select-text-color: graphics.$ui-form-text-color !default;
+$c-select-text-disabled: graphics.$ui-form-placeholder-color !default;
+
+/// @type Number
+$c-select-font-size: core.$g-font-size-base !default;
+/// @type Number
+$c-select-font-height: core.$g-font-line-height-base !default;
+
+/// @type Color
+$c-select-focus-border-color: graphics.$ui-form-focus-border-color !default;
+/// @type Number
+$c-select-focus-shadow-width: graphics.$ui-form-focus-shadow-width !default;
+/// @type Color
+$c-select-focus-shadow-color: graphics.$ui-form-focus-shadow-color !default;
+
+/// @type Color
+$c-select-background-color: graphics.$ui-form-background-color !default;
+/// @type Color
+$c-select-background-disabled: graphics.$ui-form-background-disabled !default;
+/// @type Color
+
+/// @type String
+$c-select-icon: iv("select") !default;
+
+/// @type Number
+$c-select-height: vr(1.5) !default;
+/// @type Number
+$c-select-padding: (vr(0.5) / 2) vr(0.5) !default;
+
+/// @type Boolean
+$c-select-add-validation-states: true !default;
+
+.#{$c-select-classname} {
+  display: inline-block;
+  flex: 1 0 auto;
+  height: $c-select-height;
+  padding: $c-select-padding;
+  color: $c-select-text-color;
+  font-size: $c-select-font-size;
+  line-height: $c-select-font-height;
+  background-color: $c-select-background-color;
+  border: $c-select-border-width solid $c-select-border-color;
+  border-radius: $c-select-border-radius;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  appearance: none;
+
+  &:hover:not(:disabled):not([readonly]):not([class*="is-"]) {
+    border-color: $c-select-focus-border-color;
+  }
+
+  &:focus {
+    border-color: $c-select-focus-border-color;
+    outline: 0;
+    box-shadow: 0 0 0 $c-select-focus-shadow-width $c-select-focus-shadow-color;
+
+    &::-ms-value {
+      // For visual consistency with other platforms/browsers,
+      // suppress the default white text on blue background highlight given to
+      // the selected option text when the (still closed) <select> receives focus
+      // in IE and (under certain conditions) Edge.
+      // See https://github.com/twbs/bootstrap/issues/19398.
+      color: $c-select-text-color;
+      background-color: cv("white");
+    }
+  }
+
+  &:disabled {
+    color: $c-select-text-disabled;
+    background-color: $c-select-background-disabled;
+    cursor: not-allowed;
+    opacity: 1;
+  }
+
+  // Hides the default caret in IE11
+  &::-ms-expand {
+    display: none;
+  }
+
+  // Remove outline from select box in FF
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 $c-select-text-color;
+  }
+
+  // Multiple select
+  &[size],
+  &[multiple] {
+    height: auto;
+    padding: (vr(0.5) - $c-select-border-width) vr(0.5);
+
+    option {
+      box-sizing: border-box;
+      height: vr(1);
+      padding: (0.25rem/2) 0.25rem;
+    }
+  }
+
+  &:not([multiple]):not([size]) {
+    padding-right: (0.75rem + 1rem);
+    background-image: url($c-select-icon);
+    background-repeat: no-repeat;
+    background-position: right 0.375rem center;
+    background-size: 1rem 0.75rem;
+  }
+}
+
+@if $c-select-add-validation-states {
+  @include form.add-validation-states(
+    graphics.$ui-form-states,
+    ".#{$c-select-classname}",
+    $c-select-focus-shadow-width
+  );
+}

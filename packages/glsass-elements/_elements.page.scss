@@ -3,7 +3,7 @@
 /// Page
 //// ==========================================================================
 
-@use "@glsass/graphics" as ui;
+@use "@glsass/graphics";
 
 @use "@glsass/tools/tools.global" as *;
 
@@ -13,9 +13,9 @@
 /// 2. Ensure the page always fills at least the entire height of the viewport.
 html {
   min-height: 100%; // [2]
-  font-family: ui.$g-font-family-map;
-  font-size: ui.$g-font-size-base; // [1]
-  line-height: ui.$g-font-line-height-base; // [1]
+  font-family: graphics.$ui-fonts-family-map;
+  font-size: graphics.$g-font-size-base; // [1]
+  line-height: graphics.$g-font-line-height-base; // [1]
 }
 
 /// Body

@@ -1,0 +1,78 @@
+//// ==========================================================================
+/// @group Utilities
+/// Colors
+//// ==========================================================================
+
+@use "sass:map";
+
+@use "@glsass/settings/settings.colors" as colors;
+
+@use "@glsass/tools/tools.generators" as generators;
+@use "@glsass/tools/tools.global" as *;
+
+/// List of colors used inside utilities
+/// @type Map
+$u-colors: () !default;
+
+/// Enable the background-image utility class
+/// @type Boolean
+$u-colors-background-image: true !default;
+
+$_utilities: (
+  color: (
+    property: color,
+    class: c,
+    values:
+      map.merge(
+        colors.$g-color-theme-colors,
+        (
+          muted: cv("text", "muted"),
+          black-50: rgba(cv(black), 0.5),
+          white-50: rgba(cv(white), 0.5),
+          reset: inherit,
+        )
+      ),
+  ),
+  background-color: (
+    property: background-color,
+    class: bg,
+    values:
+      map.merge(
+        colors.$g-color-theme-colors,
+        (
+          transparent: transparent,
+        )
+      ),
+  ),
+);
+
+$u-colors: map.merge($_utilities, $u-colors);
+@include generators.utilities($u-colors);
+
+/// Additional utility for background with an image
+/// It's automatically add a dark transparent layout on top of the image
+/// to increase text lisibility
+@if ($u-colors-background-image) {
+  .u-bg-i {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(cv("black"), 0.6);
+    }
+
+    > :first-of-type {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}

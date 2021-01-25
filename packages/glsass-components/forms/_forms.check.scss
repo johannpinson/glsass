@@ -1,0 +1,135 @@
+//// ==========================================================================
+/// @group Forms
+/// Check
+//// ==========================================================================
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.form" as form;
+@use "@glsass/tools/tools.spacing" as spacing;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-check-classname: "c-form__check" !default;
+@include builder.check-classname($c-check-classname);
+
+/// @type Number
+$c-check-border-radius: graphics.$ui-form-border-radius !default;
+/// @type Number
+$c-check-border-width: graphics.$ui-form-border-width !default;
+/// @type Color
+$c-check-border-color: graphics.$ui-form-border-color !default;
+
+/// @type Color
+$c-check-focus-border-color: graphics.$ui-form-focus-border-color !default;
+/// @type Number
+$c-check-focus-shadow-width: graphics.$ui-form-focus-shadow-width !default;
+/// @type Color
+$c-check-focus-shadow-color: graphics.$ui-form-focus-shadow-color !default;
+
+/// @type Color
+$c-check-checked-border-color: graphics.$ui-form-main-color !default;
+/// @type Color
+$c-check-checked-bg: graphics.$ui-form-main-color !default;
+
+/// @type Color
+$c-check-background-color: graphics.$ui-form-background-color !default;
+
+/// @type String
+$c-check-icon-checkbox: iv("checkbox") !default;
+/// @type String
+$c-check-icon-radio: iv("radio") !default;
+
+/// @type Boolean
+$c-check-add-validation-states: true !default;
+
+.#{$c-check-classname} {
+  $root-check: &;
+
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: vr(1);
+  margin-bottom: vr(0.5);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &-input {
+    display: block;
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: $c-check-background-color;
+    border: $c-check-border-width solid $c-check-border-color;
+    border-radius: $c-check-border-radius;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+      background-color 0.15s ease-in-out;
+    appearance: none;
+
+    &:hover:not(:disabled):not(.disabled):not([class*="is-"]) {
+      border-color: $c-check-focus-border-color;
+    }
+
+    &:focus {
+      border-color: $c-check-focus-border-color;
+      outline: 0;
+      box-shadow: 0 0 0 $c-check-focus-shadow-width $c-check-focus-shadow-color;
+    }
+
+    &:active:not(:disabled):not(.disabled) {
+      filter: brightness(90%);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+
+      &:checked {
+        opacity: 0.5;
+      }
+
+      ~ #{$root-check}-label {
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+    }
+
+    &:checked {
+      background-color: $c-check-checked-bg;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 1rem auto;
+      border-color: $c-check-checked-border-color;
+    }
+
+    &[type="checkbox"] {
+      &:checked {
+        background-image: url($c-check-icon-checkbox);
+      }
+    }
+
+    &[type="radio"] {
+      border-radius: 50%;
+
+      &:checked {
+        background-image: url($c-check-icon-radio);
+      }
+    }
+  }
+
+  &-label {
+    padding-left: spacing.add-space(2);
+    user-select: none;
+  }
+}
+
+@if $c-check-add-validation-states {
+  @include form.add-validation-states(
+    graphics.$ui-form-states,
+    ".#{$c-check-classname}-input",
+    $c-check-focus-shadow-width,
+    $is-check: true
+  );
+}

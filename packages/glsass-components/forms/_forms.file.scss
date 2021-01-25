@@ -1,0 +1,131 @@
+//// ==========================================================================
+/// @group Forms
+/// Toggle
+//// ==========================================================================
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.form" as form;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-file-classname: "c-form__file" !default;
+@include builder.check-classname($c-file-classname);
+
+/// @type Number
+$c-file-border-radius: graphics.$ui-form-border-radius !default;
+/// @type Number
+$c-file-border-width: graphics.$ui-form-border-width !default;
+/// @type Color
+$c-file-border-color: graphics.$ui-form-border-color !default;
+
+/// @type Color
+$c-file-label-color: graphics.$ui-form-text-color !default;
+/// @type Color
+$c-file-label-bg: graphics.$ui-form-main-color !default;
+/// @type Color
+$c-file-label-disabled: graphics.$ui-form-placeholder-color !default;
+
+/// @type Color
+$c-file-focus-border-color: graphics.$ui-form-focus-border-color !default;
+/// @type Number
+$c-file-focus-shadow-width: graphics.$ui-form-focus-shadow-width !default;
+/// @type Color
+$c-file-focus-shadow-color: graphics.$ui-form-focus-shadow-color !default;
+
+/// @type Color
+$c-file-background-color: graphics.$ui-form-background-color !default;
+/// @type Color
+$c-file-background-label: cv(light) !default;
+/// @type Color
+$c-file-background-disabled: graphics.$ui-form-background-disabled !default;
+
+/// @type Number
+$c-file-height: vr(1.5) !default;
+
+/// @type Boolean
+$c-file-add-validation-states: true !default;
+
+.#{$c-file-classname} {
+  $root-file: &;
+
+  &-input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
+
+    &:not(:disabled):not([readonly]):not([class*="is-"]) {
+      ~ #{$root-file}-label:hover {
+        &,
+        strong {
+          border-color: $c-file-focus-border-color;
+        }
+      }
+    }
+
+    &:focus {
+      ~ #{$root-file}-label {
+        border-color: $c-file-focus-border-color;
+        outline: 0;
+        box-shadow: 0 0 0 $c-file-focus-shadow-width $c-file-focus-shadow-color;
+
+        strong {
+          border-color: $c-file-focus-border-color;
+        }
+      }
+    }
+
+    &:disabled {
+      ~ #{$root-file}-label {
+        color: $c-file-label-disabled;
+        background-color: $c-file-background-disabled;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &-label {
+    display: flex;
+    flex: 1 0 auto;
+    align-items: center;
+    height: $c-file-height;
+    overflow: hidden;
+    color: $c-file-label-color;
+    background-color: $c-file-background-color;
+    border: $c-file-border-width solid $c-file-border-color;
+    border-radius: $c-file-border-radius;
+
+    strong,
+    span {
+      padding: (vr(0.5) / 2) vr(0.5);
+      pointer-events: none;
+    }
+
+    strong {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      height: 100%;
+      font-weight: 400;
+      background-color: $c-file-background-label;
+      border-right: $c-file-border-width solid $c-file-border-color;
+    }
+
+    span {
+      min-width: 2rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+@if $c-file-add-validation-states {
+  @include form.add-validation-states(
+    graphics.$ui-form-states,
+    ".#{$c-file-classname}-input",
+    $c-file-focus-shadow-width,
+    $is-file: true
+  );
+}

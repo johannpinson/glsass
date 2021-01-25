@@ -1,0 +1,117 @@
+//// ==========================================================================
+/// @group Forms
+/// Control
+//// ==========================================================================
+
+@use "sass:selector";
+
+@use "@glsass/settings/settings.core" as core;
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.form" as form;
+@use "@glsass/tools/tools.spacing" as spacing;
+@use "@glsass/tools/tools.string" as str;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-control-classname: "c-form__control" !default;
+@include builder.check-classname($c-control-classname);
+
+/// @type Number
+$c-control-border-radius: graphics.$ui-form-border-radius !default;
+/// @type Number
+$c-control-border-width: graphics.$ui-form-border-width !default;
+/// @type Color
+$c-control-border-color: graphics.$ui-form-border-color !default;
+
+/// @type Color
+$c-control-text-color: graphics.$ui-form-text-color !default;
+/// @type Color
+$c-control-placeholder-color: graphics.$ui-form-placeholder-color !default;
+
+/// @type Number
+$c-control-font-size: core.$g-font-size-base !default;
+/// @type Number
+$c-control-font-height: core.$g-font-line-height-base !default;
+
+/// @type Color
+$c-control-focus-border-color: graphics.$ui-form-focus-border-color !default;
+/// @type Number
+$c-control-focus-shadow-width: graphics.$ui-form-focus-shadow-width !default;
+/// @type Color
+$c-control-focus-shadow-color: graphics.$ui-form-focus-shadow-color !default;
+
+/// @type Color
+$c-control-background-color: graphics.$ui-form-background-color !default;
+/// @type Color
+$c-control-background-disabled: graphics.$ui-form-background-disabled !default;
+
+/// @type Number
+$c-control-height: vr(1.5) !default;
+/// @type Number
+$c-control-padding: (vr(0.5) / 2) vr(0.5) !default;
+
+/// @type Boolean
+$c-control-add-validation-states: true !default;
+
+.#{$c-control-classname} {
+  display: block;
+  flex: 1 0 auto;
+  height: $c-control-height;
+  padding: $c-control-padding;
+  color: $c-control-text-color;
+  font-size: $c-control-font-size;
+  line-height: $c-control-font-height;
+  background-color: $c-control-background-color;
+  border: $c-control-border-width solid $c-control-border-color;
+  border-radius: $c-control-border-radius;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  // Since the :is() pseudo-class isn't supperted well
+  // make it works with SCSS
+  // &:is(textarea)
+  @at-root #{selector.unify(&, "textarea")} {
+    height: vr(3);
+    min-height: vr(3);
+  }
+
+  &::placeholder {
+    color: $c-control-placeholder-color;
+    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+    opacity: 1;
+  }
+
+  &:hover:not(:disabled):not([readonly]):not([class*="is-"]) {
+    border-color: $c-control-focus-border-color;
+  }
+
+  &:focus {
+    border-color: $c-control-focus-border-color;
+    outline: 0;
+    box-shadow: 0 0 0 $c-control-focus-shadow-width
+      $c-control-focus-shadow-color;
+  }
+
+  // Disabled and read-only inputs
+  //
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+  &:disabled,
+  &[readonly] {
+    background-color: $c-control-background-disabled;
+    cursor: not-allowed;
+    // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+    opacity: 1;
+  }
+}
+
+@if $c-control-add-validation-states {
+  @include form.add-validation-states(
+    graphics.$ui-form-states,
+    ".#{$c-control-classname}",
+    $c-control-focus-shadow-width
+  );
+}

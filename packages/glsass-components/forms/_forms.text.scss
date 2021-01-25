@@ -1,0 +1,60 @@
+//// ==========================================================================
+/// @group Forms
+/// Text
+//// ==========================================================================
+
+@use "sass:map";
+@use "sass:list";
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.spacing" as spacing;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-text-classname: "c-form__feedback" !default;
+@include builder.check-classname($c-text-classname);
+/// @type String
+$c-text-alias: "c-form__text" !default;
+@include builder.check-classname($c-text-alias);
+
+/// @type Number
+$c-text-margin-top: spacing.add-space(1) !default;
+
+/// @type Color
+$c-text-font-color: cv(text, muted) !default;
+/// @type Number
+$c-text-font-size: 0.875rem !default;
+
+.#{$c-text-classname},
+.#{$c-text-alias} {
+  width: 100%;
+  margin-top: $c-text-margin-top;
+  color: $c-text-font-color;
+  font-size: $c-text-font-size;
+  line-height: spacing.adjust-vr(1, $c-text-font-size, $c-text-margin-top);
+}
+
+.#{$c-text-classname} {
+  display: none;
+
+  @each $state, $data in graphics.$ui-form-states {
+    $color: map.get($data, color);
+    $icon: map.get($data, icon);
+
+    @if (
+      list.index(graphics.$ui-form-states, $state $data) == 1 and $icon != null
+    ) {
+      padding-left: spacing.add-space();
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 0.75rem;
+    }
+
+    &--#{$state} {
+      color: $color;
+      background-image: url($icon);
+    }
+  }
+}

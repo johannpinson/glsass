@@ -8,7 +8,7 @@
 
 @use "@glsass/settings/settings.colors" as colors;
 
-@use "@glsass/graphics" as ui;
+@use "@glsass/graphics";
 
 @use "@glsass/tools/tools.builder" as builder;
 @use "@glsass/tools/tools.color" as _color;
@@ -20,7 +20,7 @@ $c-alert-classname: "c-alert" !default;
 @include builder.check-classname($c-alert-classname);
 
 /// @type Number
-$c-alert-border-radius: ui.$ui-border-radius !default;
+$c-alert-border-radius: graphics.$ui-border-radius !default;
 
 /// @type Number
 $c-alert-margin-bottom: vr() !default;

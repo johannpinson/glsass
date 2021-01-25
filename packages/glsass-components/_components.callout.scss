@@ -1,0 +1,63 @@
+//// ==========================================================================
+/// @group Components
+/// Callout
+//// ==========================================================================
+
+@use "sass:map";
+@use "sass:math";
+@use "sass:list";
+
+@use "@glsass/settings/settings.colors" as colors;
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.unit" as unit;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-callout-classname: "c-callout" !default;
+@include builder.check-classname($c-callout-classname);
+
+$c-callout-border-width: graphics.$ui-border-width !default;
+$c-callout-border-color: graphics.$ui-border-color !default;
+$c-callout-border-radius: graphics.$ui-border-radius !default;
+
+$c-callout-margin-bottom: vr() !default;
+$c-callout-padding: vr(0.5) !default;
+
+// The light variant is removed because it's considered as the default design
+$c-callout-variants: () !default;
+$c-callout-variants: list.join(
+  (
+    "primary",
+    "secondary",
+    "success",
+    "danger",
+    "warning",
+    "info",
+    "dark",
+    "white"
+  ),
+  $c-callout-variants
+);
+
+.#{$c-callout-classname} {
+  margin-bottom: $c-callout-margin-bottom;
+  padding: unit.sub($c-callout-padding, $c-callout-border-width)
+    $c-callout-padding;
+  border: $c-callout-border-width solid $c-callout-border-color;
+  border-left-width: 0.25rem;
+  border-radius: $c-callout-border-radius;
+}
+
+// Generate modifiers class for colors variant
+@each $color in $c-callout-variants {
+  @if map.get(colors.$g-color-theme-colors, $color) {
+    $_color: map.get(colors.$g-color-theme-colors, $color);
+
+    .#{$c-callout-classname}--#{$color} {
+      border-left-color: $_color;
+    }
+  }
+}

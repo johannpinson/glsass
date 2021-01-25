@@ -1,0 +1,54 @@
+//// ==========================================================================
+/// @group Utilities
+/// Displays
+//// ==========================================================================
+
+@use "sass:map";
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.generators" as generators;
+
+/// List of borders utilities
+/// @type Map
+$u-borders: () !default;
+
+$_utilities: (
+  border: (
+    property: border,
+    class: bd,
+    values: (
+      null: graphics.$ui-border-width solid graphics.$ui-border-color,
+      0: 0,
+    ),
+  ),
+  border-radius: (
+    property: border-radius,
+    class: br,
+    values: (
+      null: graphics.$ui-border-radius,
+      pill: 50rem,
+      full: 50%,
+      0: 0,
+    ),
+  ),
+  box-shadow: (
+    property: box-shadow,
+    class: bs,
+    values: (
+      null: 0 0 0 graphics.$ui-border-width graphics.$ui-border-color,
+      0: none,
+    ),
+  ),
+  outline: (
+    property: outline,
+    class: ol,
+    values: (
+      null: graphics.$ui-border-width solid graphics.$ui-border-color,
+      0: 0,
+    ),
+  ),
+);
+
+$u-borders: map.merge($_utilities, $u-borders);
+@include generators.utilities($u-borders);

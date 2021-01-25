@@ -1,0 +1,46 @@
+//// ==========================================================================
+/// @group Utilities
+/// Columns
+//// ==========================================================================
+
+@use "sass:math";
+
+@use "@glsass/settings/settings.core" as core;
+
+@use "@glsass/tools/tools.breakpoints" as breakpoints;
+
+@each $breakpoint, $value in core.$g-grid-breakpoints {
+  $suffix: breakpoints.suffix($breakpoint);
+
+  @include breakpoints.media-up($breakpoint) {
+    @for $i from 1 through core.$g-grid-columns {
+      .u-#{$i}#{$suffix} {
+        // @include make-col($i, $columns);
+
+        flex: 0 0 math.percentage($i / core.$g-grid-columns);
+        // Add a `max-width` to ensure content within each column does not blow out
+        // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+        // do not appear to require this.
+        max-width: math.percentage($i / core.$g-grid-columns);
+      }
+    }
+
+    .u-auto#{$suffix} {
+      flex: 0 0 auto;
+      width: auto;
+    }
+  }
+}
+
+// Remove the negative margin from default .row, then the horizontal padding
+// from all immediate children columns (to prevent runaway style inheritance).
+.u-no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .o-col,
+  > [class*="o-col\@"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}

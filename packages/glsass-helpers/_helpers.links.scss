@@ -1,0 +1,22 @@
+//// ==========================================================================
+/// @group Helpers
+/// Links
+//// ==========================================================================
+
+@use "@glsass/tools/tools.builder" as builder;
+
+/// @type String
+$h-links-classname: "h-stretched-link" !default;
+@include builder.check-classname($h-links-classname);
+
+.#{$h-links-classname} {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+}

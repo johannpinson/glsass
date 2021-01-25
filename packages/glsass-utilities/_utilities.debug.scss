@@ -1,0 +1,155 @@
+//// ==========================================================================
+/// @group Utilities
+/// Debug
+//// ==========================================================================
+
+/*! purgecss start ignore */
+@use "@glsass/tools/tools.unit" as unit;
+@use "@glsass/tools/tools.global" as *;
+
+$u-debug: false !default;
+
+$u-debug-element: "body" !default;
+
+@if ($u-debug) {
+  @warn "Debug mode is enable and will add classes to our main CSS file!";
+
+  #{$u-debug-element} {
+    position: relative;
+
+    /**
+     * Display a baseline grid based on the 24px size
+     */
+    &.debug\:baseline {
+      $_space: vr(0.5);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 9999;
+        display: block;
+        width: auto;
+        height: auto;
+        // background: url("https://basehold.it/i/24/ff000");
+        // background-size: 4px 24px;
+        background-image: linear-gradient(
+          rgba(255, 0, 0, 0.5) 1px,
+          transparent 1px,
+          transparent $_space,
+          rgba(255, 0, 0, 0.33) unit.add($_space, 1px),
+          transparent unit.add($_space, 1px)
+        );
+        background-position: center -1px;
+        background-size: 100% vr();
+        pointer-events: none;
+
+        @media (resolution: 2x) {
+          background-image: linear-gradient(
+            rgba(255, 0, 0, 0.5) 0.5px,
+            transparent 0.5px,
+            transparent $_space,
+            rgba(255, 0, 0, 0.33) unit.add($_space, 0.5px),
+            transparent unit.add($_space, 0.5px)
+          );
+          background-position: center -0.5px;
+        }
+      }
+
+      &:active::after {
+        display: none;
+      }
+    }
+
+    /**
+     * Outline all Object classes.
+     */
+    &.debug\:all,
+    &.debug\:o {
+      [class^="o-"],
+      [class*=" o-"] {
+        outline: 5px solid orange;
+      }
+    }
+
+    /**
+     * Outline all Component classes.
+     */
+    &.debug\:all,
+    &.debug\:c {
+      [class^="c-"],
+      [class*=" c-"] {
+        outline: 5px solid cyan;
+      }
+    }
+
+    /**
+     * Outline all Module classes.
+     */
+    &.debug\:all,
+    &.debug\:m {
+      [class^="m-"],
+      [class*=" m-"] {
+        outline: 5px solid greenyellow;
+      }
+    }
+
+    /**
+     * Outline all Theme classes.
+     */
+    &.debug\:all,
+    &.debug\:t {
+      [class^="t-"],
+      [class*=" t-"] {
+        outline: 5px solid black;
+      }
+    }
+
+    /**
+     * Outline all Theme classes.
+     */
+    &.debug\:all,
+    &.debug\:t {
+      [class^="t-"],
+      [class*=" t-"] {
+        outline: 5px solid black;
+      }
+    }
+
+    /**
+     * Outline all Utilities classes.
+     */
+    &.debug\:all,
+    &.debug\:u {
+      [class^="u-"],
+      [class*=" u-"] {
+        outline: 5px solid violet;
+      }
+    }
+
+    /**
+     * Outline all Hack classes.
+     */
+    &.debug\:all,
+    &.debug\:_ {
+      [class^="_"],
+      [class*=" _"] {
+        outline: 5px solid red;
+      }
+    }
+
+    /**
+     * Outline all Responsive classes.
+     */
+    &.debug\:a {
+      [class*="@"] {
+        outline: 5px solid rosybrown;
+      }
+    }
+  }
+}
+
+/*! purgecss end ignore */

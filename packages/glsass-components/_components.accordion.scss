@@ -1,0 +1,101 @@
+//// ==========================================================================
+/// @group Components
+/// Accordion
+//// ==========================================================================
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.spacing" as spacing;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-accordion-classname: "c-accordion" !default;
+@include builder.check-classname($c-accordion-classname);
+
+/// @type String
+$c-accordion-icon: iv(select) !default;
+/// @type Number
+$c-accordion-icon-size: 1rem !default;
+
+/// @type Number
+$c-accordion-focus-shadow-width: graphics.$ui-shadow-width !default;
+/// @type Color
+$c-accordion-focus-shadow-color: rgba(cv(primary), 0.25) !default;
+
+/// @type Number
+$c-accordion-header-radius: graphics.$ui-border-radius !default;
+
+/// @type Boolean
+$c-accordion-with-open-animation: true !default;
+/// @type Number
+$c-accordion-animation-initial-gap: -1rem !default;
+
+/// @type String
+$c-accordion-transition: graphics.$ui-transition-timing-function !default;
+
+.#{$c-accordion-classname} {
+  $root: &;
+
+  &[open] {
+    @if $c-accordion-with-open-animation {
+      #{$root}__body {
+        animation: sweep 0.35s $c-accordion-transition none;
+      }
+    }
+
+    #{$root}__header::before {
+      transform: rotate(0);
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: vr(0.5) / 2;
+    border-radius: $c-accordion-header-radius;
+    cursor: pointer;
+    user-select: none;
+
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 0 $c-accordion-focus-shadow-width
+        $c-accordion-focus-shadow-color;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: $c-accordion-icon-size;
+      height: $c-accordion-icon-size;
+      margin-right: (vr() - $c-accordion-icon-size);
+      background-image: url($c-accordion-icon);
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: $c-accordion-icon-size;
+      transform: rotate(-90deg);
+      transition: transform 0.35s $c-accordion-transition;
+    }
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  &__body {
+  }
+}
+
+@if $c-accordion-with-open-animation {
+  @keyframes sweep {
+    0% {
+      opacity: 0;
+      transform: translateX($c-accordion-animation-initial-gap);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}

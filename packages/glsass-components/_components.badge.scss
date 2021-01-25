@@ -3,7 +3,7 @@
 /// Badge
 //// ==========================================================================
 
-@use "@glsass/graphics" as ui;
+@use "@glsass/graphics";
 
 @use "@glsass/tools/tools.builder" as builder;
 @use "@glsass/tools/tools.color" as _color;
@@ -13,7 +13,8 @@
 $c-badge-classname: "c-badge" !default;
 @include builder.check-classname($c-badge-classname);
 
-$c-badge-border-radius: ui.$ui-border-radius !default;
+/// @type Number
+$c-badge-border-radius: graphics.$ui-border-radius !default;
 
 /// @type Color
 $c-badge-background-color: cv(light) !default;

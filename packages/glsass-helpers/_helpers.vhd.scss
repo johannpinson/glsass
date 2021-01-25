@@ -1,0 +1,18 @@
+//// ==========================================================================
+/// @group Helpers
+/// Visually hidden
+//// ==========================================================================
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.vhd" as vhd;
+
+/// @type String
+$h-vhd-classname: "h-vhd" !default;
+@include builder.check-classname($h-vhd-classname);
+
+// Allow to hide an element from the display, but still available to an
+// assistant (a.k.a. a screen reader)
+.#{$h-vhd-classname},
+.#{$h-vhd-classname}-focusable:not(:focus) {
+  @include vhd.visually-hidden();
+}

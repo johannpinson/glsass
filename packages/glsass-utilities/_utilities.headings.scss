@@ -1,14 +1,12 @@
 //// ==========================================================================
-/// @group Elements
+/// @group Components
 /// Headings
 //// ==========================================================================
-
 @use "sass:map";
 
 @use "@glsass/graphics";
 
 %_heading {
-  margin-bottom: graphics.$ui-headings-margin-bottom;
   color: graphics.$ui-headings-color;
   font-family: graphics.$ui-headings-font-family;
   font-weight: graphics.$ui-headings-font-weight;
@@ -16,10 +14,10 @@
 }
 
 @each $hn, $value in graphics.$ui-headings-styles {
-  h#{$hn} {
+  .u-h#{$hn} {
     @extend %_heading;
 
-    font-size: map.get($value, font-size);
-    line-height: map.get($value, line-height);
+    font-size: map.get($value, font-size) !important;
+    line-height: map.get($value, line-height) !important;
   }
 }
