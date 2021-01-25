@@ -1,6 +1,8 @@
 @charset "UFT-8";
 
-// @use "@glsass/index.scss";
+@use "@glsass/settings" with (
+  $g-color-primary: #02aab0,
+);
 
 // GRAPHICS
 // @use "@glsass/graphics" as ui;

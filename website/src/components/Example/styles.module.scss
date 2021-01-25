@@ -1,5 +1,9 @@
 @use "sass:map";
 
+@use "@glsass/settings" with (
+  $g-color-primary: #02aab0,
+);
+
 @use "@glsass/tools/tools.global" as *;
 @use "@glsass/graphics";
 
