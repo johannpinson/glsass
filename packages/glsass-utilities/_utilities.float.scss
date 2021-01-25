@@ -1,0 +1,28 @@
+//// ==========================================================================
+/// @group Utilities
+/// Float
+//// ==========================================================================
+
+@use "sass:map";
+
+@use "@glsass/tools/tools.generators" as generators;
+
+/// List of float utilities
+/// @type Map
+$u-float: () !default;
+
+$_utilities: (
+  float: (
+    responsive: true,
+    property: float,
+    class: fl,
+    values: (
+      r: right,
+      l: left,
+      n: none,
+    ),
+  ),
+);
+
+$u-float: map.merge($_utilities, $u-float);
+@include generators.utilities($u-float);

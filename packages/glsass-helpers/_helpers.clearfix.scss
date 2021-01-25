@@ -1,0 +1,18 @@
+//// ==========================================================================
+/// @group Helpers
+/// Clearfix
+//// ==========================================================================
+
+@use "@glsass/tools/tools.builder" as builder;
+
+/// @type String
+$h-clearfix-classname: "h-clearfix" !default;
+@include builder.check-classname($h-clearfix-classname);
+
+.#{$h-clearfix-classname} {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
