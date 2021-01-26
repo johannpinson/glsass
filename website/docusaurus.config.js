@@ -112,7 +112,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/johannpinson/glsass/edit/master/',
+          editUrl: 'https://github.com/johannpinson/glsass/edit/main/website/',
           showLastUpdateTime: true,
           // lastVersion: 'current',
           // versions: {
@@ -125,7 +125,8 @@ module.exports = {
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl: 'https://github.com/johannpinson/glsass/edit/master/blog/',
+          editUrl:
+            'https://github.com/johannpinson/glsass/edit/main/website/blog/',
         },
         theme: {
           customCss: [
