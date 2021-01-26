@@ -2,7 +2,9 @@
   "name": "glsass-monorepo",
   "private": true,
   "scripts": {
-    "lerna": "lerna"
+    "lerna": "lerna",
+    "lerna:version": "lerna version --exact --no-push",
+    "lerna:publish": "lerna publish from-package"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^3.3.0",
