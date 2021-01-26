@@ -1,7 +1,10 @@
 {
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0",
   "npmClient": "npm",
-  "packages": ["packages/*", "website"],
+  "packages": [
+    "packages/*",
+    "website"
+  ],
   "command": {
     "version": {
       "message": "chore(release): publish %s"
