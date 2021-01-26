@@ -10,10 +10,10 @@ You will fin inside settings for fonts, spacers and responsive breakpoints
 
 ```scss
 // Keep the default settings
-@use "glsass/settings/settings.core";
+@use "@glsass/settings/settings.core";
 
 // Or add your own settings
-@use "glsass/settings/settings.core" with (
+@use "@glsass/settings/settings.core" with (
   $g-font-size-base: 1.25rem, // intended to be equal to `20px`
   $g-grid-columns: 8, // change the max column number
 );
@@ -27,7 +27,7 @@ main file to simplify the overrides.
   // add your overrides here
 );
 
-@use "glsass" with (
+@use "@glsass" with (
   // or on the top level directly
 );
 ```

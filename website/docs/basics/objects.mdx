@@ -9,24 +9,24 @@ import Example from '@site/src/components/Example/'
 import Overlay from '@site/src/components/Overlay/'
 
 The `objects` layer contains class-based selectors to provide blocks with no
-aesthetics.<br/>
-If components are UI blocks, you can consider than objects are UX blocks.
+aesthetics.<br/> If components are _UI blocks_, you can consider than objects
+are _UX blocks_.
 
 ```scss
 // OBJECTS
-@forward "glsass/objects/objects.divider";
-@forward "glsass/objects/objects.layout";
-@forward "glsass/objects/objects.link";
-@forward "glsass/objects/objects.list-bare";
-@forward "glsass/objects/objects.list-inline";
-@forward "glsass/objects/objects.media";
-@forward "glsass/objects/objects.overlay";
-@forward "glsass/objects/objects.table";
+@forward "@glsass/objects/objects.divider";
+@forward "@glsass/objects/objects.layout";
+@forward "@glsass/objects/objects.link";
+@forward "@glsass/objects/objects.list-bare";
+@forward "@glsass/objects/objects.list-inline";
+@forward "@glsass/objects/objects.media";
+@forward "@glsass/objects/objects.overlay";
+@forward "@glsass/objects/objects.table";
 
 /* Or import all of objects */
 
 // OBJECTS
-@forward "glsass/objects";
+@forward "@glsass/objects";
 ```
 
 Since objects are low CSS code, you can use all of them by importing the folder.
@@ -88,15 +88,16 @@ link (it's not underlined by default, and it becomes on hover).
 <!-- prettier-ignore-end -->
 
 This behavior cannot be reproduced easily with utilities classes, since it
-defines a unique state, without interaction detection (hover, focus, etc.).
-And it can avoid you to create a component for a footer menu (which contains a
-lot of links) for example.
+defines a unique state, without interaction detection (hover, focus, etc.). And
+it can avoid you to create a component for a footer menu (which contains a lot
+of links) for example.
 
 ## List bare
 
-The list bare object erase the list style to a list (bullet and indentation).<br/>
-Depending of the default list styling, the class might not be necessary.
-Especially if you follow the reset from the [elements layer](basics/elements.mdx).
+The list bare object erase the list style to a list (bullet and
+indentation).<br/> Depending of the default list styling, the class might not be
+necessary. Especially if you follow the reset from the
+[elements layer](basics/elements.mdx).
 
 <Example>
   <ul className="o-list-bare">
@@ -115,8 +116,10 @@ Especially if you follow the reset from the [elements layer](basics/elements.mdx
 ```
 
 :::info
+
 Depending of reset on lists (from `generics` or `elements`), the class
 `.o-list-bare__item` may be not required on the `<li>` tag.
+
 :::
 
 ## List inline
@@ -266,7 +269,8 @@ The media object is a legacy of OOCSS, but the old syntax was made with a
 
 ## Overlay
 
-This optional object can be used with a modal system. Some JavaScript is added for the demo below.
+This optional object can be used with a modal system. Some JavaScript is added
+for the demo below.
 
 <Example>
   <p>
@@ -290,8 +294,8 @@ This optional object can be used with a modal system. Some JavaScript is added f
 The table object might be consider as a component since it add some aesthetics,
 like borders, but that's all.
 
-If you need others options like a striped or hoverable rows, you can create
-your own component.
+If you need others options like a striped or hoverable rows, you can create your
+own component.
 
 ```html
 <table class="o-table">

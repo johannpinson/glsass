@@ -27,9 +27,11 @@ const Swatch = () => (
             key={`v-${j}`}
           >
             {color} {variant}
-            {variant === 200 && ' - light'}
+            {color === 'gray' && variant === 100 && ' - light'}
+            {color !== 'gray' && variant === 200 && ' - light'}
             {variant === 500 && ' - base'}
-            {variant === 700 && ' - dark'}
+            {color !== 'gray' && variant === 700 && ' - dark'}
+            {color === 'gray' && variant === 800 && ' - dark'}
           </p>
         ))}
       </div>

@@ -1,6 +1,6 @@
 ---
 id: exitcss
-title: Architure & exitCSS
+title: Architecture & exitCSS
 sidebar_label: exitCSS
 ---
 
@@ -66,10 +66,12 @@ part of the framework which doesn't "produce" CSS code, and are only about
 
 ### Graphics
 
-Similar to the settings layer, `Graphics` also contains many variables.
-But all of them are only about interfaces and graphics : `border` (width and radius), `font` styles, etc.
+Similar to the settings layer, `Graphics` also contains many variables. But all
+of them are only about interfaces and graphics : `border` (width and radius),
+`font` styles, etc.
 
-If this variables aren't initilize inside the settings folder, it's to take advantage of global functions (like `cv`).
+If this variables aren't initilize inside the settings folder, it's to take
+advantage of global functions (like `cv`).
 
 ### Generic
 
@@ -85,14 +87,18 @@ links, lists, etc.) to adjust some default browser behaviors/feelings.
 ### Objects - _.o-\*_
 
 The first class-based selectors start here, it defines _undecorated_ (or at
-least, as much as possible) design patters. Spme objects like `o-media` are
+least, as much as possible) design patters. Some objects like `o-media` are
 known from OOCSS and are present is this layer.
 
 ### Layouts - _.l-\*_
 
 Glsass doesn't provide layout classes because it will depend of your HTML
 structure. You can add your own folder and files if you use this layer logic
-(header, main, nav, footer).
+(header, main, hero, footer).
+
+To avoid adding more complexity in your files organization, layouts can be
+considered like "big" components, so you don't have to use this layer. The goal
+remains to keep an understandable block architecture.
 
 ### Components - _.c-\*_
 
@@ -148,8 +154,8 @@ organization.
 Helpers are special classes to create special behaviors on an elements.
 
 This layer can find it very similar to the `utilities` layer, there is one
-difference which make it different: if an utility class add (mostly) **one**
-CSS rule, a helper class add several ones.
+difference which make it different: if an utility class add (mostly) **one** CSS
+rule, a helper class add several ones.
 
 Despite the similarities, it's a good pratice to separate them to better
 distinguish.

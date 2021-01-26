@@ -161,7 +161,8 @@ Even if we could have classes to manage `font-size` or `line-height`, it's not
 included to let you make your own class to control (or not) the vertical rhythm.
 
 If you want to adjust `font-size` and preserve the vertical rhythm, you need to
-calculate the `line-height` in a SCSS function or with the CSS `calc()` function.
+calculate the `line-height` in a SCSS function or with the CSS `calc()`
+function.
 
 ```scss
 // SCSS simple example
@@ -199,7 +200,7 @@ If you want just some `line-height` utilities, to can add it to the `$u-texts`
 variables with values which respect the vertical rhythm.
 
 ```scss
-@use "glsass/utilities/utilities.texts" with (
+@use "@glsass/utilities/utilities.texts" with (
   $u-texts: (
     line-height: (
       property: line-height,

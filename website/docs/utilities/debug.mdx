@@ -83,15 +83,13 @@ import Example from '@site/src/components/Example'
   </div>
 </Example>
 
-:::danger
-To enable these classes, you must set at `true` the `$u-debug` variable when
-you import the file.<br/>
-It's a security to avoid the adding unnecessary CSS. Also, it must be used only
-on a local or development environment for testing and debuging.
-:::
+:::danger To enable these classes, you must set at `true` the `$u-debug`
+variable when you import the file.<br/> It's a security to avoid the adding
+unnecessary CSS. Also, it must be used only on a local or development
+environment for testing and debuging. :::
 
 ```scss
-@forward "glsass/utilities/utilities.debug" with (
+@forward "@glsass/utilities/utilities.debug" with (
   $u-debug: true,
 );
 ```

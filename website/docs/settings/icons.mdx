@@ -6,12 +6,12 @@ title: Icons
 import Example from '@site/src/components/Example/'
 
 The `icons` file contains the SVG code needed in the framework. It's mainly used
-for the from components (checkbox, radio, select, validation states), but it
-can be extended to use it in your own code
+for the from components (checkbox, radio, select, validation states), but it can
+be extended to use it in your own code
 
 <!-- prettier-ignore-start-->
 ```scss
-@use "glsass/settings/settings.icons" with (
+@use "@glsass/settings/settings.icons" with (
   $g-icons-database: (
     times: (
       default: (
@@ -27,9 +27,9 @@ can be extended to use it in your own code
 ```
 <!-- prettier-ignore-end-->
 
-The `$g-icons-database` need a map with some default configurations to work
-with the internal _API_ and to be available use through the `iv()` helper
-function.
+The `$g-icons-database` need a map with some default configurations to work with
+the internal _API_ and to be available use through the
+[iv() helper function](tools/concept.mdx#iv).
 
 <!-- prettier-ignore-start-->
 ```scss
@@ -85,7 +85,39 @@ $g-icons-database: (helper: $g-icon-helper);
 ```
 <!-- prettier-ignore-end-->
 
-The `options` map allow to replace custom string from the inital SVG string to
-a "dynamic" value.<br/>
-It can be usefull to use the same icon, but with different colors depeding on
-a specific state (hover, focus, etc.).
+The `options` map allow to replace custom string from the inital SVG string to a
+"dynamic" value.<br/> It can be usefull to use the same icon, but with different
+colors depeding on a specific state (hover, focus, etc.).
+
+## Library
+
+Main icons are actually used inside form components (select, checkbox, feedback
+text, etc.).
+
+### Helper
+
+<Example>
+  <button className="c-button m-icon m-helper"></button>
+</Example>
+
+### Valid / Invalid
+
+<Example>
+  <button className="c-button m-icon m-valid"></button>
+  <button className="c-button m-icon m-invalid"></button>
+</Example>
+
+### Select
+
+<Example>
+  <button className="c-button m-icon m-select"></button>
+</Example>
+
+### Checkbox / Radio
+
+<Example>
+  <div className="u-d-f u-ai-c u-py-3 u-bg-dark">
+    <button className="c-button m-icon m-check"></button>
+    <button className="c-button m-icon m-radio"></button>
+  </div>
+</Example>

@@ -2,6 +2,9 @@
   $g-color-primary: #02aab0
 );
 
+@use "@glsass/objects/objects.layout";
+@use "@glsass/utilities/utilities.columns";
+
 @use "@glsass/tools/tools.color" as _color;
 @use "@glsass/tools/tools.cv" as *;
 

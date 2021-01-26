@@ -92,3 +92,37 @@
     }
   }
 }
+
+:global {
+  .m-icon {
+    width: vr();
+    height: vr();
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+  }
+
+  .m-helper {
+    background-image: url(iv(helper));
+  }
+
+  .m-valid {
+    background-image: url(iv(valid));
+  }
+
+  .m-invalid {
+    background-image: url(iv(invalid));
+  }
+
+  .m-select {
+    background-image: url(iv(select));
+  }
+
+  .m-check {
+    background-image: url(iv(checkbox));
+  }
+
+  .m-radio {
+    background-image: url(iv(radio));
+  }
+}

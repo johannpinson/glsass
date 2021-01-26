@@ -5,11 +5,11 @@ title: Colors
 
 ## Color
 
-Theses classes can be set on the text element or more global `div` to be
-applied to all children.
+Theses classes can be set on the text element or more global `div` to be applied
+to all children.
 
-Remember to check the color constrat when you change the color of the text to
-be sure there is enough readable.
+Remember to check the color constrat when you change the color of the text to be
+sure there is enough readable.
 
 import Example from '@site/src/components/Example/'
 
@@ -69,9 +69,9 @@ $u-colors: (
 
 ## Background-color
 
-Similar to the text color, you can set the background of an element.<br/>
-Like for the color, you may need to change the color of the text to have a
-minimal contrast ratio.
+Similar to the text color, you can set the background of an element.<br/> Like
+for the color, you may need to change the color of the text to have a minimal
+contrast ratio.
 
 <Example>
   <div className="u-mb-2 u-p-2 u-bg-primary">u-bg-primary</div>
@@ -120,9 +120,9 @@ $u-colors: (
 
 ### Background-image
 
-An additionnal class is available when you need to add an image as a
-background. It's automatically add a dark transparent layout on top of the
-image to increase text lisibility.
+An additionnal class is available when you need to add an image as a background.
+It's automatically add a dark transparent layout on top of the image to increase
+text lisibility.
 
 <Example>
   <div
@@ -140,11 +140,14 @@ image to increase text lisibility.
 ```
 
 :::note
-This class isn't built from the generator, you can remove it by setting at false the $u-colors-background-image variable.
+
+This class isn't built from the generator, you can remove it by setting at false
+the $u-colors-background-image variable.
+
 :::
 
 ```scss
-@use "glsass/utilities/utilities.colors" with (
+@use "@glsass/utilities/utilities.colors" with (
   $u-colors-background-image: false,
 );
 ```

@@ -1,0 +1,40 @@
+---
+id: color
+title: Color
+---
+
+Because the `sass:color` module already, the namespace is prefixed with an
+underscore to avoid conflict or can named differentlt (like `clr` for example).
+
+```scss
+@use "@glsass/tools/tools.color" as _color;
+```
+
+## _tint()_ & _shade()_
+
+These two functions allow to lighten or darken a color. Regarding the Sass
+documentation, it uses the `color.shade()` instead of the regular
+`color.darken()` and `color.lighten()` functions.
+
+```scss
+_color.tint($color, $level: 1, $interval: 8%);
+_color.shade($color, $level: 1, $interval: 8%);
+```
+
+## _yiq-contrast()_
+
+This function in one of the most used inside this framework. It calculate the
+best color choice for the text from the background color given.
+
+The text color is generally "black" or "white". In Glsass, the black color is
+the default text color (`#212121`) and the white is just white (`#fff`).
+
+```scss
+_color.yiq-contrast($color, $dark: colors.$g-color-text, $light: colors.$g-color-white);
+
+color: _color.yiq-contrast(red);
+// Returns #fff
+
+color: _color.yiq-contrast(yellow);
+// Returns #212121
+```

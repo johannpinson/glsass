@@ -5,12 +5,12 @@ slug: /utilities
 ---
 
 This layer contains the parameters used by the API (mixins) to generate the
-utilities classes.
-Mostly classes are built with the `utilities` mixin from the `generators` tools.
+utilities classes. Mostly classes are built with the `utilities` mixin from the
+`generators` tools.
 
-By convention, all utilities classes start with the `.u-*` prefix.
-Moreover, the minimize and simplify the naming, most classes follow a similar
-logic from the [Emmet abbreviations shortcuts](https://docs.emmet.io/cheat-sheet/).
+By convention, all utilities classes start with the `.u-*` prefix. Moreover, the
+minimize and simplify the naming, most classes follow a similar logic from the
+[Emmet abbreviations shortcuts](https://docs.emmet.io/cheat-sheet/).
 
 ```scss
 $utilities: (
@@ -84,15 +84,17 @@ $utilities: (
 
 ## Custom configurations
 
-When you import a utility file, you can pass your own configuration to modify the classes generated.
+When you import a utility file, you can pass your own configuration to modify
+the classes generated.
 
 ### Add utilities
 
-You can easily add and generate your own utilities classes by using the generator.
+You can easily add and generate your own utilities classes by using the
+generator.
 
 <!-- prettier-ignore-start -->
 ```scss
-@use "glsass/tools/tools.generators" as generators;
+@use "@glsass/tools/tools.generators" as generators;
 
 $custom-utilities: (
   // add your code here
@@ -141,7 +143,7 @@ When you import an utility file, but you don't need all of them, you can remove
 the ones aren't useful to you.
 
 ```scss
-@use "glsass/utilities/utilities.borders" with (
+@use "@glsass/utilities/utilities.borders" with (
   $u-borders: (
     border-radius: null,
   ),
@@ -150,27 +152,28 @@ the ones aren't useful to you.
 
 ## Create a card with utilities
 
-This is an example about how to create a card "component" with only utilities classes.
+This is an example about how to create a card "component" with only utilities
+classes.
 
 import Example from '@site/src/components/Example/'
 
 <Example>
-  <div class="o-row">
-    <div class="o-col u-12 u-4@md">
-      <div class="u-bs u-br u-ov-h">
+  <div className="o-row">
+    <div className="o-col u-12 u-4@md">
+      <div className="u-bs u-br u-ov-h">
         <img
-          class="u-d-b u-w-100"
+          className="u-d-b u-w-100"
           src="/img/lake-1.jpg"
           alt="Photo by Adam Vradenburg on Unsplash"
           style={{ height: '12rem' }}
         />
-        <div class="u-p-3 u-h5">Card title</div>
-        <div class="u-px-3">
-          <p class="u-mb-0">Add some text inside the card.</p>
+        <div className="u-p-3 u-h5">Card title</div>
+        <div className="u-px-3">
+          <p className="u-mb-0">Add some text inside the card.</p>
         </div>
-        <div class="u-p-3">
+        <div className="u-p-3">
           <a
-            class="u-d-ib u-p-2 u-br u-bg-primary u-c-white u-td-n"
+            className="u-d-ib u-p-2 u-br u-bg-primary u-c-white u-td-n"
             href="/docs/components/card"
           >
             Go the card component
@@ -178,21 +181,21 @@ import Example from '@site/src/components/Example/'
         </div>
       </div>
     </div>
-    <div class="o-col u-12 u-4@md">
-      <div class="u-bs u-br u-ov-h">
+    <div className="o-col u-12 u-4@md">
+      <div className="u-bs u-br u-ov-h">
         <img
-          class="u-d-b u-w-100"
+          className="u-d-b u-w-100"
           src="/img/lake-2.jpg"
           alt="Photo by Tom Gainor on Unsplash"
           style={{ height: '12rem' }}
         />
-        <div class="u-p-3 u-h5">Card title</div>
-        <div class="u-px-3">
-          <p class="u-mb-0">Add some text inside the card.</p>
+        <div className="u-p-3 u-h5">Card title</div>
+        <div className="u-px-3">
+          <p className="u-mb-0">Add some text inside the card.</p>
         </div>
-        <div class="u-p-3">
+        <div className="u-p-3">
           <a
-            class="u-d-ib u-p-2 u-br u-bg-primary u-c-white u-td-n"
+            className="u-d-ib u-p-2 u-br u-bg-primary u-c-white u-td-n"
             href="/docs/components/card"
           >
             Go the card component
@@ -200,21 +203,21 @@ import Example from '@site/src/components/Example/'
         </div>
       </div>
     </div>
-    <div class="o-col u-12 u-4@md">
-      <div class="u-bs u-br u-ov-h">
+    <div className="o-col u-12 u-4@md">
+      <div className="u-bs u-br u-ov-h">
         <img
-          class="u-d-b u-w-100"
+          className="u-d-b u-w-100"
           src="/img/lake-3.jpg"
           alt="Photo by Juan Davila on Unsplash"
           style={{ height: '12rem' }}
         />
-        <div class="u-p-3 u-h5">Card title</div>
-        <div class="u-px-3">
-          <p class="u-mb-0">Add some text inside the card.</p>
+        <div className="u-p-3 u-h5">Card title</div>
+        <div className="u-px-3">
+          <p className="u-mb-0">Add some text inside the card.</p>
         </div>
-        <div class="u-p-3">
+        <div className="u-p-3">
           <a
-            class="u-d-ib u-p-2 u-br u-bg-primary u-c-white u-td-n"
+            className="u-d-ib u-p-2 u-br u-bg-primary u-c-white u-td-n"
             href="/docs/components/card"
           >
             Go the card component
@@ -246,8 +249,9 @@ Even if these classes can be usefull, be carefull about the "weight" price of
 your future CSS file.
 
 Depending of your stack, using a solution like [PurceCSS](https://purgecss.com/)
-can be a good alternative by removing unused (so useless) CSS classes.
-You may win a lot of _Ko_, especially when you remove responsive classes
-(like `.u-mb-3@xl`) if you don't use it.
+can be a good alternative by removing unused (so useless) CSS classes. You may
+win a lot of _Ko_, especially when you remove responsive classes (like
+`.u-mb-3@xl`) if you don't use it.
 
-Another solution can also to remove unused breakpoints from the `$g-grid-breakpoints` variable.
+Another solution can also to remove unused breakpoints from the
+`$g-grid-breakpoints` variable.

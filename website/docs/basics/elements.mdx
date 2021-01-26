@@ -10,17 +10,17 @@ The `elements` folder provides styles for basic HTML elements
 
 ```scss
 // ELEMENTS
-@forward "glsass/elements/elements.headings";
-@forward "glsass/elements/elements.images";
-@forward "glsass/elements/elements.lists";
-@forward "glsass/elements/elements.links";
-@forward "glsass/elements/elements.page";
-@forward "glsass/elements/elements.tables";
+@forward "@glsass/elements/elements.headings";
+@forward "@glsass/elements/elements.images";
+@forward "@glsass/elements/elements.lists";
+@forward "@glsass/elements/elements.links";
+@forward "@glsass/elements/elements.page";
+@forward "@glsass/elements/elements.tables";
 
 /* Or import all of elements */
 
 // ELEMENTS
-@forward "glsass/elements";
+@forward "@glsass/elements";
 ```
 
 You can notice that the order of file is alphabetic, even if "top" tags like
@@ -28,8 +28,10 @@ You can notice that the order of file is alphabetic, even if "top" tags like
 includes its own elements.
 
 :::info
+
 To avoid conflict with the documentation style, examples below have behavior
 simulated.
+
 :::
 
 ## Headings
@@ -70,7 +72,7 @@ attributes, they still be fluid. This behavior can be changed by setting the
 variable `$e-images-static-size` at true.
 
 ```scss
-@forward "glsass/elements/elements.images" with (
+@forward "@glsass/elements/elements.images" with (
   $e-images-static-size: true,
 );
 ```
@@ -91,8 +93,8 @@ and add underlines.
 By default, all external link (with a `target="_blank"`), will have append an
 arrow indicator (`↗` or `&nearr;` HTML entity).
 
-This settings can be modified by setting the option `$e-links-external-indicator`
-at false.
+This settings can be modified by setting the option
+`$e-links-external-indicator` at false.
 
 <Example elements>
   <a

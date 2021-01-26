@@ -4,7 +4,7 @@ title: Colors
 ---
 
 The palette (or color scheme) follow other framework logic, like `primary` and
-`secondary` colors, color states (`success`, `danger`...) and variants (`100` to
+`secondary` colors, states (`success`, `danger`...) and variants (`100` to
 `900`).
 
 Each color is definied by two parameters : name and variant. Other keywords are
@@ -19,8 +19,15 @@ dark  == 700 variant
 Extra variant are also created like the `light` color which is rely to the
 `gray - 100` by default, or `text` with `gray - 900`.
 
-All default colors are visible below 👇 <br/> (text colors are generated to
-respect the better contrast)
+The [cv() function](tools/concept.mdx#cv) offer a simpler way to access to a
+specific color instead of use the variable name like `$g-color-primary` or
+`$g-color-gray-800`.
+
+## Palette
+
+All default colors are visible below 👇.<br/>The text colors are generated to
+respect the better contrast with the
+[yiq-contrast() function](tools/concept.mdx#yiq-contrast).
 
 import Swatch from '@site/src/components/Swatch/'
 

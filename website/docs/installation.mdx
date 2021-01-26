@@ -3,16 +3,21 @@ id: installation
 title: Installation
 ---
 
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
 Glsass isn't available throught a CDN or a `glsass.css` file because it designed
 to be a Sass Framework.
 
 The framework is available trought a NPM package.
 
 ```shell
-npm install glsass
+npm install @glsass/framework
 ```
 
-## Sass version
+## Requirements
+
+### Sass version
 
 ```shell
 Dart Sass > 1.23.0  |  LibSass ✗  |  Ruby Sass ✗
@@ -24,6 +29,80 @@ so you will have issues if you are an user of LibSass or Ruby Sass.
 
 Since the framework use the new syntax with the `@use` and `@forward` rules, you
 must be sure to use the good version of the Sass library.
+
+### Build options
+
+To make differents examples working well, you may need to add a special option
+in your `sassOptions`.
+
+<Tabs
+  defaultValue="webpack"
+  values={[
+    { label: 'Webpack (sass-loader)', value: 'webpack' },
+    { label: 'Gulp (gulp-sass)', value: 'gulp' },
+    { label: 'VanillaJS / Node.js', value: 'vanilla' },
+  ]}
+>
+<TabItem value="webpack">
+
+```js {12-14}
+module.export = {
+  module: {
+    rules: [
+      {
+        test: /\.s[ca]ss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                includePaths: ['./node_modules'],
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+}
+```
+
+</TabItem>
+<TabItem value="gulp">
+
+```js {5-7}
+export const styles = ()
+  gulp
+    .src('/app')
+    .pipe(sass(
+      {
+        includePaths: ['./node_modules'],
+      }
+    ))
+    .pipe(gulp.dest('/dist'))
+```
+
+</TabItem>
+<TabItem value="vanilla">
+
+```js
+sass.renderSync({
+  file: 'style.scss',
+  includePaths: ['./node_modules'],
+})
+```
+
+</TabItem>
+</Tabs>
+
+Because the framework need the Dart version of Sass, you cannot use the
+`nide-sass-tilde-importer` package.
+
+This solution will avoid you to write complexe path from `node_modules` when you
+want to import a Glsass file, like:
+`@use ../../node_modules/@glsass/tools/tools.global;`
 
 ## Quick start
 
@@ -134,7 +213,7 @@ For the "generic", "elements" and "objects" parts, you can directly forward the
 folder because an index file is present.
 
 ```scss
- ...
+...
 
 // GENERIC
 @forward "@glsass/generic";
@@ -155,14 +234,14 @@ code, even if you don't need or use it. It's why you cannot import the
 
 ## Minimal setups
 
-For minimal needs, you may have a smaller `index.scss` file, for exemple, if
-you just need the Grid system:
+For minimal needs, you may have a smaller `index.scss` file, for exemple, if you
+just need the Grid system:
 
 ```scss
 // GRID MINIMAL SETUP
 @charset "UTF-8";
 
-@use "@glsass/settings" with (
+@forward "@glsass/settings" with (
   // Required variable, but set it at any color if you don't need it
   $g-color-primary: #fff,
 );
@@ -174,3 +253,57 @@ you just need the Grid system:
 @forward "my-custom-component";
 @forward "another-component";
 ```
+
+If you just want to use the `button` component, it will be that simple.
+
+<Tabs
+  defaultValue="scss"
+  values={[
+    { label: 'SCSS', value: 'scss' },
+    { label: 'CSS', value: 'css' },
+    { label: 'HTML', value: 'html' },
+  ]}
+>
+<TabItem value="scss">
+
+```scss
+@charset 'UTF-8';
+
+@forward "@glsass/settings" with (
+  $g-color-primary: #0d6efd // Bootstrap main color
+);
+
+@forward "@glsass/components/components.button" with (
+  $c-button-classname: 'btn' // Bootstrap button class name
+);
+```
+
+</TabItem>
+<TabItem value="css">
+
+```css
+.btn {
+  /* ... */
+}
+
+.btn--primary {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+/* ... */
+```
+
+</TabItem>
+<TabItem value="html">
+
+```html
+<button type="button" class="btn btn--primary">Primary</button>
+<button type="button" class="btn btn--success">Success</button>
+<button type="button" class="btn btn--danger">Danger</button>
+...
+```
+
+</TabItem>
+</Tabs>

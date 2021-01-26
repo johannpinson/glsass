@@ -1,0 +1,34 @@
+---
+id: map
+title: Map
+---
+
+Because the `sass:map` module already, the namespace is prefixed with an
+underscore to avoid conflict.
+
+```scss
+@use "@glsass/tools/tools.map" as _map;
+```
+
+## _deep-get()_
+
+Retrieves map keys from nested maps.
+
+```scss
+deep-get($map, $keys...);
+
+deep-get(("primary": ("100": "red", "200": "green", "300": "blue" )) "primary", "300");
+// Returns "blue";
+```
+
+## _negativify-map()_
+
+It turns maps into its negative variant. It prefixes the keys with `n` and makes
+the value negative.
+
+```scss
+negativify-map($map);
+
+negativify-map((0: 5px, 1: 10px, 2: 30px));
+// Return ("n0": -5px, "n1": -10px, "n2": -30px)
+```

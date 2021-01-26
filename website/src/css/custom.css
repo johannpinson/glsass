@@ -102,6 +102,10 @@ code {
   margin-bottom: 9px;
 }
 
+.footer__logo {
+  max-height: 3rem;
+}
+
 /* Override badge d-ib bug */
 .main-wrapper article header h1:first-child {
   margin-top: -1px;

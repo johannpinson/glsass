@@ -3,12 +3,12 @@ module.exports = {
     {
       type: 'category',
       label: 'Glsass',
-      items: ['introduction'],
+      items: ['introduction', 'exitcss'],
     },
     {
       type: 'category',
       label: 'Getting Started',
-      items: ['installation', 'exitcss', 'doc1'],
+      items: ['installation', 'packages'],
     },
     {
       type: 'category',
@@ -28,7 +28,21 @@ module.exports = {
     {
       type: 'category',
       label: 'Tools',
-      items: ['tools/concept'],
+      items: [
+        'tools/concept',
+        'tools/breakpoints',
+        'tools/color',
+        'tools/cv',
+        'tools/fonts',
+        'tools/iv',
+        'tools/list',
+        'tools/map',
+        'tools/mq',
+        'tools/spacing',
+        'tools/string',
+        'tools/unit',
+        'tools/vhd',
+      ],
     },
     {
       type: 'doc',

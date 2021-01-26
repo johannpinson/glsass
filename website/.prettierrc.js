@@ -3,7 +3,7 @@ module.exports = {
   singleQuote: true,
   trailingComma: 'all',
   printWidth: 80,
-  proseWrap: 'preserve',
+  proseWrap: 'always',
   overrides: [
     {
       files: '*.scss',

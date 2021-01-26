@@ -8,9 +8,8 @@ import Example from '@site/src/components/Example/'
 Accordions toggle the visibility of content.
 
 For avoiding to add a script, the open/close behavior is direclty managed from
-the `<details>` element.<br/>
-By adding the `open` attribute on the main element, the component will be
-opened by default.
+the `<details>` element.<br/> By adding the `open` attribute on the main
+element, the component will be opened by default.
 
 <Example>
   <details className="c-accordion u-mb-2" open>
@@ -96,22 +95,23 @@ opened by default.
 </details>
 ```
 
-The accordion module also can be combined with other component, like the card for example:
+The accordion module also can be combined with other component, like the card
+for example:
 
 <Example>
-  <details class="c-card c-accordion u-mb-3">
-    <summary class="c-card__header c-accordion__header u-py-2">
+  <details className="c-card c-accordion u-mb-3">
+    <summary className="c-card__header c-accordion__header u-py-2">
       You have a question?
     </summary>
-    <div class="c-card__body c-accordion__body">
+    <div className="c-card__body c-accordion__body">
       We have a super answer for you!
     </div>
   </details>
-  <details class="c-card c-accordion">
-    <summary class="c-card__header c-accordion__header u-py-2">
+  <details className="c-card c-accordion">
+    <summary className="c-card__header c-accordion__header u-py-2">
       Want to know more?
     </summary>
-    <div class="c-card__body c-accordion__body">
+    <div className="c-card__body c-accordion__body">
       Install the package and try by yourself 😉
     </div>
   </details>

@@ -9,10 +9,12 @@ Navigation menus are complexe, but the navbar component can make it simply to
 add an headerwith a brand logo, navigation links and text.
 
 :::info
+
 Of course, this component is lighter and offer less possibilities than others
 CSS framework, but it's desired to keep it simple. And generally, if you want
 specific layouts, different responsive behavior, or anything else, you may
 create your own navigation component, and make it as accessible as possible.
+
 :::
 
 <Example>
@@ -77,13 +79,15 @@ create your own navigation component, and make it as accessible as possible.
 <!-- prettier-ignore-end-->
 
 :::danger
+
 Since the component use the "checkbox hack" to manage the open/close state on
 mobile, be careful about the `id/for` attributes for the `input` and `label`
 element.
+
 :::
 
-You can also use utilities classes to create new behavior and layouts.
-Resize your window to test the mobile version
+You can also use utilities classes to create new behavior and layouts. Resize
+your window to test the mobile version
 
 <Example>
   <nav className="c-navbar" role="navigation" aria-label="Main navigation">
@@ -171,7 +175,9 @@ Resize your window to test the mobile version
 <!-- prettier-ignore-end-->
 
 :::note
+
 To constrain the max-width or the navbar, you can add a div as the first child
-of the `.c-navbar` element with the `.c-navbar-layout` class.<br/>
-Then, also add the `.o-layout` object to the new container element.
+of the `.c-navbar` element with the `.c-navbar-layout` class.<br/>Then, also add
+the `.o-layout` object to the new container element.
+
 :::

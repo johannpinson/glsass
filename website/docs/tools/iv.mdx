@@ -1,0 +1,20 @@
+---
+id: iv
+title: IV - Icons variants
+sidebar_label: Icons variants
+---
+
+```scss
+@use "@glsass/tools/tools.icons" as *;
+```
+
+## _iv()_
+
+This functions works sililarly like the `cv()` function.<br/>It returns the SVG
+code (as a string) for the icon name passed.
+
+```scss
+iv($name, $variation: "default", $options: ());
+
+background-image: url(iv(select));
+```

@@ -1,0 +1,10 @@
+@charset "UFT-8";
+
+@use "@glsass/settings" with (
+  $g-color-primary: #02aab0,
+);
+
+// @use "@glsass/components/components.alert" with (
+//   $c-alert-classname: "m-alert",
+//   $c-alert-reverse-colors: true,
+// );

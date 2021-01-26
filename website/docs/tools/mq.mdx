@@ -1,0 +1,63 @@
+---
+id: mq
+title: Media queries
+---
+
+```scss
+@use "@glsass/tools/tools.mq" as *;
+```
+
+## _mq()_
+
+The mixin can be used to write responsive rules inside any selector.
+
+```scss
+@include mq($size: md, $max: false);
+
+a {
+  color: blue;
+
+  @include mq(xl) {
+    color: red;
+  }
+}
+
+// CSS
+a {
+  color: blue;
+}
+
+@media (min-width: 1400px) {
+  a {
+    color: red;
+  }
+}
+```
+
+## _mq-max()_
+
+This mixin is an alternative of the mixin by setting the `$max` variable
+automatically at true.
+
+```scss
+@include mq-max($size: md);
+
+a {
+  color: green;
+
+  @include mq-max(xl) {
+    color: yellow;
+  }
+}
+
+// CSS
+a {
+  color: green;
+}
+
+@media (max-width: 1399px) {
+  a {
+    color: yellow;
+  }
+}
+```

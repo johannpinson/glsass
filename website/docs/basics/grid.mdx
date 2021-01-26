@@ -1,7 +1,7 @@
 ---
 id: grid
 title: Grid layout
-slug: objects-grid
+slug: /objects/grid
 ---
 
 import Example from '@site/src/components/Example/'
@@ -84,7 +84,8 @@ By default, the layout is a 12 columns flexbox grid.
 
 ## Breakpoints
 
-The grid system work mostly with the breakpoints system for responsive design purpose.
+The grid system work mostly with the breakpoints system for responsive design
+purpose.
 
 | Breakpoint   | Suffix | Starting at |
 | ------------ | ------ | ----------- |
@@ -96,10 +97,11 @@ The grid system work mostly with the breakpoints system for responsive design pu
 | Large        | `lg`   | 1400px      |
 | Extra large  | `xl`   | 1920px      |
 
-All the sizes and names are configurable from the $g-grid-breakpoints variable, for example:
+All the sizes and names are configurable from the $g-grid-breakpoints variable,
+for example:
 
 ```scss
-@use "glsass/settings" with (
+@use "@glsass/settings" with (
   $g-grid-breakpoints: (
     xs: 0
     mobile: 320px,
@@ -111,17 +113,19 @@ All the sizes and names are configurable from the $g-grid-breakpoints variable, 
 ```
 
 :::danger
-**Be careful when you modify the default breakpoints!**<br/>
-Each key from the map passed will be used together with the container sizes in
-the `$g-grid-container-max-widths` variables.
-It's also used by the utilities generator, so the suffix for responsive design
-will follow the key used in the map.
+
+**Be careful when you modify the default breakpoints!**<br/> Each key from the
+map passed will be used together with the container sizes in the
+`$g-grid-container-max-widths` variables. It's also used by the utilities
+generator, so the suffix for responsive design will follow the key used in the
+map.
+
 :::
 
 ## Layout container
 
-The first part of the grid system, is the layout object `.o-layout`. It works
-as the main container to keep the layout in a defined max width.
+The first part of the grid system, is the layout object `.o-layout`. It works as
+the main container to keep the layout in a defined max width.
 
 Three containers models are available:
 
@@ -144,7 +148,7 @@ As described before, these settings are configurable through the
 `$g-grid-container-max-widths` variable:
 
 ```scss
-@use "glsass/settings" with (
+@use "@glsass/settings" with (
   $g-grid-breakpoints: (
     xs: 0
     mobile: 320px,
@@ -197,8 +201,8 @@ add the `.o-row` as root and then add between 1 and 12 `.o-col` blocks.
 ```
 
 The column size can be adjusted with an utility class `.u-{number}`, the number
-must be between 1 and 12.<br/>
-The responsive adaptation is handled with class suffixes.
+must be between 1 and 12.<br/> The responsive adaptation is handled with class
+suffixes.
 
 <Example>
   <div class="o-row">
@@ -276,7 +280,8 @@ class allow to have a column with a auto width.
 
 ### Offset
 
-The grid system is managed with flexbox, the margin utilities classes can be used to set offset
+The grid system is managed with flexbox, the margin utilities classes can be
+used to set offset
 
 <Example>
   <div class="o-row u-mb-3">
@@ -320,7 +325,8 @@ The grid system is managed with flexbox, the margin utilities classes can be use
 
 ### Alignment
 
-The flex utilities classes can also be usefull to align horizontally and vertically elements.
+The flex utilities classes can also be usefull to align horizontally and
+vertically elements.
 
 <Example>
   <div class="o-row u-ai-fs u-bg-light u-mb-3" style={{ minHeight: '10rem' }}>

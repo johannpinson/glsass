@@ -10,35 +10,36 @@ reboot.
 
 ```scss
 // GENERIC - Don't change the order for generic modules
-@forward "glsass/generics/generics.reset";
-@forward "glsass/generics/generics.shared";
-@forward "glsass/generics/generics.fonts";
+@forward "@glsass/generics/generics.reset";
+@forward "@glsass/generics/generics.shared";
+@forward "@glsass/generics/generics.fonts";
 
 /* Or import all of generics files */
 
 // GENERIC
-@forward "glass/generics";
+@forward "@glsass/generics";
 ```
 
 ## CSS resets
 
-The goal is not to tell the history about CSS resets, but Glsass is inspires by three methods:
+The goal is not to tell the history about CSS resets, but Glsass is inspires by
+three methods:
 
 - [Normalize.css](https://necolas.github.io/normalize.css/)
 - [Meyer reset](https://meyerweb.com/eric/tools/css/reset/reset.css)
 - [Bootstrap Reboot](https://github.com/twbs/bootstrap/blob/main/scss/_reboot.scss)
 
-One of the first tools is `Normalize.css` to homogenize some behaviors
-**accross browsers**. Then, with the Meyer reset, it removes default styling
-from browser (on top of Normalize). Next, like the Reboot from Bootstrap, we
-had some opinionated rules to prepare some elements to work with the rest of
-the framework.
+One of the first tools is `Normalize.css` to homogenize some behaviors **accross
+browsers**. Then, with the Meyer reset, it removes default styling from browser
+(on top of Normalize). Next, like the Reboot from Bootstrap, we had some
+opinionated rules to prepare some elements to work with the rest of the
+framework.
 
 ### Reset
 
 Combining some rules from Normalize.css and the Meyer's reset, it improve
-default renders for some elements.<br/>
-For example, it removes extra margin and padding on sime elements and nested lists.
+default renders for some elements.<br/> For example, it removes extra margin and
+padding on sime elements and nested lists.
 
 ### Shared
 

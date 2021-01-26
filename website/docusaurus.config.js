@@ -58,12 +58,12 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-              label: 'Style Guide',
-              to: 'docs/',
+              label: 'Getting started',
+              to: 'docs/installation',
             },
             {
-              label: 'Second Doc',
-              to: 'docs/doc2/',
+              label: 'exitCSS',
+              to: 'docs/exitcss',
             },
           ],
         },
@@ -98,6 +98,10 @@ module.exports = {
           ],
         },
       ],
+      logo: {
+        alt: 'Glsass logo',
+        src: 'img/logo-white.svg',
+      },
       copyright: `Copyright © ${new Date().getFullYear()} Glsass. Built with Docusaurus.`,
     },
   },
@@ -127,6 +131,7 @@ module.exports = {
           customCss: [
             require.resolve('./src/css/custom.css'),
             require.resolve('./src/css/main.scss'),
+            require.resolve('./src/css/demo.scss'),
           ],
         },
       },
