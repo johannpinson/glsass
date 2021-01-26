@@ -9,7 +9,7 @@
 
 @use "@glsass/settings/settings.core" as core;
 
-@use "tools.breakpoints" as breakpoints;
+@use "tools.breakpoint" as breakpoint;
 
 /// Mixin used to generate utilities & print utilities
 /// @access private
@@ -71,10 +71,10 @@
 @mixin utilities($utilities: ()) {
   // Loop over each breakpoint
   @each $breakpoint in map.keys(core.$g-grid-breakpoints) {
-    $suffix: breakpoints.suffix($breakpoint);
+    $suffix: breakpoint.suffix($breakpoint);
 
     // Generate media query if needed
-    @include breakpoints.media-up($breakpoint) {
+    @include breakpoint.media-up($breakpoint) {
       // Loop over each utility property
       @each $key, $utility in $utilities {
         // The utility can be disabled with `false`, thus check if the utility is a map first

@@ -46,9 +46,9 @@
 }
 
 /// Add $var2 to $var1 if the unit is the same
-/// Even, use the calc function to calcule it
+/// Even, use the `calc` function to calcule it
 /// @param {Number} $var1 - Initial value
-/// @param {Number} $var2 - value to add
+/// @param {Number} $var2 - Value to add
 /// @return {Number} - Calculated value
 @function add($var1, $var2) {
   @if (math.unit($var1) == math.unit($var2)) {
@@ -59,9 +59,9 @@
 }
 
 /// Subtract $var2 to $var1 if the unit is the same
-/// Even, use the calc function to calcule it
+/// Even, use the `calc` function to calcule it
 /// @param {Number} $var1 - Initial value
-/// @param {Number} $var2 - value to subtract
+/// @param {Number} $var2 - Value to subtract
 /// @return {Number} - Calculated value
 @function sub($var1, $var2) {
   @if (math.unit($var1) == math.unit($var2)) {

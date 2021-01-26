@@ -7,12 +7,12 @@
 
 @use "@glsass/settings/settings.core" as core;
 
-@use "@glsass/tools/tools.breakpoints" as breakpoints;
+@use "@glsass/tools/tools.breakpoint" as breakpoint;
 
 @each $breakpoint, $value in core.$g-grid-breakpoints {
-  $suffix: breakpoints.suffix($breakpoint);
+  $suffix: breakpoint.suffix($breakpoint);
 
-  @include breakpoints.media-up($breakpoint) {
+  @include breakpoint.media-up($breakpoint) {
     @for $i from 1 through core.$g-grid-columns {
       .u-#{$i}#{$suffix} {
         // @include make-col($i, $columns);

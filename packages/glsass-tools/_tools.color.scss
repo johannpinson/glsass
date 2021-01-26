@@ -22,19 +22,21 @@
 /// @param {Color} $color - Color to control to define best contrast
 /// @param {Color} $dark [$g-color-text] - Dark color
 /// @param {Color} $light [$g-color-white] - Light color
+/// @param {Number} $threshold [150]
 /// @return {Color} Color with better contrast ratio
 @function yiq-contrast(
   $color,
   $dark: colors.$g-color-text,
-  $light: colors.$g-color-white
+  $light: colors.$g-color-white,
+  $threshold: 128
 ) {
+  $_yiq-contrasted-threshold: $threshold;
+
   $r: color.red($color);
   $g: color.green($color);
   $b: color.blue($color);
 
   $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
-
-  $_yiq-contrasted-threshold: 150;
 
   @return if($yiq >= $_yiq-contrasted-threshold, $dark, $light);
 }

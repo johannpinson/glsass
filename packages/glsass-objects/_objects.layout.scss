@@ -4,7 +4,7 @@
 
 @use "@glsass/settings/settings.core" as core;
 
-@use "@glsass/tools/tools.breakpoints" as breakpoints;
+@use "@glsass/tools/tools.breakpoint" as breakpoint;
 @use "@glsass/tools/tools.builder" as builder;
 @use "@glsass/tools/tools.global" as *;
 
@@ -51,14 +51,14 @@ $o-col-classname: o-col;
 
 /// Responsive containers that are 100% wide until a breakpoint
 @each $breakpoint, $max-width in core.$g-grid-container-max-widths {
-  $suffix: breakpoints.suffix($breakpoint);
+  $suffix: breakpoint.suffix($breakpoint);
 
   .#{$o-layout-classname}#{$suffix} {
     @extend %_o-layout_placeholder;
   }
 
   // stylelint-disable-next-line order/order
-  @include breakpoints.media-up($breakpoint) {
+  @include breakpoint.media-up($breakpoint) {
     %_o-responsive-container-#{$breakpoint} {
       max-width: $max-width;
     }
@@ -66,7 +66,7 @@ $o-col-classname: o-col;
     // stylelint-disable-next-line order/order
     @each $name, $width in core.$g-grid-breakpoints {
       @if ($max-width > $width or $breakpoint == $name) {
-        .#{$o-layout-classname}#{breakpoints.suffix($name)} {
+        .#{$o-layout-classname}#{breakpoint.suffix($name)} {
           @extend %_o-responsive-container-#{$breakpoint};
         }
       }
@@ -82,9 +82,9 @@ $o-col-classname: o-col;
 }
 
 @each $breakpoint, $value in core.$g-grid-breakpoints {
-  $suffix: breakpoints.suffix($breakpoint);
+  $suffix: breakpoint.suffix($breakpoint);
 
-  @include breakpoints.media-up($breakpoint) {
+  @include breakpoint.media-up($breakpoint) {
     %_grid-column-#{$breakpoint} {
       position: relative;
       flex-grow: 1;

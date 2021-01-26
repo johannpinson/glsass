@@ -12,6 +12,12 @@
 @use "tools.map" as _map;
 @use "tools.string" as str;
 
+/// @param {String} $name - Internal name of the SVG reference
+/// @param {String} $variation ["default"] - The name of the variation
+/// @param {Map} $option
+/// @param {Boolean} $strict [true] - Force to reject an error during the map manipulation
+/// @param {Boolean} $debug [false] - Enable debug log
+/// @returns {String} SVG code as a string with escaped characters
 @function iv(
   $name,
   $variation: "default",
