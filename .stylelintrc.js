@@ -261,7 +261,7 @@ module.exports = {
       },
     ],
     'comment-empty-line-before': ['always', { except: ['first-nested'] }],
-    'block-opening-brace-space-before': 'always',
+    'block-opening-brace-space-before': ['always', { ignoreAtRules: ['/if/'] }],
     'declaration-colon-space-after': 'always',
     'declaration-colon-space-before': 'never',
     'declaration-block-single-line-max-declarations': 1,
