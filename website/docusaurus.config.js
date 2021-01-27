@@ -2,8 +2,8 @@ const path = require('path')
 
 module.exports = {
   title: 'Glsass',
-  tagline: 'Or more formally called Glass',
-  url: 'https://your-docusaurus-test-site.com',
+  tagline: 'The Sass framework more formally called Glass',
+  url: 'https://glsass.netlify.app/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -117,10 +117,10 @@ module.exports = {
           // lastVersion: 'current',
           // versions: {
           //   current: {
-          //     label: "1.0.0",
-          //     path: "1.0.0"
-          //   }
-          // }
+          //     label: '1.1.0',
+          //     path: '1.1.0',
+          //   },
+          // },
         },
         blog: {
           showReadingTime: true,

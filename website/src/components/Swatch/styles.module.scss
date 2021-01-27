@@ -5,7 +5,7 @@
 @use "@glsass/objects/objects.layout";
 @use "@glsass/utilities/utilities.columns";
 
-@use "@glsass/tools/tools.color" as _color;
+@use "@glsass/tools/tools.contrast" as contrast;
 @use "@glsass/tools/tools.cv" as *;
 
 .p-swatch {
@@ -24,7 +24,7 @@
     &__#{$color} {
       @each $variant in $_swatch-variants {
         &--#{$variant} {
-          color: _color.yiq-contrast(cv($color, $variant));
+          color: contrast.color(cv($color, $variant));
           background-color: cv($color, $variant);
         }
       }
@@ -32,22 +32,22 @@
   }
 
   &__white {
-    color: _color.yiq-contrast(cv("white"));
+    color: contrast.color(cv("white"));
     background-color: cv("white");
   }
 
   &__black {
-    color: _color.yiq-contrast(cv("black"));
+    color: contrast.color(cv("black"));
     background-color: cv("black");
   }
 
   &__light {
-    color: _color.yiq-contrast(cv("light"));
+    color: contrast.color(cv("light"));
     background-color: cv("light");
   }
 
   &__dark {
-    color: _color.yiq-contrast(cv("dark"));
+    color: contrast.color(cv("dark"));
     background-color: cv("dark");
   }
 

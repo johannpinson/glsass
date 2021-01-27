@@ -1,0 +1,49 @@
+---
+id: overview
+title: Overview
+slug: /graphics
+---
+
+**Remimder:** Graphics files contains many variables, similar to settings.
+
+:::info
+
+**Why `Graphics` variables are'nt forwarded from `Settings`?**
+
+Since the files contains variables depending of the others settings and some
+functions from tools, it cannot be set with functions that don't exist yet.
+
+You cannot use the function `meta.call()` from the built-in modules of Sass,
+because the function is executed at the call, not when the variable are set (it
+will result as an error).
+
+:::
+
+```scss
+// If every settings were forwaded from the same place, it will result to have
+// a variable with a string value equal to `cv(black)`, not the color `#000`
+@use "@glsass" with (
+  $g-color-black: #111,
+  $ui-form-background-color: cv(black), // × wrong, will equal to `cv(black)`
+);
+
+// The variables overriding must be done in two times
+@use "@glsass" with ($g-color-black: #111);
+@use "@glsas/tools/tools.cv"
+@use "@glsass/graphics" with(
+  $ui-form-background-color: cv(black), // ✓ correct, will equal to `#111`
+);
+
+// Alternative setups
+@use "@glsass" with ($g-color-black: #111) as *; // avoid namespace
+@use "@glsass/graphics" with(
+  $ui-form-background-color: cv(black), // ✓ aslo correct!
+);
+```
+
+:::note
+
+Inside the codebase, graphics variable use the `ui` prefix to simplify the
+namespace.
+
+:::

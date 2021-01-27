@@ -1,0 +1,70 @@
+---
+id: packages
+title: NPM Packages
+sidebar_label: Packages
+---
+
+Beyond the main package `@glsass/framework`, parts of the framework are
+available from multiple packages.
+
+Instead of using this main package, you can install only the packages that you
+need.
+
+:::info
+
+Even if you just want to use only one component, the installation of all
+packages will not increase the final size of our CSS file, because it will
+always depends of what you import.
+
+:::
+
+## Available packages
+
+| Package                                                                | Layers                      |
+| ---------------------------------------------------------------------- | --------------------------- |
+| [@glsass/framework](https://www.npmjs.com/package/@glsass/framework)   | _All layers_                |
+| [@glsass/settings](https://www.npmjs.com/package/@glsass/settings)     | Settings                    |
+| [@glsass/tools](https://www.npmjs.com/package/@glsass/tools)           | Tools                       |
+| [@glsass/graphics](https://www.npmjs.com/package/@glsass/graphics)     | Graphics                    |
+| [@glsass/core](https://www.npmjs.com/package/@glsass/core)             | Settings + Tools + Graphics |
+| [@glsass/generics](https://www.npmjs.com/package/@glsass/generics)     | Generics                    |
+| [@glsass/elements](https://www.npmjs.com/package/@glsass/elements)     | Elements                    |
+| [@glsass/objects](https://www.npmjs.com/package/@glsass/objects)       | Objects                     |
+| [@glsass/components](https://www.npmjs.com/package/@glsass/components) | Components                  |
+| [@glsass/helpers](https://www.npmjs.com/package/@glsass/helpers)       | Helpers                     |
+| [@glsass/utilities](https://www.npmjs.com/package/@glsass/utilities)   | Utilities                   |
+
+## Layer packages
+
+Each layer is available through it's own package from the `@glsass` NPM scope.
+
+:::note
+
+All layers which generate CSS code are automatically dependent from the `core`
+layer, so if you forget to install it, the dependencies will be automatically
+solved.
+
+:::
+
+## Special packages
+
+### @glsass/framework
+
+This is the main package, it automatically manage all dependencies for all
+layers.
+
+### @glsass/core
+
+The `core` package is a combination of the three top layer, from which global
+variables are available from the rest of framework.
+
+Since the others layer are depending on it, this package is listed inside the
+`dependencies` config.
+
+## Dart Sass
+
+Because Glsass use the Sass Module feature, you must be sure to use the
+[Dart Sass](https://www.npmjs.com/package/sass) package (and not the node one!).
+
+The last version of this package is listed as a `peerDependencies` for all
+packages of the framework to ensure its presence.

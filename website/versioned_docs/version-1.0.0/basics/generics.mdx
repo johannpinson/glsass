@@ -1,0 +1,62 @@
+---
+id: generics
+title: Generics
+slug: /generics
+---
+
+The `generics` folder has the first "real" code, because the previous layers
+don't ouput any CSS. It comes with similar concept from reset, normalize and
+reboot.
+
+```scss
+// GENERIC - Don't change the order for generic modules
+@forward "@glsass/generics/generics.reset";
+@forward "@glsass/generics/generics.shared";
+@forward "@glsass/generics/generics.fonts";
+
+/* Or import all of generics files */
+
+// GENERIC
+@forward "@glsass/generics";
+```
+
+## CSS resets
+
+The goal is not to tell the history about CSS resets, but Glsass is inspires by
+three methods:
+
+- [Normalize.css](https://necolas.github.io/normalize.css/)
+- [Meyer reset](https://meyerweb.com/eric/tools/css/reset/reset.css)
+- [Bootstrap Reboot](https://github.com/twbs/bootstrap/blob/main/scss/_reboot.scss)
+
+One of the first tools is `Normalize.css` to homogenize some behaviors **accross
+browsers**. Then, with the Meyer reset, it removes default styling from browser
+(on top of Normalize). Next, like the Reboot from Bootstrap, we had some
+opinionated rules to prepare some elements to work with the rest of the
+framework.
+
+### Reset
+
+Combining some rules from Normalize.css and the Meyer's reset, it improve
+default renders for some elements.<br/> For example, it removes extra margin and
+padding on sime elements and nested lists.
+
+### Shared
+
+There are the first opinionated rules to standardize some elements behavior.
+Actually, it's used only to ensure the default `box-sizing` property for all
+elements and to declare `margins` in the same direction.
+
+In the future, it can be more similar to Reboot.css logic from Bootstrap, which
+"_correct inconsistencies across browsers and devices while providing slightly
+more opinionated resets to common HTML elements._".
+
+Some rules available here can be contradictory with those present in the
+`elements` folder, but it's "normal". In the next layer, you will find styles
+for HTML tags one by one, so it's avoid to create one file by element category.
+
+### Fonts
+
+If you want to use a Google Font, it will import necessary styles before to use
+it in next layer (especially in _Elements_ to set the default font of the
+stylesheet).

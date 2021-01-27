@@ -1,0 +1,679 @@
+---
+id: flex
+title: Flex
+---
+
+import Example from '@site/src/components/Example/'
+
+With the grid system based on flex, and the possibility to use the utility
+class `.u-d-f`, you are able to manage the layout simply.
+
+## Fill and grow
+
+The option will try to allocate the maximum width available between blocks.
+For the class, it make the element as wide as possible.
+
+<Example flex>
+  <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+  <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+  <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+</Example>
+
+```html
+<div class="u-d-f">
+  <div>a flex item</div>
+  <div>a flex item</div>
+  <div>a flex item</div>
+</div>
+```
+
+<Example flex>
+  <div className="u-fx-fill u-bg-light u-p-1 u-bs">
+    a flex item with more content
+  </div>
+  <div className="u-fx-fill u-bg-light u-p-1 u-bs">a flex item</div>
+  <div className="u-fx-fill u-bg-light u-p-1 u-bs">a flex item</div>
+</Example>
+
+```html
+<div class="u-d-f">
+  <div class="u-fx-fill">a flex item</div>
+  <div class="u-fx-fill">a flex item</div>
+  <div class="u-fx-fill">a flex item</div>
+</div>
+```
+
+<Example flex>
+  <div className="u-fx-grow u-bg-light u-p-1 u-bs">a flex item</div>
+  <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+  <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+</Example>
+
+```html
+<div class="u-d-f">
+  <div class="u-fx-grow">a flex item</div>
+  <div>a flex item</div>
+  <div>a flex item</div>
+</div>
+```
+
+```scss
+$u-flex: (
+  flex: (
+    responsive: true,
+    property: flex,
+    class: fx,
+    values: (
+      fill: 1 1 auto,
+      grow: 1 0 auto,
+    ),
+  ),
+);
+```
+
+## Directions
+
+<Example>
+  <div className="u-d-f u-fd-r u-mb-3">
+    <div className="u-bg-light u-p-1 u-bs">1st flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">2nd flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">3rd flex item</div>
+  </div>
+  <div className="u-d-f u-fd-rr u-mb-3">
+    <div className="u-bg-light u-p-1 u-bs">1st flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">2nd flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">3rd flex item</div>
+  </div>
+  <div className="u-d-f u-fd-c u-mb-3">
+    <div className="u-bg-light u-p-1 u-bs">1st flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">2nd flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">3rd flex item</div>
+  </div>
+  <div className="u-d-f u-fd-cr">
+    <div className="u-bg-light u-p-1 u-bs">1st flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">2nd flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">3rd flex item</div>
+  </div>
+</Example>
+
+```html
+<div class="u-d-f u-fd-r">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+</div>
+
+<div class="u-d-f u-fd-rr">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+</div>
+
+<div class="u-d-f u-fd-c">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+</div>
+
+<div class="u-d-f u-fd-cr">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+</div>
+```
+
+```scss
+$u-flex: (
+  flex-direction: (
+    responsive: true,
+    property: flex-direction,
+    class: fd,
+    values: (
+      r: row,
+      rr: row-reverse,
+      c: column,
+      cr: column-reverse,
+    ),
+  ),
+);
+```
+
+## Wrap
+
+<Example>
+  <div className="o-row u-mb-2">
+    <div className="o-col u-12 u-4@md">
+      <div className="u-d-f u-fw-n u-bg-light" style={{ width: '10rem' }}>
+        <div className="u-m-1 u-p-1 u-bs">1st flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">2nd flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">3rd flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">4th flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">5th flex item</div>
+      </div>
+    </div>
+  </div>
+  <div className="o-row u-mb-2">
+    <div className="o-col u-12 u-6@md">
+      <div className="u-d-f u-fw-w u-bg-light">
+        <div className="u-m-1 u-p-1 u-bs">1st flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">2nd flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">3rd flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">4th flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">5th flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">6th flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">7th flex item</div>
+      </div>
+    </div>
+  </div>
+  <div className="o-row u-mb-2">
+    <div className="o-col u-12 u-6@md">
+      <div className="u-d-f u-fw-wr u-bg-light">
+        <div className="u-m-1 u-p-1 u-bs">1st flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">2nd flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">3rd flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">4th flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">5th flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">6th flex item</div>
+        <div className="u-m-1 u-p-1 u-bs">7th flex item</div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="u-d-f u-fw-n">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+  ...
+</div>
+
+<div class="u-d-f u-fw-w">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+  ...
+</div>
+
+<div class="u-d-f u-fw-wr">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+  ...
+</div>
+```
+
+```scss
+$u-flex: (
+  flex-wrap: (
+    responsive: true,
+    property: flex-wrap,
+    class: fw,
+    values: (
+      n: nowrap,
+      w: wrap,
+      wr: wrap-reverse,
+    ),
+  ),
+);
+```
+
+## Aligments
+
+For aligning items in a flex container, the utilities classes take the same
+logic like `justify-content` or `align-items` property.
+
+### Justify-content
+
+<Example>
+  <div className="u-d-f u-jc-c u-mb-3">
+    <div className="u-bg-light u-p-1 u-bs">1st flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">2nd flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">3rd flex item</div>
+  </div>
+  <div className="u-d-f u-jc-fs u-mb-3">
+    <div className="u-bg-light u-p-1 u-bs">1st flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">2nd flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">3rd flex item</div>
+  </div>
+  <div className="u-d-f u-jc-fe u-mb-3">
+    <div className="u-bg-light u-p-1 u-bs">1st flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">2nd flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">3rd flex item</div>
+  </div>
+  <div className="u-d-f u-jc-sb u-mb-3">
+    <div className="u-bg-light u-p-1 u-bs">1st flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">2nd flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">3rd flex item</div>
+  </div>
+  <div className="u-d-f u-jc-sa u-mb-3">
+    <div className="u-bg-light u-p-1 u-bs">1st flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">2nd flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">3rd flex item</div>
+  </div>
+  <div className="u-d-f u-jc-se">
+    <div className="u-bg-light u-p-1 u-bs">1st flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">2nd flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">3rd flex item</div>
+  </div>
+</Example>
+
+```html
+<div class="u-d-f u-jc-c">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+</div>
+
+<div class="u-d-f u-jc-fs">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+</div>
+
+<div class="u-d-f u-jc-fe">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+</div>
+
+<div class="u-d-f u-jc-sb">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+</div>
+
+<div class="u-d-f u-jc-sa">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+</div>
+
+<div class="u-d-f u-jc-se">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+</div>
+```
+
+```scss
+$u-flex: (
+  justify-content: (
+    responsive: true,
+    property: justify-content,
+    class: jc,
+    values: (
+      c: center,
+      fs: flex-start,
+      fe: flex-end,
+      sb: space-between,
+      sa: space-around,
+      se: space-evenly,
+    ),
+  ),
+);
+```
+
+### Align-items
+
+<Example>
+  <div
+    className="u-d-f u-ai-fs u-bg-light u-mb-3"
+    style={{ minHeight: '6rem' }}
+  >
+    <div className="u-bg-light u-p-1 u-bs">1st flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">2nd flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">3rd flex item</div>
+  </div>
+  <div
+    className="u-d-f u-ai-fe u-bg-light u-mb-3"
+    style={{ minHeight: '6rem' }}
+  >
+    <div className="u-bg-light u-p-1 u-bs">1st flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">2nd flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">3rd flex item</div>
+  </div>
+  <div className="u-d-f u-ai-c u-bg-light u-mb-3" style={{ minHeight: '6rem' }}>
+    <div className="u-bg-light u-p-1 u-bs">1st flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">2nd flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">3rd flex item</div>
+  </div>
+  <div className="u-d-f u-ai-b u-bg-light u-mb-3" style={{ minHeight: '6rem' }}>
+    <div className="u-bg-light u-p-1 u-bs">1st flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">2nd flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">3rd flex item</div>
+  </div>
+  <div className="u-d-f u-ai-s u-bg-light" style={{ minHeight: '6rem' }}>
+    <div className="u-bg-light u-p-1 u-bs">1st flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">2nd flex item</div>
+    <div className="u-bg-light u-p-1 u-bs">3rd flex item</div>
+  </div>
+</Example>
+
+```html
+<div class="u-d-f u-ai-fs">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+</div>
+
+<div class="u-d-f u-ai-fe">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+</div>
+
+<div class="u-d-f u-ai-c">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+</div>
+
+<div class="u-d-f u-ai-b">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+</div>
+
+<div class="u-d-f u-ai-s">
+  <div>1st flex item</div>
+  <div>2nd flex item</div>
+  <div>3rd flex item</div>
+</div>
+```
+
+```scss
+$u-flex: (
+  align-items: (
+    responsive: true,
+    property: align-items,
+    class: ai,
+    values: (
+      fs: flex-start,
+      fe: flex-end,
+      c: center,
+      b: baseline,
+      s: stretch,
+    ),
+  ),
+);
+```
+
+### Align-content
+
+Remember, this property has no effect on single line flex containers (i.e. ones
+with `flex-wrap: nowrap`).
+
+<Example>
+  <div className="o-row u-mb-2">
+    <div className="o-col u-12 u-6@md">
+      <div
+        className="u-d-f u-fw-w u-ac-fs u-bg-light"
+        style={{ height: '9rem' }}
+      >
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+      </div>
+    </div>
+  </div>
+  <div className="o-row u-mb-2">
+    <div className="o-col u-12 u-6@md">
+      <div
+        className="u-d-f u-fw-w u-ac-fe u-bg-light"
+        style={{ height: '9rem' }}
+      >
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+      </div>
+    </div>
+  </div>
+  <div className="o-row u-mb-2">
+    <div className="o-col u-12 u-6@md">
+      <div
+        className="u-d-f u-fw-w u-ac-c u-bg-light"
+        style={{ height: '9rem' }}
+      >
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+      </div>
+    </div>
+  </div>
+  <div className="o-row u-mb-2">
+    <div className="o-col u-12 u-6@md">
+      <div
+        className="u-d-f u-fw-w u-ac-sb u-bg-light"
+        style={{ height: '9rem' }}
+      >
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+      </div>
+    </div>
+  </div>
+  <div className="o-row u-mb-2">
+    <div className="o-col u-12 u-6@md">
+      <div
+        className="u-d-f u-fw-w u-ac-sa u-bg-light"
+        style={{ height: '9rem' }}
+      >
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+      </div>
+    </div>
+  </div>
+  <div className="o-row u-mb-2">
+    <div className="o-col u-12 u-6@md">
+      <div
+        className="u-d-f u-fw-w u-ac-se u-bg-light"
+        style={{ height: '9rem' }}
+      >
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+      </div>
+    </div>
+  </div>
+  <div className="o-row u-mb-2">
+    <div className="o-col u-12 u-6@md">
+      <div
+        className="u-d-f u-fw-w u-ac-s u-bg-light"
+        style={{ height: '9rem' }}
+      >
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+        <div className="u-bg-light u-p-1 u-bs">a flex item</div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="u-d-f u-fw-w u-ac-fs">
+  <div>a flex item</div>
+  <div>a flex item</div>
+  ...
+</div>
+
+<div class="u-d-f u-fw-w u-ac-fe">
+  <div>a flex item</div>
+  <div>a flex item</div>
+  ...
+</div>
+
+<div class="u-d-f u-fw-w u-ac-c">
+  <div>a flex item</div>
+  <div>a flex item</div>
+  ...
+</div>
+
+<div class="u-d-f u-fw-w u-ac-sb">
+  <div>a flex item</div>
+  <div>a flex item</div>
+  ...
+</div>
+
+<div class="u-d-f u-fw-w u-ac-sa">
+  <div>a flex item</div>
+  <div>a flex item</div>
+  ...
+</div>
+
+<div class="u-d-f u-fw-w u-ac-se">
+  <div>a flex item</div>
+  <div>a flex item</div>
+  ...
+</div>
+
+<div class="u-d-f u-fw-w u-ac-s">
+  <div>a flex item</div>
+  <div>a flex item</div>
+  ...
+</div>
+```
+
+```scss
+$u-flex: (
+  align-content: (
+    responsive: true,
+    property: align-content,
+    class: ac,
+    values: (
+      fs: flex-start,
+      fe: flex-end,
+      c: center,
+      sb: space-between,
+      sa: space-around,
+      se: space-evenly,
+      s: stretch,
+    ),
+  ),
+);
+```
+
+### Align-self
+
+The `auto` option can be usefull if you want to reset the `align-self` property
+and follow the parent setting. Because if you use the `normal` value, it's will
+override the inherit value.
+
+<Example>
+  <div className="u-d-f u-ai-c u-bg-light" style={{ minHeight: '6rem' }}>
+    <div className="u-as-fs u-bg-light u-p-1 u-mx-2 u-bs">a flex item</div>
+    <div className="u-as-c u-bg-light u-p-1 u-mx-2 u-bs">a flex item</div>
+    <div className="u-as-fe u-bg-light u-p-1 u-mx-2 u-bs">a flex item</div>
+    <div className="u-as-b u-bg-light u-p-1 u-mx-2 u-bs">a flex item</div>
+    <div className="u-as-s u-bg-light u-p-1 u-mx-2 u-bs">a flex item</div>
+    <div className="u-as-fs u-bg-light u-p-1 u-mx-2 u-bs u-as-auto@sm">
+      a flex item
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="u-d-f u-ai-c">
+  <div class="u-as-fs">a flex item</div>
+  <div class="u-as-c">a flex item</div>
+  <div class="u-as-fe">a flex item</div>
+  <div class="u-as-b">a flex item</div>
+  <div class="u-as-s">a flex item</div>
+  <div class="u-as-fs u-as-auto@sm">a flex item</div>
+</div>
+```
+
+```scss
+$u-flex: (
+  align-self: (
+    responsive: true,
+    property: align-self,
+    class: as,
+    values: (
+      auto: auto,
+      fs: flex-start,
+      fe: flex-end,
+      c: center,
+      b: baseline,
+      s: stretch,
+    ),
+  ),
+);
+```
+
+## Order
+
+The order of items can be set between `0` and `5`.
+There is special classes `.u-o-first` (to set it -1) and `.u-o-last` (for the 6).
+The `initial` option can reset the default order for an element.
+
+<Example flex>
+  <div className="u-o-3 u-bg-light u-p-1 u-bs">1st flex item</div>
+  <div className="u-o-2 u-bg-light u-p-1 u-bs">2nd flex item</div>
+  <div className="u-o-1 u-bg-light u-p-1 u-bs">3rd flex item</div>
+</Example>
+
+```html
+<div class="u-d-f">
+  <div class="u-o-3">1st flex item</div>
+  <div class="u-o-2">2nd flex item</div>
+  <div class="u-o-1">3rd flex item</div>
+</div>
+```
+
+```scss
+$u-flex: (
+  order: (
+    responsive: true,
+    property: order,
+    class: o,
+    values: (
+      i: initial,
+      first: -1,
+      0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+      last: 6,
+    ),
+  ),
+);
+```

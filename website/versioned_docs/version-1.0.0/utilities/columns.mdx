@@ -1,0 +1,69 @@
+---
+id: columns
+title: Columns
+---
+
+This file is diffrent from the other utilities files because it's a requirement
+for the grid system.<br/>
+It generates classes to specify the size of a column in responsive contexts.
+
+More examples and details are available on the [Grid layout](basics/grid.mdx)
+page.
+
+import Example from '@site/src/components/Example/'
+
+<Example>
+  <div className="o-row">
+    <div className="o-col u-12 u-6@tb u-3@lg">
+      <div className="u-bg-light u-p-1">a simple col</div>
+    </div>
+    <div className="o-col u-12 u-6@tb u-3@lg">
+      <div className="u-bg-primary u-p-1">a simple col</div>
+    </div>
+    <div className="o-col u-12 u-6@tb u-3@lg">
+      <div className="u-bg-light u-p-1">a simple col</div>
+    </div>
+    <div className="o-col u-12 u-6@tb u-3@lg">
+      <div className="u-bg-primary u-p-1">a simple col</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="o-row">
+  <div class="o-col u-12 u-6@tb u-3@lg">a simple col</div>
+  <div class="o-col u-12 u-6@tb u-3@lg">a simple col</div>
+  <div class="o-col u-12 u-6@tb u-3@lg">a simple col</div>
+  <div class="o-col u-12 u-6@tb u-3@lg">a simple col</div>
+</div>
+```
+
+## Remove gutters
+
+The class `.u-no-gutters` can be applied to a `.o-row` to remove gutters between columns
+
+<Example>
+  <div className="o-row u-no-gutters">
+    <div className="o-col u-12 u-6@tb u-3@lg">
+      <div className="u-bg-light u-p-1">a simple col</div>
+    </div>
+    <div className="o-col u-12 u-6@tb u-3@lg">
+      <div className="u-bg-primary u-p-1">a simple col</div>
+    </div>
+    <div className="o-col u-12 u-6@tb u-3@lg">
+      <div className="u-bg-light u-p-1">a simple col</div>
+    </div>
+    <div className="o-col u-12 u-6@tb u-3@lg">
+      <div className="u-bg-primary u-p-1">a simple col</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="o-row u-no-gutters">
+  <div class="o-col u-12 u-6@tb u-3@lg">a simple col</div>
+  <div class="o-col u-12 u-6@tb u-3@lg">a simple col</div>
+  <div class="o-col u-12 u-6@tb u-3@lg">a simple col</div>
+  <div class="o-col u-12 u-6@tb u-3@lg">a simple col</div>
+</div>
+```

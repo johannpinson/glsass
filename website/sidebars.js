@@ -32,6 +32,7 @@ module.exports = {
         'tools/concept',
         'tools/breakpoints',
         'tools/color',
+        'tools/contrast',
         'tools/cv',
         'tools/fonts',
         'tools/iv',

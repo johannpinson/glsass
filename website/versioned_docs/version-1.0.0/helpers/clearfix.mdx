@@ -1,0 +1,36 @@
+---
+id: clearfix
+title: Clearfix
+---
+
+import Example from '@site/src/components/Example/'
+
+The `clearfix` helper allows to easily cancel floated content to permit to
+return to a normal flow.
+
+**The `h-clearfix` must be put to the parent container!**
+
+<Example>
+  <div className="h-clearfix u-bg-primary u-mb-3">
+    <div className="u-fl-l">Left content</div>
+    <div className="u-fl-r">Right content</div>
+  </div>
+  <div className="u-bg-primary u-mb-3">
+    <div className="u-fl-l">Left content</div>
+    <div className="u-fl-r">Right content</div>
+  </div>
+</Example>
+
+```html
+<!-- block with clearfix => the background is visible -->
+<div class=" h-clearfix u-bg-primary u-mb-3">
+  <div class="u-fl-l">Left content</div>
+  <div class="u-fl-r">Right content</div>
+</div>
+
+<!-- block without clearfix => the flow is broken -->
+<div class="u-bg-primary u-mb-3">
+  <div class="u-fl-l">Left content</div>
+  <div class="u-fl-r">Right content</div>
+</div>
+```

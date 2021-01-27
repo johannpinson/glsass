@@ -23,23 +23,7 @@ _color.shade($color, $level: 1, $interval: 8%);
 
 ## _yiq-contrast()_
 
-:::danger
-
-This function has deprecated since the v1.1.0. Use instead the
-[color-contrast function](tools/contrast.mdx) which use the WCAG algorithm for a
-better color and respected a minimum contrast ratio.
-
-As example, for the red `#f00` color, this function will return the `light`
-color (a.k.a. white), but the contrast ratio is only 3.99:1. The
-`color-contrast` will return the `dark` color (or black) because it will
-generate a ratio of 5.25:1.
-
-Even if you think that some colors combination will be prettier, it may make it
-less readable for some people.
-
-:::
-
-This function was one of the most used inside this framework. It calculate the
+This function in one of the most used inside this framework. It calculate the
 best color choice for the text from the background color given.
 
 The text color is generally "black" or "white". In Glsass, the black color is
