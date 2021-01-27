@@ -74,7 +74,7 @@
 
 /// Indicates if the list is empty
 /// @param {List} $list - The list to analyze
-/// @returns {Boolean} - Result of the check
+/// @return {Boolean} - Result of the check
 @function is-empty($list) {
   @return list.length($list) == 0;
 }

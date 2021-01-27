@@ -12,6 +12,7 @@
 
 @use "@glsass/tools/tools.builder" as builder;
 @use "@glsass/tools/tools.color" as _color;
+@use "@glsass/tools/tools.contrast" as contrast;
 @use "@glsass/tools/tools.spacing" as spacing;
 @use "@glsass/tools/tools.global" as *;
 
@@ -48,8 +49,8 @@ $c-alert-variants: list.join(
 .#{$c-alert-classname} {
   margin-bottom: $c-alert-margin-bottom;
   padding: $c-alert-padding;
-  color: _color.yiq-contrast(cv("light"));
-  background-color: cv("light");
+  color: contrast.color(cv(light));
+  background-color: cv(light);
   border-radius: $c-alert-border-radius;
 }
 
@@ -67,7 +68,7 @@ $c-alert-variants: list.join(
       $_bgcolor-value: cv("white");
     } @else {
       $_bgcolor-value: $_color-value;
-      $_color-value: _color.yiq-contrast($_bgcolor-value);
+      $_color-value: contrast.color($_bgcolor-value);
     }
 
     .#{$c-alert-classname}--#{$color} {

@@ -1,0 +1,72 @@
+//// ==========================================================================
+/// @group Tools
+/// Deprecate
+//// ==========================================================================
+
+@use "sass:string";
+
+@use "@glsass/settings/settings.core" as core;
+
+@use "tools.string" as _str;
+
+@function _get-version-major($version) {
+  @return _str.to-number(
+    string.slice($version, 0, string.index($version, ".") - 1)
+  );
+}
+
+@function _get-version-minor($version) {
+  $minor-patch: string.slice(
+    $version,
+    string.index($version, ".") + 1,
+    string.length($version)
+  );
+
+  @return _str.to-number(
+    string.slice($minor-patch, 0, string.index($minor-patch, ".") - 1)
+  );
+}
+
+@function _get-version-patch($version) {
+  $minor-patch: string.slice(
+    $version,
+    string.index($version, ".") + 1,
+    string.length($version)
+  );
+
+  @return _str.to-number(
+    string.slice(
+      $minor-patch,
+      string.index($minor-patch, ".") + 1,
+      string.length($minor-patch)
+    )
+  );
+}
+
+@mixin deprecate($name, $version, $message: null) {
+  @if (type-of($version) != "string") {
+    @error "The parameter passed to deprecate() must be a String. Good: deprecate('0.1.0') / Bad: deprecate(0.1.0).";
+  }
+
+  $deprecation-found: true;
+
+  @if (_get-version-major($version) > _get-version-major(core.$g-version)) {
+    $deprecated-found: false;
+  } @else if
+    (_get-version-major($version) == _get-version-major(core.$g-version))
+  {
+    @if (_get_version-minor($version) > _get-version-minor(core.$g-version)) {
+      $deprecated-found: false;
+    } @else if
+      (_get_version-minor($version) == _get-version-minor(core.$g-version))
+    {
+      @if (_get_version-patch($version) > _get-version-patch(core.$g-version)) {
+        $deprecated-found: false;
+      }
+    }
+  }
+
+  @if ($deprecation-found) {
+    @error "Deprecated code was found: #{name}";
+  }
+}

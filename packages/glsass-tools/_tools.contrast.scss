@@ -1,0 +1,122 @@
+//// ==========================================================================
+/// @group Tools
+/// @since v1.1.0
+/// Contrast
+//// ==========================================================================
+
+@use "sass:color";
+@use "sass:list";
+@use "sass:map";
+@use "sass:math";
+
+@use "@glsass/settings/settings.colors" as colors;
+
+/// Color luminance
+/// @since 1.1.0
+/// @link http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
+/// @param {Color} $color - Color to analyze
+/// @return {Number} Relative brightness
+@function luminance($color) {
+  $spaces: color.red($color) color.green($color) color.blue($color);
+  $lumi: ();
+
+  @for $i from 1 through 3 {
+    $space: list.nth($spaces, $i);
+    $space: $space / 255;
+
+    $space: if(
+      $space < 0.03928,
+      $space / 12.92,
+      math.pow(($space + 0.055) / 1.055, 2.4)
+    );
+
+    $lumi: list.append($lumi, $space);
+  }
+
+  @return 0.2126 * list.nth($lumi, 1) + 0.7152 * list.nth($lumi, 2) + 0.0722 *
+    list.nth($lumi, 3);
+}
+
+/// Contrast ratio between two colors
+/// @since 1.1.0
+/// @param {Color} $color1 - First color to compare
+/// @param {Color} $color2 - Second color to compare
+/// @return {Number} Ratio
+@function ratio($color1, $color2) {
+  $lumi1: luminance($color1) + 0.05;
+  $lumi2: luminance($color2) + 0.05;
+  $ratio: $lumi1 / $lumi2;
+
+  @if ($lumi2 > $lumi1) {
+    $ratio: 1 / $ratio;
+  }
+
+  $ratio: math.round($ratio * 100) / 100;
+
+  @return $ratio;
+}
+
+/// Color contrast from WCAG algo
+/// @since 1.1.0
+/// @param {Color} $color - Color to control to define best contrast, mainly the background
+/// @return {Color} Color with better contrast ratio
+@function color(
+  $color,
+  $dark: colors.$g-color-black,
+  $light: colors.$g-color-white,
+  $ignore-warning: false
+) {
+  $ratio: 0;
+  $ratio-color: null;
+
+  @each $variant in ($light, $dark) {
+    $current-ratio: ratio($color, $variant);
+
+    @if ($current-ratio > 4.5) {
+      @return $variant;
+    } @else if $current-ratio > $ratio {
+      $ratio: $current-ratio;
+      $ratio-color: $variant;
+    }
+  }
+
+  @if ($ratio < 4.5 and not $ignore-warning) {
+    @warn "Contrast ratio for #{$ratio-color} on #{$color} is only #{$ratio}:1";
+  }
+
+  @return $ratio-color;
+}
+
+/// @since 1.1.0
+/// @param {String} $color - name of the color available through the palette
+/// @param {String} $variation ["base"] - the variation of the color
+/// @return {Color} color with better contrast ratio
+@function palette($color, $variation: "base") {
+  $cv: cv($color, $variation);
+
+  @if (cv($color, "100", false)) {
+    $variants: map.get(colors.$g-colors-database, $color);
+
+    $ratio: 0;
+    $best: 0;
+
+    @each $name, $variant in $variants {
+      $current-ratio: ratio($cv, $variant);
+
+      @if ($ratio == 0 or $current-ratio > $ratio) {
+        $ratio: $current-ratio;
+        $best: $variant;
+      }
+    }
+
+    @if ($ratio >= 4.5) {
+      @return $best;
+    }
+
+    $default: color($cv);
+
+    @return $default;
+  }
+
+  @error "Contrast ratio for #{$color} not found.";
+}

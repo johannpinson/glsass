@@ -6,7 +6,7 @@
 @use "@glsass/graphics";
 
 @use "@glsass/tools/tools.builder" as builder;
-@use "@glsass/tools/tools.color" as _color;
+@use "@glsass/tools/tools.contrast" as contrast;
 @use "@glsass/tools/tools.spacing" as spacing;
 @use "@glsass/tools/tools.string" as str;
 @use "@glsass/tools/tools.global" as *;
@@ -57,7 +57,7 @@ $c-helper-border-radius: graphics.$ui-border-radius !default;
     display: none;
     width: 75vw;
     padding: spacing.add-space(2);
-    color: _color.yiq-contrast(cv(primary));
+    color: contrast.color(cv(primary));
     background-color: cv(primary);
     border-radius: $c-helper-border-radius;
     transform: translateY(-100%);

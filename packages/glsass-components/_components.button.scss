@@ -15,6 +15,7 @@
 
 @use "@glsass/tools/tools.builder" as builder;
 @use "@glsass/tools/tools.color" as _color;
+@use "@glsass/tools/tools.contrast" as contrast;
 @use "@glsass/tools/tools.spacing" as spacing;
 @use "@glsass/tools/tools.unit" as unit;
 @use "@glsass/tools/tools.global" as *;
@@ -190,19 +191,19 @@ $c-button-color: cv(text) !default;
         $_opacity-value: 0.5;
       }
 
-      color: _color.yiq-contrast($value);
+      color: contrast.color($value);
       background-color: $value;
       border-color: $value;
 
       &:not(:disabled):not(.disabled):not(.is-inactive):hover {
-        color: _color.yiq-contrast($_hover-value);
+        color: contrast.color($_hover-value);
         background-color: $_hover-value;
         border-color: $_hover-value;
       }
 
       &:focus,
       &.focus {
-        color: _color.yiq-contrast($_hover-value);
+        color: contrast.color($_hover-value);
         background-color: $_hover-value;
         border-color: $_hover-value;
         box-shadow: 0
@@ -214,7 +215,7 @@ $c-button-color: cv(text) !default;
 
       &:not(:disabled):not(.disabled):not(.is-inactive):active,
       &:not(:disabled):not(.disabled):not(.is-inactive).active {
-        color: _color.yiq-contrast($_active-value);
+        color: contrast.color($_active-value);
         background-color: $_active-value;
         border-color: $_active-value;
       }

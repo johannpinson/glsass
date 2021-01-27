@@ -17,7 +17,7 @@
 /// @param {Map} $option
 /// @param {Boolean} $strict [true] - Force to reject an error during the map manipulation
 /// @param {Boolean} $debug [false] - Enable debug log
-/// @returns {String} SVG code as a string with escaped characters
+/// @return {String} SVG code as a string with escaped characters
 @function iv(
   $name,
   $variation: "default",

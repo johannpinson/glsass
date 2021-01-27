@@ -4,9 +4,13 @@
 //// ==========================================================================
 
 @use "sass:color";
+@use "sass:list";
 @use "sass:map";
+@use "sass:math";
 
 @use "@glsass/settings/settings.colors" as colors;
+
+@use "tools.deprecate" as *;
 
 /// @return {Color} - Lighten version of the color
 @function tint($color, $level: 1, $interval: 8%) {
@@ -18,10 +22,11 @@
   @return color.scale($color, $lightness: -1 * $level * $interval);
 }
 
-/// Color contrast
+/// Color contrast from the YIQ algo
+/// @deprecated
 /// @param {Color} $color - Color to control to define best contrast
-/// @param {Color} $dark [$g-color-text] - Dark color
-/// @param {Color} $light [$g-color-white] - Light color
+/// @param {Color} $dark [$g-color-black] - Dark color - black by default
+/// @param {Color} $light [$g-color-white] - Light color - white by default
 /// @param {Number} $threshold [150]
 /// @return {Color} Color with better contrast ratio
 @function yiq-contrast(
@@ -30,6 +35,8 @@
   $light: colors.$g-color-white,
   $threshold: 128
 ) {
+  @warn "The `yiq-contrast()` function has been deprecated as of v1.1.0. It will be removed entirly in v2.";
+
   $_yiq-contrasted-threshold: $threshold;
 
   $r: color.red($color);
