@@ -1,6 +1,6 @@
 {
   "name": "@glsass/framework",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "All layers gathered for Glsass.",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
     "@glsass/generics": "1.0.0",
     "@glsass/graphics": "1.0.0",
     "@glsass/helpers": "1.0.0",
-    "@glsass/objects": "1.0.0",
+    "@glsass/objects": "1.0.1",
     "@glsass/settings": "1.0.0",
     "@glsass/tools": "1.0.0",
     "@glsass/utilities": "1.0.0"
