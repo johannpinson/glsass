@@ -87,10 +87,10 @@ module.exports = {
         {
           title: 'More',
           items: [
-            // {
-            //   label: 'Blog',
-            //   to: 'blog',
-            // },
+            {
+              label: 'Blog',
+              to: 'blog',
+            },
             {
               label: 'GitHub',
               href: 'https://github.com/johannpinson/glsass',
@@ -102,7 +102,7 @@ module.exports = {
         alt: 'Glsass logo',
         src: 'img/logo-white.svg',
       },
-      copyright: `Copyright © ${new Date().getFullYear()} Glsass. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Glsass. Made with ⌨️ from France.`,
     },
   },
   presets: [
@@ -127,6 +127,12 @@ module.exports = {
           // Please change this to your repo.
           editUrl:
             'https://github.com/johannpinson/glsass/edit/main/website/blog/',
+          feedOptions: {
+            type: 'rss',
+            copyright: `Copyright © ${new Date().getFullYear()} Glsass - Johann Pinson.`,
+          },
+          blogSidebarCount: 'ALL',
+          blogSidebarTitle: 'All our posts',
         },
         theme: {
           customCss: [
