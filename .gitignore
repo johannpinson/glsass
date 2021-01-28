@@ -7,8 +7,8 @@
 
 node_modules
 .yarn
-
 .eslintcache
+.netlify
 
 build
 coverage
