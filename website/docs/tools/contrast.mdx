@@ -15,15 +15,30 @@ white. More information is available on the
 [WCAG website](https://www.w3.org/WAI/GL/wiki/Relative_luminance).
 
 ```scss
-_color.luminance($color);
+contrast.luminance($color);
 
-$value: _color.lumniance(red);
+$value: contrast.lumniance(red);
 // Returns 0.2126
 ```
 
 ## _ratio()_
 
-From two colors, this function calculate the constrast-ratio
+From two colors, this function calculate the constrast ratio, exprimed as a
+number.
+
+You can test by yourself some combination with these tools:
+[contrast-ratio.com](https://contrast-ratio.com/) and
+[color.review](https://color.review/).
+
+```scss
+contrast.ratio($color1, $color2);
+
+contrast.ratio(#02aab0, #fff);
+// Returns 2.85
+
+contrast.ratio(#02aab0, #000);
+// Returns 7.38
+```
 
 ## _color()_
 
@@ -31,13 +46,75 @@ This function returns a color that ensure a minimal contrast ratio 4.5:1,
 following the WCAG recommandation (and the algorithm provided).
 
 ```scss
-_color.color-contrat($color, $dark: $g-color-black, $light: $g-color-white, $ignore-warning: false);
+contrast.color($color, $dark: $g-color-black, $light: $g-color-white, $ignore-warning: false);
 
-color: _color.color-contrast(red);
-// Return #000
+color: contrast.color(red);
+// Returns #000
 
-color: _color.color-contrast(blue);
-// Return #fff
+color: contrast.color(blue);
+// Returns #fff
 ```
 
 ## _palette()_
+
+The `palette()` function works similary to the `color()`, but instead of using
+white and black as main colors, it will first check inside the palette variant.
+
+```scss
+contrast.palette($color, $varation: "base");
+
+
+color: contrast.palette(primary);
+// Returns #000
+
+color: contrast.palette(primary, 800);
+// Returns #89fafe => primary-100, the contrast is 6.7:1, enough > 4.5
+
+color: contrast.palette(primary, 100);
+// Return #013d3f => primary-900, better contrast ratio with 9.8:1
+```
+
+## _swatch()_
+
+:::caution
+
+This function is still experimental, be careful if you want to use it.
+
+:::
+
+This function is similar to `color()` and `palette()` ones, but go further. It
+the `color` is limited to return a "black" or "white" color, and `palette`
+following the variant available, `swatch()` works a little differently.
+
+To calculate the better color, it will use the HSL model. It will keep same
+**hue** and **saturation**, and change only the **lightness** to find the better
+choice.
+
+Thus, it may never return `#000` or `#fff`, but always a color which looks like
+to be inside the color scheme.
+
+```scss
+contrast.swatch($color);
+
+color: swatch(cv(primary)); // #02aab0
+// Returns #013637 => Check it here: https://color.review/check/013637-02AAB0
+// If you use the `palette()` function, it will return #000 because
+// the primary-900 wouldn't give a sufficient ratio
+
+color: swatch(red);
+// Returns #330000
+```
+
+:::note
+
+In the last example, `swatch(red)` returns `#330000` (or ``rgb(51, 0, 0)`) as
+result, but the first value which will be acceptable is
+`#370000`/`rgb(55, 0, 0)`.
+
+But in the fonction logic, the lightness is increment by +/-1. So the color
+`#370000` (equal to `hsl(0, 100%, 10.8%)`) isn't tested.
+
+It's a little compromise to avoid a too complexe/heavy loop to find the color
+that meets the requirements.
+
+:::
