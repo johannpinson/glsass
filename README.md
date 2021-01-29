@@ -1,3 +1,3 @@
-# Gl(s)ass
+# Glsass
 
-Gl(s)ass, or more formally called Glass, is a modern Sass framework which allow extensible and responsive development.
+Glsass, _simply say it "Glass"_, is a modern Sass framework which allow extensible and responsive development.

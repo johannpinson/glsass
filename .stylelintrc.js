@@ -261,7 +261,10 @@ module.exports = {
       },
     ],
     'comment-empty-line-before': ['always', { except: ['first-nested'] }],
-    'block-opening-brace-space-before': ['always', { ignoreAtRules: ['/if/'] }],
+    'block-opening-brace-space-before': [
+      'always',
+      { ignoreAtRules: ['/if/', '/each/'] },
+    ],
     'declaration-colon-space-after': 'always',
     'declaration-colon-space-before': 'never',
     'declaration-block-single-line-max-declarations': 1,
@@ -280,7 +283,7 @@ module.exports = {
       3,
       {
         ignore: ['pseudo-classes'],
-        ignoreAtRules: ['include', 'media', 'if', 'else'],
+        ignoreAtRules: ['include', 'media', 'if', 'else', 'each'],
       },
     ],
     'scss/dollar-variable-pattern': '^_?[a-z]+[\\w-]*$',
