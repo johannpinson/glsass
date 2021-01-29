@@ -22,8 +22,9 @@ const Swatch = () => (
       >
         {variants.map((variant, j) => (
           <p
-            className={styles[`p-swatch__${color}--${variant}`]}
-            style={{ padding: '1rem', marginBottom: 0 }}
+            // className={styles[`p-swatch__${color}--${variant}`]}
+            className={`p-swatch__${color}--${variant}`}
+            style={{ padding: '0.75rem', marginBottom: 0 }}
             key={`v-${j}`}
           >
             {color} {variant}
@@ -38,46 +39,46 @@ const Swatch = () => (
     ))}
     <div className={`${styles['o-col']} ${styles['u-6']} ${styles['u-4@tb']}`}>
       <p
-        className={styles['p-swatch__white']}
-        style={{ padding: '1rem', marginBottom: 0 }}
+        className="p-swatch__white"
+        style={{ padding: '0.75rem', marginBottom: 0 }}
       >
         white - base
       </p>
       <p
-        className={styles['p-swatch__black']}
-        style={{ padding: '1rem', marginBottom: 0 }}
+        className="p-swatch__black"
+        style={{ padding: '0.75rem', marginBottom: 0 }}
       >
         black - base
       </p>
       <p
-        className={styles['p-swatch__light']}
-        style={{ padding: '1rem', marginBottom: 0 }}
+        className="p-swatch__light"
+        style={{ padding: '0.75rem', marginBottom: 0 }}
       >
         light - base (gray 100)
       </p>
       <p
-        className={styles['p-swatch__dark']}
-        style={{ padding: '1rem', marginBottom: 0 }}
+        className="p-swatch__dark"
+        style={{ padding: '0.75rem', marginBottom: 0 }}
       >
         dark - base (gray 800)
       </p>
       <p
-        className={styles['p-swatch__text--base']}
-        style={{ padding: '1rem', marginBottom: 0 }}
+        className="p-swatch__text--base"
+        style={{ padding: '0.75rem', marginBottom: 0 }}
       >
         text - base (gray 900)
       </p>
       <p
-        className={styles['p-swatch__text--muted']}
-        style={{ padding: '1rem', marginBottom: 0 }}
+        className="p-swatch__text--muted"
+        style={{ padding: '0.75rem', marginBottom: 0 }}
       >
-        text - muted
+        text - muted (gray 600)
       </p>
       <p
-        className={styles['p-swatch__link']}
-        style={{ padding: '1rem', marginBottom: 0 }}
+        className="p-swatch__link"
+        style={{ padding: '0.75rem', marginBottom: 0 }}
       >
-        link - base
+        link - base (primary)
       </p>
     </div>
   </div>

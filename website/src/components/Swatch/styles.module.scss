@@ -1,3 +1,7 @@
+/* stylelint-disable max-nesting-depth */
+@use "sass:color";
+@use "sass:math";
+
 @use "@glsass/settings" with (
   $g-color-primary: #02aab0
 );
@@ -6,65 +10,168 @@
 @use "@glsass/utilities/utilities.columns";
 
 @use "@glsass/tools/tools.contrast" as contrast;
+@use "@glsass/tools/tools.unit" as unit;
 @use "@glsass/tools/tools.cv" as *;
 
-.p-swatch {
-  $_swatch-colors: (
-    "gray",
-    "primary",
-    "secondary",
-    "success",
-    "danger",
-    "warning",
-    "info"
-  );
-  $_swatch-variants: (100, 200, 300, 400, 500, 600, 700, 800, 900);
+@function _clean-unit($number) {
+  @return math.round(unit.strip-unit($number));
+}
 
-  @each $color in $_swatch-colors {
-    &__#{$color} {
-      @each $variant in $_swatch-variants {
-        &--#{$variant} {
-          color: contrast.color(cv($color, $variant));
-          background-color: cv($color, $variant);
+:global {
+  .p-swatch {
+    $_swatch-colors: (
+      "gray",
+      "primary",
+      "secondary",
+      "success",
+      "danger",
+      "warning",
+      "info"
+    );
+    $_swatch-variants: (100, 200, 300, 400, 500, 600, 700, 800, 900);
+
+    @each $color in $_swatch-colors {
+      &__#{$color} {
+        @each $variant in $_swatch-variants {
+          &--#{$variant} {
+            color: contrast.color(cv($color, $variant));
+            background-color: cv($color, $variant);
+
+            &::after {
+              $_color: cv($color, $variant);
+
+              content: "#{$_color}\a\
+              rgb(#{color.red($_color)}, #{color.green($_color)}, #{color.blue($_color)})\a\
+              hsl(#{_clean-unit(color.hue($_color))}, #{_clean-unit(color.saturation($_color))}%, #{_clean-unit(color.lightness($_color))}%)";
+              display: block;
+              font-style: italic;
+              white-space: pre-line;
+              opacity: 0.7;
+            }
+          }
         }
       }
     }
-  }
 
-  &__white {
-    color: contrast.color(cv("white"));
-    background-color: cv("white");
-  }
+    &__white {
+      color: contrast.color(cv(white));
+      background-color: cv(white);
 
-  &__black {
-    color: contrast.color(cv("black"));
-    background-color: cv("black");
-  }
+      &::after {
+        $_color: cv(white);
 
-  &__light {
-    color: contrast.color(cv("light"));
-    background-color: cv("light");
-  }
-
-  &__dark {
-    color: contrast.color(cv("dark"));
-    background-color: cv("dark");
-  }
-
-  &__text {
-    &--base {
-      color: cv("gray", 900);
-      background-color: cv("white");
+        content: "#{$_color}\a\
+        rgb(#{color.red($_color)}, #{color.green($_color)}, #{color.blue($_color)})\a\
+        hsl(#{_clean-unit(color.hue($_color))}, #{_clean-unit(color.saturation($_color))}%, #{_clean-unit(color.lightness($_color))}%)";
+        display: block;
+        font-style: italic;
+        white-space: pre-line;
+        opacity: 0.7;
+      }
     }
 
-    &--muted {
-      color: cv("gray", 600);
-      background-color: cv("white");
-    }
-  }
+    &__black {
+      color: contrast.color(cv("black"));
+      background-color: cv("black");
 
-  &__link {
-    color: cv("link");
-    background-color: cv("white");
+      &::after {
+        $_color: cv(black);
+
+        content: "#{$_color}\a\
+          rgb(#{color.red($_color)}, #{color.green($_color)}, #{color.blue($_color)})\a\
+          hsl(#{_clean-unit(color.hue($_color))}, #{_clean-unit(color.saturation($_color))}%, #{_clean-unit(color.lightness($_color))}%)";
+        display: block;
+        font-style: italic;
+        white-space: pre-line;
+        opacity: 0.7;
+      }
+    }
+
+    &__light {
+      color: contrast.color(cv("light"));
+      background-color: cv("light");
+
+      &::after {
+        $_color: cv(light);
+
+        content: "#{$_color}\a\
+          rgb(#{color.red($_color)}, #{color.green($_color)}, #{color.blue($_color)})\a\
+          hsl(#{_clean-unit(color.hue($_color))}, #{_clean-unit(color.saturation($_color))}%, #{_clean-unit(color.lightness($_color))}%)";
+        display: block;
+        font-style: italic;
+        white-space: pre-line;
+        opacity: 0.7;
+      }
+    }
+
+    &__dark {
+      color: contrast.color(cv("dark"));
+      background-color: cv("dark");
+
+      &::after {
+        $_color: cv(dark);
+
+        content: "#{$_color}\a\
+          rgb(#{color.red($_color)}, #{color.green($_color)}, #{color.blue($_color)})\a\
+          hsl(#{_clean-unit(color.hue($_color))}, #{_clean-unit(color.saturation($_color))}%, #{_clean-unit(color.lightness($_color))}%)";
+        display: block;
+        font-style: italic;
+        white-space: pre-line;
+        opacity: 0.7;
+      }
+    }
+
+    &__text {
+      &--base {
+        color: cv(text);
+        background-color: cv("white");
+
+        &::after {
+          $_color: cv(text);
+
+          content: "#{$_color}\a\
+          rgb(#{color.red($_color)}, #{color.green($_color)}, #{color.blue($_color)})\a\
+          hsl(#{_clean-unit(color.hue($_color))}, #{_clean-unit(color.saturation($_color))}%, #{_clean-unit(color.lightness($_color))}%)";
+          display: block;
+          font-style: italic;
+          white-space: pre-line;
+          opacity: 0.7;
+        }
+      }
+
+      &--muted {
+        color: cv(text, muted);
+        background-color: cv("white");
+
+        &::after {
+          $_color: cv(text, muted);
+
+          content: "#{$_color}\a\
+          rgb(#{color.red($_color)}, #{color.green($_color)}, #{color.blue($_color)})\a\
+          hsl(#{_clean-unit(color.hue($_color))}, #{_clean-unit(color.saturation($_color))}%, #{_clean-unit(color.lightness($_color))}%)";
+          display: block;
+          font-style: italic;
+          white-space: pre-line;
+          opacity: 0.7;
+        }
+      }
+    }
+
+    &__link {
+      color: cv("link");
+      background-color: cv("white");
+
+      &::after {
+        $_color: cv(link);
+
+        content: "#{$_color}\a\
+          rgb(#{color.red($_color)}, #{color.green($_color)}, #{color.blue($_color)})\a\
+          hsl(#{_clean-unit(color.hue($_color))}, #{_clean-unit(color.saturation($_color))}%, #{_clean-unit(color.lightness($_color))}%)";
+        display: block;
+        font-style: italic;
+        white-space: pre-line;
+        opacity: 0.7;
+      }
+    }
   }
 }
