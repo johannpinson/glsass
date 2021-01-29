@@ -16,7 +16,7 @@ code must be organized.
 
 <figure style={{ textAlign: 'center' }}>
   <img src="/img/itcss-default.svg" alt="ITCSS concept" height="300" />
-  <figcaption class="u-c-muted">
+  <figcaption className="u-c-muted">
     Image from{' '}
     <a
       href="https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/"

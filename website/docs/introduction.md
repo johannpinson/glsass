@@ -5,9 +5,8 @@ sidebar_label: Introduction
 slug: /
 ---
 
-Glsass (spell it simply Glass) is a Sass framework working with Sass Modules
-annd following the ITCSS pattern for extensible and responsive front
-development.
+Glsass (spell it simply Glass) is a Sass framework working with Sass Modules and
+following the exitCSS pattern for extensible and responsive front development.
 
 The framework provides generics/starter rules, a grid system, extensible
 components and utilities, with a global project architecture.
