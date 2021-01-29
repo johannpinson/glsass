@@ -11,6 +11,8 @@
 
 @use "@glsass/settings/settings.colors" as colors;
 
+@use "tools.cv" as *;
+
 /// Color luminance
 /// @since 1.1.0
 /// @link http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
@@ -51,7 +53,9 @@
     $ratio: 1 / $ratio;
   }
 
-  $ratio: math.round($ratio * 100) / 100;
+  // Return a precision at 3 to avoid "false positive"
+  // Example: avoid to round 4.496 into 4.50 because it will unluckily valid it
+  $ratio: math.round($ratio * 1000) / 1000;
 
   @return $ratio;
 }
@@ -62,14 +66,16 @@
 /// @return {Color} Color with better contrast ratio
 @function color(
   $color,
-  $dark: colors.$g-color-black,
+  $dark: colors.$g-color-text,
   $light: colors.$g-color-white,
   $ignore-warning: false
 ) {
   $ratio: 0;
   $ratio-color: null;
 
-  @each $variant in ($light, $dark) {
+  @each $variant
+    in ($light, $dark, colors.$g-color-white, colors.$g-color-black)
+  {
     $current-ratio: ratio($color, $variant);
 
     @if ($current-ratio > 4.5) {
@@ -119,4 +125,32 @@
   }
 
   @error "Contrast ratio for #{$color} not found.";
+}
+
+/// Determinate the color with good contrast respecting the same hue/saturation
+/// @since v1.1.0
+/// @param {Color} $color - Color base to determinate contrast from same hue
+/// @return {Color} color
+@function swatch($color) {
+  $black-ratio: ratio($color, #000);
+  $white-ratio: ratio($color, #fff);
+
+  $lightness: math.round(color.lightness($color) - 1);
+  $tested-color: color.change($color, $lightness: $lightness);
+
+  @if ($black-ratio > $white-ratio) {
+    @while ratio($tested-color, $color) < 4.5 or $lightness <=0 {
+      $lightness: $lightness - 1;
+      $tested-color: color.change($tested-color, $lightness: $lightness);
+    }
+  } @else {
+    @while ratio($tested-color, $color) < 4.5 or $lightness >= 100 {
+      $lightness: $lightness + 1;
+      $tested-color: color.change($tested-color, $lightness: $lightness);
+    }
+  }
+
+  @debug ratio($tested-color, $color);
+
+  @return $tested-color;
 }
