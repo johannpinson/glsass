@@ -1,0 +1,182 @@
+//// ==========================================================================
+/// @group Forms
+/// Range
+//// ==========================================================================
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.contrast" as contrast;
+@use "@glsass/tools/tools.form" as form;
+@use "@glsass/tools/tools.spacing" as spacing;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-range-classname: "c-form__range" !default;
+@include builder.check-classname($c-range-classname);
+
+/// @type Number
+$c-range-height: vr() !default;
+
+/// @type Number
+$c-range-thumb-width: $c-range-height !default;
+/// @type Number
+$c-range-thumb-height: $c-range-height !default;
+/// @type Color
+$c-range-thumb-background: graphics.$ui-form-main-color !default;
+/// @type Color
+$c-range-thumb-disabled-background: cv(gray) !default;
+
+/// @type Number
+$c-range-track-height: $c-range-height / 2 !default;
+/// @type Number
+$c-range-track-border-radius: graphics.$ui-form-border-radius !default;
+/// @type Color
+$c-range-track-background: graphics.$ui-form-border-color !default;
+
+/// @type Color
+$c-range-focus-color: graphics.$ui-form-focus-border-color !default;
+/// @type Number
+$c-range-focus-shadow-width: graphics.$ui-form-focus-shadow-width !default;
+/// @type Color
+$c-range-focus-shadow-color: graphics.$ui-form-focus-shadow-color !default;
+
+/// @type Number
+$c-range-result-width: 3rem !default;
+/// @type Number
+$c-range-result-gap: vr(0.5) !default;
+/// @type Number
+$c-range-result-border-radius: graphics.$ui-form-border-radius !default;
+/// @type Color
+$c-range-result-background: graphics.$ui-form-main-color !default;
+/// @type Color
+$c-range-result-color: contrast.color($c-range-result-background) !default;
+
+/// @type Boolean
+$c-range-result-arrow-enable: false !default;
+
+.#{$c-range-classname} {
+  display: flex;
+  width: 100%;
+
+  &-input {
+    display: block;
+    width: 100%;
+    height: vr();
+    background-color: transparent;
+    appearance: none;
+
+    // Pseudo-elements must be split across multiple rulesets to have an effect.
+    // Sass placeholders aren't available, because it will join the rules.
+    &::-webkit-slider-thumb {
+      width: $c-range-thumb-width;
+      height: $c-range-thumb-height;
+      margin-top: ($c-range-track-height - $c-range-thumb-height) / 2;
+      background-color: $c-range-thumb-background;
+      border: 0;
+      border-radius: 50%;
+      transition: box-shadow 0.15s ease-in-out, filter 0.15s ease-in-out;
+      appearance: none;
+    }
+
+    &::-moz-range-thumb {
+      width: $c-range-thumb-width;
+      height: $c-range-thumb-height;
+      margin-top: ($c-range-track-height - $c-range-thumb-height) / 2;
+      background-color: $c-range-thumb-background;
+      border: 0;
+      border-radius: 50%;
+      transition: box-shadow 0.15s ease-in-out, filter 0.15s ease-in-out;
+      appearance: none;
+    }
+
+    &::-webkit-slider-runnable-track {
+      height: spacing.add-space(2);
+      color: transparent;
+      background-color: $c-range-track-background;
+      border-radius: $c-range-track-border-radius;
+      cursor: pointer;
+    }
+
+    &::-moz-range-track {
+      height: spacing.add-space(2);
+      color: transparent;
+      background-color: $c-range-track-background;
+      border-radius: $c-range-track-border-radius;
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: 0;
+
+      &::-webkit-slider-thumb {
+        box-shadow: 0 0 0 $c-range-focus-shadow-width
+          $c-range-focus-shadow-color;
+      }
+
+      &::-moz-range-thumb {
+        box-shadow: 0 0 0 $c-range-focus-shadow-width
+          $c-range-focus-shadow-color;
+      }
+    }
+
+    &:active:not(:disabled):not(.disabled) {
+      &::-webkit-slider-thumb {
+        filter: brightness(90%);
+      }
+
+      &::-moz-range-thumb {
+        filter: brightness(90%);
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+
+      &::-webkit-slider-thumb {
+        background-color: $c-range-thumb-disabled-background;
+      }
+
+      &::-moz-range-thumb {
+        background-color: $c-range-thumb-disabled-background;
+      }
+
+      &::-webkit-slider-runnable-track {
+        cursor: not-allowed;
+      }
+
+      &::-moz-range-track {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &-result {
+    flex-shrink: 0;
+    width: $c-range-result-width;
+    margin-left: $c-range-result-gap;
+    color: $c-range-result-color;
+    text-align: center;
+    background-color: $c-range-result-background;
+    border-radius: $c-range-result-border-radius;
+
+    @if $c-range-result-arrow-enable {
+      position: relative;
+
+      $_size: vr() / 4;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -$_size;
+        width: 0;
+        height: 0;
+        border-top: $_size solid transparent;
+        border-right: $_size solid $c-range-result-background;
+        border-bottom: $_size solid transparent;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

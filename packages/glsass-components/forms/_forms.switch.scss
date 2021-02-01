@@ -1,0 +1,124 @@
+//// ==========================================================================
+/// @group Forms
+/// Switch
+//// ==========================================================================
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.form" as form;
+@use "@glsass/tools/tools.spacing" as spacing;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-switch-classname: "c-form__switch" !default;
+@include builder.check-classname($c-switch-classname);
+
+/// @type Number
+$c-switch-width: vr(2) !default;
+/// @type Number
+$c-switch-height: vr(1) !default;
+
+/// @type Number
+$c-switch-border-radius: $c-switch-height !default;
+/// @type Number
+$c-switch-border-width: graphics.$ui-form-border-width !default;
+/// @type Color
+$c-switch-border-color: graphics.$ui-form-border-color !default;
+
+/// @type Color:
+$c-switch-focus-border-color: graphics.$ui-form-focus-border-color !default;
+/// @type Number
+$c-switch-focus-shadow-width: graphics.$ui-form-focus-shadow-width !default;
+/// @type Color
+$c-switch-focus-shadow-color: graphics.$ui-form-focus-shadow-color !default;
+
+/// @type Color
+$c-switch-checked-border-color: graphics.$ui-form-main-color !default;
+/// @type Color
+$c-switch-checked-bg: graphics.$ui-form-main-color !default;
+
+/// @type Boolean
+$c-switch-add-validation-states: true !default;
+
+/// @type String
+$c-switch-icon: iv(
+  "radio",
+  $options: (
+    fill-1: $c-switch-border-color,
+  )
+) !default;
+$c-switch-icon-checked: iv("radio") !default;
+
+.#{$c-switch-classname} {
+  $root-switch: &;
+
+  display: flex;
+  align-items: center;
+
+  &-input {
+    display: block;
+    flex-shrink: 0;
+    width: $c-switch-width;
+    height: $c-switch-height;
+    background-color: #fff;
+    background-image: url($c-switch-icon);
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: 1.5rem auto;
+    border: $c-switch-border-width solid $c-switch-border-color;
+    border-radius: $c-switch-border-radius;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+      background 0.15s ease-in-out;
+    appearance: none;
+
+    &:hover:not(:disabled):not(.disabled):not([class*="is-"]) {
+      border-color: $c-switch-focus-border-color;
+    }
+
+    &:focus {
+      border-color: $c-switch-focus-border-color;
+      outline: 0;
+      box-shadow: 0 0 0 $c-switch-focus-shadow-width
+        $c-switch-focus-shadow-color;
+    }
+
+    &:active:not(:disabled):not(.disabled) {
+      filter: brightness(90%);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+
+      &:checked {
+        opacity: 0.5;
+      }
+
+      ~ #{$root-switch}-label {
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+    }
+
+    &:checked {
+      background-color: $c-switch-checked-bg;
+      background-image: url($c-switch-icon-checked);
+      background-position: center right;
+      border-color: $c-switch-checked-border-color;
+    }
+  }
+
+  &-label {
+    padding-left: spacing.add-space(2);
+    user-select: none;
+  }
+}
+
+@if $c-switch-add-validation-states {
+  @include form.add-validation-states(
+    graphics.$ui-form-states,
+    ".#{$c-switch-classname}-input",
+    $c-switch-focus-shadow-width,
+    $is-check: true
+  );
+}
