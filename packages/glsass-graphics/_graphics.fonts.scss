@@ -7,6 +7,8 @@
 
 @use "@glsass/settings/settings.core" as core;
 
+@use "@glsass/tools/tools.global" as *;
+
 // ===========================================================================
 // Fonts
 // ===========================================================================
@@ -38,21 +40,38 @@ $ui-fonts-family-map: list.join(
 // ===========================================================================
 
 /// @type Number
-$ui-headings-font-size-h1: core.$g-font-size-base * 3 !default; // 48
+$ui-headings-h1-font-size: core.$g-font-size-base * 3 !default; // 48px
 /// @type Number
-$ui-headings-font-size-h2: core.$g-font-size-base * 2.4 !default; // 38.4
+$ui-headings-h1-baseline: vr(3) !default; // 3vr - 72px
+
 /// @type Number
-$ui-headings-font-size-h3: core.$g-font-size-base * 1.75 !default; // 28
+$ui-headings-h2-font-size: core.$g-font-size-base * 2.25 !default; // 36px
 /// @type Number
-$ui-headings-font-size-h4: core.$g-font-size-base * 1.5 !default; // 24
+$ui-headings-h2-baseline: vr(2.5) !default; // 2.5vr - 60px
+
 /// @type Number
-$ui-headings-font-size-h5: core.$g-font-size-base * 1.25 !default; // 20
+$ui-headings-h3-font-size: core.$g-font-size-base * 1.75 !default; // 28px
 /// @type Number
-$ui-headings-font-size-h6: core.$g-font-size-base * 1 !default; // 16
+$ui-headings-h3-baseline: vr(2) !default; // 2vr - 48px
+
+/// @type Number
+$ui-headings-h4-font-size: core.$g-font-size-base * 1.5 !default; // 24px
+/// @type Number
+$ui-headings-h4-baseline: vr(1.5) !default; // 1.5vr - 36px
+
+/// @type Number
+$ui-headings-h5-font-size: core.$g-font-size-base * 1.25 !default; // 20px
+/// @type Number
+$ui-headings-h5-baseline: vr(1) !default; // 1vr - 24px
+
+/// @type Number
+$ui-headings-h6-font-size: core.$g-font-size-base * 1 !default; // 16px
+/// @type Number
+$ui-headings-h6-baseline: vr(1) !default; // 1vr - 24px
 
 /// Default headings margin bottom
 /// @type Number
-$ui-headings-margin-bottom: core.$g-spacer / 2 !default;
+$ui-headings-margin-bottom: vr(1) / 2 !default;
 /// Default headings color
 /// @type Color
 $ui-headings-color: null !default;
@@ -69,33 +88,27 @@ $ui-headings-font-style: null !default;
 /// @type Map
 $ui-headings-styles: (
   1: (
-    // baseline 2.5vr - 60px
-    font-size: $ui-headings-font-size-h1,
-    line-height: core.$g-spacer * 2.5 / $ui-headings-font-size-h1,
+    font-size: $ui-headings-h1-font-size,
+    line-height: $ui-headings-h1-baseline / $ui-headings-h1-font-size,
   ),
   2: (
-    // baseline 2vr - 48px
-    font-size: $ui-headings-font-size-h2,
-    line-height: core.$g-spacer * 2 / $ui-headings-font-size-h2,
+    font-size: $ui-headings-h2-font-size,
+    line-height: $ui-headings-h2-baseline / $ui-headings-h2-font-size,
   ),
   3: (
-    // baseline 1.5vr - 36px
-    font-size: $ui-headings-font-size-h3,
-    line-height: core.$g-spacer * 1.5 / $ui-headings-font-size-h3,
+    font-size: $ui-headings-h3-font-size,
+    line-height: $ui-headings-h3-baseline / $ui-headings-h3-font-size,
   ),
   4: (
-    // baseline 1.5vr - 36px
-    font-size: $ui-headings-font-size-h4,
-    line-height: core.$g-spacer * 1.5 / $ui-headings-font-size-h4,
+    font-size: $ui-headings-h4-font-size,
+    line-height: $ui-headings-h4-baseline / $ui-headings-h4-font-size,
   ),
   5: (
-    // baseline 1vr - 24px
-    font-size: $ui-headings-font-size-h5,
-    line-height: core.$g-spacer / $ui-headings-font-size-h5,
+    font-size: $ui-headings-h5-font-size,
+    line-height: $ui-headings-h5-baseline / $ui-headings-h5-font-size,
   ),
   6: (
-    // baseline 1vr - 24px
-    font-size: $ui-headings-font-size-h6,
-    line-height: core.$g-spacer / $ui-headings-font-size-h6,
+    font-size: $ui-headings-h6-font-size,
+    line-height: $ui-headings-h6-baseline / $ui-headings-h6-font-size,
   ),
 ) !default;
