@@ -1,0 +1,31 @@
+//// ==========================================================================
+/// @group Utilities
+/// Elevations
+//// ==========================================================================
+
+@use "sass:map";
+
+@use "@glsass/tools/tools.generators" as generators;
+@use "@glsass/tools/tools.global" as *;
+
+/// List of elevations utilities
+/// @type Map
+$u-elevations: () !default;
+
+$_utilities: (
+  elevation: (
+    property: box-shadow,
+    class: elv,
+    values: (
+      0: none,
+      1: 0 0.125rem 0.25rem rgba(cv(black), 0.1),
+      2: 0 0.25rem 0.5rem rgba(cv(black), 0.125),
+      3: 0 0.5rem 1rem rgba(cv(black), 0.15),
+      4: 0 1rem 1.75rem rgba(cv(black), 0.175),
+      5: 0 1.5rem 2.25rem rgba(cv(black), 0.2),
+    ),
+  ),
+);
+
+$u-elevations: map.merge($_utilities, $u-elevations);
+@include generators.utilities($u-elevations);
