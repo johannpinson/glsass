@@ -1,0 +1,52 @@
+//// ==========================================================================
+/// @group Components
+/// Breadcrumb
+//// ==========================================================================
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-breadcrumb-classname: "c-breadcrumb" !default;
+@include builder.check-classname($c-breadcrumb-classname);
+
+/// @type Color
+$c-breadcrumb-active-color: cv(text, muted) !default;
+
+/// @type String
+$c-breadcrumb-divider: "/" !default;
+/// @type Color
+$c-breadcrumb-divider-color: cv(gray, 300) !default;
+/// @type Number
+$c-breadcrumb-divider-spacing: vr() / 4 !default;
+
+.#{$c-breadcrumb-classname} {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  list-style: none;
+
+  &__item {
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &:not(:last-of-type) {
+      &::after {
+        content: $c-breadcrumb-divider;
+        padding: 0 $c-breadcrumb-divider-spacing;
+        color: $c-breadcrumb-divider-color;
+      }
+    }
+
+    &.is-active {
+      color: $c-breadcrumb-active-color;
+    }
+  }
+}
