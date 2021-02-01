@@ -40,15 +40,23 @@
     @debug $icon;
   }
 
-  @if not map.get($icon, "file") {
-    @if ($strict) {
-      @error "Invalid variation: `#{$variation}` for `#{$name}` icon.";
+  $variant: null;
+
+  @if map.get($icon, "file") {
+    $variant: map.get($icon, "file");
+  } @else {
+    $icon_default: _map.deep-get(settings.$g-icons-database, $name, "default");
+
+    @if not map.get($icon_default, "file") {
+      @if ($strict) {
+        @error "Invalid variation: `#{$variation}` for `#{$name}` icon.";
+      }
+
+      @return null;
     }
 
-    @return null;
+    $variant: map.get($icon_default, "file");
   }
-
-  $variant: map.get($icon, "file");
 
   @if (
     string.index($variant, "<svg") !=
