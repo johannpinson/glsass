@@ -1,0 +1,121 @@
+//// ==========================================================================
+/// @group Components
+/// Pagination
+//// ==========================================================================
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.contrast" as contrast;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-pagination-classname: "c-pagination" !default;
+@include builder.check-classname($c-pagination-classname);
+
+/// @type Number
+$c-pagination-gap: (1rem / 4) !default;
+
+/// @type Number
+$c-pagination-border-radius: graphics.$ui-border-radius !default;
+
+/// @type Number
+$c-pagination-focus-shadow-width: graphics.$ui-form-focus-shadow-width !default;
+/// @type Color
+$c-pagination-focus-shadow-color: graphics.$ui-form-focus-shadow-color !default;
+
+/// @type Color
+$c-pagination-state-active: cv(primary) !default;
+/// @type Color
+$c-pagination-state-disabled: cv(text, muted) !default;
+
+/// @type Boolean
+$c-pagination-arrow-enable: true !default;
+/// @type String
+$c-pagination-arrow-icon: iv(select) !default;
+/// @type String
+$c-pagination-arrow-icon-disabled: iv(
+  select,
+  $options: (
+    stroke-1: $c-pagination-state-disabled,
+  )
+) !default;
+/// @type Number
+$c-pagination-arrow-icon-size: vr(0.5) !default;
+
+.#{$c-pagination-classname} {
+  display: flex;
+  list-style: none;
+
+  &__item {
+    margin: 0 $c-pagination-gap / 2;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: vr(1.5);
+      height: vr(1.5);
+      padding: 0 0.5rem;
+      color: cv(text);
+      text-align: center;
+      text-decoration: none;
+      border-radius: $c-pagination-border-radius;
+      transition: background-color 0.35s graphics.$ui-transition-timing-function,
+        box-shadow 0.35s graphics.$ui-transition-timing-function;
+
+      &:hover {
+        background-color: cv(light);
+      }
+
+      &:focus {
+        background-color: cv(light);
+        outline: 0;
+        box-shadow: 0 0 0 $c-pagination-focus-shadow-width
+          $c-pagination-focus-shadow-color;
+      }
+    }
+
+    &.is-active {
+      a {
+        color: contrast.color($c-pagination-state-active);
+        background-color: $c-pagination-state-active;
+      }
+    }
+
+    &.is-disabled {
+      a {
+        color: $c-pagination-state-disabled;
+        pointer-events: none;
+      }
+    }
+
+    @if ($c-pagination-arrow-enable) {
+      &--prev.is-disabled a::before,
+      &--next.is-disabled a::after {
+        background-image: url($c-pagination-arrow-icon-disabled);
+      }
+
+      &--prev a::before,
+      &--next a::after {
+        content: "";
+        width: $c-pagination-arrow-icon-size;
+        height: $c-pagination-arrow-icon-size;
+        background-image: url($c-pagination-arrow-icon);
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: $c-pagination-arrow-icon-size;
+      }
+
+      &--prev a::before {
+        margin-right: $c-pagination-arrow-icon-size / 2;
+        transform: rotate(90deg);
+      }
+
+      &--next a::after {
+        margin-left: $c-pagination-arrow-icon-size / 2;
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}
