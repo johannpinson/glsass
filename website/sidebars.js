@@ -71,6 +71,7 @@ module.exports = {
         'components/card',
         'components/form',
         'components/navbar',
+        'components/pagination',
       ],
     },
     {
