@@ -39,49 +39,63 @@ All the classes present in the file are added to the `body` tag by default.
 
 import Example from '@site/src/components/Example'
 
-<Example>
-  <div className="o-row">
-    <div className="o-col u-12 u-8@md">
-      <p>Demo:</p>
-      <p>
-        <button
-          className="c-button c-button--primary js-debug-baseline"
-          type="button"
-        >
-          Display baseline grid
-        </button>
-      </p>
-      <p>
-        <button className="c-button c-button--primary js-debug-o" type="button">
-          Outline all Object classes
-        </button>
-      </p>
-      <p>
-        <button className="c-button c-button--primary js-debug-c" type="button">
-          Outline all Component classes
-        </button>
-      </p>
-      <p>
-        <button className="c-button c-button--primary js-debug-u" type="button">
-          Outline all Utility classes
-        </button>
-      </p>
-      <p>
-        <button className="c-button c-button--primary js-debug-a" type="button">
-          Outline all Responsive classes
-        </button>
-      </p>
-      <p>
-        <button
-          className="c-button c-button--primary js-debug-all"
-          type="button"
-        >
-          Outline all classes
-        </button>
-      </p>
+<div className="u-mb-3">
+  <Example>
+    <div className="o-row">
+      <div className="o-col u-12 u-8@md">
+        <p>Demo:</p>
+        <p>
+          <button
+            className="c-button c-button--primary js-debug-baseline"
+            type="button"
+          >
+            Display baseline grid
+          </button>
+        </p>
+        <p>
+          <button
+            className="c-button c-button--primary js-debug-o"
+            type="button"
+          >
+            Outline all Object classes
+          </button>
+        </p>
+        <p>
+          <button
+            className="c-button c-button--primary js-debug-c"
+            type="button"
+          >
+            Outline all Component classes
+          </button>
+        </p>
+        <p>
+          <button
+            className="c-button c-button--primary js-debug-u"
+            type="button"
+          >
+            Outline all Utility classes
+          </button>
+        </p>
+        <p>
+          <button
+            className="c-button c-button--primary js-debug-a"
+            type="button"
+          >
+            Outline all Responsive classes
+          </button>
+        </p>
+        <p>
+          <button
+            className="c-button c-button--primary js-debug-all"
+            type="button"
+          >
+            Outline all classes
+          </button>
+        </p>
+      </div>
     </div>
-  </div>
-</Example>
+  </Example>
+</div>
 
 :::danger To enable these classes, you must set at `true` the `$u-debug`
 variable when you import the file.<br/> It's a security to avoid the adding

@@ -108,13 +108,14 @@ color: swatch(red);
 :::note
 
 In the last example, `swatch(red)` returns `#330000` (or ``rgb(51, 0, 0)`) as
-result, but the first value which will be acceptable is
+result, but the first value which will be "acceptable" is
 `#370000`/`rgb(55, 0, 0)`.
 
-But in the fonction logic, the lightness is increment by +/-1. So the color
-`#370000` (equal to `hsl(0, 100%, 10.8%)`) isn't tested.
+But in the loop logic, the lightness is increment by +/-1. So the color
+`#370000`, equal to `hsl(0, 100%, 10.8%)`, isn't tested.
 
 It's a little compromise to avoid a too complexe/heavy loop to find the color
-that meets the requirements.
+that meets the requirements and follow browsers behavior which also cast it into
+an integer).
 
 :::

@@ -3,7 +3,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Glsass',
-      items: ['introduction', 'exitcss'],
+      items: ['introduction', 'exitcss', 'vertical-rhythm', 'about'],
     },
     {
       type: 'category',
@@ -65,6 +65,7 @@ module.exports = {
         'components/accordion',
         'components/alert',
         'components/badge',
+        'components/breadcrumb',
         'components/button',
         'components/callout',
         'components/card',
@@ -86,6 +87,7 @@ module.exports = {
         'utilities/colors',
         'utilities/columns',
         'utilities/displays',
+        'utilities/elevations',
         'utilities/flex',
         'utilities/float',
         'utilities/headings',

@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@use "@glsass/settings" with (
+@use "@glsass/settings/settings.colors" with (
   $g-color-primary: #02aab0,
 );
 
@@ -16,6 +16,11 @@
 
   @include mq() {
     padding: calc(#{vr()} - 1px) vr();
+  }
+
+  ol,
+  ul {
+    padding-left: 0;
   }
 
   li + li {

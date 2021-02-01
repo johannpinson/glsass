@@ -5,6 +5,7 @@ sidebar_label: Form
 ---
 
 import Example from '@site/src/components/Example/'
+import Range from '@site/src/components/Range/'
 
 Forms provide the most common control styles used in forms, including input,
 textarea, select, checkbox, radio and switch.
@@ -12,8 +13,8 @@ textarea, select, checkbox, radio and switch.
 ## Group & Inline
 
 The two components and can be used tomanage the flow of elements like label,
-inputs and validation texts.<br/>
-In some case, the class can be replace by the utility class to add some margin.
+inputs and validation texts.<br/> In some case, the class can be replace by the
+utility class to add some margin.
 
 <Example>
   <div className="o-row">
@@ -286,9 +287,39 @@ password...) and `textarea`.
 ```
 <!-- prettier-ignore-end -->
 
-### Switch (available soon)
+### Switch
 
-This will be an alternative style for `checkbox` inputs.
+This component is an alternative style for `checkbox` inputs.
+
+<Example>
+  <div className="c-form__group">
+    <div className="c-form__switch">
+      <input
+        className="c-form__switch-input"
+        type="checkbox"
+        name="switch1"
+        id="switch1"
+      />
+      <label className="c-form__switch-label" htmlFor="switch1">
+        Enable this checkbox
+      </label>
+    </div>
+  </div>
+  <div className="c-form__group u-mb-0">
+    <div className="c-form__switch">
+      <input
+        className="c-form__switch-input"
+        type="checkbox"
+        name="switch2"
+        id="switch2"
+        defaultChecked={true}
+      />
+      <label className="c-form__switch-label" htmlFor="switch2">
+        Checked switch
+      </label>
+    </div>
+  </div>
+</Example>
 
 ### Toggle
 
@@ -340,6 +371,76 @@ possible choice are like "true/false" answers.
     </div>
   </div>
 </fieldset>
+```
+<!-- prettier-ignore-end -->
+
+## Range
+
+<Example>
+  <label htmlFor="range-simple" className="c-form__label">
+    Select a range
+  </label>
+  <div className="c-form__range">
+    <input
+      className="c-form__range-input"
+      type="range"
+      name="range-simple"
+      id="range-simple"
+    />
+  </div>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<label for="range-sample" class="c-form__label">Select a range</label>
+<div class="c-form__range">
+  <input class="c-form__range-input" type="range" name="range-sample" id="range-sample">
+</div>
+```
+<!-- prettier-ignore-end -->
+
+Inputs range can have several attributes like `min` and `max` to overrides
+default values (`0` to `100`). The `step` attribute allow to change the
+granularity that the value must respect.
+
+You will find more example on the
+[MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range).
+
+### Display selected value
+
+By default, an range input doesn't prompt the "value" of the field. If some
+webkit-based browsers offer hash marks, that may not be enough.
+
+To display the value, you can add some tricks using the `<output>` element.
+
+<Example>
+  <Range val={5} />
+</Example>
+
+<!-- onChange={() => (this.nextElementSibling.value = parseInt(this.value, 10))} -->
+
+<!-- prettier-ignore-start -->
+```html
+<!-- Option 1: Add JS script on the `<form>` element -->
+<form oninput="result.value=parseInt(r.value, 10)">
+  <div class="c-form__range">
+    <input
+      class="c-form__range-input"
+      type="range" id="r" value="5" min="0" max="10" step="1"
+    >
+    <output class="c-form__range-result" name="result" for="r"></output>
+  </div>
+</form>
+
+<!-- Option 2: Add script on the `<input>` element -->
+<div class="c-form__range">
+  <input
+    class="c-form__range-input"
+    type="range" id="r" value="5" min="0" max="10" step="1"
+    oninput="this.nextElementSibling.value=parseInt(this.value, 10)"
+  >
+  <output class="c-form__range-result" name="result" for="r"></output>
+</div>
 ```
 <!-- prettier-ignore-end -->
 
@@ -435,9 +536,11 @@ input field with the name of the file(s) selected.
 
 ## Helpers
 
-You can add some indications by adding texts below fields.<br/>
-Help texts should be associated with the form control it relates to using the
-aria-describedby attribute.
+You can add some indications by adding texts below fields using the
+`.c-form__text` class.
+
+Help texts should be associated with the `.c-form__control` element related to
+using the aria-describedby attribute.
 
 <Example>
   <div className="c-form__group">
@@ -615,7 +718,7 @@ with controls, select and file elements).
     </div>
   </fieldset>
   <div className="c-form__group">
-    <span className="c-form__label">Active or not the checkbox</span>
+    <span className="c-form__label">Active or not checkboxes</span>
     <div className="c-form__check">
       <input
         className="c-form__check-input"
@@ -627,6 +730,37 @@ with controls, select and file elements).
       <label className="c-form__check-label" htmlFor="check-disabled">
         Option 1
       </label>
+    </div>
+  </div>
+  <div className="c-form__group">
+    <div className="c-form__switch">
+      <input
+        className="c-form__switch-input"
+        type="checkbox"
+        name="switch-disabled"
+        id="switch-disabled"
+        disabled
+      />
+      <label className="c-form__switch-label" htmlFor="switch-disabled">
+        Option 2
+      </label>
+    </div>
+  </div>
+  <div className="c-form__group">
+    <label htmlFor="range-disabled" className="c-form__label">
+      Select a range
+    </label>
+    <div className="c-form__range">
+      <input
+        className="c-form__range-input"
+        type="range"
+        name="range-disabled"
+        id="range-disabled"
+        min="0"
+        max="10"
+        defaultValue="3"
+        disabled
+      />
     </div>
   </div>
   <div className="c-form__group">
@@ -652,10 +786,12 @@ with controls, select and file elements).
   <label class="c-form__label" for="name">Name</label>
   <input class="c-form__control" type="text" id="name" name="name" placeholder="Name" disabled>
 </div>
+
 <div class="c-form__group">
   <label class="c-form__label" for="message">Message</label>
   <textarea class="c-form__control" id="message" name="message" placeholder="Add your message" disabled></textarea>
 </div>
+
 <div class="c-form__group">
   <label class="c-form__label">Choose an option</label>
   <select class="c-form__select" name="list" id="list" disabled>
@@ -664,6 +800,7 @@ with controls, select and file elements).
     <option value="3">Three</option>
   </select>
 </div>
+
 <fieldset class="c-form__group" disabled>
   <legend class="c-form__label">Gender</legend>
   <div class="c-form__check">
@@ -675,6 +812,7 @@ with controls, select and file elements).
     <label class="c-form__check-label" for="female">Female</label>
   </div>
 </fieldset>
+
 <div class="c-form__group">
   <span class="c-form__label">Active or not the checkbox</span>
   <div class="c-form__check">
@@ -682,13 +820,35 @@ with controls, select and file elements).
     <label class="c-form__check-label" for="check">Option 1</label>
   </div>
 </div>
+
+<div class="c-form__group">
+  <div class="c-form__switch">
+    <input class="c-form__switch-input" type="checkbox" name="switch-disabled" id="switch-disabled" disabled>
+    <label class="c-form__switch-label" for="switch-disabled">Option 2</label>
+  </div>
+</div>
+
+<div class="c-form__group">
+  <span class="c-form__label">Add a profile picture</span>
+  <input
+    class="c-form__file-input"
+    type="file"
+    name="picture-disabled"
+    id="picture-disabled"
+    data-multiple-caption="{count} files selected"
+    disabled
+  >
+  <label class="c-form__file-label" for="picture-disabled">
+    <strong>Choose a file</strong><span></span>
+  </label>
+</div>
 ```
 <!-- prettier-ignore-end -->
 
 ## Validation styles / feedbacks
 
-The validation messages work a bit like the helper texts.<br/>
-This behavior is greatly inspired by Bootstrap.
+The validation messages work a bit like the helper texts.<br/> This behavior is
+greatly inspired by Bootstrap.
 
 <div className="u-mb-3">
   <Example>
@@ -800,7 +960,7 @@ This behavior is greatly inspired by Bootstrap.
           <legend className="c-form__label">Radio (valid)</legend>
           <div className="c-form__check">
             <input
-              className="c-form__check-input"
+              className="c-form__check-input is-valid"
               type="radio"
               name="gender-valid"
               id="male-valid"
@@ -815,7 +975,7 @@ This behavior is greatly inspired by Bootstrap.
               type="radio"
               name="gender-valid"
               id="female-valid"
-              checked={true}
+              defaultChecked={true}
             />
             <label className="c-form__check-label" htmlFor="female-valid">
               Female
@@ -828,7 +988,7 @@ This behavior is greatly inspired by Bootstrap.
           <legend className="c-form__label">Radio (invalid)</legend>
           <div className="c-form__check">
             <input
-              className="c-form__check-input"
+              className="c-form__check-input is-invalid"
               type="radio"
               name="gender-invalid"
               id="male-invalid"
@@ -843,7 +1003,7 @@ This behavior is greatly inspired by Bootstrap.
               type="radio"
               name="gender-invalid"
               id="female-invalid"
-              checked={true}
+              defaultChecked={true}
             />
             <label className="c-form__check-label" htmlFor="female-invalid">
               Female
@@ -881,6 +1041,38 @@ This behavior is greatly inspired by Bootstrap.
             />
             <label className="c-form__check-label" htmlFor="check-invalid">
               Option 1
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="o-row">
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <div className="c-form__switch">
+            <input
+              className="c-form__switch-input is-valid"
+              type="checkbox"
+              name="switch-valid"
+              id="switch-valid"
+            />
+            <label className="c-form__switch-label" htmlFor="switch-valid">
+              Option 2
+            </label>
+          </div>
+        </div>
+      </div>
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <div className="c-form__switch">
+            <input
+              className="c-form__switch-input is-invalid"
+              type="checkbox"
+              name="switch-invalid"
+              id="switch-invalid"
+            />
+            <label className="c-form__switch-label" htmlFor="switch-invalid">
+              Option 2
             </label>
           </div>
         </div>
