@@ -7,9 +7,12 @@
 // GRAPHICS
 // @use "@glsass/graphics" as ui;
 
-// GENERIC
+// GENERICS
+// @forward "@glsass/generics"; // Uncomment for compilation test
 @forward "generics/generics.custom";
-// custom generic
+
+// ELEMENTS
+// @forward "@glsass/elements";
 
 // OBJECTS
 @forward "@glsass/objects/objects.divider";
