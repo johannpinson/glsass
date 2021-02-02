@@ -1,0 +1,170 @@
+//// ==========================================================================
+/// @group Components
+/// @since v1.1.0
+/// Tooltip
+//// ==========================================================================
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.contrast" as contrast;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-tooltip-classname: "c-tooltip" !default;
+@include builder.check-classname($c-tooltip-classname);
+
+/// @type Number
+$c-tooltip-padding-y: vr() / 4 !default;
+/// @type Number
+$c-tooltip-padding-x: vr(0.5) !default;
+
+/// @type Number
+$c-tooltip-border-radius: graphics.$ui-border-radius !default;
+
+/// @type Color
+$c-tooltip-color-background: cv(dark) !default;
+/// @type Color
+$c-tooltip-color-text: contrast.color($c-tooltip-color-background) !default;
+
+/// @type Boolean
+$c-tooltip-enable-animation: true !default;
+
+.#{$c-tooltip-classname} {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 100;
+    padding: $c-tooltip-padding-y $c-tooltip-padding-x;
+    color: $c-tooltip-color-text;
+    white-space: pre;
+    background-color: $c-tooltip-color-background;
+    border-radius: $c-tooltip-border-radius;
+    opacity: 0;
+    transform: translate3d(-50%, -100%, 0);
+    pointer-events: none;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    content: attr(arial-label);
+
+    @if $c-tooltip-enable-animation {
+      animation-name: tooltip-default;
+      animation-duration: 0.15s;
+      animation-delay: 0.15s;
+      animation-fill-mode: forwards;
+    } @else {
+      opacity: 1;
+      transform: translate3d(-50%, calc(-100% - (#{$c-tooltip-padding-y})), 0);
+    }
+  }
+
+  &--right {
+    &::after {
+      top: 50%;
+      right: 0;
+      left: auto;
+      transform: translate3d(100%, -50%, 0);
+    }
+
+    &:hover::after,
+    &:focus::after {
+      @if $c-tooltip-enable-animation {
+        animation-name: tooltip-right;
+      } @else {
+        opacity: 1;
+        transform: translate3d(calc(100% + #{$c-tooltip-padding-y}), -50%, 0);
+      }
+    }
+  }
+
+  &--bottom {
+    &::after {
+      top: auto;
+      bottom: 0;
+      transform: translate3d(-50%, 100%, 0);
+    }
+
+    &:hover::after,
+    &:focus::after {
+      @if $c-tooltip-enable-animation {
+        animation-name: tooltip-bottom;
+      } @else {
+        opacity: 1;
+        transform: translate3d(-50%, calc(100% + (#{$c-tooltip-padding-y})), 0);
+      }
+    }
+  }
+
+  &--left {
+    &::after {
+      top: 50%;
+      left: 0;
+      transform: translate3d(-100%, -50%, 0);
+    }
+
+    &:hover::after,
+    &:focus::after {
+      @if $c-tooltip-enable-animation {
+        animation-name: tooltip-left;
+      } @else {
+        opacity: 1;
+        transform: translate3d(calc(-100% - #{$c-tooltip-padding-y}), -50%, 0);
+      }
+    }
+  }
+}
+
+@if $c-tooltip-enable-animation {
+  @keyframes tooltip-default {
+    0% {
+      opacity: 0;
+      transform: translate3d(-50%, -100%, 0);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate3d(-50%, calc(-100% - (#{$c-tooltip-padding-y})), 0);
+    }
+  }
+
+  @keyframes tooltip-right {
+    0% {
+      opacity: 0;
+      transform: translate3d(100%, -50%, 0);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate3d(calc(100% + #{$c-tooltip-padding-y}), -50%, 0);
+    }
+  }
+
+  @keyframes tooltip-bottom {
+    0% {
+      opacity: 0;
+      transform: translate3d(-50%, 100%, 0);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate3d(-50%, calc(100% + (#{$c-tooltip-padding-y})), 0);
+    }
+  }
+
+  @keyframes tooltip-left {
+    0% {
+      opacity: 0;
+      transform: translate3d(-100%, -50%, 0);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate3d(calc(-100% - #{$c-tooltip-padding-y}), -50%, 0);
+    }
+  }
+}
