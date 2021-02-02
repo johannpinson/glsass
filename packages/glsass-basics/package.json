@@ -1,0 +1,27 @@
+{
+  "name": "@glsass/basics",
+  "version": "1.1.0-alpha.1",
+  "description": "Basics layers for Glsass - Generics + Elements.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johannpinson/glsass.git",
+    "directory": "packages/glsass-basics"
+  },
+  "bugs": {
+    "url": "https://github.com/johannpinson/glsass/issues"
+  },
+  "keywords": [],
+  "author": "Johann Pinson",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@glsass/elements": "1.1.0-alpha.1",
+    "@glsass/generics": "1.1.0-alpha.1"
+  },
+  "peerDependencies": {
+    "sass": "^1.32.5"
+  },
+  "gitHead": "7a1ddcb2ff2f408b20cf0e97c67273849e38a50e"
+}
