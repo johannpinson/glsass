@@ -7,11 +7,20 @@
 
 @use "@glsass/tools/tools.builder" as builder;
 @use "@glsass/tools/tools.contrast" as contrast;
+@use "@glsass/tools/tools.spacing" as spacing;
 @use "@glsass/tools/tools.global" as *;
 
 /// @type String
 $c-badge-classname: "c-badge" !default;
 @include builder.check-classname($c-badge-classname);
+
+/// @type Number
+$c-bagde-font-size: 0.75rem !default;
+
+/// @type Number
+$c-badge-padding-y: 0.25rem !default;
+/// @type Number
+$c-badge-padding-x: 0.5rem !default;
 
 /// @type Number
 $c-badge-border-radius: graphics.$ui-border-radius !default;
@@ -23,9 +32,11 @@ $c-badge-text-color: contrast.color($c-badge-background-color) !default;
 
 .#{$c-badge-classname} {
   display: inline-block;
-  padding: 0.25em 0.5em;
+  padding: $c-badge-padding-y $c-badge-padding-x;
   color: $c-badge-text-color;
-  font-size: 0.75em;
+  font-size: $c-bagde-font-size;
+  line-height: spacing.adjust-vr(1, $c-bagde-font-size, $c-badge-padding-y * 2);
+  vertical-align: top;
   background-color: $c-badge-background-color;
   border-radius: $c-badge-border-radius;
 }
