@@ -8,7 +8,7 @@ module.exports = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'johannpinsonn', // Usually your GitHub org/user name.
+  organizationName: 'johannpinson', // Usually your GitHub org/user name.
   projectName: 'glsass', // Usually your repo name.
   themeConfig: {
     navbar: {
@@ -114,11 +114,10 @@ module.exports = {
           // Please change this to your repo.
           editUrl: 'https://github.com/johannpinson/glsass/edit/main/website/',
           showLastUpdateTime: true,
-          // lastVersion: 'current',
+          // lastVersion: '1.0.0',
           versions: {
             current: {
               label: '1.1.0-alpha',
-              path: 'next',
             },
           },
         },
