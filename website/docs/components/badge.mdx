@@ -24,3 +24,33 @@ import Example from '@site/src/components/Example/'
 <span class="c-badge u-bg-warning">change the background</span>
 <span class="c-badge u-bg-danger u-c-white">change the background + color</span>
 ```
+
+## Pill version
+
+If you want to have `pill` shape, you just need to change the
+`$c-badge-border-radius` variable and pass a value superior to the expected
+height of the component (`3rem` must be enough, till the actual size is
+`1vr / 1.5rem`).
+
+<Example>
+  <span style={{ borderRadius: '3rem' }} className="c-badge">
+    counter
+  </span>
+  &nbsp;
+  <span style={{ borderRadius: '3rem' }} className="c-badge u-bg-warning">
+    change the background
+  </span>
+  &nbsp;
+  <span
+    style={{ borderRadius: '3rem' }}
+    className="c-badge u-bg-danger u-c-white"
+  >
+    change the background + color
+  </span>
+</Example>
+
+```scss
+@forward "@glsass/components/components.badge" with (
+  $c-badge-border-radius: 3rem
+);
+```
