@@ -4,6 +4,8 @@ title: Generics
 slug: /generics
 ---
 
+import Version from '@site/src/components/Version/'
+
 The `generics` folder has the first "real" code, because the previous layers
 don't ouput any CSS. It comes with similar concept from reset, normalize and
 reboot.
@@ -37,11 +39,15 @@ framework.
 
 ### Reset
 
+<Version version="1.0.0" source="glsass-generics/_generics.reset.scss" />
+
 Combining some rules from Normalize.css and the Meyer's reset, it improve
 default renders for some elements.<br/> For example, it removes extra margin and
 padding on sime elements and nested lists.
 
 ### Shared
+
+<Version version="1.0.0" source="glsass-generics/_generics.shared.scss" />
 
 There are the first opinionated rules to standardize some elements behavior.
 Actually, it's used only to ensure the default `box-sizing` property for all
@@ -56,6 +62,8 @@ Some rules available here can be contradictory with those present in the
 for HTML tags one by one, so it's avoid to create one file by element category.
 
 ### Fonts
+
+<Version version="1.0.0" source="glsass-generics/_generics.fonts.scss" />
 
 If you want to use a Google Font, it will import necessary styles before to use
 it in next layer (especially in _Elements_ to set the default font of the

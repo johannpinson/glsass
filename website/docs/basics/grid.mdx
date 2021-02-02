@@ -5,67 +5,70 @@ slug: /objects/grid
 ---
 
 import Example from '@site/src/components/Example/'
+import Version from '@site/src/components/Version/'
+
+<Version version="1.0.0" source="glsass-objects/_objects.layout.scss" />
 
 The grid system of Glsass is heavily by the Bootstrap one and other frameworks.
 By default, the layout is a 12 columns flexbox grid.
 
 <Example>
-  <div class="o-row u-mb-3">
-    <div class="o-col u-1">
-      <div class="u-p-1 u-bg-primary"></div>
+  <div className="o-row u-mb-3">
+    <div className="o-col u-1">
+      <div className="u-p-1 u-bg-primary"></div>
     </div>
-    <div class="o-col u-1">
-      <div class="u-p-1 u-bg-secondary"></div>
+    <div className="o-col u-1">
+      <div className="u-p-1 u-bg-secondary"></div>
     </div>
-    <div class="o-col u-1">
-      <div class="u-p-1 u-bg-primary"></div>
+    <div className="o-col u-1">
+      <div className="u-p-1 u-bg-primary"></div>
     </div>
-    <div class="o-col u-1">
-      <div class="u-p-1 u-bg-secondary"></div>
+    <div className="o-col u-1">
+      <div className="u-p-1 u-bg-secondary"></div>
     </div>
-    <div class="o-col u-1">
-      <div class="u-p-1 u-bg-primary"></div>
+    <div className="o-col u-1">
+      <div className="u-p-1 u-bg-primary"></div>
     </div>
-    <div class="o-col u-1">
-      <div class="u-p-1 u-bg-secondary"></div>
+    <div className="o-col u-1">
+      <div className="u-p-1 u-bg-secondary"></div>
     </div>
-    <div class="o-col u-1">
-      <div class="u-p-1 u-bg-primary"></div>
+    <div className="o-col u-1">
+      <div className="u-p-1 u-bg-primary"></div>
     </div>
-    <div class="o-col u-1">
-      <div class="u-p-1 u-bg-secondary"></div>
+    <div className="o-col u-1">
+      <div className="u-p-1 u-bg-secondary"></div>
     </div>
-    <div class="o-col u-1">
-      <div class="u-p-1 u-bg-primary"></div>
+    <div className="o-col u-1">
+      <div className="u-p-1 u-bg-primary"></div>
     </div>
-    <div class="o-col u-1">
-      <div class="u-p-1 u-bg-secondary"></div>
+    <div className="o-col u-1">
+      <div className="u-p-1 u-bg-secondary"></div>
     </div>
-    <div class="o-col u-1">
-      <div class="u-p-1 u-bg-primary"></div>
+    <div className="o-col u-1">
+      <div className="u-p-1 u-bg-primary"></div>
     </div>
-    <div class="o-col u-1">
-      <div class="u-p-1 u-bg-secondary"></div>
-    </div>
-  </div>
-  <div class="o-row u-mb-2">
-    <div class="o-col u-12">
-      <div class="u-bg-light u-p-1">12 columns (100%)</div>
+    <div className="o-col u-1">
+      <div className="u-p-1 u-bg-secondary"></div>
     </div>
   </div>
-  <div class="o-row u-mb-2">
-    <div class="o-col u-9">
-      <div class="u-bg-light u-p-1">9 columns (75%)</div>
+  <div className="o-row u-mb-2">
+    <div className="o-col u-12">
+      <div className="u-bg-light u-p-1">12 columns (100%)</div>
     </div>
   </div>
-  <div class="o-row u-mb-2">
-    <div class="o-col u-6">
-      <div class="u-bg-light u-p-1">6 columns (50%)</div>
+  <div className="o-row u-mb-2">
+    <div className="o-col u-9">
+      <div className="u-bg-light u-p-1">9 columns (75%)</div>
     </div>
   </div>
-  <div class="o-row">
-    <div class="o-col u-3">
-      <div class="u-bg-light u-p-1">3 columns (25%)</div>
+  <div className="o-row u-mb-2">
+    <div className="o-col u-6">
+      <div className="u-bg-light u-p-1">6 columns (50%)</div>
+    </div>
+  </div>
+  <div className="o-row">
+    <div className="o-col u-3">
+      <div className="u-bg-light u-p-1">3 columns (25%)</div>
     </div>
   </div>
 </Example>
@@ -179,15 +182,15 @@ You can used the columns system inside any block of your code, you just need to
 add the `.o-row` as root and then add between 1 and 12 `.o-col` blocks.
 
 <Example>
-  <div class="o-row">
-    <div class="o-col">
-      <div class="u-bg-light u-p-1">a simple col</div>
+  <div className="o-row">
+    <div className="o-col">
+      <div className="u-bg-light u-p-1">a simple col</div>
     </div>
-    <div class="o-col">
-      <div class="u-bg-light u-p-1">a simple col</div>
+    <div className="o-col">
+      <div className="u-bg-light u-p-1">a simple col</div>
     </div>
-    <div class="o-col">
-      <div class="u-bg-light u-p-1">a simple col</div>
+    <div className="o-col">
+      <div className="u-bg-light u-p-1">a simple col</div>
     </div>
   </div>
 </Example>
@@ -205,19 +208,19 @@ must be between 1 and 12.<br/> The responsive adaptation is handled with class
 suffixes.
 
 <Example>
-  <div class="o-row">
-    <div class="o-col u-12 u-mb-3 u-4@md u-mb-0@md">
-      <div class="u-bg-light u-p-1">
+  <div className="o-row">
+    <div className="o-col u-12 u-mb-3 u-4@md u-mb-0@md">
+      <div className="u-bg-light u-p-1">
         Will be full size in mobile, and a third of a column on desktop
       </div>
     </div>
-    <div class="o-col u-12 u-mb-3 u-4@md u-mb-0@md">
-      <div class="u-bg-light u-p-1">
+    <div className="o-col u-12 u-mb-3 u-4@md u-mb-0@md">
+      <div className="u-bg-light u-p-1">
         Will be full size in mobile, and a third of a column on desktop
       </div>
     </div>
-    <div class="o-col u-12 u-mb-3 u-4@md u-mb-0@md">
-      <div class="u-bg-light u-p-1">
+    <div className="o-col u-12 u-mb-3 u-4@md u-mb-0@md">
+      <div className="u-bg-light u-p-1">
         Will be full size in mobile, and a third of a column on desktop
       </div>
     </div>
@@ -244,23 +247,23 @@ Others utilities class are available to manage the grid system. The `.u-auto`
 class allow to have a column with a auto width.
 
 <Example>
-  <div class="o-row u-mb-3">
-    <div class="o-col u-auto">
-      <div class="u-bg-primary u-p-1">o-col u-auto</div>
+  <div className="o-row u-mb-3">
+    <div className="o-col u-auto">
+      <div className="u-bg-primary u-p-1">o-col u-auto</div>
     </div>
-    <div class="o-col">
-      <div class="u-bg-light u-p-1">o-col</div>
+    <div className="o-col">
+      <div className="u-bg-light u-p-1">o-col</div>
     </div>
   </div>
-  <div class="o-row">
-    <div class="o-col u-3">
-      <div class="u-bg-light u-p-1">o-col u-3</div>
+  <div className="o-row">
+    <div className="o-col u-3">
+      <div className="u-bg-light u-p-1">o-col u-3</div>
     </div>
-    <div class="o-col u-auto">
-      <div class="u-bg-primary u-p-1">o-col u-auto</div>
+    <div className="o-col u-auto">
+      <div className="u-bg-primary u-p-1">o-col u-auto</div>
     </div>
-    <div class="o-col">
-      <div class="u-bg-light u-p-1">o-col</div>
+    <div className="o-col">
+      <div className="u-bg-light u-p-1">o-col</div>
     </div>
   </div>
 </Example>
@@ -281,28 +284,28 @@ class allow to have a column with a auto width.
 ### Offset
 
 The grid system is managed with flexbox, the margin utilities classes can be
-used to set offset
+used to add offset.
 
 <Example>
-  <div class="o-row u-mb-3">
-    <div class="o-col u-4 u-mx-auto">
-      <div class="u-bg-primary u-p-1">o-col u-4 u-mx-auto</div>
+  <div className="o-row u-mb-3">
+    <div className="o-col u-4 u-mx-auto">
+      <div className="u-bg-primary u-p-1">o-col u-4 u-mx-auto</div>
     </div>
   </div>
-  <div class="o-row u-mb-3">
-    <div class="o-col u-4 u-ml-auto">
-      <div class="u-bg-primary u-p-1">o-col u-4 u-ml-auto</div>
+  <div className="o-row u-mb-3">
+    <div className="o-col u-4 u-ml-auto">
+      <div className="u-bg-primary u-p-1">o-col u-4 u-ml-auto</div>
     </div>
   </div>
-  <div class="o-row u-mb-3">
-    <div class="o-col u-4 u-mr-auto">
-      <div class="u-bg-primary u-p-1">o-col u-4 u-mr-auto</div>
+  <div className="o-row u-mb-3">
+    <div className="o-col u-4 u-mr-auto">
+      <div className="u-bg-primary u-p-1">o-col u-4 u-mr-auto</div>
     </div>
   </div>
-  <div class="o-row">
-    <div class="o-col u-2"></div>
-    <div class="o-col u-4 u-mr-auto">
-      <div class="u-bg-primary u-p-1">o-col u-4 (empty u-2 before)</div>
+  <div className="o-row">
+    <div className="o-col u-2"></div>
+    <div className="o-col u-4 u-mr-auto">
+      <div className="u-bg-primary u-p-1">o-col u-4 (empty u-2 before)</div>
     </div>
   </div>
 </Example>
@@ -329,37 +332,46 @@ The flex utilities classes can also be usefull to align horizontally and
 vertically elements.
 
 <Example>
-  <div class="o-row u-ai-fs u-bg-light u-mb-3" style={{ minHeight: '10rem' }}>
-    <div class="o-col">
-      <div class="u-bg-primary u-p-1">a simple col</div>
+  <div
+    className="o-row u-ai-fs u-bg-light u-mb-3"
+    style={{ minHeight: '10rem' }}
+  >
+    <div className="o-col">
+      <div className="u-bg-primary u-p-1">a simple col</div>
     </div>
-    <div class="o-col">
-      <div class="u-bg-primary u-p-1">a simple col</div>
+    <div className="o-col">
+      <div className="u-bg-primary u-p-1">a simple col</div>
     </div>
-    <div class="o-col">
-      <div class="u-bg-primary u-p-1">a simple col</div>
-    </div>
-  </div>
-  <div class="o-row u-ai-c u-bg-light u-mb-3" style={{ minHeight: '10rem' }}>
-    <div class="o-col">
-      <div class="u-bg-primary u-p-1">a simple col</div>
-    </div>
-    <div class="o-col">
-      <div class="u-bg-primary u-p-1">a simple col</div>
-    </div>
-    <div class="o-col">
-      <div class="u-bg-primary u-p-1">a simple col</div>
+    <div className="o-col">
+      <div className="u-bg-primary u-p-1">a simple col</div>
     </div>
   </div>
-  <div class="o-row u-ai-fe u-bg-light u-mb-3" style={{ minHeight: '10rem' }}>
-    <div class="o-col">
-      <div class="u-bg-primary u-p-1">a simple col</div>
+  <div
+    className="o-row u-ai-c u-bg-light u-mb-3"
+    style={{ minHeight: '10rem' }}
+  >
+    <div className="o-col">
+      <div className="u-bg-primary u-p-1">a simple col</div>
     </div>
-    <div class="o-col">
-      <div class="u-bg-primary u-p-1">a simple col</div>
+    <div className="o-col">
+      <div className="u-bg-primary u-p-1">a simple col</div>
     </div>
-    <div class="o-col">
-      <div class="u-bg-primary u-p-1">a simple col</div>
+    <div className="o-col">
+      <div className="u-bg-primary u-p-1">a simple col</div>
+    </div>
+  </div>
+  <div
+    className="o-row u-ai-fe u-bg-light u-mb-3"
+    style={{ minHeight: '10rem' }}
+  >
+    <div className="o-col">
+      <div className="u-bg-primary u-p-1">a simple col</div>
+    </div>
+    <div className="o-col">
+      <div className="u-bg-primary u-p-1">a simple col</div>
+    </div>
+    <div className="o-col">
+      <div className="u-bg-primary u-p-1">a simple col</div>
     </div>
   </div>
 </Example>
@@ -387,15 +399,15 @@ vertically elements.
 The alignment can also be applied to a column direclty
 
 <Example>
-  <div class="o-row u-bg-light u-mb-3" style={{ minHeight: '10rem' }}>
-    <div class="o-col u-as-fs">
-      <div class="u-bg-primary u-p-1">a simple col</div>
+  <div className="o-row u-bg-light u-mb-3" style={{ minHeight: '10rem' }}>
+    <div className="o-col u-as-fs">
+      <div className="u-bg-primary u-p-1">a simple col</div>
     </div>
-    <div class="o-col u-as-c">
-      <div class="u-bg-primary u-p-1">a simple col</div>
+    <div className="o-col u-as-c">
+      <div className="u-bg-primary u-p-1">a simple col</div>
     </div>
-    <div class="o-col u-as-fe">
-      <div class="u-bg-primary u-p-1">a simple col</div>
+    <div className="o-col u-as-fe">
+      <div className="u-bg-primary u-p-1">a simple col</div>
     </div>
   </div>
 </Example>

@@ -5,6 +5,7 @@ slug: /elements
 ---
 
 import Example from '@site/src/components/Example/'
+import Version from '@site/src/components/Version/'
 
 The `elements` folder provides styles for basic HTML elements
 
@@ -36,6 +37,8 @@ simulated.
 
 ## Headings
 
+<Version version="1.0.0" source="glsass-elements/_elements.headings.scss" />
+
 All _hn_ (`h1` to `h6`) styles are generated from the global settings. This is
 why there is there is not configurable variables (and to maitain some
 consistency with the utilities classes: `.u-hn`).
@@ -63,6 +66,8 @@ vertical rhythm for headings.
 
 ## Images
 
+<Version version="1.0.0" source="glsass-elements/_elements.images.scss" />
+
 It adds some default rules for alternative text or to remove the space that can
 appear unnder the element.
 
@@ -78,6 +83,8 @@ variable `$e-images-static-size` at true.
 ```
 
 ## Links
+
+<Version version="1.0.0" source="glsass-elements/_elements.links.scss" />
 
 Glsass set the default color for link to preserve the current color of the text
 and add underlines.
@@ -113,6 +120,8 @@ This settings can be modified by setting the option
 <!-- prettier-ignore-end -->
 
 ## Lists
+
+<Version version="1.0.0" source="glsass-elements/_elements.lists.scss" />
 
 Lists are lightly modify to bring some space on the left and bottom.
 
@@ -212,9 +221,13 @@ of them, it's simpler to regroup it inside a unique place.
 
 ## Page
 
+<Version version="1.0.0" source="glsass-elements/_elements.page.scss" />
+
 This file contains main declarations for `html` and `body` tags. It's used to
 set default `font-size`, `line-height` or `color` and improvement for iOS.
 
 ## Tables
+
+<Version version="1.0.0" source="glsass-elements/_elements.tables.scss" />
 
 It adds an unique rule to ensure tables fill up as much space as possible.
