@@ -1,0 +1,76 @@
+---
+slug: glsass-v1-1-0
+title: Glsass v1.1.0
+author: Johann Pinson
+author_title: Glsass creator / Front-end Developer
+author_url: https://github.com/johannpinson
+author_image_url: https://avatars1.githubusercontent.com/u/2202989?v=4
+tags: [glsass, v1.1, update, features]
+---
+
+The version 1.1.0 is available and introduce new features, like 5 components,
+and tools.
+
+Moreover, it completely change the logic behind the color _deduction_ for better
+contrast.
+
+<!--truncate-->
+
+## What's new?
+
+### New feature
+
+The main change is about colors function, more precisely the contrast ratio
+calculation to select a color to use.
+
+The old function `yiq-contrast` works well in many cases, but it didn't respect
+the WCAG standard about minimal contrast between background and foreground
+colors.
+
+The `contrast` module add functions following the WCAG requirements to respect
+at least a 4.5:1 contrast ratio. Theses functions are all documentated in the a
+[dedicated page](/docs/tools/contrast).
+
+All internal functions are now working this module to determine the best color
+to use.
+
+The framework also delivers 5 additionnal components, two about forms, a new
+utility (elevation) and create two NPM packages for customizing layers
+requirements.
+
+**Summary:**
+
+- new `contrast` tool (5 functions) ([docs](/docs/tools/contrast))
+- new `switch` components - add an further display for `input[type=checkbox]`
+  ([docs](/docs/components/form#switch))
+- new `range` component - allow to personalize `input[type=range]`
+  ([docs](/docs/components/form#range))
+- new `breadcrumb` component ([docs](/docs/components/breadcrumb))
+- new `pagination` component ([docs](/docs/components/pagination))
+- new `tooltip` component ([docs](/docs/components/tooltip))
+- new `elevation` utility ([docs](/docs/utilities/elevations))
+- new `@glsass/basics` package - Generics + Elements layers
+  ([npm](http://npmjs.com/package/@glsass/basics))
+- new `@glsass/patterns` package - Objects + Components layers
+  ([npm](http://npmjs.com/package/@glsass/patterns))
+
+### Breaking change
+
+The variable names from `@glsass/grapgics/graphics.fonts` change to make it more
+consistent and logic through the codebase. It also adds variables about each
+baseline (used for `line-height`).
+
+### Bug fix
+
+This new version contains the previous fix from the `v1.0.1` to add the
+`index.scss` file on the object layer.
+
+## Documentation
+
+Documentation is already updated with the changes listed, and the v1.1.0 now
+become the default version.
+
+The first sections add more details about exitCSS (inspiration and concept) and
+the [vertical rhythm](/docs/vertical-rhythm).
+
+You can find all versions available [here](/versions).
