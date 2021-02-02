@@ -10,8 +10,6 @@
 
 @use "@glsass/settings/settings.colors" as colors;
 
-@use "tools.deprecate" as *;
-
 /// @return {Color} - Lighten version of the color
 @function tint($color, $level: 1, $interval: 8%) {
   @return color.scale($color, $lightness: $level * $interval);
