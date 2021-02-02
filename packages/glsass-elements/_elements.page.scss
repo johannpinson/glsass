@@ -3,6 +3,7 @@
 /// Page
 //// ==========================================================================
 
+@use "@glsass/settings" as core;
 @use "@glsass/graphics";
 
 @use "@glsass/tools/tools.global" as *;
@@ -14,8 +15,8 @@
 html {
   min-height: 100%; // [2]
   font-family: graphics.$ui-fonts-family-map;
-  font-size: graphics.$g-font-size-base; // [1]
-  line-height: graphics.$g-font-line-height-base; // [1]
+  font-size: core.$g-font-size-base; // [1]
+  line-height: core.$g-font-line-height-base; // [1]
 }
 
 /// Body
