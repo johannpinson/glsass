@@ -1,6 +1,6 @@
 {
   "name": "@glsass/elements",
-  "version": "1.1.0-alpha.0",
+  "version": "1.1.0-alpha.1",
   "description": "Elements layer for Glsass.",
   "repository": {
     "type": "git",
@@ -20,6 +20,6 @@
     "sass": "^1.32.5"
   },
   "dependencies": {
-    "@glsass/core": "1.1.0-alpha.0"
+    "@glsass/core": "1.1.0-alpha.1"
   }
 }
