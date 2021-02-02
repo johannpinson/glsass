@@ -72,6 +72,7 @@ module.exports = {
         'components/form',
         'components/navbar',
         'components/pagination',
+        'components/tooltip',
       ],
     },
     {

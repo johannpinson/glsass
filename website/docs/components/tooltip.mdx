@@ -1,0 +1,127 @@
+---
+id: tooltip
+title: Tooltip
+---
+
+import Example from '@site/src/components/Example/'
+import Version from '@site/src/components/Version/'
+
+<Version version="1.1.0" source="glsass-components/_components.tooltip.scss" />
+
+The tooltip component is entirely built with CSS-only.
+
+<Example>
+  <button
+    className="c-button c-button--primary c-tooltip"
+    arial-label="tooltip text"
+  >
+    Hover me
+  </button>
+</Example>
+
+```html
+<button class="c-button c-button--primary c-tooltip" arial-label="tooltip text">
+  Hover me
+</button>
+```
+
+## Accessibility
+
+Instead of using a classic `data-tooltip` attribute, the component must be use
+with `aria-label` to make it accessible to screen reader users. However, this
+attribute will replace the text content of the element on screen readers.
+
+If you really need to use a tooltip, keep this behavior in mind to make it
+easilly understandable. Or at least, combine it using `title` for additional
+information.
+
+## Directions
+
+You can modify the direction/position of the tooltip by adding a modifier.
+
+:::note
+
+There is not `--top` modifier since it the default behavior.
+
+:::
+
+<Example>
+  <button
+    className="c-button c-button--primary c-tooltip"
+    arial-label="tooltip text"
+  >
+    Text on top
+  </button>
+  &nbsp;
+  <button
+    className="c-button c-button--primary c-tooltip c-tooltip--right"
+    arial-label="tooltip text"
+  >
+    Text on right
+  </button>
+  &nbsp;
+  <button
+    className="c-button c-button--primary c-tooltip c-tooltip--bottom"
+    arial-label="tooltip text"
+  >
+    Text on bottom
+  </button>
+  &nbsp;
+  <button
+    className="c-button c-button--primary c-tooltip c-tooltip--left"
+    arial-label="tooltip text"
+  >
+    Text on left
+  </button>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<button class="[...] c-tooltip" arial-label="tooltip text">
+  Text on top
+</button>
+
+<button class="[...] c-tooltip c-tooltip--right" arial-label="tooltip text">
+  Text on right
+</button>
+
+<button class="[...] c-tooltip c-tooltip--bottom" arial-label="tooltip text">
+  Text on bottom
+</button>
+
+<button class="[...] c-tooltip c-tooltip--left" arial-label="tooltip text">
+  Text on left
+</button>
+```
+<!-- prettier-ignore-end -->
+
+## Multiline
+
+If you need to display a long content, it can be usefull to add line breaks in
+the text. By default, you can use the `\a` character to add a line break when
+you use the `content` rule.
+
+```scss
+div::before {
+  content: 'content with \a line break';
+}
+```
+
+But for tooltip, it uses the `attr()` function to get content, so the special
+character is escaped. You must use the HTML encoded character `&#xa;` to have a
+multiline tooltip.
+
+<Example>
+  <button
+    className="c-button c-button--primary c-tooltip"
+    arial-label="tooltip text&#xa;with line break"
+  >
+    Hover me
+  </button>
+</Example>
+
+```html
+<button class="[...] c-tooltip" arial-label="tooltip text&#xa;with line break">
+  Hover me
+</button>
+```

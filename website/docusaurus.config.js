@@ -115,12 +115,12 @@ module.exports = {
           editUrl: 'https://github.com/johannpinson/glsass/edit/main/website/',
           showLastUpdateTime: true,
           // lastVersion: 'current',
-          // versions: {
-          //   current: {
-          //     label: '1.1.0',
-          //     path: '1.1.0',
-          //   },
-          // },
+          versions: {
+            current: {
+              label: '1.1.0-alpha',
+              path: 'next',
+            },
+          },
         },
         blog: {
           showReadingTime: true,
