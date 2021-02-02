@@ -1,0 +1,186 @@
+---
+id: navbar
+title: Navbar
+---
+
+import Example from '@site/src/components/Example/'
+import Version from '@site/src/components/Version/'
+
+<Version version="1.0.0" source="glsass-components/_components.navbar.scss" />
+
+Navigation menus are complexe, but the navbar component can make it simply to
+add an headerwith a brand logo, navigation links and text.
+
+:::info
+
+Of course, this component is lighter and offer less possibilities than others
+CSS framework, but it's desired to keep it simple. And generally, if you want
+specific layouts, different responsive behavior, or anything else, you may
+create your own navigation component, and make it as accessible as possible.
+
+:::
+
+<Example>
+  <nav className="c-navbar" role="navigation" aria-label="Main navigation">
+    <input
+      className="c-navbar-control"
+      id="c-navbar-menu-example-1"
+      type="checkbox"
+    />
+    <label className="c-navbar-burger" htmlFor="c-navbar-menu-example-1">
+      <svg viewBox="0 0 100 100" width="48">
+        <path d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"></path>
+        <path d="m 70,50 h -40"></path>
+        <path d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"></path>
+      </svg>
+    </label>
+    <a className="c-navbar-logo" href="#">
+      <img src="/img/logo-reverse.svg" alt="Glsass logo" height="36" />
+    </a>
+    <div className="c-navbar-panel">
+      <ul className="c-navbar-nav">
+        <li>
+          <a className="c-navbar-link" href="#">
+            Home
+          </a>
+        </li>
+        <li>
+          <a className="c-navbar-link" href="#">
+            Docs
+          </a>
+        </li>
+        <li>
+          <a className="c-navbar-link" href="#">
+            Login
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</Example>
+
+<!-- prettier-ignore-start-->
+```html
+<nav class="c-navbar" role="navigation" aria-label="Main navigation">
+  <input class="c-navbar-control" id="c-navbar-menu-example-1" type="checkbox">
+  <label class="c-navbar-burger" for="c-navbar-menu-example-1">
+    <svg viewBox="0 0 100 100" width="48">
+      <path d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"></path>
+      <path d="m 70,50 h -40"></path>
+      <path d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"></path>
+    </svg>
+  </label><a class="c-navbar-logo" href="#"><img src="logo.svg" alt="Glsass logo" height="36"></a>
+  <div class="c-navbar-panel">
+    <ul class="c-navbar-nav">
+      <li><a class="c-navbar-link" href="#">Home</a></li>
+      <li><a class="c-navbar-link" href="#">Docs</a></li>
+      <li><a class="c-navbar-link" href="#">Login</a></li>
+    </ul>
+  </div>
+</nav>
+```
+<!-- prettier-ignore-end-->
+
+:::danger
+
+Since the component use the "checkbox hack" to manage the open/close state on
+mobile, be careful about the `id/for` attributes for the `input` and `label`
+element.
+
+:::
+
+You can also use utilities classes to create new behavior and layouts. Resize
+your window to test the mobile version
+
+<Example>
+  <nav className="c-navbar" role="navigation" aria-label="Main navigation">
+    <input
+      className="c-navbar-control"
+      id="c-navbar-menu-example-2"
+      type="checkbox"
+    />
+    <label className="c-navbar-burger" htmlFor="c-navbar-menu-example-2">
+      <svg viewBox="0 0 100 100" width="48">
+        <path d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"></path>
+        <path d="m 70,50 h -40"></path>
+        <path d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"></path>
+      </svg>{' '}
+    </label>
+    <a className="c-navbar-logo" href="#">
+      <img src="/img/logo-reverse.svg" alt="Glsass logo" height="36" />
+    </a>
+    <div className="c-navbar-panel">
+      <ul className="c-navbar-nav u-fd-r u-fw-w u-no-gutters">
+        <li className="o-col u-4 u-auto@md">
+          <a className="c-navbar-link" href="#">
+            Home
+          </a>
+        </li>
+        <li className="o-col u-4 u-auto@md">
+          <a className="c-navbar-link" href="#">
+            Docs
+          </a>
+        </li>
+        <li className="o-col u-4 u-auto@md">
+          <a className="c-navbar-link" href="#">
+            Login
+          </a>
+        </li>
+      </ul>
+      <hr className="u-c-dark u-d-n@md" />
+      <ul className="c-navbar-nav u-fd-r u-fw-w u-no-gutters u-ml-auto@md">
+        <li className="o-col u-auto">
+          <a className="c-navbar-link" href="#">
+            Home
+          </a>
+        </li>
+        <li className="o-col u-auto">
+          <a className="c-navbar-link" href="#">
+            Docs
+          </a>
+        </li>
+        <li className="o-col u-auto">
+          <a className="c-navbar-link" href="#">
+            Login
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</Example>
+
+<!-- prettier-ignore-start-->
+```html
+<nav class="c-navbar" role="navigation" aria-label="Main navigation">
+  <input class="c-navbar-control" id="c-navbar-menu-example-2" type="checkbox">
+  <label class="c-navbar-burger" for="c-navbar-menu-example-2">
+    <svg viewBox="0 0 100 100" width="48">
+      <path d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"></path>
+      <path d="m 70,50 h -40"></path>
+      <path d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"></path>
+    </svg>
+  </label><a class="c-navbar-logo" href="#"><img src="logo.svg" alt="Glsass logo" height="36"></a>
+  <div class="c-navbar-panel">
+    <ul class="c-navbar-nav u-fd-r u-fw-w u-no-gutters">
+      <li class="o-col u-4 u-auto@md"><a class="c-navbar-link" href="#">Home</a></li>
+      <li class="o-col u-4 u-auto@md"><a class="c-navbar-link" href="#">Docs</a></li>
+      <li class="o-col u-4 u-auto@md"><a class="c-navbar-link" href="#">Login</a></li>
+    </ul>
+    <hr class="u-c-dark u-d-n@md">
+    <ul class="c-navbar-nav u-fd-r u-fw-w u-no-gutters u-ml-auto@md">
+      <li class="o-col u-auto"><a class="c-navbar-link" href="#">Home</a></li>
+      <li class="o-col u-auto"><a class="c-navbar-link" href="#">Docs</a></li>
+      <li class="o-col u-auto"><a class="c-navbar-link" href="#">Login</a></li>
+    </ul>
+  </div>
+</nav>
+```
+<!-- prettier-ignore-end-->
+
+:::note
+
+To constrain the max-width or the navbar, you can add a div as the first child
+of the `.c-navbar` element with the `.c-navbar-layout` class.<br/>Then, also add
+the `.o-layout` object to the new container element.
+
+:::

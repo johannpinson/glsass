@@ -1,0 +1,87 @@
+---
+id: list
+title: List
+---
+
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.list.scss" />
+
+Because the `sass:list` module already, the namespace is prefixed with an
+underscore to avoid conflict.
+
+```scss
+@use "@glsass/tools/tools.list" as _list;
+```
+
+## _first()_
+
+<Version version="1.0.0" />
+
+Retrieves the first element of a list.
+
+```scss
+_list.first($list);
+
+_list.first(("one", "two", "three"));
+// Returns "one"
+```
+
+## _last()_
+
+<Version version="1.0.0" />
+
+Retrieves the last element of a list.
+
+```scss
+_list.last($list);
+
+_list.last(("one", "two", "three"));
+// Returns "three"
+```
+
+## _prepend()_
+
+<Version version="1.0.0" />
+
+Add new values at beginning of the list (opposite logic of `list.append`).
+
+```scss
+prepend($list);
+
+prepend(("one", "two", "three"), "zero");
+// Returns ("zero", "one", "two", "three")
+```
+
+## _to-string()_
+
+<Version version="1.0.0" />
+
+Convert a list into the string, with the ability to use a string to join
+elements with each others.
+
+```scss
+to-string($list, $glue: "", $is-nested: false);
+
+to-string(("a", "b", "c"));
+// Returns "abc"
+
+to-string(("block", "element", "modifier"), "-");
+// Returns "block-element-modifier"
+```
+
+## _is-empty()_
+
+<Version version="1.0.0" />
+
+Indicates if the list is empty.
+
+```scss
+is-empty($list);
+
+is-empty(("one", "two", "three"));
+// Returns false
+
+is-empty(());
+// Returns true
+```

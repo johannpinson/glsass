@@ -1,0 +1,150 @@
+---
+id: borders
+title: Borders
+---
+
+## Border
+
+The two classes allow to add a default border (which follow the configuration
+from `_graphics.defaults.scss`) or to remove it.
+
+import Example from '@site/src/components/Example/'
+
+<Example>
+  <div className="o-row u-py-1 u-ai-c" style={{ marginBottom: '-2px' }}>
+    <div className="o-col u-auto">
+      <div className="u-p-3 u-bg-light u-bd"></div>
+    </div>
+    <div className="o-col u-auto">
+      <div className="u-p-3 u-bg-light u-bd-0"></div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="u-bd"></div>
+<div class="u-bd-0"></div>
+```
+
+```scss
+$u-borders: (
+  border: (
+    property: border,
+    class: bd,
+    values: (
+      null: ui.$ui-border-width solid ui.$ui-border-color,
+      0: 0,
+    ),
+  ),
+);
+```
+
+## Border-radius
+
+<Example>
+  <div className="o-row">
+    <div className="o-col u-auto">
+      <div className="u-p-3 u-bg-light u-br"></div>
+    </div>
+    <div className="o-col u-auto">
+      <div className="u-py-3 u-px-4 u-bg-light u-br-pill"></div>
+    </div>
+    <div className="o-col u-auto">
+      <div className="u-p-3 u-bg-light u-br-full"></div>
+    </div>
+    <div className="o-col u-auto">
+      <div className="u-p-3 u-bg-light u-br-0"></div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="u-br"></div>
+<div class="u-br-pill"></div>
+<div class="u-br-full"></div>
+<div class="u-br-0"></div>
+```
+
+```scss
+$u-borders: (
+  border-radius: (
+    property: border-radius,
+    class: br,
+    values: (
+      null: ui.$ui-border-radius,
+      pill: 50rem,
+      full: 50%,
+      0: 0,
+    ),
+  ),
+);
+```
+
+## Box-shadow
+
+The `box-shadow` utility doesn't display a shadow like in an elevation design.
+The generated class can be used to add a similar border, but without break the
+vertical rhythm.
+
+<Example>
+  <div className="o-row">
+    <div className="o-col u-auto">
+      <div className="u-p-3 u-bg-light u-bs"></div>
+    </div>
+    <div className="o-col u-auto">
+      <div className="u-p-3 u-bg-light u-bs-0"></div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="u-bs"></div>
+<div class="u-bs-0"></div>
+```
+
+```scss
+$u-borders: (
+  box-shadow: (
+    property: box-shadow,
+    class: bs,
+    values: (
+      null: 0 0 0 ui.$ui-border-width ui.$ui-border-color,
+      0: none,
+    ),
+  ),
+);
+```
+
+## Outline
+
+Similar the `box-shadow` tips, the `outline` doesn't change the sizeof the element.
+But this property doesn't follow the radius if it applied.
+
+<Example>
+  <div className="o-row">
+    <div className="o-col u-auto">
+      <div className="u-p-3 u-bg-light u-ol"></div>
+    </div>
+    <div className="o-col u-auto">
+      <div className="u-p-3 u-bg-light u-ol-0"></div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="u-ol"></div>
+<div class="u-ol-0"></div>
+```
+
+```scss
+$u-borders: (
+  outline: (
+    property: outline,
+    class: ol,
+    value: (
+      null: ui.$ui-border-width solid ui.$ui-border-color,
+      0: 0,
+    ),
+  ),
+);
+```

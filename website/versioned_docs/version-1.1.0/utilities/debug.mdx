@@ -1,0 +1,109 @@
+---
+id: debug
+title: Debug
+---
+
+This file contains some classes for helping debug and check the structure.
+
+All the classes present in the file are added to the `body` tag by default.
+
+```css
+/* Display a baseline grid on the page */
+.debug:baseline
+
+/* Outline all Object classes */
+.debug:o
+
+/* Outline all Component classes */
+.debug:c
+
+/* Outline all Pattern classes */
+.debug:p
+
+/* Outline all Theme classes */
+.debug:t
+
+/* Outline all Utility classes */
+.debug:u
+
+/* Outline all Hack classes */
+.debug:_
+
+/* Outline all Responsive classes */
+.debug:a
+
+/* Outline all previous classes listed */
+
+.debug:all
+```
+
+import Example from '@site/src/components/Example'
+
+<div className="u-mb-3">
+  <Example>
+    <div className="o-row">
+      <div className="o-col u-12 u-8@md">
+        <p>Demo:</p>
+        <p>
+          <button
+            className="c-button c-button--primary js-debug-baseline"
+            type="button"
+          >
+            Display baseline grid
+          </button>
+        </p>
+        <p>
+          <button
+            className="c-button c-button--primary js-debug-o"
+            type="button"
+          >
+            Outline all Object classes
+          </button>
+        </p>
+        <p>
+          <button
+            className="c-button c-button--primary js-debug-c"
+            type="button"
+          >
+            Outline all Component classes
+          </button>
+        </p>
+        <p>
+          <button
+            className="c-button c-button--primary js-debug-u"
+            type="button"
+          >
+            Outline all Utility classes
+          </button>
+        </p>
+        <p>
+          <button
+            className="c-button c-button--primary js-debug-a"
+            type="button"
+          >
+            Outline all Responsive classes
+          </button>
+        </p>
+        <p>
+          <button
+            className="c-button c-button--primary js-debug-all"
+            type="button"
+          >
+            Outline all classes
+          </button>
+        </p>
+      </div>
+    </div>
+  </Example>
+</div>
+
+:::danger To enable these classes, you must set at `true` the `$u-debug`
+variable when you import the file.<br/> It's a security to avoid the adding
+unnecessary CSS. Also, it must be used only on a local or development
+environment for testing and debuging. :::
+
+```scss
+@forward "@glsass/utilities/utilities.debug" with (
+  $u-debug: true,
+);
+```

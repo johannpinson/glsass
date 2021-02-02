@@ -1,0 +1,64 @@
+---
+id: color
+title: Color
+---
+
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.color.scss" />
+
+Because the `sass:color` module already, the namespace is prefixed with an
+underscore to avoid conflict or can named differentlt (like `clr` for example).
+
+```scss
+@use "@glsass/tools/tools.color" as _color;
+```
+
+## _tint()_ & _shade()_
+
+<Version version="1.0.0" />
+
+These two functions allow to lighten or darken a color. Regarding the Sass
+documentation, it uses the `color.shade()` instead of the regular
+`color.darken()` and `color.lighten()` functions.
+
+```scss
+_color.tint($color, $level: 1, $interval: 8%);
+_color.shade($color, $level: 1, $interval: 8%);
+```
+
+## _yiq-contrast()_
+
+<Version deprecated="1.1.0" />
+
+:::danger
+
+This function has deprecated since the v1.1.0. Use instead the
+[color-contrast function](tools/contrast.mdx) which use the WCAG algorithm for a
+better color and respected a minimum contrast ratio.
+
+As example, for the red `#f00` color, this function will return the `light`
+color (a.k.a. white), but the contrast ratio is only 3.99:1. The
+`color-contrast` will return the `dark` color (or black) because it will
+generate a ratio of 5.25:1.
+
+Even if you think that some colors combination will be prettier, it may make it
+less readable for some people.
+
+:::
+
+This function was one of the most used inside this framework. It calculate the
+best color choice for the text from the background color given.
+
+The text color is generally "black" or "white". In Glsass, the black color is
+the default text color (`#212121`) and the white is just white (`#fff`).
+
+```scss
+_color.yiq-contrast($color, $dark: colors.$g-color-text, $light: colors.$g-color-white);
+
+color: _color.yiq-contrast(red);
+// Returns #fff
+
+color: _color.yiq-contrast(yellow);
+// Returns #212121
+```
