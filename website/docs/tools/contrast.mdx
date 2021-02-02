@@ -3,11 +3,17 @@ id: contrast
 title: Contrast
 ---
 
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.contrast.scss" />
+
 ```scss
 @use "@glsass/tools/tools.contrast" as contrast;
 ```
 
 ## _luminance()_
+
+<Version version="1.1.0" />
 
 Used in the contrast ratio calculation, the relative luminance (or brightness)
 is a value in a colorspace, normalized to 0 for darkest black and 1 for lightest
@@ -22,6 +28,8 @@ $value: contrast.lumniance(red);
 ```
 
 ## _ratio()_
+
+<Version version="1.1.0" />
 
 From two colors, this function calculate the constrast ratio, exprimed as a
 number.
@@ -42,6 +50,8 @@ contrast.ratio(#02aab0, #000);
 
 ## _color()_
 
+<Version version="1.1.0" />
+
 This function returns a color that ensure a minimal contrast ratio 4.5:1,
 following the WCAG recommandation (and the algorithm provided).
 
@@ -56,6 +66,8 @@ color: contrast.color(blue);
 ```
 
 ## _palette()_
+
+<Version version="1.1.0" />
 
 The `palette()` function works similary to the `color()`, but instead of using
 white and black as main colors, it will first check inside the palette variant.
@@ -75,6 +87,8 @@ color: contrast.palette(primary, 100);
 ```
 
 ## _swatch()_
+
+<Version version="1.1.0" />
 
 :::caution
 

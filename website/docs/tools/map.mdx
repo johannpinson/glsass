@@ -3,6 +3,10 @@ id: map
 title: Map
 ---
 
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.map.scss" />
+
 Because the `sass:map` module already, the namespace is prefixed with an
 underscore to avoid conflict.
 
@@ -11,6 +15,8 @@ underscore to avoid conflict.
 ```
 
 ## _deep-get()_
+
+<Version version="1.0.0" />
 
 Retrieves map keys from nested maps.
 
@@ -22,6 +28,8 @@ deep-get(("primary": ("100": "red", "200": "green", "300": "blue" )) "primary", 
 ```
 
 ## _negativify-map()_
+
+<Version version="1.0.0" />
 
 It turns maps into its negative variant. It prefixes the keys with `n` and makes
 the value negative.

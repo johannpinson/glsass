@@ -3,11 +3,17 @@ id: unit
 title: Unit
 ---
 
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.unit.scss" />
+
 ```scss
 @use "@glsass/tools/tools.unit" as unit;
 ```
 
 ## _strip-unit()_
+
+<Version version="1.0.0" />
 
 Remove the unit of a length
 
@@ -19,6 +25,8 @@ $v: unit.strip-unit(12px);
 ```
 
 ## _add()_
+
+<Version version="1.0.0" />
 
 This function will try to make a simple addition in SASS, but if the two
 parameters don't have the same unit, it will result on an error.
@@ -36,6 +44,8 @@ $b: unit.add(0.75rem, 4px);
 ```
 
 ## _sub()_
+
+<Version version="1.0.0" />
 
 This other function works like the previous, but to realize a substraction/
 

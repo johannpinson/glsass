@@ -3,11 +3,17 @@ id: vhd
 title: Visual hide display
 ---
 
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.vhd.scss" />
+
 ```scss
 @use "@glsass/tools/tools.vhd" as vhd;
 ```
 
 ## _visually-hidden()_
+
+<Version version="1.0.0" />
 
 The mixin is used to allow to hide content _visually_, be keep it accessible
 from screen readers.
@@ -32,6 +38,8 @@ This tool is also known as `sr-only` on previous version of Bootstrap.
 ```
 
 ## _visually-hidden-focusable()_
+
+<Version version="1.0.0" />
 
 This alternate mixin can be used to keep visible focusable element/content when
 it's active.

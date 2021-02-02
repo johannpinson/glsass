@@ -1,11 +1,20 @@
 import React from 'react'
 
-export default ({ version, source }) => {
+export default ({ version, deprecated, source }) => {
   return (
     <div className="o-row u-jc-sb u-ai-c u-mb-4">
       <div className="o-col u-6">
         {version && (
-          <div className="c-badge u-bg-white u-bs">Since v{version}</div>
+          <div className="c-badge u-bg-white u-bs u-d-if u-ai-c">
+            <span className="u-bg-success u-br-full u-mr-1 u-pt-1 u-pr-1"></span>
+            Since v{version}
+          </div>
+        )}
+        {deprecated && (
+          <div className="c-badge u-bg-white u-bs u-d-if u-ai-c">
+            <span className="u-bg-danger u-br-full u-mr-1 u-pt-1 u-pr-1"></span>
+            Deprecated v{deprecated}
+          </div>
         )}
       </div>
       <div className="o-col u-6 u-ta-r">

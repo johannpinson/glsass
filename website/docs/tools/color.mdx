@@ -3,6 +3,10 @@ id: color
 title: Color
 ---
 
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.color.scss" />
+
 Because the `sass:color` module already, the namespace is prefixed with an
 underscore to avoid conflict or can named differentlt (like `clr` for example).
 
@@ -11,6 +15,8 @@ underscore to avoid conflict or can named differentlt (like `clr` for example).
 ```
 
 ## _tint()_ & _shade()_
+
+<Version version="1.0.0" />
 
 These two functions allow to lighten or darken a color. Regarding the Sass
 documentation, it uses the `color.shade()` instead of the regular
@@ -22,6 +28,8 @@ _color.shade($color, $level: 1, $interval: 8%);
 ```
 
 ## _yiq-contrast()_
+
+<Version deprecated="1.1.0" />
 
 :::danger
 

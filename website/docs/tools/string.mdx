@@ -3,6 +3,10 @@ id: string
 title: String
 ---
 
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.string.scss" />
+
 Because the `sass:string` module already, the namespace is prefixed with an
 underscore to avoid conflict.
 
@@ -11,6 +15,8 @@ underscore to avoid conflict.
 ```
 
 ## _replace()_
+
+<Version version="1.0.0" />
 
 The function search and replace occurence in the string given
 
@@ -22,5 +28,7 @@ content: _str.replace("Hello x!", "x", attr(data-name))
 ```
 
 ## _escape-svg()_
+
+<Version version="1.0.0" />
 
 It use the mainly the `replace` function to escape characters in a SVG base64.

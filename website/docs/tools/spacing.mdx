@@ -3,11 +3,17 @@ id: spacing
 title: Spacing
 ---
 
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.spacing.scss" />
+
 ```scss
 @use "@glsass/tools/tools.spacing" as spacing;
 ```
 
 ## _vr()_
+
+<Version version="1.0.0" />
 
 Also known as the "rhythm unit", the `vr()` function returns a size that respect
 the vertical rhythm. It required a number with a 0.5 precision as parameter, for
@@ -32,6 +38,8 @@ height: vr(3.14);
 
 ## _adjust-vr()_
 
+<Version version="1.0.0" />
+
 To make different elements feel consistent, this function can be used to adjust
 the line-height, depending of the font-size and the margins.
 
@@ -43,6 +51,8 @@ line-height: adjust-vr(1, 0.875rem, spacing.add-space(1));
 ```
 
 ## _add-space()_
+
+<Version version="1.0.0" />
 
 The function returns a value from the `$g-spacers` map (1 to 5). The goal is to
 use this functions when a margin is set to stay constant and preserve the

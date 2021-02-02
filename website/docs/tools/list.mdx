@@ -3,6 +3,10 @@ id: list
 title: List
 ---
 
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.list.scss" />
+
 Because the `sass:list` module already, the namespace is prefixed with an
 underscore to avoid conflict.
 
@@ -11,6 +15,8 @@ underscore to avoid conflict.
 ```
 
 ## _first()_
+
+<Version version="1.0.0" />
 
 Retrieves the first element of a list.
 
@@ -23,6 +29,8 @@ _list.first(("one", "two", "three"));
 
 ## _last()_
 
+<Version version="1.0.0" />
+
 Retrieves the last element of a list.
 
 ```scss
@@ -34,6 +42,8 @@ _list.last(("one", "two", "three"));
 
 ## _prepend()_
 
+<Version version="1.0.0" />
+
 Add new values at beginning of the list (opposite logic of `list.append`).
 
 ```scss
@@ -44,6 +54,8 @@ prepend(("one", "two", "three"), "zero");
 ```
 
 ## _to-string()_
+
+<Version version="1.0.0" />
 
 Convert a list into the string, with the ability to use a string to join
 elements with each others.
@@ -59,6 +71,8 @@ to-string(("block", "element", "modifier"), "-");
 ```
 
 ## _is-empty()_
+
+<Version version="1.0.0" />
 
 Indicates if the list is empty.
 
