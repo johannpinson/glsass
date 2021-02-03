@@ -120,8 +120,6 @@ Your main `index.scss` may look like this:
   $g-color-primary: #0066d7,
   // Add here your own settings, for example
   $g-color-secondary: #805ad5,
-  $g-fonts-google: "Raleway:400,400i,700",
-  $g-font-family-map: "Raleway",
 );
 
 // TOOLS - Don't import it, unless you need it later for configure next modules
@@ -129,7 +127,9 @@ Your main `index.scss` may look like this:
 
 // GRAPHICS - Not required, but allow to change UI variables
 @use "@glsass/graphics" with (
-  $ui-border-color: cv(gray, 500)
+  $ui-border-color: cv(gray, 500),
+  $ui-fonts-google: "Raleway:400,400i,700",
+  $ui-fonts-family-map: "Raleway",
 );
 
 // GENERICS - Don't change the order for generic modules
