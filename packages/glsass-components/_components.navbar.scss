@@ -52,14 +52,14 @@ $c-navbar-transition: graphics.$ui-transition-timing-function !default;
     flex-wrap: nowrap;
   }
 
-  &-layout {
+  &__layout {
     display: flex;
     flex-wrap: inherit;
     justify-content: space-between;
     align-items: center;
   }
 
-  &-control {
+  &__control {
     @include vhd.visually-hidden();
 
     @include mq-max {
@@ -90,7 +90,7 @@ $c-navbar-transition: graphics.$ui-transition-timing-function !default;
     }
   }
 
-  &-burger {
+  &__burger {
     display: flex;
     border-radius: $c-navbar-burger-radius;
     cursor: pointer;
@@ -119,13 +119,13 @@ $c-navbar-transition: graphics.$ui-transition-timing-function !default;
     }
   }
 
-  &-logo {
+  &__logo {
     @include mq {
       margin-right: 1rem;
     }
   }
 
-  &-panel {
+  &__panel {
     width: 100%;
 
     @include mq-max {
@@ -139,7 +139,7 @@ $c-navbar-transition: graphics.$ui-transition-timing-function !default;
     }
   }
 
-  &-nav {
+  &__nav {
     display: flex;
     flex-direction: column;
     margin-bottom: 0;
@@ -152,7 +152,7 @@ $c-navbar-transition: graphics.$ui-transition-timing-function !default;
     }
   }
 
-  &-link {
+  &__link {
     display: inline-block;
     padding: vr(0.5);
     color: rgba(contrast.color($c-navbar-background), 0.75);

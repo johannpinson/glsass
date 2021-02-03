@@ -23,34 +23,34 @@ create your own navigation component, and make it as accessible as possible.
 <Example>
   <nav className="c-navbar" role="navigation" aria-label="Main navigation">
     <input
-      className="c-navbar-control"
-      id="c-navbar-menu-example-1"
+      className="c-navbar__control"
+      id="c-navbar-menu__example-1"
       type="checkbox"
     />
-    <label className="c-navbar-burger" htmlFor="c-navbar-menu-example-1">
+    <label className="c-navbar__burger" htmlFor="c-navbar-menu-example-1">
       <svg viewBox="0 0 100 100" width="48">
         <path d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"></path>
         <path d="m 70,50 h -40"></path>
         <path d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"></path>
       </svg>
     </label>
-    <a className="c-navbar-logo" href="#">
+    <a className="c-navbar__logo" href="#">
       <img src="/img/logo-reverse.svg" alt="Glsass logo" height="36" />
     </a>
-    <div className="c-navbar-panel">
-      <ul className="c-navbar-nav">
+    <div className="c-navbar__panel">
+      <ul className="c-navbar__nav">
         <li>
-          <a className="c-navbar-link" href="#">
+          <a className="c-navbar__link" href="#">
             Home
           </a>
         </li>
         <li>
-          <a className="c-navbar-link" href="#">
+          <a className="c-navbar__link" href="#">
             Docs
           </a>
         </li>
         <li>
-          <a className="c-navbar-link" href="#">
+          <a className="c-navbar__link" href="#">
             Login
           </a>
         </li>
@@ -62,19 +62,19 @@ create your own navigation component, and make it as accessible as possible.
 <!-- prettier-ignore-start-->
 ```html
 <nav class="c-navbar" role="navigation" aria-label="Main navigation">
-  <input class="c-navbar-control" id="c-navbar-menu-example-1" type="checkbox">
-  <label class="c-navbar-burger" for="c-navbar-menu-example-1">
+  <input class="c-navbar__control" id="c-navbar-menu-example-1" type="checkbox">
+  <label class="c-navbar__burger" for="c-navbar-menu-example-1">
     <svg viewBox="0 0 100 100" width="48">
       <path d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"></path>
       <path d="m 70,50 h -40"></path>
       <path d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"></path>
     </svg>
-  </label><a class="c-navbar-logo" href="#"><img src="logo.svg" alt="Glsass logo" height="36"></a>
-  <div class="c-navbar-panel">
-    <ul class="c-navbar-nav">
-      <li><a class="c-navbar-link" href="#">Home</a></li>
-      <li><a class="c-navbar-link" href="#">Docs</a></li>
-      <li><a class="c-navbar-link" href="#">Login</a></li>
+  </label><a class="c-navbar__logo" href="#"><img src="logo.svg" alt="Glsass logo" height="36"></a>
+  <div class="c-navbar__panel">
+    <ul class="c-navbar__nav">
+      <li><a class="c-navbar__link" href="#">Home</a></li>
+      <li><a class="c-navbar__link" href="#">Docs</a></li>
+      <li><a class="c-navbar__link" href="#">Login</a></li>
     </ul>
   </div>
 </nav>
@@ -95,52 +95,52 @@ your window to test the mobile version
 <Example>
   <nav className="c-navbar" role="navigation" aria-label="Main navigation">
     <input
-      className="c-navbar-control"
+      className="c-navbar__control"
       id="c-navbar-menu-example-2"
       type="checkbox"
     />
-    <label className="c-navbar-burger" htmlFor="c-navbar-menu-example-2">
+    <label className="c-navbar__burger" htmlFor="c-navbar-menu-example-2">
       <svg viewBox="0 0 100 100" width="48">
         <path d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"></path>
         <path d="m 70,50 h -40"></path>
         <path d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"></path>
       </svg>{' '}
     </label>
-    <a className="c-navbar-logo" href="#">
+    <a className="c-navbar__logo" href="#">
       <img src="/img/logo-reverse.svg" alt="Glsass logo" height="36" />
     </a>
-    <div className="c-navbar-panel">
-      <ul className="c-navbar-nav u-fd-r u-fw-w u-no-gutters">
+    <div className="c-navbar__panel">
+      <ul className="c-navbar__nav u-fd-r u-fw-w u-no-gutters">
         <li className="o-col u-4 u-auto@md">
-          <a className="c-navbar-link" href="#">
+          <a className="c-navbar__link" href="#">
             Home
           </a>
         </li>
         <li className="o-col u-4 u-auto@md">
-          <a className="c-navbar-link" href="#">
+          <a className="c-navbar__link" href="#">
             Docs
           </a>
         </li>
         <li className="o-col u-4 u-auto@md">
-          <a className="c-navbar-link" href="#">
+          <a className="c-navbar__link" href="#">
             Login
           </a>
         </li>
       </ul>
       <hr className="u-c-dark u-d-n@md" />
-      <ul className="c-navbar-nav u-fd-r u-fw-w u-no-gutters u-ml-auto@md">
+      <ul className="c-navbar__nav u-fd-r u-fw-w u-no-gutters u-ml-auto@md">
         <li className="o-col u-auto">
-          <a className="c-navbar-link" href="#">
+          <a className="c-navbar__link" href="#">
             Home
           </a>
         </li>
         <li className="o-col u-auto">
-          <a className="c-navbar-link" href="#">
+          <a className="c-navbar__link" href="#">
             Docs
           </a>
         </li>
         <li className="o-col u-auto">
-          <a className="c-navbar-link" href="#">
+          <a className="c-navbar__link" href="#">
             Login
           </a>
         </li>
@@ -152,25 +152,25 @@ your window to test the mobile version
 <!-- prettier-ignore-start-->
 ```html
 <nav class="c-navbar" role="navigation" aria-label="Main navigation">
-  <input class="c-navbar-control" id="c-navbar-menu-example-2" type="checkbox">
-  <label class="c-navbar-burger" for="c-navbar-menu-example-2">
+  <input class="c-navbar__control" id="c-navbar-menu-example-2" type="checkbox">
+  <label class="c-navbar__burger" for="c-navbar-menu-example-2">
     <svg viewBox="0 0 100 100" width="48">
       <path d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"></path>
       <path d="m 70,50 h -40"></path>
       <path d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"></path>
     </svg>
-  </label><a class="c-navbar-logo" href="#"><img src="logo.svg" alt="Glsass logo" height="36"></a>
-  <div class="c-navbar-panel">
-    <ul class="c-navbar-nav u-fd-r u-fw-w u-no-gutters">
-      <li class="o-col u-4 u-auto@md"><a class="c-navbar-link" href="#">Home</a></li>
-      <li class="o-col u-4 u-auto@md"><a class="c-navbar-link" href="#">Docs</a></li>
-      <li class="o-col u-4 u-auto@md"><a class="c-navbar-link" href="#">Login</a></li>
+  </label><a class="c-navbar__logo" href="#"><img src="logo.svg" alt="Glsass logo" height="36"></a>
+  <div class="c-navbar__panel">
+    <ul class="c-navbar__nav u-fd-r u-fw-w u-no-gutters">
+      <li class="o-col u-4 u-auto@md"><a class="c-navbar__link" href="#">Home</a></li>
+      <li class="o-col u-4 u-auto@md"><a class="c-navbar__link" href="#">Docs</a></li>
+      <li class="o-col u-4 u-auto@md"><a class="c-navbar__link" href="#">Login</a></li>
     </ul>
     <hr class="u-c-dark u-d-n@md">
-    <ul class="c-navbar-nav u-fd-r u-fw-w u-no-gutters u-ml-auto@md">
-      <li class="o-col u-auto"><a class="c-navbar-link" href="#">Home</a></li>
-      <li class="o-col u-auto"><a class="c-navbar-link" href="#">Docs</a></li>
-      <li class="o-col u-auto"><a class="c-navbar-link" href="#">Login</a></li>
+    <ul class="c-navbar__nav u-fd-r u-fw-w u-no-gutters u-ml-auto@md">
+      <li class="o-col u-auto"><a class="c-navbar__link" href="#">Home</a></li>
+      <li class="o-col u-auto"><a class="c-navbar__link" href="#">Docs</a></li>
+      <li class="o-col u-auto"><a class="c-navbar__link" href="#">Login</a></li>
     </ul>
   </div>
 </nav>
@@ -180,7 +180,7 @@ your window to test the mobile version
 :::note
 
 To constrain the max-width or the navbar, you can add a div as the first child
-of the `.c-navbar` element with the `.c-navbar-layout` class.<br/>Then, also add
-the `.o-layout` object to the new container element.
+of the `.c-navbar` element with the `.c-navbar__layout` class.<br/>Then, also
+add the `.o-layout` object to the new container element.
 
 :::
