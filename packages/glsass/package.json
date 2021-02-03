@@ -1,6 +1,6 @@
 {
   "name": "@glsass/framework",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "All layers gathered for Glsass.",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@glsass/components": "1.1.0",
+    "@glsass/components": "1.1.2",
     "@glsass/elements": "1.1.1",
     "@glsass/generics": "1.1.0",
     "@glsass/graphics": "1.1.0",
