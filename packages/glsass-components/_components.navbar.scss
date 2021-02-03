@@ -16,7 +16,7 @@ $c-navbar-classname: "c-navbar" !default;
 @include builder.check-classname($c-navbar-classname);
 
 /// @type Color
-$c-navbar-background: cv(light);
+$c-navbar-background: cv(light) !default;
 
 /// @type Number
 $c-navbar-burger-radius: graphics.$ui-border-radius !default;
