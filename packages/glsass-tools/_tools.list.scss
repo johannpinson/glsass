@@ -7,6 +7,7 @@
 
 @use "sass:list";
 @use "sass:meta";
+@use "sass:string";
 
 /// Retrieves the first element of a list
 /// @param {List} $list - The list to parse
@@ -77,4 +78,48 @@
 /// @return {Boolean} - Result of the check
 @function is-empty($list) {
   @return list.length($list) == 0;
+}
+
+/// Removes all null, false and empty values from `$list`.
+/// @param {List} $list - List to purge
+/// @return {List} - Purged list
+@function purge($list) {
+  $result: ();
+
+  @each $item in $list {
+    @if $item != null and $item != false and $item != "" {
+      $result: append($result, $item);
+    }
+  }
+
+  @return $result;
+}
+
+/// Merge lists and remove item starting with `-`
+/// @since 1.2.0
+/// @param {List} $inital-list - The initial list
+/// @param {List} $list - The list to merge (join or remove values)
+/// @return {List} - Merged list
+@function merge($initial-list, $list) {
+  $result: $initial-list;
+
+  @each $item in $list {
+    @if meta.type-of($item) == "string" {
+      // Check if value starts with `-` character
+      @if string.index($item, "-") {
+        // If item already exits, remove it
+        @if list.index($result, string.slice($item, 2)) {
+          // remplace item by empty string
+          $index: list.index($result, string.slice($item, 2));
+          $result: list.set-nth($result, $index, "");
+        }
+      }
+      // Item not inclugded, append it
+      @else if not list.index($result, $item) {
+        $result: list.append($result, $item);
+      }
+    }
+  }
+
+  @return purge($result);
 }

@@ -4,7 +4,6 @@
 //// ==========================================================================
 
 @use "sass:map";
-@use "sass:list";
 
 @use "@glsass/settings/settings.colors" as colors;
 
@@ -13,6 +12,7 @@
 @use "@glsass/tools/tools.builder" as builder;
 @use "@glsass/tools/tools.color" as _color;
 @use "@glsass/tools/tools.contrast" as contrast;
+@use "@glsass/tools/tools.list" as _list;
 @use "@glsass/tools/tools.spacing" as spacing;
 @use "@glsass/tools/tools.global" as *;
 
@@ -32,7 +32,7 @@ $c-alert-padding: vr(0.5) !default;
 // The light variant is removed because it's considered as the default design
 /// @type Map
 $c-alert-variants: () !default;
-$c-alert-variants: list.join(
+$c-alert-variants: _list.merge(
   (
     "primary",
     "secondary",

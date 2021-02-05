@@ -4,7 +4,6 @@
 ////
 
 @use "sass:map";
-@use "sass:list";
 @use "sass:meta";
 @use "sass:math";
 
@@ -16,6 +15,7 @@
 @use "@glsass/tools/tools.builder" as builder;
 @use "@glsass/tools/tools.color" as _color;
 @use "@glsass/tools/tools.contrast" as contrast;
+@use "@glsass/tools/tools.list" as _list;
 @use "@glsass/tools/tools.spacing" as spacing;
 @use "@glsass/tools/tools.unit" as unit;
 @use "@glsass/tools/tools.global" as *;
@@ -32,10 +32,15 @@ $c-button-round-default: true !default;
 /// @type Number
 $c-button-radius: graphics.$ui-border-radius !default;
 
+/// @type Color
+$c-button-color: cv(text) !default;
+
 /// @type Number
 $c-button-font-size: core.$g-font-size-base !default;
 /// @type Number
 $c-button-font-ratio: 1/8 !default;
+/// @type Number
+$c-button-font-weight: null !default;
 
 /// @type Number
 $c-button-font-size-small: $c-button-font-size * (1 - $c-button-font-ratio) !default;
@@ -101,7 +106,7 @@ $c-button-padding-x: unit.subtract($c-button-padding-x, $c-button-border-width);
 
 /// @type List
 $c-button-variants: () !default;
-$c-button-variants: list.join(
+$c-button-variants: _list.merge(
   (
     "primary",
     "secondary",
@@ -116,8 +121,7 @@ $c-button-variants: list.join(
   $c-button-variants
 );
 
-/// @type Color
-$c-button-color: cv(text) !default;
+$c-button-enable-link: true !default;
 
 .#{$c-button-classname} {
   $_border-radius: $c-button-radius;
@@ -131,6 +135,7 @@ $c-button-color: cv(text) !default;
   padding: $c-button-padding-y $c-button-padding-x;
   color: $c-button-color;
   font-size: $c-button-font-size;
+  font-weight: $c-button-font-weight;
   line-height: $c-button-line-height;
   text-align: center;
   text-decoration: none;
@@ -224,23 +229,25 @@ $c-button-color: cv(text) !default;
 }
 
 // Link as button
-.#{$c-button-classname}--link {
-  color: cv("link");
+@if $c-button-enable-link {
+  .#{$c-button-classname}--link {
+    color: cv("link");
 
-  &:not(:disabled):not(.disabled):not(.is-inactive):hover {
-    color: _color.shade(cv("link"));
-    text-decoration: underline;
-  }
+    &:not(:disabled):not(.disabled):not(.is-inactive):hover {
+      color: _color.shade(cv("link"));
+      text-decoration: underline;
+    }
 
-  &:focus,
-  &:focus {
-    text-decoration: none;
-    box-shadow: none;
-  }
+    &:focus,
+    &:focus {
+      text-decoration: none;
+      box-shadow: none;
+    }
 
-  &:disabled,
-  &.disabled {
-    color: cv("text", "muted");
+    &:disabled,
+    &.disabled {
+      color: cv("text", "muted");
+    }
   }
 }
 
