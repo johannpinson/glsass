@@ -1,6 +1,6 @@
 {
   "name": "@glsass/generics",
-  "version": "1.1.0",
+  "version": "1.2.0-alpha.0",
   "description": "Generics layer for Glsass.",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@glsass/core": "1.1.0"
+    "@glsass/core": "1.2.0-alpha.0"
   },
   "peerDependencies": {
     "sass": "^1.32.5"
