@@ -15,6 +15,9 @@
 $c-navbar-classname: "c-navbar" !default;
 @include builder.check-classname($c-navbar-classname);
 
+/// @type Number
+$c-navbar-padding: vr(0.5) !default;
+
 /// @type Color
 $c-navbar-background: cv(light) !default;
 
@@ -22,6 +25,20 @@ $c-navbar-background: cv(light) !default;
 $c-navbar-burger-radius: graphics.$ui-border-radius !default;
 /// @type Number
 $c-navbar-burger-focus-shadow-width: graphics.$ui-shadow-width !default;
+/// @type Color
+$c-navbar-burger-color: cv(black) !default;
+/// @type Color
+$c-navbar-burger-color-active: cv(primary) !default;
+
+/// @type Number
+$c-navbar-logo-margin: vr() !default;
+
+/// @type Number
+$c-navbar-link-padding: vr(0.5) !default;
+/// @type Color
+$c-navbar-link-color-active: contrast.color($c-navbar-background) !default;
+/// @type Color
+$c-navbar-link-color: rgba($c-navbar-link-color-active, 0.75) !default;
 
 /// @type String
 $c-navbar-transition: graphics.$ui-transition-timing-function !default;
@@ -29,11 +46,12 @@ $c-navbar-transition: graphics.$ui-transition-timing-function !default;
 /// @type Placeholder
 %_burger-active-state {
   outline: 0;
-  box-shadow: 0 0 0 $c-navbar-burger-focus-shadow-width rgba(cv(primary), 0.25);
+  box-shadow: 0 0 0 $c-navbar-burger-focus-shadow-width
+    rgba($c-navbar-burger-color-active, 0.25);
 
   svg,
   svg path {
-    stroke: cv(primary);
+    stroke: $c-navbar-burger-color-active;
   }
 }
 
@@ -45,7 +63,7 @@ $c-navbar-transition: graphics.$ui-transition-timing-function !default;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: vr(0.5);
+  padding: $c-navbar-padding;
   background-color: $c-navbar-background;
 
   @include mq {
@@ -108,7 +126,7 @@ $c-navbar-transition: graphics.$ui-transition-timing-function !default;
     path {
       transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
       fill: none;
-      stroke: #000;
+      stroke: $c-navbar-burger-color;
       stroke-width: 5.5;
       stroke-linecap: round;
 
@@ -121,7 +139,7 @@ $c-navbar-transition: graphics.$ui-transition-timing-function !default;
 
   &__logo {
     @include mq {
-      margin-right: 1rem;
+      margin-right: $c-navbar-logo-margin;
     }
   }
 
@@ -154,14 +172,14 @@ $c-navbar-transition: graphics.$ui-transition-timing-function !default;
 
   &__link {
     display: inline-block;
-    padding: vr(0.5);
-    color: rgba(contrast.color($c-navbar-background), 0.75);
+    padding: $c-navbar-link-padding;
+    color: rgba($c-navbar-link-color, 0.75);
     text-decoration: none;
 
     &:hover,
     &:focus,
     &.is-active {
-      color: contrast.color($c-navbar-background);
+      color: $c-navbar-link-color-active;
     }
   }
 }
