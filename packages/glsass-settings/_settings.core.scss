@@ -76,13 +76,17 @@ $g-spacer: $g-font-size-base * $g-font-line-height-base !default;
 /// 4: 48 - large  or `l`
 /// 5: 72 - huge   or `xl`
 /// + micro / mega
-$g-spacers: (
-  0: 0,
-  1: $g-spacer * 0.25,
-  2: $g-spacer * 0.5,
-  3: $g-spacer,
-  4: $g-spacer * 2,
-  5: $g-spacer * 3,
+$g-spacers: () !default;
+$g-spacers: map.merge(
+  (
+    0: 0,
+    1: $g-spacer * 0.25,
+    2: $g-spacer * 0.5,
+    3: $g-spacer,
+    4: $g-spacer * 2,
+    5: $g-spacer * 3,
+  ),
+  $g-spacers
 );
 
 /// Negative version of `$g-spacers` map
