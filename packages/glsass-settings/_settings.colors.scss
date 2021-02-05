@@ -83,7 +83,7 @@ $g-color-dark: $g-color-gray-800 !default;
 $g-color-text: $g-color-gray-900 !default;
 $g-color-text-muted: $g-color-gray-600 !default;
 
-// Primary color in color scheme
+/// Primary color in color scheme
 /// @type Color
 $g-color-primary: null !default;
 
@@ -91,10 +91,11 @@ $g-color-primary: null !default;
   @error "You must set the `$g-color-primary` variable at least!";
 }
 
-// Secondary color in color scheme
+/// Secondary color in color scheme
 /// @type Color
 $g-color-secondary: #805ad5 !default;
 
+/// States color scheme
 /// @type Color
 $g-color-success: #34c56a !default;
 /// @type Color
@@ -113,6 +114,28 @@ $g-color-body-bg: $g-color-white !default;
 /// Default color for links
 /// @type Color
 $g-color-link: $g-color-primary !default;
+
+/// Default map of theme colors.
+/// Can be used to create components color variants
+/// To remove a default color, set it at `null` inside the map.
+/// @type Map
+$g-color-theme-colors: () !default;
+$g-color-theme-colors: map.merge(
+  (
+    "primary": $g-color-primary,
+    "secondary": $g-color-secondary,
+    "success": $g-color-success,
+    "danger": $g-color-danger,
+    "warning": $g-color-warning,
+    "info": $g-color-info,
+    "white": $g-color-white,
+    "black": $g-color-black,
+    "light": $g-color-light,
+    "dark": $g-color-dark,
+    "text": $g-color-text,
+  ),
+  $g-color-theme-colors
+);
 
 /// Color scheme database
 /// @access private
@@ -156,26 +179,4 @@ $g-colors-database: (
     "base": $g-color-body,
     "bg": $g-color-body-bg,
   ),
-);
-
-/// Default map of theme colors.
-/// Can be used to create components color variants
-/// To remove a default color, set it at `null` inside the map.
-/// @type Map
-$g-color-theme-colors: () !default;
-$g-color-theme-colors: map.merge(
-  (
-    "primary": $g-color-primary,
-    "secondary": $g-color-secondary,
-    "success": $g-color-success,
-    "danger": $g-color-danger,
-    "warning": $g-color-warning,
-    "info": $g-color-info,
-    "white": $g-color-white,
-    "black": $g-color-black,
-    "light": $g-color-light,
-    "dark": $g-color-dark,
-    "text": $g-color-text,
-  ),
-  $g-color-theme-colors
 );
