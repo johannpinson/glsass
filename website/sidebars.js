@@ -78,7 +78,13 @@ module.exports = {
     {
       type: 'category',
       label: 'Helpers',
-      items: ['helpers/clearfix', 'helpers/links', 'helpers/vhd'],
+      items: [
+        'helpers/clearfix',
+        'helpers/image',
+        'helpers/links',
+        'helpers/ratio',
+        'helpers/vhd',
+      ],
     },
     {
       type: 'category',

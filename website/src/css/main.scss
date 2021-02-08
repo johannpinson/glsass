@@ -41,8 +41,10 @@
 @forward "@glsass/components/components.tooltip";
 
 // HELPERS
-@forward "@glsass/helpers/helpers.links";
 @forward "@glsass/helpers/helpers.clearfix";
+@forward "@glsass/helpers/helpers.image";
+@forward "@glsass/helpers/helpers.links";
+@forward "@glsass/helpers/helpers.ratio";
 
 // UTILITIES
 @forward "@glsass/utilities/utilities.borders";
