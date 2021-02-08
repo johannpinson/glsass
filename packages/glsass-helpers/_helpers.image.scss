@@ -1,0 +1,16 @@
+//// ==========================================================================
+/// @group Helpers
+/// Image
+//// ==========================================================================
+
+@use "@glsass/tools/tools.builder" as builder;
+
+/// @type String
+$h-image-classname: "h-img-responsive" !default;
+@include builder.check-classname($h-image-classname);
+
+.#{$h-image-classname} {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
