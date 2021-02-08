@@ -1,0 +1,133 @@
+---
+slug: glsass-v1-2-0
+title: Glsass v1.2.0
+author: Johann Pinson
+author_title: Glsass creator / Front-end Developer
+author_url: https://github.com/johannpinson
+author_image_url: https://avatars1.githubusercontent.com/u/2202989?v=4
+tags: [glsass, v1.2, update, features, helpers]
+---
+
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+New version with new helpers, components improvements and some changes inside
+configuration.
+
+<!--truncate-->
+
+## What's new?
+
+### Two new helpers
+
+The v1.2.0 includes two new helpers: image and ratio.
+
+The first one add the `h-img-responsive` class to improve the dehavior when an
+image is set with width/height attributes.
+
+The `ratio` helpers can be use to manage the aspect ratio or content like
+`<img>` or `<iframe>` elements.
+
+### Merge variants variables
+
+Some components have a variable to set default colors variants (`button`,
+`alert`...). It allow to add new variant, but not remove existing ones.
+
+With the new list function `_list.merge()`, it's possible to remove a value by
+passing it starting with a dash `-`.
+
+#### Before
+
+<Tabs defaultValue="scss"
+values={[
+  { label: 'SCSS', value: 'scss'},
+  { label: 'CSS', value: 'css'},
+]}
+>
+<TabItem value="scss">
+
+```scss
+@forward "@glsass/components/compoents.button" with (
+  $c-button-variants: tertiary
+);
+```
+
+</TabItem>
+<TabItem value="css">
+
+- Generate classes for `.c-button--primary` and default variants
+- Add `.c-button--tertiary`
+
+<!-- prettier-ignore-start -->
+```css
+.c-button--primary { ... }
+.c-button--secondary { ... }
+.c-button--success { ... }
+.c-button--danger { ... }
+.c-button--warning { ... }
+.c-button--info { ... }
+.c-button--light { ... }
+.c-button--dark { ... }
+.c-button--white { ... }
+.c-button--tertiary { ... }
+```
+<!-- prettier-ignore-end -->
+
+</TabItem>
+</Tabs>
+
+#### After
+
+<Tabs defaultValue="scss-2"
+values={[
+  { label: 'SCSS', value: 'scss-2'},
+  { label: 'CSS', value: 'css-2'},
+]}
+>
+<TabItem value="scss-2">
+
+```scss
+@forward "@glsass/components/compoents.button" with (
+  $c-button-variants: tertiary, -secondary, -dark, black
+);
+```
+
+</TabItem>
+<TabItem value="css-2">
+
+- Generate classes for `.c-button--primary` and default variants
+- Add `.c-button--tertiary` and `.c-button--black`
+- Remove `.c-button--secondary` and `.c-button--dark`
+
+<!-- prettier-ignore-start -->
+```css
+.c-button--primary { ... }
+.c-button--success { ... }
+.c-button--danger { ... }
+.c-button--warning { ... }
+.c-button--info { ... }
+.c-button--light { ... }
+.c-button--white { ... }
+.c-button--tertiary { ... }
+.c-button--black { ... }
+```
+<!-- prettier-ignore-end -->
+
+</TabItem>
+</Tabs>
+
+<br />
+
+### Summary
+
+- new `image` helper ([docs](/docs/heplers/image))
+- new `ratio` helper ([docs](/docs/heplers/ratio))
+- new `list` functions ([docs](/dcos/tools/list))
+- change default behavior form color variants.
+- make `$g-spacers` variable overridable
+- improve `navbar` default variables
+
+## Documentation
+
+All docs are updated and the [`next` version](/versions) will be focused about
+the v1.3.0 to improve default settings like the color variants on components.
