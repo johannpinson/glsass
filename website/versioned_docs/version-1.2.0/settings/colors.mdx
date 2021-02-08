@@ -1,0 +1,38 @@
+---
+id: colors
+title: Colors
+---
+
+import Version from '@site/src/components/Version/'
+
+<Version version="1.0.0" source="glsass-settings/_settings.colors.scss" />
+
+The palette (or color scheme) follow other framework logic, like `primary` and
+`secondary` colors, states (`success`, `danger`...) and variants (`100` to
+`900`).
+
+Each color is definied by two parameters : name and variant. Other keywords are
+use to simplify the palette's use.
+
+```scss
+base  == 500 variant
+light == 200 variant
+dark  == 700 variant
+```
+
+Extra variant are also created like the `light` color which is rely to the
+`gray - 100` by default, or `text` with `gray - 900`.
+
+The [cv() function](tools/cv.mdx) offer a simpler way to access to a specific
+color instead of use the variable name like `$g-color-primary` or
+`$g-color-gray-800`.
+
+## Palette
+
+All default colors are visible below 👇<br/>The text colors are generated to
+respect the better contrast with the
+[color-contrast() function](tools/color.mdx#color-contrast).
+
+import Swatch from '@site/src/components/Swatch/'
+
+<Swatch />

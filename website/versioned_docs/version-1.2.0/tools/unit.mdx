@@ -1,0 +1,62 @@
+---
+id: unit
+title: Unit
+---
+
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.unit.scss" />
+
+```scss
+@use "@glsass/tools/tools.unit" as unit;
+```
+
+## _strip-unit()_
+
+<Version version="1.0.0" />
+
+Remove the unit of a length
+
+```scss
+unit.strip-unit($number);
+
+$v: unit.strip-unit(12px);
+// Returns 12
+```
+
+## _add()_
+
+<Version version="1.0.0" />
+
+This function will try to make a simple addition in SASS, but if the two
+parameters don't have the same unit, it will result on an error.
+
+To avoid it, it will return the result as a `calc()` operation.
+
+```scss
+unit.add($var1, $var2);
+
+$a: unit.add(1rem, 0.5rem);
+// Returns 1.5rem
+
+$b: unit.add(0.75rem, 4px);
+// Returns calc(0.75rem + 4px)
+```
+
+## _sub()_
+
+<Version version="1.0.0" />
+
+This other function works like the previous, but to realize a substraction/
+
+This function also have an alias as `substract()`.
+
+```scss
+unit.sub($var1, $var2);
+
+$a: unit.sub(1rem, 0.5rem);
+// Returns 0.5rem
+
+$b: unit.sub(0.75rem, 4px);
+// Returns calc(0.75rem - 4px)
+```

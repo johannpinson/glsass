@@ -1,0 +1,120 @@
+---
+id: pagination
+title: Pagination
+---
+
+import Example from '@site/src/components/Example/'
+import Version from '@site/src/components/Version/'
+
+<Version
+  version="1.1.0"
+  source="glsass-components/_components.pagination.scss"
+/>
+
+<Example>
+  <nav aria-label="Pagination">
+    <ul className="c-pagination">
+      <li className="c-pagination__item c-pagination__item--prev is-disabled">
+        <a href="#" tabIndex="-1" aria-disabled="true">
+          Previous
+        </a>
+      </li>
+      <li className="c-pagination__item is-active">
+        <a href="#" aria-current="page">
+          1
+        </a>
+      </li>
+      <li className="c-pagination__item">
+        <a href="#">2</a>
+      </li>
+      <li className="c-pagination__item">
+        <a href="#">3</a>
+      </li>
+      <li className="c-pagination__item is-disabled">
+        <a href="#" tabIndex="-1" aria-disabled="true">
+          ...
+        </a>
+      </li>
+      <li className="c-pagination__item">
+        <a href="#">9</a>
+      </li>
+      <li className="c-pagination__item">
+        <a href="#">10</a>
+      </li>
+      <li className="c-pagination__item c-pagination__item--next">
+        <a href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+</Example>
+
+```html
+<nav aria-label="Pagination">
+  <ul class="c-pagination">
+    <li class="c-pagination__item c-pagination__item--prev is-disabled">
+      <a href="#" tabindex="-1" aria-disabled="true">Previous</a>
+    </li>
+    <li class="c-pagination__item is-active">
+      <a href="#" aria-current="page">1</a>
+    </li>
+    <li class="c-pagination__item"><a href="#">2</a></li>
+    <li class="c-pagination__item"><a href="#">3</a></li>
+    <li class="c-pagination__item is-disabled">
+      <a href="#" tabindex="-1" aria-disabled="true">...</a>
+    </li>
+    <li class="c-pagination__item"><a href="#">9</a></li>
+    <li class="c-pagination__item"><a href="#">10</a></li>
+    <li class="c-pagination__item c-pagination__item--next">
+      <a href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+```
+
+## Previous/next arrow
+
+If you want to remove the arrow icon for the `Previous` and `Next` links, you
+can just remove the modifier classes `--prev` and `--next`.
+
+<Example>
+  <nav aria-label="Pagination">
+    <ul className="c-pagination">
+      <li className="c-pagination__item">
+        <a href="#">Previous</a>
+      </li>
+      <li className="c-pagination__item">
+        <a href="#">1</a>
+      </li>
+      <li className="c-pagination__item">
+        <a href="#">2</a>
+      </li>
+      <li className="c-pagination__item">
+        <a href="#">3</a>
+      </li>
+      <li className="c-pagination__item">
+        <a href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+</Example>
+
+```html
+<nav aria-label="Pagination">
+  <ul class="c-pagination">
+    <li class="c-pagination__item"><a href="#">Previous</a></li>
+    <li class="c-pagination__item"><a href="#">1</a></li>
+    <li class="c-pagination__item"><a href="#">2</a></li>
+    <li class="c-pagination__item"><a href="#">3</a></li>
+    <li class="c-pagination__item"><a href="#">Next</a></li>
+  </ul>
+</nav>
+```
+
+To avoid useless generated code, you may also disable it when you import the
+file:
+
+```scss
+@forward "@glsass/components/components.pagination" with (
+  $c-pagination-arrow-enable: false
+);
+```

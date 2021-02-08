@@ -1,0 +1,161 @@
+---
+id: button
+title: Button
+---
+
+import Example from '@site/src/components/Example/'
+import Version from '@site/src/components/Version/'
+
+<Version version="1.0.0" source="glsass-components/_components.button.scss" />
+
+Buttons include simple _button_ styles for actions in differents types and size.
+
+<Example>
+  <button className="c-button">default button</button>&nbsp;
+  <button className="c-button c-button--primary">primary button</button>&nbsp;
+  <button className="c-button c-button--link">link button</button>
+</Example>
+
+```html
+<button class="c-button">default button</button>
+<button class="c-button c-button--primary">primary button</button>
+<button class="c-button c-button--link">link button</button>
+```
+
+Add the `c-button` class to `<a>`, `<input>` or `<button>` elements for a
+default button. There are classes `c-button--primary` and `c-button--link` for
+predefined primary and link buttons.
+
+## Colors variants
+
+<Example>
+  <button className="c-button c-button--secondary u-mb-3">
+    secondary button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--success u-mb-3">success button</button>
+  &nbsp;
+  <button className="c-button c-button--danger u-mb-3">danger button</button>
+  &nbsp;
+  <button className="c-button c-button--warning u-mb-3">warning button</button>
+  &nbsp;
+  <button className="c-button c-button--info u-mb-3">info button</button>&nbsp;
+  <button className="c-button c-button--light u-mb-3">light button</button>
+  &nbsp;
+  <button className="c-button c-button--dark u-mb-3">dark button</button>&nbsp;
+  <button className="c-button c-button--white u-mb-3">white button</button>
+</Example>
+
+```html
+<button class="c-button c-button--secondary">secondary button</button>
+<button class="c-button c-button--success">success button</button>
+<button class="c-button c-button--danger">danger button</button>
+<button class="c-button c-button--warning">warning button</button>
+<button class="c-button c-button--info">info button</button>
+<button class="c-button c-button--light">light button</button>
+<button class="c-button c-button--dark">dark button</button>
+<button class="c-button c-button--white">white button</button>
+```
+
+## Shapes variants
+
+By default, buttons have rounded edges, but it's possible to keep straight edges
+by changing the `$c-button-round-default` Sass variable.
+
+If this variable is set to false, it will automatically generate an additional
+class with the modifier `--rounded`.
+
+<Example>
+  <button className="c-button c-button--primary c-button--rounded">
+    rounded button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--primary c-button--pill">
+    pill button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--primary c-button--block u-mt-3">
+    block button
+  </button>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<button class="c-button c-button--primary c-button--rounded">rounded button</button>
+<button class="c-button c-button--primary c-button--pill">pill button</button>
+<button class="c-button c-button--primary c-button--block">block button</button>
+```
+<!-- prettier-ignore-end -->
+
+## Outline variants
+
+Under consideration...
+
+## States
+
+More details about states will be added soon.
+
+## Sizes
+
+Size modifiers can be added to increase, or dicrease, the size (with, height and
+font-size).
+
+<Example>
+  <button className="c-button c-button--primary c-button--small">
+    small button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--primary">normal/medium button</button>
+  &nbsp;
+  <button className="c-button c-button--primary c-button--large">
+    large button
+  </button>
+</Example>
+
+```html
+<button class="c-button c-button--primary c-button--small">small button</button>
+<button class="c-button c-button--primary">normal/medium button</button>
+<button class="c-button c-button--primary c-button--large">large button</button>
+```
+
+## Button group
+
+By adding the `c-button-group` to a parent, it allow you to create a stack of
+buttons and ajust borders and margins between them.
+
+<Example>
+  <div className="u-mb-2" style={{ width: '100%' }}>
+    <div className="c-button--group">
+      <button className="c-button c-button--danger">Previous</button>
+      <button className="c-button c-button--success">Confirm</button>
+    </div>
+    &nbsp;
+    <div className="c-button--group">
+      <button className="c-button c-button--primary">Left</button>
+      <button className="c-button c-button--primary">Middle</button>
+      <button className="c-button c-button--primary">Right</button>
+    </div>
+  </div>
+  <div className="c-button--group c-button--group-vertical">
+    <button className="c-button c-button--light">Top</button>
+    <button className="c-button c-button--dark">Bottom</button>
+  </div>
+</Example>
+
+```html
+<div class="c-button--group">
+  <button class="c-button c-button--danger">Previous</button>
+  <button class="c-button c-button--success">Confirm</button>
+</div>
+
+<div class="c-button--group">
+  <button class="c-button c-button--primary">Left</button>
+  <button class="c-button c-button--primary">Middle</button>
+  <button class="c-button c-button--primary">Right</button>
+</div>
+
+<div class="c-button--group c-button--group-vertical">
+  <button class="c-button c-button--light">Top</button>
+  <button class="c-button c-button--dark">Bottom</button>
+</div>
+```
