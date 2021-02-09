@@ -25,7 +25,7 @@
 /// @param {number} $font-size - Actual content's font-size
 /// @param {number} $spacing - Spacing to remove to the calculated value
 /// @return {number} - Calculated space
-@function adjust-vr($vertical-rhythm: 1, $font-size, $spacing) {
+@function adjust-vr($vertical-rhythm: 1, $font-size, $spacing: 0) {
   $vertical-size: core.$g-spacer;
 
   @if ($vertical-rhythm * 2 == math.ceil($vertical-rhythm * 2)) {

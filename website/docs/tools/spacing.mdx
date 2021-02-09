@@ -44,7 +44,7 @@ To make different elements feel consistent, this function can be used to adjust
 the line-height, depending of the font-size and the margins.
 
 ```scss
-adjust-vr($vertical-rhythm: 1, $font-size, $spacings);
+adjust-vr($vertical-rhythm: 1, $font-size, $spacings: 0);
 
 line-height: adjust-vr(1, 0.875rem, spacing.add-space(1));
 // Returns 1.2857142857 (the default line-height is 1.5)
