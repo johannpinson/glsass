@@ -19,15 +19,11 @@ You will fin inside settings for fonts, spacers and responsive breakpoints
 );
 ```
 
-Settings files are also forwarded from the index file in the folder and to the
-main file to simplify the overrides.
+Settings files are also forwarded from the index file in the folder to simplify
+the overrides.
 
 ```scss
-@use "glass/settings" with (
+@use "@glsass/settings" with (
   // add your overrides here
-);
-
-@use "@glsass" with (
-  // or on the top level directly
 );
 ```
