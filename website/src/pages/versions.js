@@ -24,10 +24,6 @@ export default () => {
       <main className="container margin-vert--lg">
         <h1>Glsass documentation versions</h1>
 
-        {console.log(latestVersion)}
-        {console.log(versions)}
-        {console.log(pastVersions)}
-
         {latestVersion && (
           <div className="margin-bottom--lg">
             <h3 id="next">Current version (Stable)</h3>
