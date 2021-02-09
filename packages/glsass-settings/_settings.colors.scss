@@ -4,8 +4,9 @@
 /// This file contains any colors variables and configuration about it.
 //// ==========================================================================
 
-@use "sass:map";
 @use "sass:color";
+@use "sass:list";
+@use "sass:map";
 
 /// Internal function for generate variations of a color
 /// @access private
@@ -132,7 +133,6 @@ $g-color-theme-colors: map.merge(
     "black": $g-color-black,
     "light": $g-color-light,
     "dark": $g-color-dark,
-    "text": $g-color-text,
   ),
   $g-color-theme-colors
 );
@@ -140,43 +140,55 @@ $g-color-theme-colors: map.merge(
 /// Color scheme database
 /// @access private
 /// @type Map
-$g-colors-database: (
-  "primary": _generate-variant($g-color-primary),
-  "secondary": _generate-variant($g-color-secondary),
-  "success": _generate-variant($g-color-success),
-  "danger": _generate-variant($g-color-danger),
-  "warning": _generate-variant($g-color-warning),
-  "info": _generate-variant($g-color-info),
-  "gray": $g-color-grays,
-  "white": (
-    "base": $g-color-white,
-  ),
-  "black": (
-    "base": $g-color-black,
-  ),
-  "light": (
-    "base": $g-color-light,
-  ),
-  "dark": (
-    "base": $g-color-dark,
-  ),
-  // Repeat previous color as an helper/alt
-  "default":
-    (
-      "white": $g-color-white,
-      "black": $g-color-black,
-      "light": $g-color-light,
-      "dark": $g-color-dark,
+$g-colors-database: ();
+
+@each $name, $color in $g-color-theme-colors {
+  @if $color {
+    // Generate variant for colors based on `$g-color-theme-colors`,
+    // except "monochrome" color which just need a `base` variant
+    @if not list.index("white" "black" "light" "dark", $name) {
+      $g-colors-database: map.merge(
+        $g-colors-database,
+        (
+          $name: _generate-variant($color),
+        )
+      );
+    } @else {
+      $g-colors-database: map.merge(
+        $g-colors-database,
+        (
+          $name: (
+            "base": $color,
+          ),
+        )
+      );
+    }
+  }
+}
+
+$g-colors-database: map.merge(
+  $g-colors-database,
+  (
+    // Add grayscale
+    "gray": $g-color-grays,
+    // Repeat previous color as an helper/alt
+    "default":
+      (
+        "white": $g-color-white,
+        "black": $g-color-black,
+        "light": $g-color-light,
+        "dark": $g-color-dark,
+      ),
+    "text": (
+      "base": $g-color-text,
+      "muted": $g-color-text-muted,
     ),
-  "text": (
-    "base": $g-color-text,
-    "muted": $g-color-text-muted,
-  ),
-  "link": (
-    "base": $g-color-link,
-  ),
-  "body": (
-    "base": $g-color-body,
-    "bg": $g-color-body-bg,
-  ),
+    "link": (
+      "base": $g-color-link,
+    ),
+    "body": (
+      "base": $g-color-body,
+      "bg": $g-color-body-bg,
+    )
+  )
 );
