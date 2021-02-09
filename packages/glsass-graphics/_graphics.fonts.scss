@@ -42,17 +42,17 @@ $ui-fonts-family-map: list.join(
 /// @type Number
 $ui-headings-h1-font-size: core.$g-font-size-base * 3 !default; // 48px
 /// @type Number
-$ui-headings-h1-baseline: vr(3) !default; // 3vr - 72px
+$ui-headings-h1-baseline: vr(2.5) !default; // 2.5vr - 60px
 
 /// @type Number
 $ui-headings-h2-font-size: core.$g-font-size-base * 2.25 !default; // 36px
 /// @type Number
-$ui-headings-h2-baseline: vr(2.5) !default; // 2.5vr - 60px
+$ui-headings-h2-baseline: vr(2) !default; // 2vr - 48px
 
 /// @type Number
 $ui-headings-h3-font-size: core.$g-font-size-base * 1.75 !default; // 28px
 /// @type Number
-$ui-headings-h3-baseline: vr(2) !default; // 2vr - 48px
+$ui-headings-h3-baseline: vr(1.5) !default; // 1.5vr - 36px
 
 /// @type Number
 $ui-headings-h4-font-size: core.$g-font-size-base * 1.5 !default; // 24px
