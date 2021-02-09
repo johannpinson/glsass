@@ -166,6 +166,7 @@ $g-colors-database: ();
   }
 }
 
+// Add additional colors into database variable
 $g-colors-database: map.merge(
   $g-colors-database,
   (
