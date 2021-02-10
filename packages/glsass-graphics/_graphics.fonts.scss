@@ -35,6 +35,13 @@ $ui-fonts-family-map: list.join(
   )
 );
 
+/// @type Number
+$ui-fonts-font-size: core.$g-font-size-base !default;
+/// @type Number
+$ui-fonts-font-weight: null !default;
+/// @type Number
+$ui-fonts-line-height: core.$g-font-line-height-base !default;
+
 // ===========================================================================
 // Headings
 // ===========================================================================
