@@ -82,7 +82,7 @@ $c-navbar-transition: graphics.$ui-transition-timing-function !default;
 
     @include mq-max {
       &:checked {
-        ~ #{$root}-burger {
+        ~ #{$root}__burger {
           svg {
             transform: rotate(45deg);
           }
@@ -95,14 +95,14 @@ $c-navbar-transition: graphics.$ui-transition-timing-function !default;
           }
         }
 
-        ~ #{$root}-panel {
+        ~ #{$root}__panel {
           max-height: calc(100vh - #{vr(3)});
         }
       }
     }
 
     &:focus {
-      ~ #{$root}-burger {
+      ~ #{$root}__burger {
         @extend %_burger-active-state;
       }
     }
@@ -173,7 +173,7 @@ $c-navbar-transition: graphics.$ui-transition-timing-function !default;
   &__link {
     display: inline-block;
     padding: $c-navbar-link-padding;
-    color: rgba($c-navbar-link-color, 0.75);
+    color: $c-navbar-link-color;
     text-decoration: none;
 
     &:hover,
