@@ -1,0 +1,30 @@
+//// ==========================================================================
+/// @group Utilities
+/// Positions
+//// ==========================================================================
+
+@use "sass:map";
+
+@use "@glsass/tools/tools.generators" as generators;
+
+/// List of positions utilities
+/// @type Map
+$u-positions: () !default;
+
+$_utilities: (
+  position: (
+    response: true,
+    property: position,
+    class: pos,
+    values: (
+      r: relative,
+      s: static,
+      a: absolute,
+      st: sticky,
+      f: fixed,
+    ),
+  ),
+);
+
+$u-positions: map.merge($_utilities, $u-positions);
+@include generators.utilities($u-positions);
