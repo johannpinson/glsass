@@ -55,9 +55,11 @@
 @forward "@glsass/utilities/utilities.float";
 @forward "@glsass/utilities/utilities.headings";
 @forward "@glsass/utilities/utilities.overflows";
+@forward "@glsass/utilities/utilities.positions";
 @forward "@glsass/utilities/utilities.sizings";
 @forward "@glsass/utilities/utilities.spacings";
 @forward "@glsass/utilities/utilities.texts";
+
 @forward "@glsass/utilities/utilities.debug" with ( // Must be removed in a real production build
   $u-debug: true,
   $u-debug-element: "#__docusaurus"
