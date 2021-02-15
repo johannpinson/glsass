@@ -32,10 +32,6 @@ $g-version: "1.2.3";
 // Font size and height
 // ===========================================================================
 
-/// HTML default size, this can be override by settings of the user's browser
-/// @type Number
-$g-font-size-html: null !default;
-
 /// Page default font-size, assuming the browser default is `16px`
 /// Must be set in a rem unit!
 /// @type Number
