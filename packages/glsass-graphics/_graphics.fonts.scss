@@ -47,32 +47,32 @@ $ui-fonts-line-height: core.$g-font-line-height-base !default;
 // ===========================================================================
 
 /// @type Number
-$ui-headings-h1-font-size: $ui-fonts-font-size * 3 !default; // 48px
+$ui-headings-h1-font-size: core.$g-font-size-base * 3 !default; // 48px
 /// @type Number
 $ui-headings-h1-baseline: vr(2.5) !default; // 2.5vr - 60px
 
 /// @type Number
-$ui-headings-h2-font-size: $ui-fonts-font-size * 2.25 !default; // 36px
+$ui-headings-h2-font-size: core.$g-font-size-base * 2.25 !default; // 36px
 /// @type Number
 $ui-headings-h2-baseline: vr(2) !default; // 2vr - 48px
 
 /// @type Number
-$ui-headings-h3-font-size: $ui-fonts-font-size * 1.75 !default; // 28px
+$ui-headings-h3-font-size: core.$g-font-size-base * 1.75 !default; // 28px
 /// @type Number
 $ui-headings-h3-baseline: vr(1.5) !default; // 1.5vr - 36px
 
 /// @type Number
-$ui-headings-h4-font-size: $ui-fonts-font-size * 1.5 !default; // 24px
+$ui-headings-h4-font-size: core.$g-font-size-base * 1.5 !default; // 24px
 /// @type Number
 $ui-headings-h4-baseline: vr(1.5) !default; // 1.5vr - 36px
 
 /// @type Number
-$ui-headings-h5-font-size: $ui-fonts-font-size * 1.25 !default; // 20px
+$ui-headings-h5-font-size: core.$g-font-size-base * 1.25 !default; // 20px
 /// @type Number
 $ui-headings-h5-baseline: vr(1) !default; // 1vr - 24px
 
 /// @type Number
-$ui-headings-h6-font-size: $ui-fonts-font-size * 1 !default; // 16px
+$ui-headings-h6-font-size: core.$g-font-size-base * 1 !default; // 16px
 /// @type Number
 $ui-headings-h6-baseline: vr(1) !default; // 1vr - 24px
 
