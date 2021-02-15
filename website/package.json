@@ -1,6 +1,6 @@
 {
   "name": "glsass-website",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -15,7 +15,7 @@
     "@docusaurus/core": "2.0.0-alpha.70",
     "@docusaurus/preset-classic": "2.0.0-alpha.70",
     "@glsass/components": "1.2.5",
-    "@glsass/elements": "1.2.5",
+    "@glsass/elements": "1.2.6",
     "@glsass/generics": "1.2.5",
     "@glsass/graphics": "1.2.5",
     "@glsass/helpers": "1.2.5",
