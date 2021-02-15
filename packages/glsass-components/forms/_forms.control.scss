@@ -5,8 +5,6 @@
 
 @use "sass:selector";
 
-@use "@glsass/settings/settings.core" as core;
-
 @use "@glsass/graphics";
 
 @use "@glsass/tools/tools.builder" as builder;
@@ -32,9 +30,9 @@ $c-control-text-color: graphics.$ui-form-text-color !default;
 $c-control-placeholder-color: graphics.$ui-form-placeholder-color !default;
 
 /// @type Number
-$c-control-font-size: core.$g-font-size-base !default;
+$c-control-font-size: graphics.$ui-fonts-font-size !default;
 /// @type Number
-$c-control-font-height: core.$g-font-line-height-base !default;
+$c-control-font-height: graphics.$ui-fonts-line-height !default;
 
 /// @type Color
 $c-control-focus-border-color: graphics.$ui-form-focus-border-color !default;

@@ -8,7 +8,6 @@
 @use "sass:math";
 
 @use "@glsass/settings/settings.colors" as colors;
-@use "@glsass/settings/settings.core" as core;
 
 @use "@glsass/graphics";
 
@@ -36,7 +35,7 @@ $c-button-radius: graphics.$ui-border-radius !default;
 $c-button-color: cv(text) !default;
 
 /// @type Number
-$c-button-font-size: core.$g-font-size-base !default;
+$c-button-font-size: graphics.$ui-fonts-font-size !default;
 /// @type Number
 $c-button-font-ratio: 1/8 !default;
 /// @type Number
@@ -48,7 +47,7 @@ $c-button-font-size-small: $c-button-font-size * (1 - $c-button-font-ratio) !def
 $c-button-font-size-large: $c-button-font-size * (1 + $c-button-font-ratio) !default;
 
 /// @type Number
-$c-button-line-height: core.$g-font-line-height-base !default;
+$c-button-line-height: graphics.$ui-fonts-line-height !default;
 
 /// @type Number
 $c-button-line-height-small: $c-button-line-height *

@@ -3,8 +3,6 @@
 /// Select
 //// ==========================================================================
 
-@use "@glsass/settings" as core;
-
 @use "@glsass/graphics";
 
 @use "@glsass/tools/tools.builder" as builder;
@@ -31,9 +29,9 @@ $c-select-text-color: graphics.$ui-form-text-color !default;
 $c-select-text-disabled: graphics.$ui-form-placeholder-color !default;
 
 /// @type Number
-$c-select-font-size: core.$g-font-size-base !default;
+$c-select-font-size: graphics.$ui-fonts-font-size !default;
 /// @type Number
-$c-select-font-height: core.$g-font-line-height-base !default;
+$c-select-font-height: graphics.$ui-fonts-line-height !default;
 
 /// @type Color
 $c-select-focus-border-color: graphics.$ui-form-focus-border-color !default;
