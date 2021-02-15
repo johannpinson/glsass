@@ -1,6 +1,6 @@
 {
   "name": "@glsass/basics",
-  "version": "1.2.3",
+  "version": "1.2.5",
   "description": "Basics layers for Glsass - Generics + Elements.",
   "repository": {
     "type": "git",
@@ -17,8 +17,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@glsass/elements": "1.2.3",
-    "@glsass/generics": "1.2.3"
+    "@glsass/elements": "1.2.5",
+    "@glsass/generics": "1.2.5"
   },
   "peerDependencies": {
     "sass": "^1.32.5"
