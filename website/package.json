@@ -1,6 +1,6 @@
 {
   "name": "glsass-website",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -18,7 +18,7 @@
     "@glsass/elements": "1.2.3",
     "@glsass/generics": "1.2.3",
     "@glsass/graphics": "1.2.3",
-    "@glsass/helpers": "1.2.3",
+    "@glsass/helpers": "1.2.4",
     "@glsass/objects": "1.2.3",
     "@glsass/settings": "1.2.3",
     "@glsass/tools": "1.2.3",
