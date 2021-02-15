@@ -7,30 +7,32 @@
 
 @use "@glsass/tools/tools.global" as *;
 
-/// 1. Set the default `font-size` and `line-height` for the entire project,
-///    sourced from our default variables. The `font-size` is calculated to exist
-///    in ems, the `line-height` is calculated to exist unitlessly.
-/// 2. Ensure the page always fills at least the entire height of the viewport.
+/// HTML
+///
+/// 1. Ensure the page always fills at least the entire height of the viewport.
 html {
-  min-height: 100%; // [2]
-  font-family: graphics.$ui-fonts-family-map;
-  font-size: graphics.$ui-fonts-font-size; // [1]
-  font-weight: graphics.$ui-fonts-font-weight; // [1]
-  line-height: graphics.$ui-fonts-line-height; // [1]
+  min-height: 100%; // [1]
 }
 
 /// Body
 ///
 /// 1. Remove the margin in all browsers.
-/// 2. As a best practice, apply a default `background-color`.
-/// 3. Prevent adjustments of font size after orientation changes in iOS.
-/// 4. Change the default tap highlight to be completely transparent in iOS.
+/// 2. Set the default `font-size` and `line-height` for the entire project,
+///    sourced from our default variables. The `font-size` is calculated to exist
+///    in ems, the `line-height` is calculated to exist unitlessly.
+/// 3. As a best practice, apply a default `background-color`.
+/// 4. Prevent adjustments of font size after orientation changes in iOS.
+/// 5. Change the default tap highlight to be completely transparent in iOS.
 body {
   margin: 0; // [1]
   color: cv(body);
-  background-color: cv(body, bg); // [2]
-  -webkit-text-size-adjust: 100%; // [3]
-  -webkit-tap-highlight-color: rgba(cv(black), 0); // [4]
+  font-family: graphics.$ui-fonts-family-map;
+  font-size: graphics.$ui-fonts-font-size; // [2]
+  font-weight: graphics.$ui-fonts-font-weight;
+  line-height: graphics.$ui-fonts-line-height; // [2]
+  background-color: cv(body, bg); // [3]
+  -webkit-text-size-adjust: 100%; // [4]
+  -webkit-tap-highlight-color: rgba(cv(black), 0); // [5]
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
 }
