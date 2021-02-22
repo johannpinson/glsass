@@ -15,6 +15,8 @@ export default () => {
   )
   const repoUrl = `https://github.com/${siteConfig.organizationName}/${siteConfig.projectName}`
 
+  console.log(latestVersion)
+
   return (
     <Layout
       title="Versions"
@@ -33,7 +35,7 @@ export default () => {
             <table>
               <tbody>
                 <tr>
-                  <th>{latestVersion.name}</th>
+                  <th>{latestVersion.label}</th>
                   <td>
                     <Link to={latestVersion.path}>Documentation</Link>
                   </td>

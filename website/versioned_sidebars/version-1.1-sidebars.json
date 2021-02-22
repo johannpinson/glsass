@@ -1,5 +1,5 @@
 {
-  "version-1.0.0/docs": [
+  "version-1.1/docs": [
     {
       "collapsed": true,
       "type": "category",
@@ -7,11 +7,19 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.0.0/introduction"
+          "id": "version-1.1/introduction"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/exitcss"
+          "id": "version-1.1/exitcss"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.1/vertical-rhythm"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.1/about"
         }
       ]
     },
@@ -22,11 +30,11 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.0.0/installation"
+          "id": "version-1.1/installation"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/packages"
+          "id": "version-1.1/packages"
         }
       ]
     },
@@ -37,19 +45,19 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.0.0/settings/overview"
+          "id": "version-1.1/settings/overview"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/settings/core"
+          "id": "version-1.1/settings/core"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/settings/colors"
+          "id": "version-1.1/settings/colors"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/settings/icons"
+          "id": "version-1.1/settings/icons"
         }
       ]
     },
@@ -60,7 +68,7 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.0.0/graphics/overview"
+          "id": "version-1.1/graphics/overview"
         }
       ]
     },
@@ -71,65 +79,69 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.0.0/tools/concept"
+          "id": "version-1.1/tools/concept"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/tools/breakpoints"
+          "id": "version-1.1/tools/breakpoints"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/tools/color"
+          "id": "version-1.1/tools/color"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/tools/cv"
+          "id": "version-1.1/tools/contrast"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/tools/fonts"
+          "id": "version-1.1/tools/cv"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/tools/iv"
+          "id": "version-1.1/tools/fonts"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/tools/list"
+          "id": "version-1.1/tools/iv"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/tools/map"
+          "id": "version-1.1/tools/list"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/tools/mq"
+          "id": "version-1.1/tools/map"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/tools/spacing"
+          "id": "version-1.1/tools/mq"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/tools/string"
+          "id": "version-1.1/tools/spacing"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/tools/unit"
+          "id": "version-1.1/tools/string"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/tools/vhd"
+          "id": "version-1.1/tools/unit"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.1/tools/vhd"
         }
       ]
     },
     {
       "type": "doc",
-      "id": "version-1.0.0/basics/generics"
+      "id": "version-1.1/basics/generics"
     },
     {
       "type": "doc",
-      "id": "version-1.0.0/basics/elements"
+      "id": "version-1.1/basics/elements"
     },
     {
       "collapsed": true,
@@ -138,11 +150,11 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.0.0/basics/objects"
+          "id": "version-1.1/basics/objects"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/basics/grid"
+          "id": "version-1.1/basics/grid"
         }
       ]
     },
@@ -153,35 +165,47 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.0.0/components/accordion"
+          "id": "version-1.1/components/accordion"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/components/alert"
+          "id": "version-1.1/components/alert"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/components/badge"
+          "id": "version-1.1/components/badge"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/components/button"
+          "id": "version-1.1/components/breadcrumb"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/components/callout"
+          "id": "version-1.1/components/button"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/components/card"
+          "id": "version-1.1/components/callout"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/components/form"
+          "id": "version-1.1/components/card"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/components/navbar"
+          "id": "version-1.1/components/form"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.1/components/navbar"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.1/components/pagination"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.1/components/tooltip"
         }
       ]
     },
@@ -192,15 +216,15 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.0.0/helpers/clearfix"
+          "id": "version-1.1/helpers/clearfix"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/helpers/links"
+          "id": "version-1.1/helpers/links"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/helpers/vhd"
+          "id": "version-1.1/helpers/vhd"
         }
       ]
     },
@@ -211,59 +235,63 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.0.0/utilities/api"
+          "id": "version-1.1/utilities/api"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/utilities/borders"
+          "id": "version-1.1/utilities/borders"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/utilities/colors"
+          "id": "version-1.1/utilities/colors"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/utilities/columns"
+          "id": "version-1.1/utilities/columns"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/utilities/displays"
+          "id": "version-1.1/utilities/displays"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/utilities/flex"
+          "id": "version-1.1/utilities/elevations"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/utilities/float"
+          "id": "version-1.1/utilities/flex"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/utilities/headings"
+          "id": "version-1.1/utilities/float"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/utilities/overflows"
+          "id": "version-1.1/utilities/headings"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/utilities/sizings"
+          "id": "version-1.1/utilities/overflows"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/utilities/spacings"
+          "id": "version-1.1/utilities/sizings"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/utilities/texts"
+          "id": "version-1.1/utilities/spacings"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/utilities/print"
+          "id": "version-1.1/utilities/texts"
         },
         {
           "type": "doc",
-          "id": "version-1.0.0/utilities/debug"
+          "id": "version-1.1/utilities/print"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.1/utilities/debug"
         }
       ]
     }

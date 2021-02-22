@@ -119,6 +119,15 @@ module.exports = {
             current: {
               label: 'next',
             },
+            1.2: {
+              label: '1.2.x',
+            },
+            1.1: {
+              label: '1.1.x',
+            },
+            '1.0': {
+              label: '1.0.x',
+            },
           },
         },
         blog: {
