@@ -58,7 +58,7 @@ $c-button-line-height-small: $c-button-line-height *
           unit.strip-unit(unit.convert-px($c-button-font-size)) *
           (1 - $c-button-font-ratio)
       )
-  );
+  ) !default;
 
 /// @type Number
 $c-button-line-height-large: $c-button-line-height *
@@ -69,7 +69,7 @@ $c-button-line-height-large: $c-button-line-height *
           unit.strip-unit(unit.convert-px($c-button-font-size)) *
           (1 + $c-button-font-ratio)
       )
-  );
+  ) !default;
 
 /// @type Number
 $c-button-focus-shadow-width: graphics.$ui-shadow-width !default;
