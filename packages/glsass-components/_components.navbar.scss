@@ -16,7 +16,7 @@ $c-navbar-classname: "c-navbar" !default;
 @include builder.check-classname($c-navbar-classname);
 
 /// @type Number
-$c-navbar-padding: vr(0.5) !default;
+$c-navbar-padding: vr(0.5) 0 !default;
 
 /// @type Color
 $c-navbar-background: cv(light) !default;
