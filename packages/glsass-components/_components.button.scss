@@ -24,7 +24,7 @@ $c-button-classname: "c-button" !default;
 @include builder.check-classname($c-button-classname);
 
 /// @type Number
-$c-button-border-width: graphics.$ui-border-width !default;
+$c-button-border-width: graphics.$ui-border-width * 2 !default;
 
 /// @type Boolean
 $c-button-round-default: true !default;
@@ -120,7 +120,15 @@ $c-button-variants: _list.merge(
   $c-button-variants
 );
 
+/// Options
+
+/// Enable `link` style
+/// @type Boolean
 $c-button-enable-link: true !default;
+
+/// Enable `outline` variants
+/// @type Boolean
+$c-button-enable-outline: false !default;
 
 .#{$c-button-classname} {
   $_border-radius: $c-button-radius;
@@ -145,26 +153,26 @@ $c-button-enable-link: true !default;
   transition: all 0.35s graphics.$ui-transition-timing-function;
   user-select: none;
 
-  &:not(:disabled):not(.disabled):not(.is-inactive):hover {
+  &:not(:disabled):not(.is-disabled):hover {
     color: $c-button-color;
     text-decoration: none;
     cursor: pointer;
   }
 
   &:focus,
-  &.focus {
+  &.is-focus {
     outline: 0;
     box-shadow: 0 0 0 $c-button-focus-shadow-width rgba(cv(primary), 0.25);
   }
 
   &:disabled,
-  &.disabled {
+  &.is-disabled {
     opacity: 0.65;
     pointer-events: none;
   }
 
-  &:not(:disabled):not(.disabled):not(.is-inactive):active,
-  &:not(:disabled):not(.disabled):not(.is-inactive).active {
+  &:not(:disabled):not(.is-disabled):active,
+  &:not(:disabled):not(.is-disabled).is-active {
     // nothing
   }
 
@@ -199,14 +207,14 @@ $c-button-enable-link: true !default;
       background-color: $value;
       border-color: $value;
 
-      &:not(:disabled):not(.disabled):not(.is-inactive):hover {
+      &:not(:disabled):not(.is-disabled):hover {
         color: contrast.color($_hover-value);
         background-color: $_hover-value;
         border-color: $_hover-value;
       }
 
       &:focus,
-      &.focus {
+      &.is-focus {
         color: contrast.color($_hover-value);
         background-color: $_hover-value;
         border-color: $_hover-value;
@@ -217,8 +225,8 @@ $c-button-enable-link: true !default;
           rgba($value, $_opacity-value);
       }
 
-      &:not(:disabled):not(.disabled):not(.is-inactive):active,
-      &:not(:disabled):not(.disabled):not(.is-inactive).active {
+      &:not(:disabled):not(.is-disabled):active,
+      &:not(:disabled):not(.is-disabled).is-active {
         color: contrast.color($_active-value);
         background-color: $_active-value;
         border-color: $_active-value;
@@ -232,19 +240,19 @@ $c-button-enable-link: true !default;
   .#{$c-button-classname}--link {
     color: cv("link");
 
-    &:not(:disabled):not(.disabled):not(.is-inactive):hover {
+    &:not(:disabled):not(.is-disabled):hover {
       color: _color.shade(cv("link"));
       text-decoration: underline;
     }
 
     &:focus,
-    &:focus {
+    &.is-focus {
       text-decoration: none;
       box-shadow: none;
     }
 
     &:disabled,
-    &.disabled {
+    &.is-disabled {
       color: cv("text", "muted");
     }
   }
@@ -252,22 +260,24 @@ $c-button-enable-link: true !default;
 
 // Outline button style
 // stylelint-disable-next-line
-@each $color in $c-button-variants {
-  @if map.get(colors.$g-color-theme-colors, $color) {
-    $color-value: map.get(colors.$g-color-theme-colors, $color);
-    $border-value: $color-value;
+@if $c-button-enable-outline {
+  @each $color in $c-button-variants {
+    @if map.get(colors.$g-color-theme-colors, $color) {
+      $color-value: map.get(colors.$g-color-theme-colors, $color);
+      $border-value: $color-value;
 
-    $root-outline: ".#{$c-button-classname}--outline";
+      $root-outline: ".#{$c-button-classname}--outline";
 
-    @if ($color == "light") {
-      $color-value: cv("gray", 700);
-      $border-value: cv("gray", 300);
-    }
+      @if ($color == "light") {
+        $color-value: cv("gray", 700);
+        $border-value: cv("gray", 300);
+      }
 
-    #{$root-outline}.#{$c-button-classname}--#{$color} {
-      color: $color-value;
-      background-color: transparent;
-      border-color: $border-value;
+      #{$root-outline}.#{$c-button-classname}--#{$color} {
+        color: $color-value;
+        background-color: transparent;
+        border-color: $border-value;
+      }
     }
   }
 }
@@ -285,7 +295,6 @@ $c-button-enable-link: true !default;
 }
 
 .#{$c-button-classname}--pill {
-  // padding: .75rem 1.25rem;
   border-radius: 4rem;
 }
 

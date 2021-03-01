@@ -89,11 +89,149 @@ class with the modifier `--rounded`.
 
 ## Outline variants
 
-Under consideration...
+Outline variants are usefull to make some buttons to look like less important,
+but it must be used with caution to ensure good readibility.
+
+To enable the `.c-button--outline` class and associated styles, you must turn on
+the `$c-button-enable-outline` variable.
+
+```scss
+@forward "@glsass/components/components.breadcrumb" with (
+  $c-button-enable-outline: true
+};
+```
+
+<Example>
+  <div>
+    <button className="c-button c-button--outline c-button--primary u-mb-3">
+      primary button
+    </button>
+    &nbsp;
+    <button className="c-button c-button--outline c-button--secondary u-mb-3">
+      secondary button
+    </button>
+    &nbsp;
+    <button className="c-button c-button--outline c-button--success u-mb-3">
+      success button
+    </button>
+    &nbsp;
+    <button className="c-button c-button--outline c-button--danger u-mb-3">
+      danger button
+    </button>
+    &nbsp;
+    <button className="c-button c-button--outline c-button--info u-mb-3">
+      info button
+    </button>
+    &nbsp;
+    <button className="c-button c-button--outline c-button--light u-mb-3">
+      light button
+    </button>
+    &nbsp;
+    <button className="c-button c-button--outline c-button--dark u-mb-3">
+      dark button
+    </button>
+  </div>
+  <div className="u-p-2 u-bg-black">
+    <button className="c-button c-button--outline c-button--warning u-mb-3">
+      warning button
+    </button>
+    &nbsp;
+    <button className="c-button c-button--outline c-button--white u-mb-3">
+      white button
+    </button>
+  </div>
+</Example>
+
+```html
+<button class="c-button c-button--outline c-button--variant">
+  variant button
+</button>
+```
+
+:::caution
+
+Dependings of your palette choice, some foreground colors can be "light" and
+should only be used on dark/black background to preserve a good ratio contrast.
+
+:::
 
 ## States
 
-More details about states will be added soon.
+### Disabled state
+
+Simply add the `disabled` attribute on compatible element (`<button>`,
+`<input type="subit">`) or use the `is-disabled` state class.
+
+<Example>
+  <button className="c-button c-button--primary u-mb-3" disabled>
+    primary button
+  </button>
+  &nbsp;
+  <a
+    href="#"
+    className="c-button c-button--link is-disabled u-mb-3"
+    role="button"
+    aria-disabled="true"
+    tabIndex="-1"
+  >
+    link button
+  </a>
+  <br />
+  <button className="c-button c-button--secondary u-mb-3" disabled>
+    secondary button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--success u-mb-3" disabled>
+    success button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--danger u-mb-3" disabled>
+    danger button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--warning u-mb-3" disabled>
+    warning button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--info u-mb-3" disabled>
+    info button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--light u-mb-3" disabled>
+    light button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--dark u-mb-3" disabled>
+    dark button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--white u-mb-3" disabled>
+    white button
+  </button>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<button className="c-button c-button--primary" disabled>primary button</button>
+<a href="#" className="c-button c-button--link is-disabled" role="button" aria-disabled="true" tabindex="-1">link button</a>
+```
+<!-- prettier-ignore-end -->
+
+:::note
+
+Since the `<a>` element doesn't support the `disabled` attribute, don't forget
+to add additional attributes (`aria-disabled` **mostly!**) to indicate the real
+state of the link to assistive technologies.
+
+:::
+
+### Focus and active states
+
+Like `disabled`, you can also simulate `focus` and `active` state with
+`is-focus` and `is-active` classes.
+
+In the second case, you may include the `aria-pressed="true"` attribute to
+reflect the current state of the button.
 
 ## Sizes
 
