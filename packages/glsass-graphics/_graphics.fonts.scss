@@ -46,36 +46,6 @@ $ui-fonts-line-height: core.$g-font-line-height-base !default;
 // Headings
 // ===========================================================================
 
-/// @type Number
-$ui-headings-h1-font-size: core.$g-font-size-base * 3 !default; // 48px
-/// @type Number
-$ui-headings-h1-baseline: vr(2.5) !default; // 2.5vr - 60px
-
-/// @type Number
-$ui-headings-h2-font-size: core.$g-font-size-base * 2.25 !default; // 36px
-/// @type Number
-$ui-headings-h2-baseline: vr(2) !default; // 2vr - 48px
-
-/// @type Number
-$ui-headings-h3-font-size: core.$g-font-size-base * 1.75 !default; // 28px
-/// @type Number
-$ui-headings-h3-baseline: vr(1.5) !default; // 1.5vr - 36px
-
-/// @type Number
-$ui-headings-h4-font-size: core.$g-font-size-base * 1.5 !default; // 24px
-/// @type Number
-$ui-headings-h4-baseline: vr(1.5) !default; // 1.5vr - 36px
-
-/// @type Number
-$ui-headings-h5-font-size: core.$g-font-size-base * 1.25 !default; // 20px
-/// @type Number
-$ui-headings-h5-baseline: vr(1) !default; // 1vr - 24px
-
-/// @type Number
-$ui-headings-h6-font-size: core.$g-font-size-base * 1 !default; // 16px
-/// @type Number
-$ui-headings-h6-baseline: vr(1) !default; // 1vr - 24px
-
 /// Default headings margin bottom
 /// @type Number
 $ui-headings-margin-bottom: vr(1) / 2 !default;
@@ -92,30 +62,102 @@ $ui-headings-font-weight: 700 !default;
 /// @type String
 $ui-headings-font-style: null !default;
 
+/// H1
+/// @type Number
+$ui-headings-h1-font-size: core.$g-font-size-base * 3 !default; // 48px
+/// @type Number
+$ui-headings-h1-font-weight: $ui-headings-font-weight !default;
+/// @type String
+$ui-headings-h1-font-style: $ui-headings-font-style !default;
+/// @type Number
+$ui-headings-h1-baseline: vr(2.5) !default; // 2.5vr - 60px
+
+/// H2
+/// @type Number
+$ui-headings-h2-font-size: core.$g-font-size-base * 2.25 !default; // 36px
+/// @type Number
+$ui-headings-h2-font-weight: $ui-headings-font-weight !default;
+/// @type String
+$ui-headings-h2-font-style: $ui-headings-font-style !default;
+/// @type Number
+$ui-headings-h2-baseline: vr(2) !default; // 2vr - 48px
+
+/// H3
+/// @type Number
+$ui-headings-h3-font-size: core.$g-font-size-base * 1.75 !default; // 28px
+/// @type Number
+$ui-headings-h3-font-weight: $ui-headings-font-weight !default;
+/// @type String
+$ui-headings-h3-font-style: $ui-headings-font-style !default;
+/// @type Number
+$ui-headings-h3-baseline: vr(1.5) !default; // 1.5vr - 36px
+
+/// H4
+/// @type Number
+$ui-headings-h4-font-size: core.$g-font-size-base * 1.5 !default; // 24px
+/// @type Number
+$ui-headings-h4-font-weight: $ui-headings-font-weight !default;
+/// @type String
+$ui-headings-h4-font-style: $ui-headings-font-style !default;
+/// @type Number
+$ui-headings-h4-baseline: vr(1.5) !default; // 1.5vr - 36px
+
+/// H5
+/// @type Number
+$ui-headings-h5-font-size: core.$g-font-size-base * 1.25 !default; // 20px
+/// @type Number
+$ui-headings-h5-font-weight: $ui-headings-font-weight !default;
+/// @type String
+$ui-headings-h5-font-style: $ui-headings-font-style !default;
+/// @type Number
+$ui-headings-h5-baseline: vr(1) !default; // 1vr - 24px
+
+/// H6
+/// @type Number
+$ui-headings-h6-font-size: core.$g-font-size-base * 1 !default; // 16px
+/// @type Number
+$ui-headings-h6-font-weight: $ui-headings-font-weight !default;
+/// @type String
+$ui-headings-h6-font-style: $ui-headings-font-style !default;
+/// @type Number
+$ui-headings-h6-baseline: vr(1) !default; // 1vr - 24px
+
 /// @type Map
 $ui-headings-styles: (
   1: (
     font-size: $ui-headings-h1-font-size,
+    font-weight: $ui-headings-h1-font-weight,
+    font-style: $ui-headings-h1-font-style,
     line-height: $ui-headings-h1-baseline / $ui-headings-h1-font-size,
   ),
   2: (
     font-size: $ui-headings-h2-font-size,
+    font-weight: $ui-headings-h2-font-weight,
+    font-style: $ui-headings-h2-font-style,
     line-height: $ui-headings-h2-baseline / $ui-headings-h2-font-size,
   ),
   3: (
     font-size: $ui-headings-h3-font-size,
+    font-weight: $ui-headings-h3-font-weight,
+    font-style: $ui-headings-h3-font-style,
     line-height: $ui-headings-h3-baseline / $ui-headings-h3-font-size,
   ),
   4: (
     font-size: $ui-headings-h4-font-size,
+    font-weight: $ui-headings-h4-font-weight,
+    font-style: $ui-headings-h4-font-style,
     line-height: $ui-headings-h4-baseline / $ui-headings-h4-font-size,
   ),
   5: (
     font-size: $ui-headings-h5-font-size,
+    font-weight: $ui-headings-h5-font-weight,
+    font-style: $ui-headings-h5-font-style,
     line-height: $ui-headings-h5-baseline / $ui-headings-h5-font-size,
   ),
   6: (
     font-size: $ui-headings-h6-font-size,
+    font-weight: $ui-headings-h6-font-weight,
+    font-style: $ui-headings-h6-font-style,
     line-height: $ui-headings-h6-baseline / $ui-headings-h6-font-size,
   ),
 ) !default;
