@@ -4,6 +4,7 @@
 //// ==========================================================================
 
 @use "sass:math";
+@use "sass:meta";
 
 /// Remove the unit of a length
 /// @author CSS Tricks
@@ -11,7 +12,7 @@
 /// @param {Number} $number - Number to remove unit from
 /// @return {Number} - Unitless number
 @function strip-unit($number) {
-  @if type-of($number) == "number" and not unitless($number) {
+  @if meta.type-of($number) == "number" and not math.is-unitless($number) {
     @return $number / ($number * 0 + 1);
   }
 
@@ -51,7 +52,15 @@
 /// @param {Number} $var2 - Value to add
 /// @return {Number} - Calculated value
 @function add($var1, $var2) {
-  @if (math.unit($var1) == math.unit($var2)) {
+  @if (math.is-unitless($var1) and not math.is-unitless($var2)) {
+    $var1: $var1 * ($var2 * 0 + 1);
+  }
+
+  @if (not math.is-unitless($var1) and math.is-unitless($var2)) {
+    $var2: $var2 * ($var1 * 0 + 1);
+  }
+
+  @if (math.compatible($var1, $var2)) {
     @return ($var1 + $var2);
   }
 
@@ -64,7 +73,15 @@
 /// @param {Number} $var2 - Value to subtract
 /// @return {Number} - Calculated value
 @function sub($var1, $var2) {
-  @if (math.unit($var1) == math.unit($var2)) {
+  @if (math.is-unitless($var1) and not math.is-unitless($var2)) {
+    $var1: $var1 * ($var2 * 0 + 1);
+  }
+
+  @if (not math.is-unitless($var1) and math.is-unitless($var2)) {
+    $var2: $var2 * ($var1 * 0 + 1);
+  }
+
+  @if (math.compatible($var1, $var2)) {
     @return ($var1 - $var2);
   }
 
