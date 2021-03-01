@@ -1,0 +1,84 @@
+//// ==========================================================================
+/// @group Components
+/// Avatar
+//// ==========================================================================
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.contrast" as contrast;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-avatar-classname: "c-avatar" !default;
+@include builder.check-classname($c-avatar-classname);
+
+/// @type Number
+$c-avatar-size: vr(2) !default;
+/// @type Number
+$c-avatar-size-large: vr(3) !default;
+/// @type Number
+$c-avatar-size-small: vr() !default;
+
+/// @type Color
+$c-avatar-background: cv(primary) !default;
+
+.#{$c-avatar-classname} {
+  $root: &;
+
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: $c-avatar-size;
+  height: $c-avatar-size;
+  margin: 0;
+  color: contrast.color($c-avatar-background);
+  vertical-align: middle;
+  background-color: $c-avatar-background;
+  border-radius: 50%;
+
+  &--large {
+    width: $c-avatar-size-large;
+    height: $c-avatar-size-large;
+    font-size: 2rem;
+
+    #{$root}__indicator {
+      width: $c-avatar-size-large / 4;
+      height: $c-avatar-size-large / 4;
+    }
+  }
+
+  &--small {
+    width: $c-avatar-size-small;
+    height: $c-avatar-size-small;
+    font-size: 0.75rem;
+
+    #{$root}__indicator {
+      width: $c-avatar-size-small / 4;
+      height: $c-avatar-size-small / 4;
+    }
+  }
+
+  &[data-placeholder]::before {
+    content: attr(data-placeholder);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__indicator {
+    position: absolute;
+    right: 15%;
+    bottom: 15%;
+    width: $c-avatar-size / 4;
+    height: $c-avatar-size / 4;
+    border-radius: 50%;
+    box-shadow: 0 0 0 (1rem / 8) cv(white);
+    transform: translate(50%, 50%);
+  }
+}
