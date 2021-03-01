@@ -1,0 +1,115 @@
+//// ==========================================================================
+/// @group Components
+/// Progress
+//// ==========================================================================
+
+@use "@glsass/graphics";
+
+@use "@glsass/tools/tools.builder" as builder;
+@use "@glsass/tools/tools.spacing" as spacing;
+@use "@glsass/tools/tools.global" as *;
+
+/// @type String
+$c-progress-classname: "c-progress" !default;
+@include builder.check-classname($c-progress-classname);
+
+/// @type Number
+$c-progress-height: spacing.add-space(1) !default;
+
+/// @type Number
+$c-progress-margin-bottom: spacing.add-space(1) !default;
+
+/// @type Color
+$c-progress-color-value: cv(primary) !default;
+/// @type Color
+$c-progress-color-background: graphics.$ui-border-color !default;
+
+/// @type Number
+$c-progress-border-radius: graphics.$ui-border-radius !default;
+
+.#{$c-progress-classname} {
+  --c-proress-value: 0%;
+
+  position: relative;
+  display: block;
+  width: 100%;
+  height: $c-progress-height;
+  margin-bottom: $c-progress-margin-bottom;
+  overflow: hidden;
+  color: $c-progress-color-value;
+  vertical-align: baseline;
+  background-color: $c-progress-color-background;
+  border: 0;
+  border-radius: $c-progress-border-radius;
+  appearance: none;
+
+  // Pseudo-elements must be split across multiple rulesets to have an effect.
+  // Sass placeholders aren't available, because it will join the rules.
+  &::-webkit-progress-bar {
+    background: transparent;
+  }
+
+  &::-webkit-progress-value {
+    background-color: $c-progress-color-value;
+  }
+
+  &::-moz-progress-bar {
+    background-color: $c-progress-color-value;
+  }
+
+  &[aria-valuemax] {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: (100%/3);
+      height: 100%;
+      background-color: $c-progress-color-value;
+      animation: custom-progress-indeterminate 1.25s linear infinite;
+    }
+
+    &[aria-valuenow] {
+      &::after {
+        width: var(--c-proress-value, 0%);
+        animation: none;
+      }
+    }
+  }
+
+  &:indeterminate {
+    background-image: linear-gradient(
+      to right,
+      $c-progress-color-value (100%/6),
+      $c-progress-color-background (100%/6)
+    );
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 200%;
+    animation: progress-indeterminate 1.25s linear infinite;
+
+    &::-moz-progress-bar {
+      background: transparent;
+    }
+  }
+}
+
+@keyframes progress-indeterminate {
+  0% {
+    background-position: (100%/3) 0;
+  }
+
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@keyframes custom-progress-indeterminate {
+  0% {
+    left: -33%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
