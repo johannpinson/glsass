@@ -6,13 +6,19 @@
 
 @use "@glsass/graphics";
 
+@use "@glsass/tools/tools.builder" as builder;
+
+/// @type String
+$h-headings-classname: "h-h" !default;
+@include builder.check-classname($h-headings-classname);
+
 %_heading {
   color: graphics.$ui-headings-color;
   font-family: graphics.$ui-headings-font-family;
 }
 
 @each $hn, $value in graphics.$ui-headings-styles {
-  .h-h#{$hn} {
+  .#{$h-headings-classname}#{$hn} {
     @extend %_heading;
 
     font-size: map.get($value, font-size) !important;

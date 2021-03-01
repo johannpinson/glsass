@@ -82,6 +82,7 @@ module.exports = {
       label: 'Helpers',
       items: [
         'helpers/clearfix',
+        'helpers/headings',
         'helpers/image',
         'helpers/links',
         'helpers/ratio',
@@ -100,7 +101,6 @@ module.exports = {
         'utilities/elevations',
         'utilities/flex',
         'utilities/float',
-        'utilities/headings',
         'utilities/overflows',
         'utilities/positions',
         'utilities/sizings',
