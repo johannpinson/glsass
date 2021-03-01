@@ -26,22 +26,24 @@ will result as an error).
 ```scss
 // If every settings were forwaded from the same place, it will result to have
 // a variable with a string value equal to `cv(black)`, not the color `#000`
-@use "@glsass" with (
+@use "@glsass/settings" with (
   $g-color-black: #111,
   $ui-form-background-color: cv(black), // × wrong, will equal to `cv(black)`
 );
 
 // The variables overriding must be done in two times
-@use "@glsass" with ($g-color-black: #111);
-@use "@glsas/tools/tools.cv"
+@use "@glsass/settings" with ($g-color-black: #111);
+@use "@glsass/tools/tools.cv" as *;
+
 @use "@glsass/graphics" with(
   $ui-form-background-color: cv(black), // ✓ correct, will equal to `#111`
 );
 
 // Alternative setups
-@use "@glsass" with ($g-color-black: #111) as *; // avoid namespace
+@use "@glsass/settings" with ($g-color-black: #111) as *; // avoid namespace
+
 @use "@glsass/graphics" with(
-  $ui-form-background-color: cv(black), // ✓ aslo correct!
+  $ui-form-background-color: $g-color-black, // ✓ aslo correct!
 );
 ```
 

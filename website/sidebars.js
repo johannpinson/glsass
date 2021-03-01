@@ -62,6 +62,7 @@ module.exports = {
       type: 'category',
       label: 'Components',
       items: [
+        'components/avatar',
         'components/accordion',
         'components/alert',
         'components/badge',
@@ -72,6 +73,7 @@ module.exports = {
         'components/form',
         'components/navbar',
         'components/pagination',
+        'components/progress',
         'components/tooltip',
       ],
     },

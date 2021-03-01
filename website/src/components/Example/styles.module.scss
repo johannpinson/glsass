@@ -40,8 +40,6 @@
       margin-bottom: graphics.$ui-headings-margin-bottom;
       color: graphics.$ui-headings-color;
       font-family: graphics.$ui-headings-font-family;
-      font-weight: graphics.$ui-headings-font-weight;
-      font-style: graphics.$ui-headings-font-style;
     }
 
     @each $hn, $value in graphics.$ui-headings-styles {
@@ -49,6 +47,8 @@
         @extend %_heading;
 
         font-size: map.get($value, font-size);
+        font-weight: map.get($value, font-weight);
+        font-style: map.get($value, font-style);
         line-height: map.get($value, line-height);
       }
     }

@@ -1,0 +1,27 @@
+@charset "UFT-8";
+
+@use "@glsass/settings" with (
+  $g-color-primary: #02aab0,
+);
+
+// TOOLS
+@use "@glsass/tools/tools.global" as *;
+
+// GENERICS
+@forward "@glsass/generics";
+
+// ELEMENTS
+@forward "@glsass/elements";
+
+// COMPONENTS
+@forward "@glsass/components/components.button" with (
+  $c-button-border-width: 0
+);
+
+.c-button--gradient {
+  background-image: linear-gradient(1deg, cv(primary), cv(primary, 300));
+
+  &:not(:disabled):not(.is-disabled):hover {
+    background-image: linear-gradient(1deg, cv(primary, 700), cv(primary));
+  }
+}
