@@ -1,5 +1,5 @@
 //// ==========================================================================
-/// @group Components
+/// @group Helpers
 /// Headings
 //// ==========================================================================
 @use "sass:map";
@@ -9,15 +9,15 @@
 %_heading {
   color: graphics.$ui-headings-color;
   font-family: graphics.$ui-headings-font-family;
-  font-weight: graphics.$ui-headings-font-weight;
-  font-style: graphics.$ui-headings-font-style;
 }
 
 @each $hn, $value in graphics.$ui-headings-styles {
-  .u-h#{$hn} {
+  .h-h#{$hn} {
     @extend %_heading;
 
     font-size: map.get($value, font-size) !important;
+    font-weight: map.get($value, font-weight) !important;
+    font-style: map.get($value, font-style) !important;
     line-height: map.get($value, line-height) !important;
   }
 }
