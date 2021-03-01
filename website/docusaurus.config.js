@@ -18,6 +18,7 @@ module.exports = {
         src: 'img/logo.svg',
         srcDark: 'img/logo-reverse.svg',
       },
+      hideOnScroll: true,
       items: [
         {
           to: 'docs/',
@@ -145,8 +146,7 @@ module.exports = {
         theme: {
           customCss: [
             require.resolve('./src/css/custom.css'),
-            require.resolve('./src/css/main.scss'),
-            require.resolve('./src/css/demo.scss'),
+            // require.resolve('./src/css/main.scss'),
           ],
         },
       },

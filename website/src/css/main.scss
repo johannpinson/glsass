@@ -1,11 +1,9 @@
 @charset "UFT-8";
 
+//SETTINGS
 @use "@glsass/settings" with (
   $g-color-primary: #02aab0,
 );
-
-// GRAPHICS
-// @use "@glsass/graphics" as ui;
 
 // GENERICS
 // @forward "@glsass/generics"; // Uncomment for compilation test
@@ -28,20 +26,25 @@
 @forward "@glsass/utilities/utilities.columns";
 
 // COMPONENTS
+@forward "@glsass/components/components.avatar";
 @forward "@glsass/components/components.accordion";
 @forward "@glsass/components/components.alert";
 @forward "@glsass/components/components.badge";
 @forward "@glsass/components/components.breadcrumb";
-@forward "@glsass/components/components.button";
+@forward "@glsass/components/components.button" with (
+  $c-button-enable-outline: true,
+);
 @forward "@glsass/components/components.callout";
 @forward "@glsass/components/components.card";
 @forward "@glsass/components/components.form";
 @forward "@glsass/components/components.navbar";
 @forward "@glsass/components/components.pagination";
+@forward "@glsass/components/components.progress";
 @forward "@glsass/components/components.tooltip";
 
 // HELPERS
 @forward "@glsass/helpers/helpers.clearfix";
+@forward "@glsass/helpers/helpers.headings";
 @forward "@glsass/helpers/helpers.image";
 @forward "@glsass/helpers/helpers.links";
 @forward "@glsass/helpers/helpers.ratio";
@@ -53,7 +56,6 @@
 @forward "@glsass/utilities/utilities.elevations";
 @forward "@glsass/utilities/utilities.flex";
 @forward "@glsass/utilities/utilities.float";
-@forward "@glsass/utilities/utilities.headings";
 @forward "@glsass/utilities/utilities.overflows";
 @forward "@glsass/utilities/utilities.positions";
 @forward "@glsass/utilities/utilities.sizings";

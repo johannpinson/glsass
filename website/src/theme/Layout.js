@@ -3,6 +3,8 @@ import React, { useEffect } from 'react'
 // Note: importing from "@theme/Layout" would fail due to the file importing itself
 import OriginalLayout from '@theme-original/Layout'
 
+import '../css/main.scss'
+
 export default function Layout(props) {
   useEffect(() => {
     Array.prototype.forEach.call(
