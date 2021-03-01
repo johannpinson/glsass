@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "prettier": "^2.2.1",
-    "sass": "^1.32.5",
+    "sass": "^1.32.8",
     "sass-loader": "^10.1.1"
   },
   "browserslist": {

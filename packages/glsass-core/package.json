@@ -22,6 +22,6 @@
     "@glsass/tools": "1.2.5"
   },
   "peerDependencies": {
-    "sass": "^1.32.5"
+    "sass": "^1.32.8"
   }
 }
