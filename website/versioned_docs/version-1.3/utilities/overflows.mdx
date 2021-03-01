@@ -1,0 +1,53 @@
+---
+id: overflows
+title: Overflows
+---
+
+import Example from '@site/src/components/Example/'
+
+<Example>
+  <div class="u-d-f@md">
+    <div
+      class="u-ov-auto u-p-2 u-mb-3 u-bg-light u-mb-0@md u-mr-3@md"
+      style={{ width: '12rem', height: '6rem' }}
+    >
+      This is example using the <code>.u-ov-auto</code> class in a block with a
+      lot of content.
+    </div>
+    <div
+      class="u-ov-v u-p-2 u-mb-3 u-bg-light u-mb-0@md u-mr-3@md"
+      style={{ width: '12rem', height: '6rem' }}
+    >
+      This is example using the <code>.u-ov-v</code> class in a block with a lot
+      of content.
+    </div>
+    <div
+      class="u-ov-h u-p-2 u-mb-3 u-bg-light u-mb-0@md u-mr-3@md"
+      style={{ width: '12rem', height: '6rem' }}
+    >
+      This is example using the <code>.u-ov-h</code> class in a block with a lot
+      of content.
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="u-ov-auto">This is example using...</div>
+<div class="u-ov-v">This is example using...</div>
+<div class="u-ov-h">This is example using...</div>
+```
+
+```scss
+$u-overflows: (
+  overflow: (
+    responsive: true,
+    property: overflow,
+    class: ov,
+    values: (
+      auto: auto,
+      v: visible,
+      h: hidden,
+    ),
+  ),
+);
+```

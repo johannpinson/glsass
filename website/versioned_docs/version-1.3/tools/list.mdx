@@ -1,0 +1,125 @@
+---
+id: list
+title: List
+---
+
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.list.scss" />
+
+Because the `sass:list` module already, the namespace is prefixed with an
+underscore to avoid conflict.
+
+```scss
+@use "@glsass/tools/tools.list" as _list;
+```
+
+## _first()_
+
+<Version version="1.0.0" />
+
+Retrieves the first element of a list.
+
+```scss
+_list.first($list);
+
+_list.first(("one", "two", "three"));
+// Returns "one"
+```
+
+## _last()_
+
+<Version version="1.0.0" />
+
+Retrieves the last element of a list.
+
+```scss
+_list.last($list);
+
+_list.last(("one", "two", "three"));
+// Returns "three"
+```
+
+## _prepend()_
+
+<Version version="1.0.0" />
+
+Add new values at beginning of the list (opposite logic of `list.append`).
+
+```scss
+_list.prepend($list);
+
+_list.prepend(("one", "two", "three"), "zero");
+// Returns ("zero", "one", "two", "three")
+```
+
+## _to-string()_
+
+<Version version="1.0.0" />
+
+Convert a list into the string, with the ability to use a string to join
+elements with each others.
+
+```scss
+_list.to-string($list, $glue: "", $is-nested: false);
+
+_list.to-string(("a", "b", "c"));
+// Returns "abc"
+
+_list.to-string(("block", "element", "modifier"), "-");
+// Returns "block-element-modifier"
+```
+
+## _is-empty()_
+
+<Version version="1.0.0" />
+
+Indicates if the list is empty.
+
+```scss
+_list.is-empty($list);
+
+_list.is-empty(("one", "two", "three"));
+// Returns false
+
+_list.is-empty(());
+// Returns true
+```
+
+## _purge()_
+
+<Version version="1.2.0" />
+
+Removes all `null`, `false` and empty string values from the list.
+
+```scss
+_list.purge($list);
+
+_list.purge(a b false c null "" d);
+// Returns a b c d
+```
+
+## _merge()_
+
+The `merge` function is similar to the `join` one, but it allow to remove
+element if it starts by `-`.
+
+Therefore, the lists passed as arguments are expected to have only string
+inside.
+
+```scss
+_list.merge($initial-list, $list);
+
+_list.merge(primary danger success, text -danger);
+// Returns primary succecss text
+
+_list.merge(("zero", "one", "two"), ("-zero", "three"));
+// Returs "one", "two", "three"
+```
+
+:::info
+
+This function is mainly use to manage color variants generation for components
+(button, alert, callout...).
+
+:::

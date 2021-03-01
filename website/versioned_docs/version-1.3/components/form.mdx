@@ -1,0 +1,1171 @@
+---
+id: form
+title: Form components
+sidebar_label: Form
+---
+
+import Example from '@site/src/components/Example/'
+import Range from '@site/src/components/Range/'
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-components/_components.form.scss" />
+
+Forms provide the most common control styles used in forms, including input,
+textarea, select, checkbox, radio and switch.
+
+## Group & Inline
+
+The two components and can be used tomanage the flow of elements like label,
+inputs and validation texts.<br/> In some case, the class can be replace by the
+utility class to add some margin.
+
+<Example>
+  <div className="o-row">
+    <div className="o-col u-6">
+      <div className="c-form__group">
+        <label className="c-form__label" htmlFor="test">
+          Test
+        </label>
+        <input
+          className="c-form__control"
+          type="text"
+          id="test"
+          name="test"
+          required=""
+        />
+        <span className="c-form__text">This field is required</span>
+      </div>
+    </div>
+  </div>
+  <div className="o-row">
+    <div className="o-col u-6">
+      <fieldset className="c-form__group">
+        <div className="c-form__inline">
+          <legend>Are you a front-end developer?</legend>
+          <div className="c-form__toggle">
+            <input
+              className="c-form__toggle-input"
+              type="radio"
+              name="tg"
+              id="tg1"
+            />
+            <label className="c-form__toggle-label" htmlFor="tg1">
+              Yes
+            </label>
+            <input
+              className="c-form__toggle-input"
+              type="radio"
+              name="tg"
+              id="tg2"
+            />
+            <label className="c-form__toggle-label" htmlFor="tg2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="c-form__group">
+  <label class="c-form__label" for="test">Test</label>
+  <input class="c-form__control" type="text" id="test" name="test" required />
+  <span class="c-form__text">This field is required</span>
+</div>
+
+<fieldset class="c-form__group">
+  <div class="c-form__inline">
+    <legend>Are you a front-end developer?</legend>
+    <div class="c-form__toggle">
+      <input class="c-form__toggle-input" type="radio" name="tg" id="tg1" />
+      <label class="c-form__toggle-label" for="tg1">Yes</label>
+      <input class="c-form__toggle-input" type="radio" name="tg" id="tg2" />
+      <label class="c-form__toggle-label" for="tg2">No</label>
+    </div>
+  </div>
+</fieldset>
+```
+
+## Label
+
+<Version version="1.0.0" source="glsass-components/forms/_forms.label.scss" />
+
+The `.c-form__label` class add some aesthetic styles like `font-weight` and
+adjust the vertical rhythm.
+
+<Example>
+  <label className="c-form__label" htmlFor="my-label">
+    My label
+  </label>
+</Example>
+
+```html
+<label class="c-form__label" for="my-label">My label</label>
+```
+
+## Controls (a.k.a. Input and Textarea)
+
+<Version version="1.0.0" source="glsass-components/forms/_forms.control.scss" />
+
+The `.c-form__control` component can be use both on `input` (text, email,
+password...) and `textarea`.
+
+<Example>
+  <div className="c-form__group">
+    <label className="c-form__label" htmlFor="username">
+      Username
+    </label>
+    <input
+      className="c-form__control"
+      type="text"
+      id="username"
+      name="username"
+      placeholder="Username"
+    />
+  </div>
+  <div className="c-form__group">
+    <label className="c-form__label" htmlFor="email">
+      Email
+    </label>
+    <input
+      className="c-form__control"
+      type="email"
+      id="email"
+      name="email"
+      placeholder="email@example.com"
+    />
+  </div>
+  <div className="c-form__group">
+    <label className="c-form__label" htmlFor="message">
+      Message
+    </label>
+    <textarea
+      className="c-form__control"
+      id="message"
+      name="message"
+      placeholder="Add your message"
+    ></textarea>
+  </div>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<div class="c-form__group">
+  <label class="c-form__label" for="name">Name</label>
+  <input class="c-form__control" type="text" id="name" name="name" placeholder="Name">
+</div>
+```
+<!-- prettier-ignore-end -->
+
+## Select
+
+<Version version="1.0.0" source="glsass-components/forms/_forms.select.scss" />
+
+<Example>
+  <div className="c-form__group">
+    <select className="c-form__select" name="list" id="list" defaultValue="">
+      <option value="" disabled="disabled">
+        Choose an option
+      </option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+  </div>
+  <div className="c-form__group">
+    <select
+      className="c-form__select"
+      name="list"
+      id="list"
+      multiple="multiple"
+      size="2"
+      defaultValue={['']}
+    >
+      <option value="" disabled="disabled">
+        Choose an option
+      </option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+      <option value="4">Four</option>
+      <option value="5">Five</option>
+      <option value="6">Six</option>
+    </select>
+  </div>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<div class="c-form__group">
+  <select name="list" id="list" class="c-form__select">
+    <option value disabled selected>Choose an option</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+    ...
+  </select>
+</div>
+```
+<!-- prettier-ignore-end -->
+
+## Choice fields
+
+### Checkbox
+
+<Version version="1.0.0" source="glsass-components/forms/_forms.check.scss" />
+
+<Example>
+  <div className="c-form__group">
+    <div className="c-form__check">
+      <input
+        className="c-form__check-input"
+        type="checkbox"
+        name="checkfield"
+        id="check1"
+        required=""
+      />
+      <label className="c-form__check-label" htmlFor="check1">
+        Option 1
+      </label>
+    </div>
+    <div className="c-form__check">
+      <input
+        className="c-form__check-input"
+        type="checkbox"
+        name="checkfield"
+        id="check2"
+      />
+      <label className="c-form__check-label" htmlFor="check2">
+        Option 2
+      </label>
+    </div>
+  </div>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<div class="c-form__group">
+  <div class="c-form__check">
+    <input class="c-form__check-input" type="checkbox" name="checkfield" id="check1" required>
+    <label class="c-form__check-label" for="check1">Option 1</label>
+  </div>
+  <div class="c-form__check">
+    <input class="c-form__check-input" type="checkbox" name="checkfield" id="check2">
+    <label class="c-form__check-label" for="check2">Option 2</label>
+  </div>
+</div>
+```
+<!-- prettier-ignore-end -->
+
+### Radio
+
+<Version version="1.0.0" source="glsass-components/forms/_forms.check.scss" />
+
+<Example>
+  <fieldset className="c-form__group">
+  <legend className="c-form__label">Gender</legend>
+  <div className="c-form__check">
+    <input
+      className="c-form__check-input"
+      type="radio"
+      name="gender"
+      id="male"
+      required=""
+    />
+    <label className="c-form__check-label" htmlFor="male">Male</label>
+  </div>
+  <div className="c-form__check">
+    <input className="c-form__check-input" type="radio" name="gender" id="female" />
+    <label className="c-form__check-label" htmlFor="female">Female</label>
+  </div>
+</fieldset>
+
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<fieldset class="c-form__group">
+  <legend class="c-form__label">Gender</legend>
+  <div class="c-form__check">
+    <input class="c-form__check-input" type="radio" name="gender" id="male" required>
+    <label class="c-form__check-label" for="male">Male</label>
+  </div>
+  <div class="c-form__check">
+    <input class="c-form__check-input" type="radio" name="gender" id="female">
+    <label class="c-form__check-label" for="female">Female</label>
+  </div>
+</fieldset>
+```
+<!-- prettier-ignore-end -->
+
+### Switch
+
+<Version version="1.1.0" source="glsass-components/forms/_forms.switch.scss" />
+
+This component is an alternative style for `checkbox` inputs.
+
+<Example>
+  <div className="c-form__group">
+    <div className="c-form__switch">
+      <input
+        className="c-form__switch-input"
+        type="checkbox"
+        name="switch1"
+        id="switch1"
+      />
+      <label className="c-form__switch-label" htmlFor="switch1">
+        Enable this checkbox
+      </label>
+    </div>
+  </div>
+  <div className="c-form__group u-mb-0">
+    <div className="c-form__switch">
+      <input
+        className="c-form__switch-input"
+        type="checkbox"
+        name="switch2"
+        id="switch2"
+        defaultChecked={true}
+      />
+      <label className="c-form__switch-label" htmlFor="switch2">
+        Checked switch
+      </label>
+    </div>
+  </div>
+</Example>
+
+### Toggle
+
+<Version version="1.0.0" source="glsass-components/forms/_forms.toggle.scss" />
+
+The toggle component allow a specific display for `radio` inputs when the
+possible choice are like "true/false" answers.
+
+<Example>
+  <div className="o-row">
+    <div className="o-col u-6@md">
+      <fieldset className="c-form__group">
+        <div className="c-form__inline">
+          <legend>Are you sure?</legend>
+          <div className="c-form__toggle">
+            <input
+              className="c-form__toggle-input"
+              type="radio"
+              name="toggle"
+              id="toggle1"
+            />
+            <label className="c-form__toggle-label" htmlFor="toggle1">
+              Yes
+            </label>
+            <input
+              className="c-form__toggle-input"
+              type="radio"
+              name="toggle"
+              id="toggl2"
+            />
+            <label className="c-form__toggle-label" htmlFor="toggl2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<fieldset class="c-form__group">
+  <div class="c-form__inline">
+    <legend>Are you sure?</legend>
+    <div class="c-form__toggle">
+      <input class="c-form__toggle-input" type="radio" name="toggle" id="toggle1">
+      <label class="c-form__toggle-label" for="toggle1">Yes</label>
+      <input class="c-form__toggle-input" type="radio" name="toggle" id="toggl2">
+      <label class="c-form__toggle-label" for="toggl2">No</label>
+    </div>
+  </div>
+</fieldset>
+```
+<!-- prettier-ignore-end -->
+
+## Range
+
+<Version version="1.1.0" source="glsass-components/forms/_forms.range.scss" />
+
+<Example>
+  <label htmlFor="range-simple" className="c-form__label">
+    Select a range
+  </label>
+  <div className="c-form__range">
+    <input
+      className="c-form__range-input"
+      type="range"
+      name="range-simple"
+      id="range-simple"
+    />
+  </div>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<label for="range-sample" class="c-form__label">Select a range</label>
+<div class="c-form__range">
+  <input class="c-form__range-input" type="range" name="range-sample" id="range-sample">
+</div>
+```
+<!-- prettier-ignore-end -->
+
+Inputs range can have several attributes like `min` and `max` to overrides
+default values (`0` to `100`). The `step` attribute allow to change the
+granularity that the value must respect.
+
+You will find more example on the
+[MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range).
+
+### Display selected value
+
+By default, an range input doesn't prompt the "value" of the field. If some
+webkit-based browsers offer hash marks, that may not be enough.
+
+To display the value, you can add some tricks using the `<output>` element.
+
+<Example>
+  <Range val={5} />
+</Example>
+
+<!-- onChange={() => (this.nextElementSibling.value = parseInt(this.value, 10))} -->
+
+<!-- prettier-ignore-start -->
+```html
+<!-- Option 1: Add JS script on the `<form>` element -->
+<form oninput="result.value=parseInt(r.value, 10)">
+  <div class="c-form__range">
+    <input
+      class="c-form__range-input"
+      type="range" id="r" value="5" min="0" max="10" step="1"
+    >
+    <output class="c-form__range-result" name="result" for="r"></output>
+  </div>
+</form>
+
+<!-- Option 2: Add script on the `<input>` element -->
+<div class="c-form__range">
+  <input
+    class="c-form__range-input"
+    type="range" id="r" value="5" min="0" max="10" step="1"
+    oninput="this.nextElementSibling.value=parseInt(this.value, 10)"
+  >
+  <output class="c-form__range-result" name="result" for="r"></output>
+</div>
+```
+<!-- prettier-ignore-end -->
+
+## File
+
+<Version version="1.0.0" source="glsass-components/forms/_forms.file.scss" />
+
+<Example>
+  <div className="c-form__group">
+    <span className="c-form__label">Add a profile picture</span>
+    <input
+      className="c-form__file-input"
+      type="file"
+      name="picture"
+      id="picture"
+      data-multiple-caption="{count} files selected"
+      multiple="multiple"
+      required=""
+    />
+    <label className="c-form__file-label" htmlFor="picture">
+      <strong>Choose a file</strong>
+      <span></span>
+    </label>
+  </div>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<div class="c-form__group"><span class="c-form__label">Add a profile picture</span>
+  <input class="c-form__file-input" type="file" name="picture" id="picture" data-multiple-caption="{count} files selected" multipl required>
+  <label class="c-form__file-label" for="picture">
+    <strong>Choose a file</strong>
+    <span></span>
+  </label>
+</div>
+```
+<!-- prettier-ignore-end -->
+
+Next, you can add this simple JavaScript script to automatically update the
+input field with the name of the file(s) selected.
+
+<!-- prettier-ignore-start -->
+```html
+<script>
+  const getNextSibling = (el, selector) => {
+    let sibling = el.nextElementSibling
+
+    // If there's no selector, return the first sibling
+    if (!selector) return sibling
+
+    // If the sibling matches our selector, use it
+    // If not, jump to the next sibling and continue the loop
+    while (sibling) {
+      if (sibling.matches(selector)) return sibling
+
+      sibling = sibling.nextElementSibling
+    }
+
+    return sibling
+  }
+
+  if (document.querySelector('input[type=file]')) {
+    Array.prototype.forEach.call(
+      document.querySelectorAll('input[type=file]'),
+      (input) => {
+        const label = getNextSibling(input, 'label')
+
+        input.addEventListener('change', (e) => {
+          label.querySelector('span').innerHTML = 'Loading...'
+
+          if (e.target) {
+            let text = ''
+            const { files } = input
+            const multipleText =
+              input.getAttribute('data-multiple-caption') ||
+              '{count} files selected'
+
+            if (files && files.length > 1) {
+              text = multipleText.replace('{count}', files.length.toString())
+            } else {
+              text = e.target.value.split('\\').pop()
+            }
+
+            if (text) {
+              label.querySelector('span').innerHTML = text
+            }
+          }
+        })
+      },
+    )
+  }
+</script>
+```
+<!-- prettier-ignore-end -->
+
+## Helpers
+
+<Version version="1.0.0" source="glsass-components/forms/_forms.helper.scss" />
+
+You can add some indications by adding texts below fields using the
+`.c-form__text` class.
+
+Help texts should be associated with the `.c-form__control` element related to
+using the aria-describedby attribute.
+
+<Example>
+  <div className="c-form__group">
+    <label className="c-form__label" htmlFor="username-help">
+      Username
+    </label>
+    <input
+      className="c-form__control"
+      type="text"
+      id="username-help"
+      name="username-help"
+      aria-describedby="usernameHelpText"
+      required
+    />
+    <span className="c-form__text" id="usernameHelpText">
+      This field is required
+    </span>
+  </div>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<div class="c-form__group">
+  <label class="c-form__label" for="username">Username</label>
+  <input class="c-form__control" type="text" id="username" name="username" aria-describedby="usernameHelpText" required>
+  <span class="c-form__text" id="usernameHelpText">This field is required</span>
+</div>
+```
+<!-- prettier-ignore-end -->
+
+An other possibility is to use the `helper` component to display more content
+inside a tooltip.
+
+The helper will be automatically shown if the form element is focused (works
+with controls, select and file elements).
+
+<Example>
+  <div className="c-form__group">
+    <label className="c-form__label" htmlFor="username-helper">
+      Username
+    </label>
+    <input
+      className="c-form__control"
+      type="text"
+      id="username-helper"
+      name="username-helper"
+    />
+    <span className="c-form__helper u-my-1 u-ml-2">
+      <div className="c-form__helper-content">
+        <span>
+          You can only use alphanumeric character. You will be able to modiy it
+          later, so don't worry it you don't like anymore your username.
+        </span>
+      </div>
+    </span>
+  </div>
+  <div className="c-form__group">
+    <label className="c-form__label" htmlFor="choice-help">
+      Choose an option
+    </label>
+    <select name="choice-help" id="choice-help" className="c-form__select">
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    <span className="c-form__helper u-my-1 u-ml-2">
+      <div className="c-form__helper-content">
+        <span>Make the good choice!</span>
+      </div>
+    </span>
+  </div>
+  <div className="c-form__group">
+    <span className="c-form__label">Add a profile picture</span>
+    <input
+      className="c-form__file-input"
+      type="file"
+      name="picture-help"
+      id="picture-help"
+      data-multiple-caption="{count} files selected"
+      multiple="multiple"
+      required=""
+    />
+    <label className="c-form__file-label" htmlFor="picture-help">
+      <strong>Choose a file</strong>
+      <span></span>
+    </label>
+    <span className="c-form__helper u-my-1 u-ml-2">
+      <div className="c-form__helper-content">
+        <span>Get better results by adding a profile picture</span>
+      </div>
+    </span>
+  </div>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<div class="c-form__group">
+  <label class="c-form__label" for="username">Username</label>
+  <input class="c-form__control" type="text" id="username" name="username">
+  <span class="c-form__helper">
+    <div class="c-form__helper-content">
+      <span>You can only use alphanumeric character. You will be able to modiy it later, so don't worry it you don't like anymore your username.</span>
+    </div>
+  </span>
+</div>
+```
+<!-- prettier-ignore-end -->
+
+## Disabled styles
+
+<Example>
+  <div className="c-form__group">
+    <label className="c-form__label" htmlFor="name-disabled">
+      Name (disabled)
+    </label>
+    <input
+      className="c-form__control"
+      type="text"
+      id="name-disabled"
+      name="name-disabled"
+      placeholder="Name"
+      disabled="disabled"
+    />
+  </div>
+  <div className="c-form__group">
+    <label className="c-form__label" htmlFor="message-readonly">
+      Message (readonly)
+    </label>
+    <textarea
+      className="c-form__control"
+      id="message-readonly"
+      name="message-readonly"
+      placeholder="Add your message"
+      readOnly={true}
+    ></textarea>
+  </div>
+  <div className="c-form__group">
+    <label className="c-form__label" htmlFor="select-disabled">
+      Choose an option
+    </label>
+    <select
+      className="c-form__select"
+      name="select-disabled"
+      id="select-disabled"
+      disabled="disabled"
+    >
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+  </div>
+  <fieldset className="c-form__group" disabled="disabled">
+    <legend className="c-form__label">Gender</legend>
+    <div className="c-form__check">
+      <input
+        className="c-form__check-input"
+        type="radio"
+        name="gender-disabled"
+        id="male-disabled"
+      />
+      <label className="c-form__check-label" htmlFor="male-disabled">
+        Male
+      </label>
+    </div>
+    <div className="c-form__check">
+      <input
+        className="c-form__check-input"
+        type="radio"
+        name="gender-disabled"
+        id="female-disabled"
+      />
+      <label className="c-form__check-label" htmlFor="female-disabled">
+        Female
+      </label>
+    </div>
+  </fieldset>
+  <div className="c-form__group">
+    <span className="c-form__label">Active or not checkboxes</span>
+    <div className="c-form__check">
+      <input
+        className="c-form__check-input"
+        type="checkbox"
+        name="check-disabled"
+        id="check-disabled"
+        disabled="disabled"
+      />
+      <label className="c-form__check-label" htmlFor="check-disabled">
+        Option 1
+      </label>
+    </div>
+  </div>
+  <div className="c-form__group">
+    <div className="c-form__switch">
+      <input
+        className="c-form__switch-input"
+        type="checkbox"
+        name="switch-disabled"
+        id="switch-disabled"
+        disabled
+      />
+      <label className="c-form__switch-label" htmlFor="switch-disabled">
+        Option 2
+      </label>
+    </div>
+  </div>
+  <div className="c-form__group">
+    <label htmlFor="range-disabled" className="c-form__label">
+      Select a range
+    </label>
+    <div className="c-form__range">
+      <input
+        className="c-form__range-input"
+        type="range"
+        name="range-disabled"
+        id="range-disabled"
+        min="0"
+        max="10"
+        defaultValue="3"
+        disabled
+      />
+    </div>
+  </div>
+  <div className="c-form__group">
+    <span className="c-form__label">Add a profile picture</span>
+    <input
+      className="c-form__file-input"
+      type="file"
+      name="picture-disabled"
+      id="picture-disabled"
+      data-multiple-caption="{count} files selected"
+      disabled="disabled"
+    />
+    <label className="c-form__file-label" htmlFor="picture-disabled">
+      <strong>Choose a file</strong>
+      <span></span>
+    </label>
+  </div>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<div class="c-form__group">
+  <label class="c-form__label" for="name">Name</label>
+  <input class="c-form__control" type="text" id="name" name="name" placeholder="Name" disabled>
+</div>
+
+<div class="c-form__group">
+  <label class="c-form__label" for="message">Message</label>
+  <textarea class="c-form__control" id="message" name="message" placeholder="Add your message" disabled></textarea>
+</div>
+
+<div class="c-form__group">
+  <label class="c-form__label">Choose an option</label>
+  <select class="c-form__select" name="list" id="list" disabled>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+</div>
+
+<fieldset class="c-form__group" disabled>
+  <legend class="c-form__label">Gender</legend>
+  <div class="c-form__check">
+    <input class="c-form__check-input" type="radio" name="gender" id="male">
+    <label class="c-form__check-label" for="male">Male</label>
+  </div>
+  <div class="c-form__check">
+    <input class="c-form__check-input" type="radio" name="gender" id="female">
+    <label class="c-form__check-label" for="female">Female</label>
+  </div>
+</fieldset>
+
+<div class="c-form__group">
+  <span class="c-form__label">Active or not the checkbox</span>
+  <div class="c-form__check">
+    <input class="c-form__check-input" type="checkbox" name="checkfield" id="check" disabled>
+    <label class="c-form__check-label" for="check">Option 1</label>
+  </div>
+</div>
+
+<div class="c-form__group">
+  <div class="c-form__switch">
+    <input class="c-form__switch-input" type="checkbox" name="switch-disabled" id="switch-disabled" disabled>
+    <label class="c-form__switch-label" for="switch-disabled">Option 2</label>
+  </div>
+</div>
+
+<div class="c-form__group">
+  <span class="c-form__label">Add a profile picture</span>
+  <input
+    class="c-form__file-input"
+    type="file"
+    name="picture-disabled"
+    id="picture-disabled"
+    data-multiple-caption="{count} files selected"
+    disabled
+  >
+  <label class="c-form__file-label" for="picture-disabled">
+    <strong>Choose a file</strong><span></span>
+  </label>
+</div>
+```
+<!-- prettier-ignore-end -->
+
+## Validation styles / feedbacks
+
+The validation messages work a bit like the helper texts.<br/> This behavior is
+greatly inspired by Bootstrap.
+
+<div className="u-mb-3">
+  <Example>
+    <div className="o-row">
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <label className="c-form__label" htmlFor="username-valid">
+            Input (valid)
+          </label>
+          <input
+            className="c-form__control is-valid"
+            type="text"
+            id="username-valid"
+            name="username-valid"
+          />
+          <span className="c-form__feedback c-form__feedback--valid">
+            Look's good
+          </span>
+          <span className="c-form__feedback c-form__feedback--invalid">
+            The field is required
+          </span>
+        </div>
+      </div>
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <label className="c-form__label" htmlFor="username-invalid">
+            Input (invalid)
+          </label>
+          <input
+            className="c-form__control is-invalid"
+            type="text"
+            id="username-invalid"
+            name="username-invalid"
+          />
+          <span className="c-form__feedback c-form__feedback--valid">
+            Look's good
+          </span>
+          <span className="c-form__feedback c-form__feedback--invalid">
+            The field is required
+          </span>
+        </div>
+      </div>
+    </div>
+    <div className="o-row">
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <label className="c-form__label" htmlFor="message-valid">
+            Textarea (valid)
+          </label>
+          <textarea
+            className="c-form__control is-valid"
+            id="message-valid"
+            name="message-valid"
+            placeholder="Add your message"
+          ></textarea>
+        </div>
+      </div>
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <label className="c-form__label" htmlFor="message-invalid">
+            Textarea (invalid)
+          </label>
+          <textarea
+            className="c-form__control is-invalid"
+            id="message-invalid"
+            name="message-invalid"
+            placeholder="Add your message"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div className="o-row">
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <label className="c-form__label" htmlFor="select-valid">
+            Select (valid)
+          </label>
+          <select
+            className="c-form__select is-valid"
+            name="select-valid"
+            id="select-valid"
+          >
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <label className="c-form__label" htmlFor="select-invalid">
+            Select (invalid)
+          </label>
+          <select
+            className="c-form__select is-invalid"
+            name="select-invalid"
+            id="select-invalid"
+          >
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div className="o-row">
+      <div className="o-col u-12 u-6@md">
+        <fieldset className="c-form__group">
+          <legend className="c-form__label">Radio (valid)</legend>
+          <div className="c-form__check">
+            <input
+              className="c-form__check-input is-valid"
+              type="radio"
+              name="gender-valid"
+              id="male-valid"
+            />
+            <label className="c-form__check-label" htmlFor="male-valid">
+              Male
+            </label>
+          </div>
+          <div className="c-form__check">
+            <input
+              className="c-form__check-input is-valid"
+              type="radio"
+              name="gender-valid"
+              id="female-valid"
+              defaultChecked={true}
+            />
+            <label className="c-form__check-label" htmlFor="female-valid">
+              Female
+            </label>
+          </div>
+        </fieldset>
+      </div>
+      <div className="o-col u-12 u-6@md">
+        <fieldset className="c-form__group">
+          <legend className="c-form__label">Radio (invalid)</legend>
+          <div className="c-form__check">
+            <input
+              className="c-form__check-input is-invalid"
+              type="radio"
+              name="gender-invalid"
+              id="male-invalid"
+            />
+            <label className="c-form__check-label" htmlFor="male-invalid">
+              Male
+            </label>
+          </div>
+          <div className="c-form__check">
+            <input
+              className="c-form__check-input is-invalid"
+              type="radio"
+              name="gender-invalid"
+              id="female-invalid"
+              defaultChecked={true}
+            />
+            <label className="c-form__check-label" htmlFor="female-invalid">
+              Female
+            </label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div className="o-row">
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <span className="c-form__label">Checkbox (valid)</span>
+          <div className="c-form__check">
+            <input
+              className="c-form__check-input is-valid"
+              type="checkbox"
+              name="check-valid"
+              id="check-valid"
+            />
+            <label className="c-form__check-label" htmlFor="check-valid">
+              Option 1
+            </label>
+          </div>
+        </div>
+      </div>
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <span className="c-form__label">Checkbox (invalid)</span>
+          <div className="c-form__check">
+            <input
+              className="c-form__check-input is-invalid"
+              type="checkbox"
+              name="check-invalid"
+              id="check-invalid"
+            />
+            <label className="c-form__check-label" htmlFor="check-invalid">
+              Option 1
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="o-row">
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <div className="c-form__switch">
+            <input
+              className="c-form__switch-input is-valid"
+              type="checkbox"
+              name="switch-valid"
+              id="switch-valid"
+            />
+            <label className="c-form__switch-label" htmlFor="switch-valid">
+              Option 2
+            </label>
+          </div>
+        </div>
+      </div>
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <div className="c-form__switch">
+            <input
+              className="c-form__switch-input is-invalid"
+              type="checkbox"
+              name="switch-invalid"
+              id="switch-invalid"
+            />
+            <label className="c-form__switch-label" htmlFor="switch-invalid">
+              Option 2
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="o-row">
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <span className="c-form__label">File (valid)</span>
+          <input
+            className="c-form__file-input is-valid"
+            type="file"
+            name="file-valid"
+            id="file-valid"
+            data-multiple-caption="{count} files selected"
+            multiple="multiple"
+            required=""
+          />
+          <label className="c-form__file-label" htmlFor="file-valid">
+            <strong>Choose a file</strong>
+            <span></span>
+          </label>
+        </div>
+      </div>
+      <div className="o-col u-12 u-6@md">
+        <div className="c-form__group">
+          <span className="c-form__label">File (invalid)</span>
+          <input
+            className="c-form__file-input is-invalid"
+            type="file"
+            name="file-invalid"
+            id="file-invalid"
+            data-multiple-caption="{count} files selected"
+            multiple="multiple"
+            required=""
+          />
+          <label className="c-form__file-label" htmlFor="file-invalid">
+            <strong>Choose a file</strong>
+            <span></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </Example>
+</div>
+
+The states can be managed by using the `.is-valid` or `.is-invalid` classes to
+the form element.
+
+Other, it's possible to detect the submission of the form and valid it with
+JavaScript. Then, you need to add the `.is-validated` class to the form to
+display feedback messages.
+
+<!-- prettier-ignore-start -->
+```html
+<script>
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('is-validated')
+      }, false)
+    })
+</script>
+```
+<!-- prettier-ignore-end -->

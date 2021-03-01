@@ -1,0 +1,173 @@
+---
+id: sizings
+title: Sizings
+---
+
+import Example from '@site/src/components/Example/'
+
+The utilities help you to control sizing properties of an element, relative to its parent or the viewport
+
+## Widths / Heights
+
+<Example>
+  <div className="u-w-auto u-d-ib u-bg-light u-p-1">width auto</div>
+  <div className="u-w-25 u-bg-light u-p-1">width 25%</div>
+  <div className="u-w-50 u-bg-light u-p-1">width 50%</div>
+  <div className="u-w-75 u-bg-light u-p-1">width 75%</div>
+  <div className="u-w-100 u-bg-light u-p-1">width 100%</div>
+</Example>
+
+```html
+<div class="u-w-auto u-d-ib">width auto</div>
+<div class="u-w-25">width 25%</div>
+<div class="u-w-50">width 50%</div>
+<div class="u-w-75">width 75%</div>
+<div class="u-w-100">width 100%</div>
+```
+
+```scss
+$u-sizings: (
+  width: (
+    property: width,
+    class: w,
+    values: (
+      auto: auto,
+      25: 25%,
+      50: 50%,
+      75: 75%,
+      100: 100%,
+    ),
+  ),
+);
+```
+
+<Example>
+  <div className="u-bg-light" style={{ height: '6rem' }}>
+    <div className="u-h-auto u-d-ib u-bg-primary u-p-1">height auto</div>{' '}
+    <div className="u-h-25 u-d-ib u-bg-primary u-p-1">height 25%</div>{' '}
+    <div className="u-h-50 u-d-ib u-bg-primary u-p-1">height 50%</div>{' '}
+    <div className="u-h-75 u-d-ib u-bg-primary u-p-1">height 75%</div>{' '}
+    <div className="u-h-100 u-d-ib u-bg-primary u-p-1">height 100%</div>
+  </div>
+</Example>
+
+```html
+<div style="height: 6rem;">
+  <div class="u-h-auto u-d-ib">height auto</div>
+  <div class="u-h-25 u-d-ib">height 25%</div>
+  <div class="u-h-50 u-d-ib">height 50%</div>
+  <div class="u-h-75 u-d-ib">height 75%</div>
+  <div class="u-h-100 u-d-ib">height 100%</div>
+</div>
+```
+
+```scss
+$u-sizings: (
+  height: (
+    property: height,
+    class: h,
+    values: (
+      auto: auto,
+      25: 25%,
+      50: 50%,
+      75: 75%,
+      100: 100%,
+    ),
+  ),
+);
+```
+
+## Max sizes
+
+<Example>
+  <div className="u-mw-100 u-bg-primary u-p-1">max-width 100%</div>
+</Example>
+
+```html
+<div class="u-mw-100">max-width 100%</div>
+```
+
+```scss
+$u-sizings: (
+  max-width: (
+    property: max-width,
+    class: mw,
+    values: (
+      100: 100%,
+    ),
+  ),
+);
+```
+
+<Example>
+  <div className="u-bg-light" style={{ height: '3rem' }}>
+    <div
+      className="u-mh-100 u-d-ib u-bg-primary u-p-1"
+      style={{ height: '6rem' }}
+    >
+      max-height 100%
+    </div>
+  </div>
+</Example>
+
+```html
+<div style="height: 3rem;">
+  <div class="u-mh-100" style="height: 6rem;">max-height 100%</div>
+</div>
+```
+
+```scss
+$u-sizings: (
+  max-height: (
+    property: max-height,
+    class: mh,
+    values: (
+      100: 100%,
+    ),
+  ),
+);
+```
+
+## Viewport sizes
+
+These utilities can be used to set a full width or height relative to the viewport
+
+```html
+<div class="u-vw-100">width 100vw</div>
+<div class="u-min-vw-100">min-width 100vw</div>
+<div class="u-vw-100">height 100vh</div>
+<div class="u-min-vw-100">min-height 100vh</div>
+```
+
+```scss
+$u-sizing: (
+  viewport-width: (
+    property: width,
+    class: vw,
+    values: (
+      100: 100vw,
+    ),
+  ),
+  viewport-height: (
+    property: height,
+    class: vh,
+    values: (
+      100: 100vh,
+    ),
+  ),
+  viewport-min-width: (
+    property: min-width,
+    class: min-vw,
+    values: (
+      100: 100vw,
+    ),
+  ),
+  viewport-min-height: (
+    property: min-height,
+    class: min-vh,
+    values: (
+      100: 100vh,
+    ),
+  ),
+);
+```

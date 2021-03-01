@@ -1,0 +1,33 @@
+---
+id: core
+title: Core
+---
+
+import Version from '@site/src/components/Version/'
+
+<Version version="1.0.0" source="glsass-settings/_settings.core.scss" />
+
+The core file regroups the main SCSS variables used through all the codebase of
+Glsass. All of them are overridable when the file is imported.
+
+You will fin inside settings for fonts, spacers and responsive breakpoints
+
+```scss
+// Keep the default settings
+@use "@glsass/settings/settings.core";
+
+// Or add your own settings
+@use "@glsass/settings/settings.core" with (
+  $g-font-size-base: 1.25rem, // intended to be equal to `20px`
+  $g-grid-columns: 8, // change the max column number
+);
+```
+
+Settings files are also forwarded from the index file in the folder to simplify
+the overrides.
+
+```scss
+@use "@glsass/settings" with (
+  // add your overrides here
+);
+```

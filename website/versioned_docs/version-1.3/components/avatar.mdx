@@ -1,0 +1,138 @@
+---
+id: avatar
+title: Avatar
+---
+
+import Example from '@site/src/components/Example/'
+import Version from '@site/src/components/Version/'
+
+<Version version="1.2.0" source="glsass-components/_components.avatar.scss" />
+
+<Example>
+  <figure className="c-avatar c-avatar--large u-mr-2">
+    <img src="/img/undraw_female_avatar.svg" alt="avatar" />
+  </figure>
+  <figure className="c-avatar u-mr-2">
+    <img src="/img/undraw_male_avatar.svg" alt="avatar" />
+  </figure>
+  <figure className="c-avatar c-avatar--small u-mr-2">
+    <img src="/img/undraw_female_avatar.svg" alt="avatar" />
+  </figure>
+</Example>
+
+```html
+<figure class="c-avatar c-avatar--large">
+  <img src="/img/undraw_female_avatar.svg" alt="avatar" />
+</figure>
+<figure class="c-avatar">
+  <img src="/img/undraw_male_avatar.svg" alt="avatar" />
+</figure>
+<figure class="c-avatar c-avatar--small">
+  <img src="/img/undraw_female_avatar.svg" alt="avatar" />
+</figure>
+```
+
+## Placeholder
+
+Using the `data-placeholder` attribute can be usefull to show basic information
+when image is unavailable or not loaded.
+
+<Example>
+  <figure
+    className="c-avatar c-avatar--large u-mr-2"
+    data-placeholder="AB"
+  ></figure>
+  <figure className="c-avatar c-avatar u-mr-2" data-placeholder="CD"></figure>
+  <figure
+    className="c-avatar c-avatar--small u-mr-2"
+    data-placeholder="EF"
+  ></figure>
+</Example>
+
+```html
+<figure className="c-avatar c-avatar--large" data-placeholder="AB"></figure>
+<figure className="c-avatar c-avatar" data-placeholder="CD"></figure>
+<figure className="c-avatar c-avatar--small" data-placeholder="EF"></figure>
+```
+
+## Indicators
+
+The color of indicators are set with a special _modifier_ class to simplify
+naming :
+
+- success (green) fro _available_/_online_ state
+- danger (red) for _busy_/_unavailable_ state
+- warning (orange) for _absent_/_away_ state
+- light (gray) for _offline_ state
+
+<Example>
+  <figure className="c-avatar c-avatar--large u-mr-2">
+    <img src="/img/undraw_female_avatar.svg" alt="avatar" />
+    <i className="c-avatar__indicator u-bg-success"></i>
+  </figure>
+  <figure className="c-avatar u-mr-2">
+    <img src="/img/undraw_male_avatar.svg" alt="avatar" />
+    <i className="c-avatar__indicator u-bg-danger"></i>
+  </figure>
+  <figure className="c-avatar c-avatar--small u-mr-2">
+    <img src="/img/undraw_female_avatar.svg" alt="avatar" />
+    <i className="c-avatar__indicator u-bg-warning"></i>
+  </figure>
+  <figure className="c-avatar u-mr-2">
+    <img src="/img/undraw_male_avatar.svg" alt="avatar" />
+    <i className="c-avatar__indicator u-bg-light"></i>
+  </figure>
+</Example>
+
+```html
+<figure class="c-avatar c-avatar--large">
+  <img src="/img/undraw_female_avatar.svg" alt="avatar" />
+  <i class="c-avatar__indicator u-bg-success"></i>
+</figure>
+<figure class="c-avatar">
+  <img src="/img/undraw_male_avatar.svg" alt="avatar" />
+  <i class="c-avatar__indicator u-bg-danger"></i>
+</figure>
+<figure class="c-avatar c-avatar--small">
+  <img src="/img/undraw_female_avatar.svg" alt="avatar" />
+  <i class="c-avatar__indicator u-bg-warning"></i>
+</figure>
+<figure class="c-avatar">
+  <img src="/img/undraw_male_avatar.svg" alt="avatar" />
+  <i class="c-avatar__indicator u-bg-light"></i>
+</figure>
+```
+
+## Customization
+
+Colors can be overridden with utilities classes for placeholder or indicator.
+
+<Example>
+  <figure
+    className="c-avatar c-avatar--large u-bg-secondary u-c-white u-mr-2"
+    data-placeholder="AB"
+  ></figure>
+  <figure
+    className="c-avatar c-avatar--large u-bg-light u-c-dark u-mr-2"
+    data-placeholder="CD"
+  ></figure>
+  <figure className="c-avatar c-avatar--large ">
+    <img src="/img/undraw_female_avatar.svg" alt="avatar" />
+    <i className="c-avatar__indicator u-bg-secondary"></i>
+  </figure>
+</Example>
+
+```html
+<figure
+  class="c-avatar c-avatar--large u-bg-secondary u-c-white"
+  data-placeholder="AB"
+></figure>
+<figure
+  class="c-avatar c-avatar--large u-bg-light u-c-dark"
+  data-placeholder="AB"
+></figure>
+<figure class="c-avatar c-avatar--large ">
+  <img src="/img/undraw_female_avatar.svg" alt="avatar" />
+  <i class="c-avatar__indicator u-bg-secondary"></i>
+</figure>
+```

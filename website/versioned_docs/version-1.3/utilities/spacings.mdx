@@ -1,0 +1,87 @@
+---
+id: spacings
+title: Spacings
+---
+
+import Example from '@site/src/components/Example/'
+
+Spacing utilities is a big piece of the generated classes because there is a
+lot of combination to allow you to manage `margin` and `padding` accoss you HTML.<br/>
+The majority of sizes of spacing comes from the `$g-spacers` variable (which is configurable).
+
+The construction of class names follow this scheme: `.u-{prop}-{side}-{size}`.
+
+The **property** can be:
+
+- `m` to set `margin`
+- `p` to set `padding`
+
+The **side** can be:
+
+- "nothing" to set it on the four sides of an element
+- `t` to set `{prop}-top`
+- `r` to set `{prop}-right`
+- `b` to set `{prop}-bottom`
+- `l` to set `{prop}-left`
+- `x` to set `{prop}-right` and `{prop}-left`
+- `y` to set `{prop}-top` and `{prop}-bottom`
+
+The **size** can be:
+
+- `0` to eleminate spacing on the prop
+- `1` corresponding to `$g-spacer * 0.25`
+- `2` corresponding to `$g-spacer * 0.5`
+- `3` corresponding to `$g-spacer` (also called `1vr`)
+- `4` corresponding to `$g-spacer * 2`
+- `5` corresponding to `$g-spacer * 3`
+- `auto` to set (only) margins at `auto`
+
+```html
+<div class="u-mb-3">margin-bottom: 1vr</div>
+
+<div class="u-px-2">padding-left & padding-right: 0.5vr</div>
+
+<div class="u-my-0">margin-top & margin-bottom: 0</div>
+
+<div class="u-p-5">padding: 3vr</div>
+```
+
+```scss
+$u-spacings: (
+  margin: (
+    responsive: true,
+    property: margin,
+    class: m,
+    values: map.merge(
+        core.$g-spacers,
+        (
+          auto: auto,
+        )
+      ),
+  ),
+  // and anothers config for mx, my, mt
+  padding:
+    (
+      responsive: true,
+      property: padding,
+      class: p,
+      values: core.$g-spacers,
+    ),
+  // and anothers config for px, py, pt...
+);
+```
+
+## Negative margins
+
+The CSS property `margin` can use a negative values (`padding` don't).
+To use it, you need to enable the setting by passing the variable
+`$u-spacings-negative-margins` at `true`.
+Then, you just need to add a `n` before the size (between `1` and `5`).
+
+```html
+<div class="u-mb-n3">margin-bottom: -1vr</div>
+
+<div class="u-ml-n2">margin-left: -0.5vr</div>
+
+<div class="u-my-1">margin-top & margin-bottom: -0.25vr</div>
+```

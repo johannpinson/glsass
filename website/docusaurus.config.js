@@ -120,6 +120,9 @@ module.exports = {
             current: {
               label: 'next',
             },
+            1.3: {
+              label: '1.3.x',
+            },
             1.2: {
               label: '1.2.x',
             },

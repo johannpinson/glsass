@@ -1,0 +1,41 @@
+---
+id: breakpoints
+title: Breakpoints
+---
+
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.breakpoint.scss" />
+
+```scss
+@use "@glsass/tools/tools.breakpoint" as breakpoint;
+```
+
+## _suffix()_
+
+<Version version="1.0.0" />
+
+The response classes work with a suffix to determine the minimal breaking point
+to be actived. The `suffix` function return the name of the breakpoint with the
+"@" in front
+
+```scss
+breakpoint.suffix($name, $breakpoints: core.$g-grid-breakpoints);
+
+$v: breakpoint.suffix("xs");
+// Returns a blank string because it's the smallest breakpoint
+
+$v: breakpoint.suffix("md");
+// Returns "\@sm"
+```
+
+## _media-up()_
+
+<Version version="1.0.0" />
+
+This mixin includes the content inside a media queries rules with the breakpoint
+given. It's mainly used for the utilities generator and the grid layout.
+
+```scss
+breakpoint.media-up($name, $breakpoints: core.$g-grid-breakpoints);
+```
