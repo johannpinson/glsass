@@ -2,6 +2,7 @@
 /// @group Helpers
 /// Headings
 //// ==========================================================================
+
 @use "sass:map";
 
 @use "@glsass/graphics";
@@ -17,13 +18,14 @@ $h-headings-classname: "h-h" !default;
   font-family: graphics.$ui-headings-font-family;
 }
 
-@each $hn, $value in graphics.$ui-headings-styles {
+@each $hn, $styles in graphics.$ui-headings-styles {
   .#{$h-headings-classname}#{$hn} {
     @extend %_heading;
 
-    font-size: map.get($value, font-size) !important;
-    font-weight: map.get($value, font-weight) !important;
-    font-style: map.get($value, font-style) !important;
-    line-height: map.get($value, line-height) !important;
+    @each $style, $value in $styles {
+      @if ($value) {
+        #{$style}: $value !important;
+      }
+    }
   }
 }

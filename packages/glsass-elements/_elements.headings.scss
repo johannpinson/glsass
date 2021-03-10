@@ -13,13 +13,14 @@
   font-family: graphics.$ui-headings-font-family;
 }
 
-@each $hn, $value in graphics.$ui-headings-styles {
+@each $hn, $styles in graphics.$ui-headings-styles {
   h#{$hn} {
     @extend %_heading;
 
-    font-size: map.get($value, font-size);
-    font-weight: map.get($value, font-weight);
-    font-style: map.get($value, font-style);
-    line-height: map.get($value, line-height);
+    @each $style, $value in $styles {
+      @if ($value) {
+        #{$style}: $value;
+      }
+    }
   }
 }
