@@ -34,14 +34,12 @@ will result as an error).
 // The variables overriding must be done in two times
 @use "@glsass/settings" with ($g-color-black: #111);
 @use "@glsass/tools/tools.cv" as *;
-
 @use "@glsass/graphics" with(
   $ui-form-background-color: cv(black), // ✓ correct, will equal to `#111`
 );
 
 // Alternative setups
 @use "@glsass/settings" with ($g-color-black: #111) as *; // avoid namespace
-
 @use "@glsass/graphics" with(
   $ui-form-background-color: $g-color-black, // ✓ aslo correct!
 );
