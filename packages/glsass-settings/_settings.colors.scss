@@ -138,9 +138,8 @@ $g-color-theme-colors: map.merge(
 );
 
 /// Color scheme database
-/// @access private
 /// @type Map
-$g-colors-database: ();
+$g-colors-database: () !default;
 
 @each $name, $color in $g-color-theme-colors {
   @if $color {
