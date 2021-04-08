@@ -1,6 +1,6 @@
 {
   "name": "@glsass/elements",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Elements layer for Glsass.",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@glsass/core": "1.3.0"
+    "@glsass/core": "1.3.2"
   },
   "peerDependencies": {
     "sass": "^1.32.8"
