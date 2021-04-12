@@ -6,6 +6,7 @@
 @use "@glsass/tools/tools.spacing" as spacing;
 
 $c-label-font-weight: 700 !default;
+$c-label-margin-bottom: spacing.add-space(2) !default;
 
 .c-form {
   // Labels
@@ -13,7 +14,7 @@ $c-label-font-weight: 700 !default;
     display: block;
     flex-basis: 100%;
     width: 100%;
-    margin-bottom: spacing.add-space(2);
+    margin-bottom: $c-label-margin-bottom;
     font-weight: $c-label-font-weight;
 
     &--required {
