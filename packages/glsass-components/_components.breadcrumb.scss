@@ -23,8 +23,8 @@ $c-breadcrumb-divider-spacing: vr() / 4 !default;
 
 .#{$c-breadcrumb-classname} {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
-  overflow-x: scroll;
   list-style: none;
 
   &__item {
