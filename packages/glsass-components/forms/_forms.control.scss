@@ -57,6 +57,7 @@ $c-control-add-validation-states: true !default;
 .#{$c-control-classname} {
   display: block;
   flex: 1 0 auto;
+  width: 100%;
   height: $c-control-height;
   padding: $c-control-padding;
   color: $c-control-text-color;
