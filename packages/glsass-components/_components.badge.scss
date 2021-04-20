@@ -19,7 +19,7 @@ $c-badge-font-size: 0.75rem !default;
 /// @type Number
 $c-badge-line-height: spacing.adjust-vr(
   1,
-  $c-bagde-font-size,
+  $c-badge-font-size,
   $c-badge-padding-y * 2
 ) !default;
 
