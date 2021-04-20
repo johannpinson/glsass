@@ -1,6 +1,6 @@
 {
   "name": "@glsass/tools",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "description": "Tools layer for Glsass.",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@glsass/settings": "1.3.7"
+    "@glsass/settings": "1.3.8"
   },
   "peerDependencies": {
     "sass": "^1.32.8"
