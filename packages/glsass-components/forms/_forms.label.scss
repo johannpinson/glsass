@@ -5,8 +5,14 @@
 
 @use "@glsass/tools/tools.spacing" as spacing;
 
-$c-label-font-weight: 700 !default;
+/// @type Number
 $c-label-margin-bottom: spacing.add-space(2) !default;
+
+/// @type Color
+$c-label-color: null !default;
+
+/// @type Number
+$c-label-font-weight: 700 !default;
 
 .c-form {
   // Labels
@@ -15,6 +21,7 @@ $c-label-margin-bottom: spacing.add-space(2) !default;
     flex-basis: 100%;
     width: 100%;
     margin-bottom: $c-label-margin-bottom;
+    color: $c-label-color;
     font-weight: $c-label-font-weight;
 
     &--required {
