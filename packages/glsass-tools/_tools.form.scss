@@ -78,7 +78,9 @@
       }
 
       ~ #{$feedback-el}--#{$state},
-      + * > #{$feedback-el}--#{$state} {
+      ~ #{$feedback-el}.is-#{$state},
+      + * > #{$feedback-el}--#{$state},
+      + * > #{$feedback-el}.is-#{$state} {
         display: block;
       }
     }
