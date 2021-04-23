@@ -1,6 +1,6 @@
 {
   "name": "@glsass/core",
-  "version": "1.3.10",
+  "version": "1.3.11",
   "description": "Core layers for Glsass - Settings + Tools + Graphics.",
   "repository": {
     "type": "git",
@@ -17,9 +17,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@glsass/graphics": "1.3.10",
-    "@glsass/settings": "1.3.10",
-    "@glsass/tools": "1.3.10"
+    "@glsass/graphics": "1.3.11",
+    "@glsass/settings": "1.3.11",
+    "@glsass/tools": "1.3.11"
   },
   "peerDependencies": {
     "sass": "^1.32.8"
