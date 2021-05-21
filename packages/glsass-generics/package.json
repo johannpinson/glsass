@@ -20,6 +20,6 @@
     "@glsass/core": "1.3.11"
   },
   "peerDependencies": {
-    "sass": "^1.32.8"
+    "sass": "^1.33.0"
   }
 }
