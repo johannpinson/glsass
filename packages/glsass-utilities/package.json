@@ -1,6 +1,6 @@
 {
   "name": "@glsass/utilities",
-  "version": "1.3.11",
+  "version": "1.3.12",
   "description": "Utilities layer for Glsass.",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@glsass/core": "1.3.11"
+    "@glsass/core": "1.3.12"
   },
   "peerDependencies": {
     "sass": "^1.33.0"
