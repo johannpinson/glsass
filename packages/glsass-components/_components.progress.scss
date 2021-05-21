@@ -3,6 +3,8 @@
 /// Progress
 //// ==========================================================================
 
+@use "sass:math";
+
 @use "@glsass/graphics";
 
 @use "@glsass/tools/tools.builder" as builder;
@@ -63,7 +65,7 @@ $c-progress-border-radius: graphics.$ui-border-radius !default;
       position: absolute;
       top: 0;
       left: 0;
-      width: (100%/3);
+      width: math.div(100%, 3);
       height: 100%;
       background-color: $c-progress-color-value;
       animation: custom-progress-indeterminate 1.25s linear infinite;
@@ -80,8 +82,8 @@ $c-progress-border-radius: graphics.$ui-border-radius !default;
   &:indeterminate {
     background-image: linear-gradient(
       to right,
-      $c-progress-color-value (100%/6),
-      $c-progress-color-background (100%/6)
+      $c-progress-color-value math.div(100%, 6),
+      $c-progress-color-background math.div(100%, 6)
     );
     background-repeat: no-repeat;
     background-position: top left;
@@ -96,7 +98,7 @@ $c-progress-border-radius: graphics.$ui-border-radius !default;
 
 @keyframes progress-indeterminate {
   0% {
-    background-position: (100%/3) 0;
+    background-position: math.div(100%, 3) 0;
   }
 
   100% {

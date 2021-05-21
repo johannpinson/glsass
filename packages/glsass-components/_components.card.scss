@@ -98,7 +98,7 @@ $c-card-step-border-color: cv(white) !default;
 
   &[data-step] {
     $_step-margin-top: unit.add(
-      $c-card-step-dimension / 2,
+      math.div($c-card-step-dimension, 2),
       $c-card-step-border-size
     );
 

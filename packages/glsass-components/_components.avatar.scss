@@ -3,6 +3,8 @@
 /// Avatar
 //// ==========================================================================
 
+@use "sass:math";
+
 @use "@glsass/graphics";
 
 @use "@glsass/tools/tools.builder" as builder;
@@ -44,8 +46,8 @@ $c-avatar-background: cv(primary) !default;
     font-size: 2rem;
 
     #{$root}__indicator {
-      width: $c-avatar-size-large / 4;
-      height: $c-avatar-size-large / 4;
+      width: math.div($c-avatar-size-large, 4);
+      height: math.div($c-avatar-size-large, 4);
     }
   }
 
@@ -55,8 +57,8 @@ $c-avatar-background: cv(primary) !default;
     font-size: 0.75rem;
 
     #{$root}__indicator {
-      width: $c-avatar-size-small / 4;
-      height: $c-avatar-size-small / 4;
+      width: math.div($c-avatar-size-small, 4);
+      height: math.div($c-avatar-size-small, 4);
     }
   }
 
@@ -75,10 +77,10 @@ $c-avatar-background: cv(primary) !default;
     position: absolute;
     right: 15%;
     bottom: 15%;
-    width: $c-avatar-size / 4;
-    height: $c-avatar-size / 4;
+    width: math.div($c-avatar-size, 4);
+    height: math.div($c-avatar-size, 4);
     border-radius: 50%;
-    box-shadow: 0 0 0 (1rem / 8) cv(white);
+    box-shadow: 0 0 0 math.div(1rem, 8) cv(white);
     transform: translate(50%, 50%);
   }
 }

@@ -3,6 +3,8 @@
 /// String
 //// ==========================================================================
 
+@use "sass:math";
+
 @use "sass:string";
 
 /// Characters which are escaped by the escape-svg function
@@ -90,7 +92,7 @@ $_escaped-characters: (("<", "%3c"), (">", "%3e"), ("#", "%23"));
       $result: $result * 10 + map-get($numbers, $character);
     } @else {
       $digits: $digits * 10;
-      $result: $result + map-get($numbers, $character) / $digits;
+      $result: $result + math.div(map-get($numbers, $character), $digits);
     }
   }
 

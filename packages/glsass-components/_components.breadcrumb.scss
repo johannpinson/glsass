@@ -4,6 +4,8 @@
 /// Breadcrumb
 //// ==========================================================================
 
+@use "sass:math";
+
 @use "@glsass/tools/tools.builder" as builder;
 @use "@glsass/tools/tools.global" as *;
 
@@ -19,7 +21,7 @@ $c-breadcrumb-divider: "/" !default;
 /// @type Color
 $c-breadcrumb-divider-color: cv(gray, 300) !default;
 /// @type Number
-$c-breadcrumb-divider-spacing: vr() / 4 !default;
+$c-breadcrumb-divider-spacing: math.div(vr(), 4) !default;
 
 .#{$c-breadcrumb-classname} {
   display: flex;

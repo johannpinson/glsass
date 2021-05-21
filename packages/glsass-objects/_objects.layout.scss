@@ -2,6 +2,8 @@
 /// @group Objects
 //// ==========================================================================
 
+@use "sass:math";
+
 @use "@glsass/settings/settings.core" as core;
 
 @use "@glsass/tools/tools.breakpoint" as breakpoint;
@@ -10,7 +12,7 @@
 
 /// Spacing for each element, equals to the half-gutter size
 /// @access private
-$_o-layout-gutter-spacing: core.$g-grid-gutter-width / 2;
+$_o-layout-gutter-spacing: math.div(core.$g-grid-gutter-width, 2);
 
 /// Default CSS rules
 /// @access private

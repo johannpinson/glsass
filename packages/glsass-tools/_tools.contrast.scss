@@ -24,12 +24,12 @@
 
   @for $i from 1 through 3 {
     $space: list.nth($spaces, $i);
-    $space: $space / 255;
+    $space: math.div($space, 255);
 
     $space: if(
       $space < 0.03928,
-      $space / 12.92,
-      math.pow(($space + 0.055) / 1.055, 2.4)
+      math.div($space, 12.92),
+      math.pow(math.div(($space + 0.055), 1.055), 2.4)
     );
 
     $lumi: list.append($lumi, $space);
@@ -47,15 +47,15 @@
 @function ratio($color1, $color2) {
   $lumi1: luminance($color1) + 0.05;
   $lumi2: luminance($color2) + 0.05;
-  $ratio: $lumi1 / $lumi2;
+  $ratio: math.div($lumi1, $lumi2);
 
   @if ($lumi2 > $lumi1) {
-    $ratio: 1 / $ratio;
+    $ratio: math.div(1, $ratio);
   }
 
   // Return a precision at 3 to avoid "false positive"
   // Example: avoid to round 4.496 into 4.50 because it will unluckily valid it
-  $ratio: math.round($ratio * 1000) / 1000;
+  $ratio: math.div(math.round($ratio * 1000), 1000);
 
   @return $ratio;
 }

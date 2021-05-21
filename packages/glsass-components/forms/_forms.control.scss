@@ -3,6 +3,8 @@
 /// Control
 //// ==========================================================================
 
+@use "sass:math";
+
 @use "sass:selector";
 
 @use "@glsass/graphics";
@@ -49,7 +51,7 @@ $c-control-background-disabled: graphics.$ui-form-background-disabled !default;
 /// @type Number
 $c-control-height: vr(1.5) !default;
 /// @type Number
-$c-control-padding: (vr(0.5) / 2) vr(0.5) !default;
+$c-control-padding: math.div(vr(0.5), 2) vr(0.5) !default;
 
 /// @type Boolean
 $c-control-add-validation-states: true !default;

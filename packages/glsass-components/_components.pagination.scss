@@ -4,6 +4,8 @@
 /// Pagination
 //// ==========================================================================
 
+@use "sass:math";
+
 @use "@glsass/graphics";
 
 @use "@glsass/tools/tools.builder" as builder;
@@ -15,7 +17,7 @@ $c-pagination-classname: "c-pagination" !default;
 @include builder.check-classname($c-pagination-classname);
 
 /// @type Number
-$c-pagination-gap: (1rem / 4) !default;
+$c-pagination-gap: math.div(1rem, 4) !default;
 
 /// @type Number
 $c-pagination-border-radius: graphics.$ui-border-radius !default;
@@ -49,7 +51,7 @@ $c-pagination-arrow-icon-size: vr(0.5) !default;
   list-style: none;
 
   &__item {
-    margin: 0 $c-pagination-gap / 2;
+    margin: 0 math.div($c-pagination-gap, 2);
 
     a {
       display: flex;
@@ -109,12 +111,12 @@ $c-pagination-arrow-icon-size: vr(0.5) !default;
       }
 
       &--prev a::before {
-        margin-right: $c-pagination-arrow-icon-size / 2;
+        margin-right: math.div($c-pagination-arrow-icon-size, 2);
         transform: rotate(90deg);
       }
 
       &--next a::after {
-        margin-left: $c-pagination-arrow-icon-size / 2;
+        margin-left: math.div($c-pagination-arrow-icon-size, 2);
         transform: rotate(-90deg);
       }
     }

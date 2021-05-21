@@ -37,7 +37,7 @@ $c-button-color: cv(text) !default;
 /// @type Number
 $c-button-font-size: graphics.$ui-fonts-font-size !default;
 /// @type Number
-$c-button-font-ratio: 1/8 !default;
+$c-button-font-ratio: math.div(1, 8) !default;
 /// @type Number
 $c-button-font-weight: null !default;
 
@@ -52,23 +52,27 @@ $c-button-line-height: graphics.$ui-fonts-line-height !default;
 /// @type Number
 $c-button-line-height-small: $c-button-line-height *
   (
-    1 - 1 /
+    math.div(
+      1 - 1,
       (
         $c-button-line-height *
           unit.strip-unit(unit.convert-px($c-button-font-size)) *
           (1 - $c-button-font-ratio)
       )
+    )
   ) !default;
 
 /// @type Number
 $c-button-line-height-large: $c-button-line-height *
   (
-    1 + 1 /
+    math.div(
+      1 + 1,
       (
         $c-button-line-height *
           unit.strip-unit(unit.convert-px($c-button-font-size)) *
           (1 + $c-button-font-ratio)
       )
+    )
   ) !default;
 
 /// @type Number
@@ -79,7 +83,7 @@ $c-button-padding-y: spacing.add-space(2) !default;
 /// @type Number
 $c-button-padding-x: 1.25rem !default;
 /// @type Number
-$c-button-padding-ratio: 1/3 !default;
+$c-button-padding-ratio: math.div(1, 3) !default;
 
 /// @type Number
 $c-button-padding-x-small: $c-button-padding-x * (1 - $c-button-padding-ratio) -

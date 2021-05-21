@@ -3,6 +3,8 @@
 /// Accordion
 //// ==========================================================================
 
+@use "sass:math";
+
 @use "@glsass/graphics";
 
 @use "@glsass/tools/tools.builder" as builder;
@@ -52,7 +54,7 @@ $c-accordion-transition: graphics.$ui-transition-timing-function !default;
   &__header {
     display: flex;
     align-items: center;
-    padding: vr(0.5) / 2;
+    padding: math.div(vr(0.5), 2);
     border-radius: $c-accordion-header-radius;
     cursor: pointer;
     user-select: none;

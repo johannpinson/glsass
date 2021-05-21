@@ -3,6 +3,8 @@
 /// Table
 //// ==========================================================================
 
+@use "sass:math";
+
 @use "@glsass/tools/tools.builder" as builder;
 @use "@glsass/tools/tools.spacing" as spacing;
 @use "@glsass/tools/tools.unit" as unit;
@@ -20,7 +22,7 @@ $o-table-border-color: cv("gray", 300) !default;
 /// @type Number
 $o-table-cell-gap: vr(0.5);
 /// @type Number
-$o-table-cell-gap-small: vr(0.5) / 2;
+$o-table-cell-gap-small: math.div(vr(0.5), 2);
 /// @type Number
 $o-table-cell-gap-large: vr(1);
 

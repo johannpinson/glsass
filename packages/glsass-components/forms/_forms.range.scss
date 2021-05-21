@@ -3,6 +3,8 @@
 /// Range
 //// ==========================================================================
 
+@use "sass:math";
+
 @use "@glsass/graphics";
 
 @use "@glsass/tools/tools.builder" as builder;
@@ -28,7 +30,7 @@ $c-range-thumb-background: graphics.$ui-form-main-color !default;
 $c-range-thumb-disabled-background: cv(gray) !default;
 
 /// @type Number
-$c-range-track-height: $c-range-height / 2 !default;
+$c-range-track-height: math.div($c-range-height, 2) !default;
 /// @type Number
 $c-range-track-border-radius: graphics.$ui-form-border-radius !default;
 /// @type Color
@@ -71,7 +73,7 @@ $c-range-result-arrow-enable: false !default;
     &::-webkit-slider-thumb {
       width: $c-range-thumb-width;
       height: $c-range-thumb-height;
-      margin-top: ($c-range-track-height - $c-range-thumb-height) / 2;
+      margin-top: math.div($c-range-track-height - $c-range-thumb-height, 2);
       background-color: $c-range-thumb-background;
       border: 0;
       border-radius: 50%;
@@ -82,7 +84,7 @@ $c-range-result-arrow-enable: false !default;
     &::-moz-range-thumb {
       width: $c-range-thumb-width;
       height: $c-range-thumb-height;
-      margin-top: ($c-range-track-height - $c-range-thumb-height) / 2;
+      margin-top: math.div($c-range-track-height - $c-range-thumb-height, 2);
       background-color: $c-range-thumb-background;
       border: 0;
       border-radius: 50%;
@@ -163,7 +165,7 @@ $c-range-result-arrow-enable: false !default;
     @if $c-range-result-arrow-enable {
       position: relative;
 
-      $_size: vr() / 4;
+      $_size: math.div(vr(), 4);
 
       &::after {
         content: "";

@@ -3,6 +3,8 @@
 /// Select
 //// ==========================================================================
 
+@use "sass:math";
+
 @use "@glsass/graphics";
 
 @use "@glsass/tools/tools.builder" as builder;
@@ -52,7 +54,7 @@ $c-select-icon: iv(select) !default;
 /// @type Number
 $c-select-height: vr(1.5) !default;
 /// @type Number
-$c-select-padding: (vr(0.5) / 2) vr(0.5) !default;
+$c-select-padding: math.div(vr(0.5), 2) vr(0.5) !default;
 
 /// @type Boolean
 $c-select-add-validation-states: true !default;
@@ -118,7 +120,7 @@ $c-select-add-validation-states: true !default;
     option {
       box-sizing: border-box;
       height: vr(1);
-      padding: (0.25rem/2) 0.25rem;
+      padding: math.div(0.25rem, 2) 0.25rem;
     }
   }
 

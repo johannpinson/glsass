@@ -32,7 +32,7 @@
     $vertical-size: core.$g-spacer * $vertical-rhythm;
   }
 
-  @return ($vertical-size - $spacing) / $font-size;
+  @return math.div($vertical-size - $spacing, $font-size);
 }
 
 /// Return the space from the spacers map corresponding to the key passed

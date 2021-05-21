@@ -4,6 +4,8 @@
 /// Tooltip
 //// ==========================================================================
 
+@use "sass:math";
+
 @use "@glsass/graphics";
 
 @use "@glsass/tools/tools.builder" as builder;
@@ -15,7 +17,7 @@ $c-tooltip-classname: "c-tooltip" !default;
 @include builder.check-classname($c-tooltip-classname);
 
 /// @type Number
-$c-tooltip-padding-y: vr() / 4 !default;
+$c-tooltip-padding-y: math.div(vr(), 4) !default;
 /// @type Number
 $c-tooltip-padding-x: vr(0.5) !default;
 

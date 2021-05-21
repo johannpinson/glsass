@@ -3,6 +3,8 @@
 /// Toggle
 //// ==========================================================================
 
+@use "sass:math";
+
 @use "@glsass/graphics";
 
 @use "@glsass/tools/tools.builder" as builder;
@@ -98,7 +100,7 @@ $c-file-add-validation-states: true !default;
 
     strong,
     span {
-      padding: (vr(0.5) / 2) vr(0.5);
+      padding: (math.div(vr(0.5), 2)) vr(0.5);
       pointer-events: none;
     }
 

@@ -3,6 +3,8 @@
 /// Ratio
 //// ==========================================================================
 
+@use "sass:math";
+
 @use "@glsass/tools/tools.builder" as builder;
 
 /// @type String
@@ -33,14 +35,14 @@ $h-ratio-classname: "h-ratio" !default;
   }
 
   &--4x3::before {
-    padding-top: (3/4 * 100%);
+    padding-top: (math.div(3, 4) * 100%);
   }
 
   &--16x9::before {
-    padding-top: (9/16 * 100%);
+    padding-top: (math.div(9, 16) * 100%);
   }
 
   &--21x9::before {
-    padding-top: (9/21 * 100%);
+    padding-top: (math.div(9, 21) * 100%);
   }
 }

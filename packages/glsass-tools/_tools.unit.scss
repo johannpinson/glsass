@@ -13,7 +13,7 @@
 /// @return {Number} - Unitless number
 @function strip-unit($number) {
   @if meta.type-of($number) == "number" and not math.is-unitless($number) {
-    @return $number / ($number * 0 + 1);
+    @return math.div($number, $number * 0 + 1);
   }
 
   @return $number;
@@ -24,7 +24,7 @@
 /// @return {Number} - Converted value in `rem`
 @function convert-rem($variable) {
   @if (math.unit($variable) == "px") {
-    $variable: $variable / 16px * 1rem;
+    $variable: math.div($variable, 16px) * 1rem;
   }
 
   @return $variable;
@@ -40,7 +40,7 @@
 /// @return {Number} - Converted value in `px`
 @function convert-px($variable) {
   @if (math.unit($variable) == "rem") {
-    $variable: $variable / 1rem * 16px;
+    $variable: math.div($variable, 1rem) * 16px;
   }
 
   @return $variable;
