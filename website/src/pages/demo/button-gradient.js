@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../../css/demo/button-gradient.scss'
+// import '../../css/demo/button-gradient.scss'
 
 export default () => {
   return (
