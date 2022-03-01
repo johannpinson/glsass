@@ -28,6 +28,6 @@
     "@glsass/utilities": "1.3.12"
   },
   "peerDependencies": {
-    "sass": "^1.33.0"
+    "sass": "^1.49.9"
   }
 }

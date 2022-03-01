@@ -21,7 +21,7 @@
     "@glsass/generics": "1.3.12"
   },
   "peerDependencies": {
-    "sass": "^1.33.0"
+    "sass": "^1.49.9"
   },
   "gitHead": "7a1ddcb2ff2f408b20cf0e97c67273849e38a50e"
 }
