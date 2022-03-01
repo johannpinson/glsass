@@ -1,0 +1,72 @@
+---
+id: spacing
+title: Spacing
+---
+
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.spacing.scss" />
+
+```scss
+@use "@glsass/tools/tools.spacing" as spacing;
+```
+
+## _vr()_
+
+<Version version="1.0.0" />
+
+Also known as the "rhythm unit", the `vr()` function returns a size that respect
+the vertical rhythm. It required a number with a 0.5 precision as parameter, for
+example "0.5" or "1.5". If this condition is not respected (for example with
+"0.4" or "1.2"), it will return 1vr.
+
+```scss
+vr($unit-factor: 1);
+
+height: vr();
+// Returns 1.5rem/24px
+
+height: vr(0.5);
+// Returns 0.75rem/12px
+
+height: vr(2);
+// Returns 3rem/48px
+
+height: vr(3.14);
+// Back to default value, returns 1.5rem/24px
+```
+
+## _adjust-vr()_
+
+<Version version="1.0.0" />
+
+To make different elements feel consistent, this function can be used to adjust
+the line-height, depending of the font-size and the margins.
+
+```scss
+adjust-vr($vertical-rhythm: 1, $font-size, $spacings: 0);
+
+line-height: adjust-vr(1, 0.875rem, spacing.add-space(1));
+// Returns 1.2857142857 (the default line-height is 1.5)
+```
+
+## _add-space()_
+
+<Version version="1.0.0" />
+
+The function returns a value from the `$g-spacers` map (1 to 5). The goal is to
+use this functions when a margin is set to stay constant and preserve the
+vertical rhythm.
+
+```scss
+add-space($unit-factor: 3);
+
+margin-bottom: add-space();
+// Returns 1.5rem/24px
+
+margin-bottom: add-space(2);
+// Returns 0.75rem/12px
+
+margin-bottom: add-space(8);
+// Back to default value, returns 1.5rem/24px
+```

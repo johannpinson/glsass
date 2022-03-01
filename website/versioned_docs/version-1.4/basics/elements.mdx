@@ -1,0 +1,233 @@
+---
+id: elements
+title: Elements
+slug: /elements
+---
+
+import Example from '@site/src/components/Example/'
+import Version from '@site/src/components/Version/'
+
+The `elements` folder provides styles for basic HTML elements
+
+```scss
+// ELEMENTS
+@forward "@glsass/elements/elements.headings";
+@forward "@glsass/elements/elements.images";
+@forward "@glsass/elements/elements.lists";
+@forward "@glsass/elements/elements.links";
+@forward "@glsass/elements/elements.page";
+@forward "@glsass/elements/elements.tables";
+
+/* Or import all of elements */
+
+// ELEMENTS
+@forward "@glsass/elements";
+```
+
+You can notice that the order of file is alphabetic, even if "top" tags like
+`html` and `body` are inside the `_elements.page.scss` file, because each file
+includes its own elements.
+
+:::info
+
+To avoid conflict with the documentation style, examples below have behavior
+simulated.
+
+:::
+
+## Headings
+
+<Version version="1.0.0" source="glsass-elements/_elements.headings.scss" />
+
+All _hn_ (`h1` to `h6`) styles are generated from the global settings. This is
+why there is there is not configurable variables (and to maitain some
+consistency with the utilities classes: `.u-hn`).
+
+About the line-height property, it's automatically calculated to respect the
+vertical rhythm for headings.
+
+<Example elements>
+  <h1>Heading 1</h1>
+  <h2>Heading 2</h2>
+  <h3>Heading 3</h3>
+  <h4>Heading 4</h4>
+  <h5>Heading 5</h5>
+  <h6>Heading 6</h6>
+</Example>
+
+```html
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+```
+
+## Images
+
+<Version version="1.0.0" source="glsass-elements/_elements.images.scss" />
+
+It adds some default rules for alternative text or to remove the space that can
+appear unnder the element.
+
+Images also have a `max-width` set to `100%` to facilitate fluid responsive
+needs. By default, even if images are generated with `width` and `height`
+attributes, they still be fluid. This behavior can be changed by setting the
+variable `$e-images-static-size` at true.
+
+```scss
+@forward "@glsass/elements/elements.images" with (
+  $e-images-static-size: true,
+);
+```
+
+## Links
+
+<Version version="1.0.0" source="glsass-elements/_elements.links.scss" />
+
+Glsass set the default color for link to preserve the current color of the text
+and add underlines.
+
+<Example elements>
+  <a href="/">Link to the home</a>
+</Example>
+
+```html
+<a href="/">Link to the home</a>
+```
+
+By default, all external link (with a `target="_blank"`), will have append an
+arrow indicator (`↗` or `&nearr;` HTML entity).
+
+This settings can be modified by setting the option
+`$e-links-external-indicator` at false.
+
+<Example elements>
+  <a
+    href="https://developer.mozilla.org/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Link to MDN homepage
+  </a>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<a href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer">Link to MDN homepage</a>
+```
+<!-- prettier-ignore-end -->
+
+## Lists
+
+<Version version="1.0.0" source="glsass-elements/_elements.lists.scss" />
+
+Lists are lightly modify to bring some space on the left and bottom.
+
+Since there is differents kind of list, we could have moved this rules in the
+`_generic.shared.scss` file. But since there are some specificities between all
+of them, it's simpler to regroup it inside a unique place.
+
+<Example elements>
+  <ul>
+    <li>Lorem ipsum dolor sit amet</li>
+    <li>Consectetur adipiscing elit</li>
+    <li>
+      Sed do eiusmod tempor incididunt
+      <ul>
+        <li>Ut labore et dolore magna aliqua</li>
+        <li>Ut enim ad minim veniam</li>
+      </ul>
+    </li>
+    <li>Quis nostrud exercitation ullamco laboris</li>
+    <li>Nisi ut aliquip ex ea commodo consequat</li>
+  </ul>
+  <ol>
+    <li>Lorem ipsum dolor sit amet</li>
+    <li>Consectetur adipiscing elit</li>
+    <li>Sed do eiusmod tempor incididunt</li>
+  </ol>
+  <dl>
+    <dt>The ingredients:</dt>
+    <dd>
+      <ul>
+        <li>100 g. flour</li>
+        <li>10 g. sugar</li>
+        <li>1 cup water</li>
+        <li>2 eggs</li>
+        <li>salt, pepper</li>
+      </ul>
+    </dd>
+    <dt>The procedure:</dt>
+    <dd>
+      <ol>
+        <li>Mix dry ingredients thoroughly.</li>
+        <li>Pour in wet ingredients.</li>
+        <li>Mix for 10 minutes.</li>
+        <li>Bake for one hour at 300 degrees.</li>
+      </ol>
+    </dd>
+    <dt>Notes:</dt>
+    <dd>The recipe may be improved by adding raisins.</dd>
+  </dl>
+</Example>
+
+```html
+<ul>
+  <li>Lorem ipsum dolor sit amet</li>
+  <li>Consectetur adipiscing elit</li>
+  <li>
+    Sed do eiusmod tempor incididunt
+    <ul>
+      <li>Ut labore et dolore magna aliqua</li>
+      <li>Ut enim ad minim veniam</li>
+    </ul>
+  </li>
+  <li>Quis nostrud exercitation ullamco laboris</li>
+  <li>Nisi ut aliquip ex ea commodo consequat</li>
+</ul>
+
+<ol>
+  <li>Lorem ipsum dolor sit amet</li>
+  <li>Consectetur adipiscing elit</li>
+  <li>Sed do eiusmod tempor incididunt</li>
+</ol>
+
+<dl>
+  <dt>The ingredients:</dt>
+  <dd>
+    <ul>
+      <li>100 g. flour</li>
+      <li>10 g. sugar</li>
+      <li>1 cup water</li>
+      <li>2 eggs</li>
+      <li>salt, pepper</li>
+    </ul>
+  </dd>
+  <dt>The procedure:</dt>
+  <dd>
+    <ol>
+      <li>Mix dry ingredients thoroughly.</li>
+      <li>Pour in wet ingredients.</li>
+      <li>Mix for 10 minutes.</li>
+      <li>Bake for one hour at 300 degrees.</li>
+    </ol>
+  </dd>
+  <dt>Notes:</dt>
+  <dd>The recipe may be improved by adding raisins.</dd>
+</dl>
+```
+
+## Page
+
+<Version version="1.0.0" source="glsass-elements/_elements.page.scss" />
+
+This file contains main declarations for `html` and `body` tags. It's used to
+set default `font-size`, `line-height` or `color` and improvement for iOS.
+
+## Tables
+
+<Version version="1.0.0" source="glsass-elements/_elements.tables.scss" />
+
+It adds an unique rule to ensure tables fill up as much space as possible.

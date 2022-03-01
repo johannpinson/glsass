@@ -1,0 +1,299 @@
+---
+id: button
+title: Button
+---
+
+import Example from '@site/src/components/Example/'
+import Version from '@site/src/components/Version/'
+
+<Version version="1.0.0" source="glsass-components/_components.button.scss" />
+
+Buttons include simple _button_ styles for actions in differents types and size.
+
+<Example>
+  <button className="c-button">default button</button>&nbsp;
+  <button className="c-button c-button--primary">primary button</button>&nbsp;
+  <button className="c-button c-button--link">link button</button>
+</Example>
+
+```html
+<button class="c-button">default button</button>
+<button class="c-button c-button--primary">primary button</button>
+<button class="c-button c-button--link">link button</button>
+```
+
+Add the `c-button` class to `<a>`, `<input>` or `<button>` elements for a
+default button. There are classes `c-button--primary` and `c-button--link` for
+predefined primary and link buttons.
+
+## Colors variants
+
+<Example>
+  <button className="c-button c-button--secondary u-mb-3">
+    secondary button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--success u-mb-3">success button</button>
+  &nbsp;
+  <button className="c-button c-button--danger u-mb-3">danger button</button>
+  &nbsp;
+  <button className="c-button c-button--warning u-mb-3">warning button</button>
+  &nbsp;
+  <button className="c-button c-button--info u-mb-3">info button</button>&nbsp;
+  <button className="c-button c-button--light u-mb-3">light button</button>
+  &nbsp;
+  <button className="c-button c-button--dark u-mb-3">dark button</button>&nbsp;
+  <button className="c-button c-button--white u-mb-3">white button</button>
+</Example>
+
+```html
+<button class="c-button c-button--secondary">secondary button</button>
+<button class="c-button c-button--success">success button</button>
+<button class="c-button c-button--danger">danger button</button>
+<button class="c-button c-button--warning">warning button</button>
+<button class="c-button c-button--info">info button</button>
+<button class="c-button c-button--light">light button</button>
+<button class="c-button c-button--dark">dark button</button>
+<button class="c-button c-button--white">white button</button>
+```
+
+## Shapes variants
+
+By default, buttons have rounded edges, but it's possible to keep straight edges
+by changing the `$c-button-round-default` Sass variable.
+
+If this variable is set to false, it will automatically generate an additional
+class with the modifier `--rounded`.
+
+<Example>
+  <button className="c-button c-button--primary c-button--rounded">
+    rounded button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--primary c-button--pill">
+    pill button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--primary c-button--block u-mt-3">
+    block button
+  </button>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<button class="c-button c-button--primary c-button--rounded">rounded button</button>
+<button class="c-button c-button--primary c-button--pill">pill button</button>
+<button class="c-button c-button--primary c-button--block">block button</button>
+```
+<!-- prettier-ignore-end -->
+
+## Outline variants
+
+Outline variants are usefull to make some buttons to look like less important,
+but it must be used with caution to ensure good readibility.
+
+To enable the `.c-button--outline` class and associated styles, you must turn on
+the `$c-button-enable-outline` variable.
+
+```scss
+@forward "@glsass/components/components.breadcrumb" with (
+  $c-button-enable-outline: true
+};
+```
+
+<Example>
+  <div>
+    <button className="c-button c-button--outline c-button--primary u-mb-3">
+      primary button
+    </button>
+    &nbsp;
+    <button className="c-button c-button--outline c-button--secondary u-mb-3">
+      secondary button
+    </button>
+    &nbsp;
+    <button className="c-button c-button--outline c-button--success u-mb-3">
+      success button
+    </button>
+    &nbsp;
+    <button className="c-button c-button--outline c-button--danger u-mb-3">
+      danger button
+    </button>
+    &nbsp;
+    <button className="c-button c-button--outline c-button--info u-mb-3">
+      info button
+    </button>
+    &nbsp;
+    <button className="c-button c-button--outline c-button--light u-mb-3">
+      light button
+    </button>
+    &nbsp;
+    <button className="c-button c-button--outline c-button--dark u-mb-3">
+      dark button
+    </button>
+  </div>
+  <div className="u-p-2 u-bg-black">
+    <button className="c-button c-button--outline c-button--warning u-mb-3">
+      warning button
+    </button>
+    &nbsp;
+    <button className="c-button c-button--outline c-button--white u-mb-3">
+      white button
+    </button>
+  </div>
+</Example>
+
+```html
+<button class="c-button c-button--outline c-button--variant">
+  variant button
+</button>
+```
+
+:::caution
+
+Dependings of your palette choice, some foreground colors can be "light" and
+should only be used on dark/black background to preserve a good ratio contrast.
+
+:::
+
+## States
+
+### Disabled state
+
+Simply add the `disabled` attribute on compatible element (`<button>`,
+`<input type="subit">`) or use the `is-disabled` state class.
+
+<Example>
+  <button className="c-button c-button--primary u-mb-3" disabled>
+    primary button
+  </button>
+  &nbsp;
+  <a
+    href="#"
+    className="c-button c-button--link is-disabled u-mb-3"
+    role="button"
+    aria-disabled="true"
+    tabIndex="-1"
+  >
+    link button
+  </a>
+  <br />
+  <button className="c-button c-button--secondary u-mb-3" disabled>
+    secondary button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--success u-mb-3" disabled>
+    success button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--danger u-mb-3" disabled>
+    danger button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--warning u-mb-3" disabled>
+    warning button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--info u-mb-3" disabled>
+    info button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--light u-mb-3" disabled>
+    light button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--dark u-mb-3" disabled>
+    dark button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--white u-mb-3" disabled>
+    white button
+  </button>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<button className="c-button c-button--primary" disabled>primary button</button>
+<a href="#" className="c-button c-button--link is-disabled" role="button" aria-disabled="true" tabindex="-1">link button</a>
+```
+<!-- prettier-ignore-end -->
+
+:::note
+
+Since the `<a>` element doesn't support the `disabled` attribute, don't forget
+to add additional attributes (`aria-disabled` **mostly!**) to indicate the real
+state of the link to assistive technologies.
+
+:::
+
+### Focus and active states
+
+Like `disabled`, you can also simulate `focus` and `active` state with
+`is-focus` and `is-active` classes.
+
+In the second case, you may include the `aria-pressed="true"` attribute to
+reflect the current state of the button.
+
+## Sizes
+
+Size modifiers can be added to increase, or dicrease, the size (with, height and
+font-size).
+
+<Example>
+  <button className="c-button c-button--primary c-button--small">
+    small button
+  </button>
+  &nbsp;
+  <button className="c-button c-button--primary">normal/medium button</button>
+  &nbsp;
+  <button className="c-button c-button--primary c-button--large">
+    large button
+  </button>
+</Example>
+
+```html
+<button class="c-button c-button--primary c-button--small">small button</button>
+<button class="c-button c-button--primary">normal/medium button</button>
+<button class="c-button c-button--primary c-button--large">large button</button>
+```
+
+## Button group
+
+By adding the `c-button-group` to a parent, it allow you to create a stack of
+buttons and ajust borders and margins between them.
+
+<Example>
+  <div className="u-mb-2" style={{ width: '100%' }}>
+    <div className="c-button--group">
+      <button className="c-button c-button--danger">Previous</button>
+      <button className="c-button c-button--success">Confirm</button>
+    </div>
+    &nbsp;
+    <div className="c-button--group">
+      <button className="c-button c-button--primary">Left</button>
+      <button className="c-button c-button--primary">Middle</button>
+      <button className="c-button c-button--primary">Right</button>
+    </div>
+  </div>
+  <div className="c-button--group c-button--group-vertical">
+    <button className="c-button c-button--light">Top</button>
+    <button className="c-button c-button--dark">Bottom</button>
+  </div>
+</Example>
+
+```html
+<div class="c-button--group">
+  <button class="c-button c-button--danger">Previous</button>
+  <button class="c-button c-button--success">Confirm</button>
+</div>
+
+<div class="c-button--group">
+  <button class="c-button c-button--primary">Left</button>
+  <button class="c-button c-button--primary">Middle</button>
+  <button class="c-button c-button--primary">Right</button>
+</div>
+
+<div class="c-button--group c-button--group-vertical">
+  <button class="c-button c-button--light">Top</button>
+  <button class="c-button c-button--dark">Bottom</button>
+</div>
+```

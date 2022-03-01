@@ -1,0 +1,197 @@
+---
+id: card
+title: Card
+---
+
+import Example from '@site/src/components/Example/'
+import Version from '@site/src/components/Version/'
+
+<Version version="1.0.0" source="glsass-components/_components.card.scss" />
+
+Cards are made to be flexible, for example to be used with or without some
+children elements, and with different orders.
+
+<Example>
+  <div className="o-row c-cards">
+    <div className="o-col u-12 u-6@md u-3@xl u-mb-3 u-mb-0@xl">
+      <div className="c-card">
+        <div className="c-card__img">
+          <img
+            src="/img/lake-1.jpg"
+            alt="Photo by Adam Vradenburg on Unsplash"
+            style={{ height: '12rem' }}
+          />
+        </div>
+        <div className="c-card__header">
+          <div className="c-card__title u-h5 u-mb-0">Card title</div>
+        </div>
+        <div className="c-card__body">
+          <span>
+            Add some text inside the card.
+            <br />
+            ok more text here.
+          </span>
+        </div>
+        <div className="c-card__footer">
+          <button className="c-button c-button--primary">Action</button>
+        </div>
+      </div>
+    </div>
+    <div className="o-col u-12 u-6@md u-3@xl u-mb-3 u-mb-0@xl">
+      <div className="c-card">
+        <div className="c-card__header">
+          <div className="c-card__title u-h5 u-mb-0">Card title</div>
+        </div>
+        <div className="c-card__img">
+          <img
+            src="/img/lake-2.jpg"
+            alt="Photo by Tom Gainor on Unsplash"
+            style={{ height: '12rem' }}
+          />
+        </div>
+        <div className="c-card__body">
+          <span>Add some text inside the card.</span>
+        </div>
+        <div className="c-card__footer">
+          <button className="c-button c-button--primary">Action</button>
+        </div>
+      </div>
+    </div>
+    <div className="o-col u-12 u-6@md u-3@xl u-mb-3 u-mb-0@md">
+      <div className="c-card">
+        <div className="c-card__header">
+          <div className="c-card__title u-h5 u-mb-0">Card title</div>
+        </div>
+        <div className="c-card__body">
+          <span>Add some text inside the card.</span>
+        </div>
+        <div className="c-card__img">
+          <img
+            src="/img/lake-3.jpg"
+            alt="Photo by Juan Davila on Unsplash"
+            style={{ height: '12rem' }}
+          />
+        </div>
+        <div className="c-card__footer">
+          <button className="c-button c-button--primary">Action</button>
+        </div>
+      </div>
+    </div>
+    <div className="o-col u-12 u-6@md u-3@xl u-mb-3 u-mb-0@md">
+      <div className="c-card">
+        <div className="c-card__header">
+          <div className="c-card__title u-h5 u-mb-0">Card title</div>
+        </div>
+        <div className="c-card__body">
+          <span>Add some text inside the card.</span>
+        </div>
+        <div className="c-card__footer">
+          <button className="c-button c-button--primary">Action</button>
+        </div>
+        <div className="c-card__img">
+          <img
+            src="/img/lake-4.jpg"
+            alt="Photo by dirk von loen-wagner on Unsplash"
+            style={{ height: '12rem' }}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+<!-- prettier-ignore-start -->
+```html
+<div class="c-card">
+  <div class="c-card__img"><!-- can be moved from the first to the last position -->
+    <img src="..." alt="...">
+  </div>
+  <div class="c-card__header">
+    <div class="c-card__title u-h5 u-mb-0">Card title</div>
+  </div>
+  <div class="c-card__body">
+    <span>Add some text inside the card.</span>
+  </div>
+  <div class="c-card__footer">
+    <a class="c-button c-button--primary" href="#">Action</a>
+  </div>
+</div>
+```
+<!-- prettier-ignore-end -->
+
+The class `.c-cards` is also available to make the height identical for each
+card in the same row.
+
+<Example>
+  <div className="o-row c-cards">
+    <div className="o-col u-6">
+      <div className="c-card">
+        <div className="c-card__body">
+          <span>A tiny card</span>
+        </div>
+      </div>
+    </div>
+    <div className="o-col u-6">
+      <div className="c-card">
+        <div className="c-card__header">
+          <div className="c-card__title u-h5 u-mb-0">A simple card</div>
+        </div>
+        <div className="c-card__body">With more text than the other</div>
+        <div className="c-card__footer">
+          <a className="c-button c-button--primary" href="#">
+            Action
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+## Step variant
+
+<Example block>
+  <div className="o-row">
+    <div className="o-col u-12 u-6@md">
+      <div className="c-card" data-step="1">
+        <div className="c-card__header">
+          <div className="c-card__title u-h5 u-mb-0">A simple card</div>
+        </div>
+        <div className="c-card__body">
+          With sample text and a action button below
+        </div>
+        <div className="c-card__footer">
+          <a className="c-button c-button--primary" href="#">
+            Action
+          </a>
+        </div>
+      </div>
+    </div>
+    <div className="o-col u-12 u-6@md">
+      <div className="c-card" data-step="2">
+        <div className="c-card__header">
+          <div className="c-card__title u-h5 u-mb-0">Another card</div>
+        </div>
+        <div className="c-card__body">
+          With sample text and a action button below
+        </div>
+        <div className="c-card__footer">
+          <a className="c-button c-button--primary" href="#">
+            Action 2
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div className="c-card" data-step="1">
+  <div className="c-card__header">
+    <div className="c-card__title u-h5 u-mb-0">A simple card</div>
+  </div>
+  <div className="c-card__body">With sample text and a action button below</div>
+  <div className="c-card__footer">
+    <a className="c-button c-button--primary" href="#">Action</a>
+  </div>
+</div>
+```

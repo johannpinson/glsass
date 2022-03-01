@@ -1,0 +1,42 @@
+---
+id: cv
+title: CV - Colors variants
+sidebar_label: Colors variants
+---
+
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.cv.scss" />
+
+```scss
+@use "@glsass/tools/tools.cv" as *;
+```
+
+## _cv()_
+
+<Version version="1.0.0" />
+
+This function searchs for a color inside the theme palette from an name and a
+variation.
+
+The first parameter can be a string or a "color". By color, it means the name of
+the color, as example "white". For example, "gray" is a real color, but also the
+name of one palette. So the fonction allow the `gray` and the `"gray"` values.
+
+The second parameter is the variant level, it can be an index from 100 to 900 or
+a string (`base`, `light`, `dark`)
+
+You can see the actual palette in the [colors page](settings/colors.mdx).
+
+```scss
+cv($color, $variation: "base");
+
+color: cv(primary);
+// Returns #0066d7
+
+color: cv(gray, dark);
+// Returns #424242;
+
+color cv(white);
+// Returns #fff;
+```

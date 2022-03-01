@@ -123,6 +123,9 @@ module.exports = {
             current: {
               label: 'next',
             },
+            1.4: {
+              label: '1.4.x',
+            },
             1.3: {
               label: '1.3.x',
             },
