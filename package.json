@@ -7,17 +7,22 @@
     "lerna:publish": "lerna publish from-package"
   },
   "devDependencies": {
+    "@stylelint/postcss-css-in-js": "^0.37.2",
     "cz-conventional-changelog": "^3.3.0",
-    "lerna": "^3.22.1",
-    "prettier": "^2.3.0",
-    "stylelint": "^13.13.1",
-    "stylelint-order": "^4.1.0",
-    "stylelint-prettier": "^1.2.0",
-    "stylelint-scss": "^3.19.0"
+    "lerna": "^4.0.0",
+    "prettier": "^2.5.1",
+    "stylelint": "^14.5.3",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-prettier": "^2.0.0"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "volta": {
+    "node": "16.14.0",
+    "npm": "8.5.2"
   }
 }

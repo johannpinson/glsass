@@ -12,5 +12,12 @@ module.exports = {
         singleQuote: false,
       },
     },
+    {
+      files: '*.css',
+      options: {
+        parser: 'css',
+        singleQuote: false,
+      },
+    },
   ],
 }

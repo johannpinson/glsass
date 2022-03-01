@@ -12,8 +12,8 @@
     "clear": "docusaurus clear"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-beta.0",
-    "@docusaurus/preset-classic": "^2.0.0-beta.0",
+    "@docusaurus/core": "^2.0.0-beta.16",
+    "@docusaurus/preset-classic": "^2.0.0-beta.16",
     "@glsass/components": "1.3.12",
     "@glsass/elements": "1.3.12",
     "@glsass/generics": "1.3.12",
@@ -25,13 +25,13 @@
     "@glsass/utilities": "1.3.12",
     "@mdx-js/react": "^1.6.21",
     "clsx": "^1.1.1",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "prettier": "^2.3.0",
-    "sass": "^1.33.0",
-    "sass-loader": "^11.1.1"
+    "prettier": "^2.5.1",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0"
   },
   "browserslist": {
     "production": [
@@ -44,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "volta": {
+    "node": "16.14.0",
+    "npm": "8.5.2"
   }
 }

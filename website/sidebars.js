@@ -1,18 +1,27 @@
-module.exports = {
+const sidebars = {
   docs: [
     {
       type: 'category',
       label: 'Glsass',
+      link: {
+        type: 'generated-index',
+      },
       items: ['introduction', 'exitcss', 'vertical-rhythm', 'about'],
     },
     {
       type: 'category',
       label: 'Getting Started',
+      link: {
+        type: 'generated-index',
+      },
       items: ['installation', 'packages'],
     },
     {
       type: 'category',
       label: 'Settings',
+      link: {
+        type: 'generated-index',
+      },
       items: [
         'settings/overview',
         'settings/core',
@@ -28,6 +37,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Tools',
+      link: {
+        type: 'generated-index',
+      },
       items: [
         'tools/concept',
         'tools/breakpoints',
@@ -56,11 +68,17 @@ module.exports = {
     {
       type: 'category',
       label: 'Objects',
+      link: {
+        type: 'generated-index',
+      },
       items: ['basics/objects', 'basics/grid'],
     },
     {
       type: 'category',
       label: 'Components',
+      link: {
+        type: 'generated-index',
+      },
       items: [
         'components/avatar',
         'components/accordion',
@@ -80,6 +98,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Helpers',
+      link: {
+        type: 'generated-index',
+      },
       items: [
         'helpers/clearfix',
         'helpers/headings',
@@ -92,6 +113,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Utilities',
+      link: {
+        type: 'generated-index',
+      },
       items: [
         'utilities/api',
         'utilities/borders',
@@ -112,3 +136,5 @@ module.exports = {
     },
   ],
 }
+
+module.exports = sidebars
