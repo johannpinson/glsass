@@ -1,0 +1,51 @@
+---
+id: concept
+title: Concept
+slug: /tools
+---
+
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.global.scss" />
+
+The `tools` folder contains Sass helpers, as mixins and functions, used inside
+the whole codebase. Of course, all this code can be used standalone, or for
+writing your own components.
+
+## Global
+
+```scss
+@use "@glsass/tools/tools.global" as *;
+```
+
+This special file doesn't contain a function or mixin! It used to forward the
+most common one:
+
+- [cv()](./cv.mdx)
+- [iv()](./iv.mdx)
+- [mq() and mq-max()](./mq.mdx)
+- [vr()](./spacing.mdx#vr)
+
+By forwarding them, when the file is import with the `@use` rule, the namespace
+must be set at \*. It will load the module without a namespace, and avoid to
+call some functions like form example.
+
+## Others tools
+
+### Builder
+
+The file contains special functions/mixins used to check and facilitate the
+compilation of the framework.
+
+As an exemple, the mixin `check-classname` is used to verify that the string
+passed as variable to a module doesn't start by a point.
+
+### Form
+
+This file contains a special mixin used to create dynamically the states classes
+for several components.
+
+### Generators
+
+This other file contains the mixin used by the
+[utilities classes](utilities/api.mdx).

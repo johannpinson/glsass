@@ -1,0 +1,103 @@
+---
+id: progress
+title: Progress
+---
+
+import Example from '@site/src/components/Example/'
+import Version from '@site/src/components/Version/'
+
+<Version version="1.2.0" source="glsass-components/_components.progress.scss" />
+
+<Example>
+  <div className="o-row">
+    <div className="o-col u-6 u-3@md">
+      <progress className="c-progress" max="100" value="75">
+        75%
+      </progress>
+    </div>
+    <div className="o-col u-6 u-3@md">
+      <progress className="c-progress" max="100" value="50">
+        50%
+      </progress>
+    </div>
+    <div className="o-col u-6 u-3@md">
+      <progress className="c-progress" max="100" value="25">
+        25%
+      </progress>
+    </div>
+    <div className="o-col u-6 u-3@md">
+      <progress className="c-progress" max="100"></progress>
+    </div>
+  </div>
+</Example>
+
+```html
+<progress class="c-progress" max="100" value="75">75%</progress>
+<progress class="c-progress" max="100" value="50">50%</progress>
+<progress class="c-progress" max="100" value="25">25%</progress>
+<progress class="c-progress" max="100"></progress>
+```
+
+## How to use it on a &lt;div&gt;?
+
+To use the `.c-progress` class on another element like a `<div>`, you must add
+specific attributes.
+
+First, `role` and `aria-*` attributes are **required** to make it
+accessible.<br /> Then, add a inline style to override the custom property
+`--c-proress-value` used to set the width in percentage.
+
+The `:indeterminate` state is deducted by the absence of the `aria-valuenow`
+attribute.
+
+<Example>
+  <div className="o-row">
+    <div className="o-col u-6 u-3@md">
+      <div
+        className="c-progress"
+        role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="75"
+        style={{ '--c-proress-value': '75%' }}
+      ></div>
+    </div>
+    <div className="o-col u-6 u-3@md">
+      <div
+        className="c-progress"
+        role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="50"
+        style={{ '--c-proress-value': '50%' }}
+      ></div>
+    </div>
+    <div className="o-col u-6 u-3@md">
+      <div
+        className="c-progress"
+        role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="25"
+        style={{ '--c-proress-value': '25%' }}
+      ></div>
+    </div>
+    <div className="o-col u-6 u-3@md">
+      <div
+        className="c-progress"
+        role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+    </div>
+  </div>
+</Example>
+
+<!-- prettier-ignore-start-->
+```html
+<div className="c-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" style="--c-proress-value: 75%"></div>
+<div className="c-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="--c-proress-value: 50%"></div>
+<div className="c-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" style="--c-proress-value: 25%"></div>
+<div className="c-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+```
+<!-- prettier-ignore-end-->

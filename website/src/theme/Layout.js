@@ -15,7 +15,9 @@ export default function Layout(props) {
         )
         const utility = className.split('-')[className.split('-').length - 1]
 
-        el.addEventListener('click', () => {
+        el.addEventListener('click', (e) => {
+          e.preventDefault()
+
           if (
             !document
               .querySelector('#__docusaurus')

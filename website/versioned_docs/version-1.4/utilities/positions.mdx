@@ -1,0 +1,35 @@
+---
+id: positions
+title: Positions
+---
+
+import Version from '@site/src/components/Version/'
+
+<Version version="1.2.0" source="glsass-utilities/_utilities.positions.scss" />
+
+You can configure the position of an element or component easily.
+
+```html
+<div class="u-pos-r">...</div>
+<div class="u-pos-s">...</div>
+<div class="u-pos-a">...</div>
+<div class="u-pos-st">...</div>
+<div class="u-pos-f">...</div>
+```
+
+```scss
+$u-positions: (
+  position: (
+    response: true,
+    property: position,
+    class: pos,
+    values: (
+      r: relative,
+      s: static,
+      a: absolute,
+      st: sticky,
+      f: fixed,
+    ),
+  ),
+);
+```

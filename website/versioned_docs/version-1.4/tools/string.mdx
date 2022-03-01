@@ -1,0 +1,34 @@
+---
+id: string
+title: String
+---
+
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.string.scss" />
+
+Because the `sass:string` module already, the namespace is prefixed with an
+underscore to avoid conflict.
+
+```scss
+@use "@glsass/tools/tools.string" as _str;
+```
+
+## _replace()_
+
+<Version version="1.0.0" />
+
+The function search and replace occurence in the string given
+
+```scss
+_str.replace($string, $search, $replace: "");
+
+content: _str.replace("Hello x!", "x", attr(data-name))
+// Returns "Hello world!"
+```
+
+## _escape-svg()_
+
+<Version version="1.0.0" />
+
+It use the mainly the `replace` function to escape characters in a SVG base64.

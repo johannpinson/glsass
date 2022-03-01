@@ -11,6 +11,7 @@ module.exports = {
   organizationName: 'johannpinson', // Usually your GitHub org/user name.
   projectName: 'glsass', // Usually your repo name.
   themeConfig: {
+    autoCollapseSidebarCategories: true,
     navbar: {
       title: 'Glsass',
       logo: {
@@ -46,6 +47,7 @@ module.exports = {
           'aria-label': 'GitHub repository',
         },
         {
+          href: '#',
           label: 'Debug mode',
           position: 'right',
           className: 'js-debug-baseline',
@@ -110,8 +112,9 @@ module.exports = {
     [
       '@docusaurus/preset-classic',
       {
+        debug: true,
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: 'sidebars.js',
           // Please change this to your repo.
           editUrl: 'https://github.com/johannpinson/glsass/edit/main/website/',
           showLastUpdateTime: true,
@@ -119,6 +122,9 @@ module.exports = {
           versions: {
             current: {
               label: 'next',
+            },
+            1.4: {
+              label: '1.4.x',
             },
             1.3: {
               label: '1.3.x',

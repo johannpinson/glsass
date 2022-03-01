@@ -1,0 +1,23 @@
+---
+id: fonts
+title: Fonts
+---
+
+import Version from '@site/src/components/Version/'
+
+<Version source="glsass-tools/_tools.fonts.scss" />
+
+```scss
+@use "@glsass/tools/tools.fonts" as fonts;
+```
+
+## _import-google-fonts()_
+
+<Version version="1.0.0" />
+
+The mixin is used to initialize default font if you use the Google Fonts
+service.
+
+```scss
+@include fonts.import-google-fonts($families);
+```

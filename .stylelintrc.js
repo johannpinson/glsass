@@ -244,13 +244,14 @@ const rational = [
 ]
 
 module.exports = {
+  customSyntax: 'postcss-scss',
   plugins: ['stylelint-scss', 'stylelint-order', 'stylelint-prettier'],
   severity: 'error',
   rules: {
     // Base rules
     // indentation: 2, // Disable it to prevend prettier conflict
+    // 'string-quotes': 'double', // Disable it to prevent prettier conflict in .mdx/.tsx files
     'number-leading-zero': 'always',
-    'string-quotes': 'double',
     'selector-max-id': 0,
     'selector-list-comma-newline-after': 'always',
     'rule-empty-line-before': [
@@ -268,7 +269,7 @@ module.exports = {
     'declaration-colon-space-after': 'always',
     'declaration-colon-space-before': 'never',
     'declaration-block-single-line-max-declarations': 1,
-    'declaration-property-value-blacklist': { border: ['none'] },
+    'declaration-property-value-disallowed-list': { border: ['none'] },
     'at-rule-empty-line-before': [
       'always',
       {
@@ -310,8 +311,12 @@ module.exports = {
     ],
     'selector-pseudo-element-colon-notation': 'double',
     'color-hex-case': 'lower',
+    'color-hex-length': 'short',
+    'color-named': 'never',
+    'color-no-invalid-hex': true,
+    'alpha-value-notation': 'number',
 
     // Prettier
-    'prettier/prettier': true,
+    // 'prettier/prettier': true,
   },
 }

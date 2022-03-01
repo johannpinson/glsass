@@ -1,0 +1,62 @@
+---
+id: headings
+title: Headings
+---
+
+import Example from '@site/src/components/Example/'
+import Version from '@site/src/components/Version/'
+
+<Version version="1.0.0" source="glsass-helpers/_helpers.headings.scss" />
+
+Previously inside the **utilities** layer, these classes help you to match the
+styling of a heading, but without using the associated HTML tag.
+
+:::info
+
+There is one differnce when using an heading utility: there is no
+`margin-bottom` applied.<br/> Since the class can be used for a lot of elements,
+if you want to get the same margin, you need to add the class `.u-mb-2`.
+
+:::
+
+<Example>
+  <p className="h-h1 u-mb-2">Heading 1</p>
+  <p className="h-h2 u-mb-2">Heading 2</p>
+  <p className="h-h3 u-mb-2">Heading 3</p>
+  <p className="h-h4 u-mb-2">Heading 4</p>
+  <p className="h-h5 u-mb-2">Heading 5</p>
+  <p className="h-h6 u-mb-2">Heading 6</p>
+</Example>
+
+```html
+<p class="h-h1 u-mb-2">Heading 1</p>
+<p class="h-h2 u-mb-2">Heading 2</p>
+<p class="h-h3 u-mb-2">Heading 3</p>
+<p class="h-h4 u-mb-2">Heading 4</p>
+<p class="h-h5 u-mb-2">Heading 5</p>
+<p class="h-h6 u-mb-2">Heading 6</p>
+```
+
+You can also use it on `hn` elements. For example, on a `<h2>` element to render
+it as an `<h5>` with `<h2 class="h-h5">Heading</h2>`.
+
+<Example>
+  <h1 className="h-h6">Heading 1</h1>
+  <h2 className="h-h5">Heading 2</h2>
+  <h3 className="h-h4">Heading 3</h3>
+  <h4 className="h-h3">Heading 4</h4>
+  <h5 className="h-h2">Heading 5</h5>
+  <h6 className="h-h1">Heading 6</h6>
+</Example>
+
+```html
+<h1 class="h-h6">Heading 1</h1>
+<h2 class="h-h5">Heading 2</h2>
+<h3 class="h-h4">Heading 3</h3>
+<h4 class="h-h3">Heading 4</h4>
+<h5 class="h-h2">Heading 5</h5>
+<h6 class="h-h1">Heading 6</h6>
+```
+
+The CSS properties as generated in the same way as the file
+`_elements.heading.scss` and from the same variables (e.g. `$g-headings-*`).
