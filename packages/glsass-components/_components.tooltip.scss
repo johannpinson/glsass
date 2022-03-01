@@ -52,7 +52,7 @@ $c-tooltip-enable-animation: true !default;
 
   &:hover::after,
   &:focus::after {
-    content: attr(arial-label);
+    content: attr(aria-label);
 
     @if $c-tooltip-enable-animation {
       animation-name: tooltip-default;
