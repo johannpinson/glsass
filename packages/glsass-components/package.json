@@ -1,6 +1,6 @@
 {
   "name": "@glsass/components",
-  "version": "1.3.12",
+  "version": "1.4.0",
   "description": "Components layer for Glsass.",
   "repository": {
     "type": "git",
@@ -20,6 +20,6 @@
     "sass": "^1.49.9"
   },
   "dependencies": {
-    "@glsass/core": "1.3.12"
+    "@glsass/core": "1.4.0"
   }
 }
