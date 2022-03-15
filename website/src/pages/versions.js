@@ -18,8 +18,6 @@ export default () => {
   )
   const repoUrl = `https://github.com/${siteConfig.organizationName}/${siteConfig.projectName}`
 
-  console.log(latestVersion)
-
   return (
     <Layout
       title="Versions"

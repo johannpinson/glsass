@@ -19,5 +19,11 @@ module.exports = {
         singleQuote: false,
       },
     },
+    {
+      files: '*.mdx',
+      options: {
+        singleQuote: false,
+      },
+    },
   ],
 }

@@ -85,7 +85,7 @@ export default ({ children, flex, elements }) => {
   return (
     <div
       className={`${styles['m-example']} ${
-        elements && styles['m-example--elements']
+        (elements && styles['m-example--elements']) || ''
       }`}
       style={{ display: !!flex ? 'flex' : '' }}
     >

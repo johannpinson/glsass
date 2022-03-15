@@ -3,7 +3,7 @@ id: fonts
 title: Fonts
 ---
 
-import Version from '@site/src/components/Version/'
+import Version from "@site/src/components/Version/"
 
 <Version source="glsass-tools/_tools.fonts.scss" />
 
@@ -20,4 +20,9 @@ service.
 
 ```scss
 @include fonts.import-google-fonts($families);
+
+// Examples
+@include fonts.import-google-fonts("Raleway");
+@include fonts.import-google-fonts("Roboto:ital,wght@0,400;0,700;1,400;1,700");
+@include fonts.import-google-fonts("Open+Sans:ital0;1" "Lato:wght@400;700");
 ```
