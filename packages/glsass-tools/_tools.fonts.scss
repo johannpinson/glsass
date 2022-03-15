@@ -9,8 +9,7 @@
 @use "tools.list" as _list;
 @use "tools.string" as _str;
 
-// TODO update to the V2
-$_url: "https://fonts.googleapis.com/css?family=_replace_&display=swap";
+$_url: "https://fonts.googleapis.com/css2?display=swap_families_";
 
 @mixin import-google-fonts($families) {
   @if (
@@ -20,14 +19,17 @@ $_url: "https://fonts.googleapis.com/css?family=_replace_&display=swap";
   }
 
   @if (meta.type-of($families) == "string") {
-    @import url(_str.replace($_url, "_replace_", $families));
+    $uri: "&family=" + $families;
+    @import url(_str.replace($_url, "_families_", $uri));
   } @else if (meta.type-of($families) == "list") {
     @if (not _list.is-empty($families)) {
-      @import url(_str.replace(
-        $_url,
-        "_replace_",
-        _list.to-string($families, "|")
-      ));
+      $uri: "";
+
+      @each $family in $families {
+        $uri: $uri + "&family=" + $family;
+      }
+
+      @import url(_str.replace($_url, "_families_", $uri));
     }
   }
 }
