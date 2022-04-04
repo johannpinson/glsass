@@ -15,8 +15,6 @@
   @include breakpoint.media-up($breakpoint) {
     @for $i from 1 through core.$g-grid-columns {
       .u-#{$i}#{$suffix} {
-        // @include make-col($i, $columns);
-
         flex: 0 0 math.percentage(math.div($i, core.$g-grid-columns));
         // Add a `max-width` to ensure content within each column does not blow out
         // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
@@ -27,6 +25,11 @@
 
     .u-auto#{$suffix} {
       flex: 0 0 auto;
+      width: auto;
+    }
+
+    .u-reset#{$suffix} {
+      flex: 1 1 0;
       width: auto;
     }
   }
