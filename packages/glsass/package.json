@@ -1,6 +1,6 @@
 {
   "name": "@glsass/framework",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "All layers gathered for Glsass.",
   "repository": {
     "type": "git",
@@ -25,7 +25,7 @@
     "@glsass/objects": "1.4.1",
     "@glsass/settings": "1.4.1",
     "@glsass/tools": "1.4.1",
-    "@glsass/utilities": "1.4.1"
+    "@glsass/utilities": "1.4.2"
   },
   "peerDependencies": {
     "sass": "^1.49.9"

@@ -1,6 +1,6 @@
 {
   "name": "glsass-website",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -24,7 +24,7 @@
     "@glsass/objects": "1.4.1",
     "@glsass/settings": "1.4.1",
     "@glsass/tools": "1.4.1",
-    "@glsass/utilities": "1.4.1",
+    "@glsass/utilities": "1.4.2",
     "@mdx-js/react": "^1.6.21",
     "clsx": "^1.1.1",
     "react": "^17.0.2",
